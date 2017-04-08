@@ -4,10 +4,8 @@ import App from './components/App.jsx';
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
 
-const store = configureStore;
-
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={configureStore}>
     <App />
   </Provider>,
   document.getElementById('app'));
