@@ -3,18 +3,19 @@ import { connect } from 'react-redux';
 
 import { testFunction } from './testAction';
 
-class TestComponent extends React.Component {
+export class TestComponent extends React.Component {
 
   componentWillMount() {
-    this.props.dispatch(testFunction());
+    // commented out for jest test
+    // this.props.dispatch(testFunction());
   }
 
   render() {
     const { magic } = this.props;
     return (
       <div>
-        Hello World!
-        Is this magic? {magic.toString()}
+        <h1>Hello World!</h1>
+        Is this magic?
       </div>
     );
   }

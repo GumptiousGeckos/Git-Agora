@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import testReducer from './testFeature/testReducer';
+import testReducer from './TestFeature/testReducer';
 
 const appReducer = combineReducers({
   // all reducers in project

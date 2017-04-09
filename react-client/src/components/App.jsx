@@ -1,7 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-import TestComponent from '../testFeature/TestComponent.jsx';
+import TestComponent from '../TestFeature/TestComponent.jsx';
 
 class App extends React.Component {
 
