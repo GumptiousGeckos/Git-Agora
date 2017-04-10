@@ -28,7 +28,7 @@ var queries = {
 };
 
 db.tx(t => {
-  return t.batch(Object.keys(queries).map(k => queries[k]));
+  return t.batch(Object.keys(queries).map(k => t.none(queries[k])));
 })
   .then(() => {
      console.log('SUCCESS');
