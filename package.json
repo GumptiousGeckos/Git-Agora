@@ -26,6 +26,7 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
     "jquery": "^3.2.1",
@@ -55,10 +56,5 @@
       "react",
       "stage-2"
     ]
-  },
-  "jest": {
-    "scriptPreprocessor": "node_modules/babel-jest",
-    "testFileExtensions": ["es6", "js"],
-    "moduleFileExtensions": ["js", "json", "es6"]
   }
 }
