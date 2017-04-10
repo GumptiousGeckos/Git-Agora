@@ -6,9 +6,6 @@ import { createProject } from './projectActions';
 
 class ProjectBoard extends React.Component {
 
-  componentWillMount() {
-  }
-
   redirectToProjectView() {
     console.log('redirect to PV');
   }
