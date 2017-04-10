@@ -1,17 +1,16 @@
 import React from 'react';
 
+import TestComponent from '../TestFeature/TestComponent.jsx';
+
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <div>
-        Hello World!
+        <TestComponent />
       </div>
     );
   }
-}
+};
 
 export default App;
