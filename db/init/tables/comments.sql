@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS comments (
-  id serial unique PRIMARY KEY,
+  id serial PRIMARY KEY,
   user_id int,
   created_at timestamp DEFAULT current_timestamp,
   topic_id int,
