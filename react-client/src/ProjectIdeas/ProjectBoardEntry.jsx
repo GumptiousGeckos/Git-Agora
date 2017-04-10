@@ -1,13 +1,15 @@
 import React from 'react';
+import Votes from './Votes.jsx';
 
 export default (props) => (
   <div 
     style={{"borderStyle": "solid", "borderWidth": "1px", "overflow": "hidden"}}
   >
     <div style={{float: "left", "borderStyle": "solid", width: "10%"}}>
-      <p>RATINGS</p>
-      <p>LIKES</p>
-      <p>DISLIKES</p>  
+      <Votes
+        likes={props.post.likes}
+        dislikes={props.post.dislikes}
+      />
     </div>
     <div 
       style={{float: "left", "marginLeft": "10px", borderStyle: "solid", width: "80%"}}
