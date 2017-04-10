@@ -11,6 +11,7 @@
     "start": "node server/index.js",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
+    "test": "jest",
     "postinstall": "webpack"
   },
   "dependencies": {
@@ -48,6 +49,7 @@
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^19.0.2",
     "mocha": "^3.2.0",
+    "react-addons-test-utils": "^15.5.0",
     "supertest": "^3.0.0",
     "webpack": "^2.3.3"
   },
