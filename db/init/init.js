@@ -5,6 +5,7 @@ require('dotenv').config()
 //   database: 'gecko'
 // };
 
+var path = require('path');
 var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 
 var pgp = require('pg-promise')();
