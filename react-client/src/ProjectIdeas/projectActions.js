@@ -1,5 +1,5 @@
-export function createProject() {
+export function addProject() {
   return {
-    type: "CREATE_PROJECT",
+    type: "ADD_PROJECT",
   };
 };

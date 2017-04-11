@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProjectBoardEntry from './ProjectBoardEntry.jsx';
-import { createProject } from './projectActions';
+import { addProject } from './projectActions';
 
-class ProjectBoard extends React.Component {
+export class ProjectBoard extends React.Component {
 
   redirectToProjectView() {
     console.log('redirect to PV');
@@ -12,22 +12,22 @@ class ProjectBoard extends React.Component {
 
   redirectToProjectCreation() {
     // Create Project button hardcoded to create dummy data
-    this.props.dispatch(createProject());
+    this.props.dispatch(addProject());
   }
 
   render() {
-    const { projectPosts } = this.props;
+    const { projects } = this.props;
 
     return (
       <div>
         <h2>Projects</h2>
         <button onClick={this.redirectToProjectCreation.bind(this)}>Create Project</button>
         {
-          projectPosts.map((post) =>
+          projects && projects.map((project) =>
               <ProjectBoardEntry
-                key={post.id}
+                key={project.id}
                 onClick={this.redirectToProjectView.bind(this)}
-                post={post}
+                project={project}
               />
           )
         }
@@ -38,7 +38,7 @@ class ProjectBoard extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    projectPosts: state.projectPosts.posts
+    projects: state.projects
   };
 };
 

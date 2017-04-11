@@ -1,16 +1,13 @@
 var idCount = 0;
-export default (state={posts: []}, action) => {
+const project = (state={}, action) => {
   switch(action.type) {
-    case "CREATE_PROJECT": {
+    case "ADD_PROJECT": {
       return {
-        ...state,
-        posts: state.posts.concat({
-          id: idCount++,
-          title: "Project Title",
-          description: "Project Description!",
-          likes: 5,
-          dislikes: 1
-        })
+        id: idCount++,
+        title: "Project Title",
+        description: "Project Description!",
+        likes: 5,
+        dislikes: 1
       };
     }
     default: {
@@ -18,3 +15,19 @@ export default (state={posts: []}, action) => {
     }
   }
 };
+
+const projects = (state=[], action) => {
+  switch(action.type) {
+    case "ADD_PROJECT": {
+      return [
+        ...state,
+        project(undefined, action)
+      ];
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+export default projects;

@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 
 import projectReducer from './ProjectIdeas/projectReducer';
+import testReducer from './TestFeature/testReducer';
 
 const appReducer = combineReducers({
   // all reducers in project
-  projectPosts: projectReducer,
+  testReducer,
+  projects: projectReducer,
 });
 
 const rootReducer = (state, action) => {
