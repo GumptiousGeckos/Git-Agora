@@ -35,8 +35,6 @@ describe('Project Reducer', () => {
 });
 
 describe('Components', () => {
-  // Hard to test components with connect
-  // Dumb components are easier to test
   describe('ProjectBoard', () => {
     it('should render a button', () => {
       const wrapper = shallow(<ProjectBoard />);
