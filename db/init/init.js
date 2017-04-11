@@ -10,6 +10,7 @@ require('dotenv').config()
 var path = require('path');
 var pgp = require('pg-promise')();
 var db = pgp(config);
+var path = require('path');
 
 
 function sql(file) {
@@ -27,10 +28,11 @@ var queries = {
   follows: sql('follows.sql'),
   messages: sql('messages.sql'),
   ratings: sql('ratings.sql'),
-  tags: sql('tags.sql'),  
+  tags: sql('tags.sql'),
   tagsTopics: sql('tags_topics.sql'),
   votes: sql('votes.sql'),
   sessions: sql('sessions.sql')
+
 };
 
 db.tx(t => {
