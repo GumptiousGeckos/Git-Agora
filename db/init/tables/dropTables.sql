@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS collaborators, comments, favorites, follows, messages, ratings, tags, tags_topics, votes, topics, users;
+DROP TABLE IF EXISTS collaborators, comments, favorites, follows, messages, ratings, tags, tags_topics, votes, topics, users, sessions;
