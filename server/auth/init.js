@@ -7,7 +7,7 @@ module.exports = function() {
   });
 
   passport.deserializeUser((id, done) => {
-    db.one(`SELECT * FROM sessions where user.id=$1`, [id])
+    db.query(`SELECT * FROM sessions where sid=$1`, [id])
     .then( results => {
       done(null, results);
     })

@@ -31,6 +31,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
+  console.log('session ', req.session);
   console.log(`Serving ${req.method} request on url ${req.url}`);
   next();
 })
@@ -44,7 +45,7 @@ app.get('/auth/github/callback',
   passportGithub.authenticate('github', { failureRedirect: '/login' }),
   (req, res) => {
     console.log('Successful login');
-    res.json(req.user)
+    res.redirect('/')
   }
 );
 
