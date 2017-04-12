@@ -12,7 +12,7 @@ export default (props) => (
           <li>
             <a href="#" className="glyphicon glyphicon-globe"> News</a>
           </li>
-          <li className="active">
+          <li>
             <a href="#" className="glyphicon glyphicon-pencil"> Projects</a>
           </li>
           <li>

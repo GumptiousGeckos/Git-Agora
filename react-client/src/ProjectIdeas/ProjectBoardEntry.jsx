@@ -8,7 +8,7 @@ export default (props) => (
       dislikes={props.project.dislikes}
     />
     <div 
-      onClick={() => {props.onClick()}}
+      onClick={props.onClick}
       className="well col-lg-11 col-md-11 col-sm-10 col-xs-10"
     >
       <span>{props.project.title}</span>

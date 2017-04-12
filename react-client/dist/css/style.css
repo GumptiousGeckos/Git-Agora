@@ -1,5 +1,13 @@
 body {
-  background-color: #aeb2bc
+  background-color: #999;
+}
+
+p {
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.2em;
+  text-overflow: ellipsis;
+  color: #FFF;
 }
 
 .bordered {
@@ -8,6 +16,16 @@ body {
   border-radius: 20px;
 }
 
+.caption {
+  background-color: #333;
+}
+
 .nav-tabs {
   margin-bottom: 10px;
+}
+
+.news-border {
+  padding: 10px;
+  border-style: solid;
+  border-radius: 20px;
 }
