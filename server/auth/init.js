@@ -6,8 +6,8 @@ module.exports = function() {
     done(null, user);
   });
 
-  passport.deserializeUser((id, done) => {
-    db.query(`SELECT * FROM sessions where sid=$1`, [id])
+  passport.deserializeUser((user, done) => {
+    db.query(`SELECT * FROM users where id=$1`, [user.id])
     .then( results => {
       done(null, results);
     })

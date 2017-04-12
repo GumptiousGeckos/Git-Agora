@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -5,11 +6,12 @@ const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
 const port = process.env.PORT || 3000;
 const pgp = require('pg-promise')();
-const local = {
-  host: 'localhost',
-  port: 5432,
-  database: 'gecko'
-};
+// const local = {
+//   host: 'localhost',
+//   port: 5432,
+//   database: 'gecko'
+// };
+var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 const passportGithub = require('./auth/github');
 const db = require('../db/db')
 const app = express();
@@ -19,7 +21,7 @@ app.use(bodyParser.json());
 app.use(session({
   store: new pgSession({
     pg: pgp.pg,
-    conString: local,
+    conString: config,
     tableName: 'sessions'
   }),
   secret:'geckos', 
@@ -31,7 +33,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-  console.log('session ', req.session);
+  // console.log('session ', req.session);
   console.log(`Serving ${req.method} request on url ${req.url}`);
   next();
 })

@@ -6,19 +6,21 @@ const db = require('../../db/db');
 
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_SECRET;
+const GITHUB_CALLBACK = process.env.GITHUB_CALLBACK
 
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "http://44d1fb0d.ngrok.io/auth/github/callback"
+    callbackURL: GITHUB_CALLBACK
   },
   (accessToken, refreshToken, profile, done) => {
-    // console.log('accessToken', accessToken);
-    // console.log('refreshToken', refreshToken);
-    // console.log('profile', profile);
-    process.nextTick( () => {
-      return done(null, profile);
-    });
+    db.any('INSERT INTO users(id, username, email) SELECT ${id}, ${username}, ${email} WHERE NOT EXISTS (SELECT 1 FROM users WHERE id=${id})', {id: profile.id, username: profile.username, email: profile.email} )
+    .then( results => {
+      return done(null, profile)
+    })
+    .catch( error => {
+      return done(error, null)
+    })
   }
 ));
 
