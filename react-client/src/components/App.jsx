@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import HomePage from '../HomePage/HomePage.jsx';
 import ProjectBoard from '../ProjectIdeas/ProjectBoard.jsx';
@@ -9,11 +10,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <NavBar />
-        <HomePage />
-        <ProjectBoard />
-      </div>
+      <Router>
+        <div>
+          <NavBar />
+          <Route exact path='/' component={HomePage} />
+          <Route path='/projects' component={ProjectBoard} />
+        </div>
+      </Router>
     );
   }
 };
