@@ -52,8 +52,8 @@ describe('Components', () => {
     };
     it('should show the project title and description', () => {
       const wrapper = shallow(<ProjectBoardEntry project={sampleProject} />);
-      expect(wrapper.find('h1').text()).toBe('Project Title');
-      expect(wrapper.find('h2').text()).toBe('Project Description!');
+      expect(wrapper.find('span').text()).toBe('Project Title');
+      expect(wrapper.find('h4').text()).toBe('Project Description!');
     });
   });
 

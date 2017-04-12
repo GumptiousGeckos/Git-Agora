@@ -2,21 +2,17 @@ import React from 'react';
 import Votes from './Votes.jsx';
 
 export default (props) => (
-  <div 
-    style={{"borderStyle": "solid", "borderWidth": "1px", "overflow": "hidden"}}
-  >
-    <div style={{float: "left", "borderStyle": "solid", width: "10%"}}>
-      <Votes
-        likes={props.project.likes}
-        dislikes={props.project.dislikes}
-      />
-    </div>
+  <div>
+    <Votes
+      likes={props.project.likes}
+      dislikes={props.project.dislikes}
+    />
     <div 
-      style={{float: "left", "marginLeft": "10px", borderStyle: "solid", width: "80%"}}
       onClick={() => {props.onClick()}}
+      className="well col-lg-11 col-md-11 col-sm-10 col-xs-10"
     >
-      <h1>{props.project.title}</h1>
-      <h2>{props.project.description}</h2>
+      <span>{props.project.title}</span>
+      <h4>{props.project.description}</h4>
     </div>
   </div>
 );
