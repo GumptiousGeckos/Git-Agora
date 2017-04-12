@@ -9,6 +9,4 @@ var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 
 var pgp = require('pg-promise')();
 
-db = pgp(config);
-
-module.exports = db;
+module.exports = pgp(config);
