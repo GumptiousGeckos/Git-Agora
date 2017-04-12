@@ -5,11 +5,11 @@ export default (props) => (
 
     <button className="btn btn-lg btn-block">
       <span>{props.likes} </span>
-      <span className="glyphicon glyphicon-chevron-up" />
+      <span className="glyphicon glyphicon-triangle-top" />
     </button>
     <button className="btn btn-lg btn-block">
       <span>{props.dislikes} </span>
-      <span className="glyphicon glyphicon-chevron-down" />
+      <span className="glyphicon glyphicon-triangle-bottom" />
     </button>
   </div>
 );

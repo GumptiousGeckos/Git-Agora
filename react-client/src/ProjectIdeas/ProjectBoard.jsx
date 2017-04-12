@@ -21,17 +21,28 @@ export class ProjectBoard extends React.Component {
     return (
       <div>
         <div className="col-md-10">
+          <ul className="nav nav-tabs">
+            <li className="active">
+              <a href="#">Top</a>
+            </li>
+            <li>
+              <a href="#">Trending</a>
+            </li>
+            <li>
+              <a href="#">New</a>
+            </li>
+          </ul>
           {
             projects && projects.map((project) =>
-                <ProjectBoardEntry
-                  key={project.id}
-                  onClick={this.redirectToProjectView.bind(this)}
-                  project={project}
-                />
+              <ProjectBoardEntry
+                key={project.id}
+                onClick={this.redirectToProjectView.bind(this)}
+                project={project}
+              />
             )
           }
         </div>
-        <div className="col-md-2 text-center">
+        <div className="col-md-2 text-center bordered">
           <h2>Have an idea?</h2>
           <button
             onClick={this.redirectToProjectCreation.bind(this)}

@@ -10,16 +10,16 @@ export default (props) => (
       <div id="navbar" className="navbar-collapse collapse">
         <ul className="nav navbar-nav">
           <li>
-            <a href="#">News</a>
+            <a href="#" className="glyphicon glyphicon-globe"> News</a>
           </li>
           <li className="active">
-            <a href="#">Projects</a>
+            <a href="#" className="glyphicon glyphicon-pencil"> Projects</a>
           </li>
           <li>
-            <a href="#">Categories</a>
+            <a href="#" className="glyphicon glyphicon-tags"> Categories</a>
           </li>
           <li>
-            <a href="#">Users</a>
+            <a href="#" className="glyphicon glyphicon-user"> Users</a>
           </li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
