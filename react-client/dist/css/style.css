@@ -1,0 +1,13 @@
+body {
+  background-color: #aeb2bc
+}
+
+.bordered {
+  background-color: #F9F9F9;
+  padding: 40px 10px;
+  border-radius: 20px;
+}
+
+.nav-tabs {
+  margin-bottom: 10px;
+}
