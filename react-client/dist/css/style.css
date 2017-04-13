@@ -1,5 +1,15 @@
 body {
-  background-color: #aeb2bc
+  background-color: #999;
+  padding-top: 70px;
+}
+
+p {
+  color: #FFF;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .bordered {
@@ -8,6 +18,26 @@ body {
   border-radius: 20px;
 }
 
+.caption {
+  background-color: #333;
+  height: 100px;
+}
+
 .nav-tabs {
   margin-bottom: 10px;
+}
+
+.news-border {
+  padding: 10px;
+  border-style: solid;
+  border-radius: 20px;
+}
+
+.thumbnail {
+  background-color: #333;
+  color: #FFF;
+}
+
+.title {
+  text-align: center;
 }

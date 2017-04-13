@@ -11,7 +11,6 @@ export class NewsBoard extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     const { articles } = this.props.news;
     if (articles && articles.length > 0) {
       return (
@@ -31,7 +30,7 @@ export class NewsBoard extends React.Component {
             <NewsArticleEntry key={article.publishedAt} article={article} />
           )}
         </div>
-      )
+      );
     } else {
       return (
         <div className="col-md-12">
@@ -48,8 +47,7 @@ export class NewsBoard extends React.Component {
           </ul>
         Fetching articles!
         </div>
-      )
-      
+      );
     }
   }
 };
