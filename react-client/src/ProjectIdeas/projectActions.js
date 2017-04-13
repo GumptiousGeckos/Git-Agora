@@ -32,7 +32,7 @@ export function addProject() {
 
 const requestProjects = () => {
   return {
-    type: "FETCH_PROJECTS",
+    type: "FETCHING_PROJECTS",
   };
 };
 
@@ -51,17 +51,17 @@ const errorProjects = (err) => {
 };
 
 export function fetchProjects() {
-    return (dispatch) => {
-      dispatch(requestProjects());
-      // axios.get('http://localhost:3000/api/projects/?')
-      //   .then((response) => {
-      //     dispatch(receivedProjects(response.data));
-      //   })
-      //   .catch((err) => {
-      //     dispatch(errorProjects());
-      //   });
-      setTimeout(() => {
-        dispatch(receivedProjects(projectDummyData));
-      }, 1000);
-    };
+  return (dispatch) => {
+    dispatch(requestProjects());
+    // axios.get('http://localhost:3000/api/projects/?')
+    //   .then((response) => {
+    //     dispatch(receivedProjects(response.data));
+    //   })
+    //   .catch((err) => {
+    //     dispatch(errorProjects());
+    //   });
+    setTimeout(() => {
+      dispatch(receivedProjects(projectDummyData));
+    }, 1000);
+  };
 };

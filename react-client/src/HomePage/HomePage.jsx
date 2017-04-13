@@ -2,11 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProjectBoardEntry from '../ProjectIdeas/ProjectBoardEntry.jsx';
+import { fetchHotProjects, fetchHotNews } from './homepageActions';
+
 
 class HomePage extends React.Component {
 
+  componentWillMount() {
+    const { getHotProjects, getHotNews } = this.props;
+    getHotProjects();
+    getHotNews();
+  }
+
   render() {
-    const { hotProjects } = this.props;
+    const { hotProjects, hotNews } = this.props;
 
     return (
       <div className="container">
@@ -14,36 +22,21 @@ class HomePage extends React.Component {
           <h1>Trending Tech News</h1>
         </div>
         <div className="row news-border">
-          <div className="col-md-4">
-            <div className="thumbnail">
-              <a href="">
-                <img src="https://images-cdn.9gag.com/photo/4292339_700b_v1.jpg" />
-                <div className="caption text-center">
-                  <p>How to write personal narratives</p>
+          {
+            hotNews && hotNews.map((article) =>
+              <div className="col-md-4">
+                <div className="thumbnail">
+                  <a href={article.url}>
+                    <h4 className="title">{article.title}</h4>
+                    <img src={article.urlToImage} />
+                    <div className="caption text-center">
+                      <p>{article.description}</p>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="thumbnail">
-              <a href="">
-                <img src="https://images-cdn.9gag.com/photo/4292339_700b_v1.jpg" />
-                <div className="caption text-center">
-                  <p>How to write personal narratives and How to write personal narratives and How to write personal narratives and How to write personal narratives end</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="thumbnail">
-              <a href="">
-                <img src="https://images-cdn.9gag.com/photo/4292339_700b_v1.jpg" />
-                <div className="caption text-center">
-                  <p>How to write personal narratives</p>
-                </div>
-              </a>
-            </div>
-          </div>
+              </div>
+            )
+          }
         </div>
 
         <div className="text-center col-md-12">
@@ -67,8 +60,16 @@ class HomePage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    hotProjects: [{id: 0, title: 'hello', description: 'world', likes: 1, dislikes: 0}, {id: 1, title: 'hello', description: 'world', likes: 1, dislikes: 0}]
+    hotProjects: state.homepage.hotProjects,
+    hotNews: state.homepage.hotNews
   };
 };
 
-export default connect(mapStateToProps)(HomePage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getHotProjects: () => dispatch(fetchHotProjects()),
+    getHotNews: () => dispatch(fetchHotNews())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

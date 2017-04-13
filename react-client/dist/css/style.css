@@ -3,8 +3,12 @@ body {
   padding-top: 70px;
 }
 
-p {
+p, h4 {
   color: #FFF;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .bordered {
@@ -26,4 +30,12 @@ p {
   padding: 10px;
   border-style: solid;
   border-radius: 20px;
+}
+
+.thumbnail {
+  background-color: #333;
+}
+
+.title {
+  text-align: center;
 }
