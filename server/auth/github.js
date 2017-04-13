@@ -14,9 +14,10 @@ passport.use(new GitHubStrategy({
     callbackURL: GITHUB_CALLBACK
   },
   (accessToken, refreshToken, profile, done) => {
-    db.any('INSERT INTO users(id, username, email) SELECT ${id}, ${username}, ${email} WHERE NOT EXISTS (SELECT 1 FROM users WHERE id=${id})', {id: profile.id, username: profile.username, email: profile.email} )
+    db.any('INSERT INTO users(id, username, email) SELECT ${id}, ${username}, ${email} WHERE NOT EXISTS (SELECT 1 FROM users WHERE id=${id}) \
+      RETURNING id, username', {id: profile.id, username: profile.username, email: profile.email} )
     .then( results => {
-      return done(null, profile);
+      return done(null, {id: profile.id, username: profile.username});
     })
     .catch( error => {
       return done(error, null);
