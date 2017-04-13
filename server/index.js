@@ -34,7 +34,6 @@ app.use(passport.session());
 app.use((req, res, next) => {
   // console.log('session ', req.session);
   console.log(`Serving ${req.method} request on url ${req.url}`);
-  console.log(req.cookies);
   next();
 })
 app.use(express.static(__dirname + '/../react-client/dist'));
@@ -67,12 +66,15 @@ app.get('/auth/github/callback',
   }
 );
 
-app.get('/getUserRepos', (req, res) => {
+app.get('/github/user/repos', (req, res) => {
   rp({
     uri: 'https://api.github.com/user/repos',
     headers: {
       'User-Agent': 'git-agora',
       'Authorization': `token ${req.cookies.git_token}`
+    },
+    qs: {
+      sort: 'updated'
     },
     json: true
   })
@@ -86,8 +88,34 @@ app.get('/getUserRepos', (req, res) => {
   })
 });
 
-app.get('/createHook', (req, res) => {
-  // "https://api.github.com/repos/echan91/GallantGazelles/hooks"
+app.get('/github/hook', (req, res) => {
+  rp({
+    method: 'POST',
+    uri: 'https://api.github.com/repos/echan91/testRepo/hooks',
+    body: {
+      "name":"web",
+      "active":true,
+      "events":["pull_request","push"],
+      "config":{
+        "url":"http://b10d2993.ngrok.io/github/hook",
+        "content_type":"json"
+      }
+    },
+    headers: {
+      'User-Agent': 'git-agora',
+      'Authorization': `token ${req.cookies.git_token}`
+    },
+    json: true
+  })
+  .then( results => {
+    console.log('webhook successful');
+    res.redirect('/');
+  })
+})
+
+app.post('/github/hook', (req, res) => {
+  console.log('hearing webhook', req);
+  res.end();
 })
 
 app.listen(port, function() {

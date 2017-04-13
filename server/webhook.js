@@ -3,10 +3,11 @@
 { name: 'web',
   active: true,
   events: [
-  'pull_request'
+  'pull_request',
+  'push'
   ],
   config: {
-    url:'http://b10d2993.ngrok.io/hooks/github',
+    url:'http://b10d2993.ngrok.io/github/hooks',
     content_type: 'json'
   }
 }
