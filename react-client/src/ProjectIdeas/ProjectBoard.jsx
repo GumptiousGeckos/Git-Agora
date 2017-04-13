@@ -16,7 +16,7 @@ export class ProjectBoard extends React.Component {
   }
 
   componentWillMount() {
-    // this.props.dispatch(fetchProjects());
+    this.props.dispatch(fetchProjects());
   }
 
   render() {
@@ -60,7 +60,7 @@ export class ProjectBoard extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    projects: state.projects
+    projects: state.projects.projects
   };
 };
 

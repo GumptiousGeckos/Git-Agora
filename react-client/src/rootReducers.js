@@ -9,7 +9,7 @@ const appReducer = combineReducers({
   // all reducers in project
   testReducer,
   projects: projectReducer,
-  activeTab: navReducer
+  activeTab: navReducer,
   news: newsReducer,
 });
 

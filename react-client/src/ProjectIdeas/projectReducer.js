@@ -1,14 +1,18 @@
-var idCount = 0;
-const project = (state={}, action) => {
+var idCount = 3;
+
+const project = (state=[], action) => {
   switch(action.type) {
     case "ADD_PROJECT": {
-      return {
-        id: idCount++,
-        title: "Project Title",
-        description: "Project Description!",
-        likes: 5,
-        dislikes: 1
-      };
+      return [
+        ...state,
+        {
+          id: idCount++,
+          title: "Project Title",
+          description: "Project Description!",
+          likes: 5,
+          dislikes: 1
+        }
+      ];
     }
     default: {
       return state;
@@ -16,16 +20,26 @@ const project = (state={}, action) => {
   }
 };
 
-const projects = (state=[], action) => {
+const projects = (state={}, action) => {
   switch(action.type) {
     case "ADD_PROJECT": {
-      return [
+      return {
         ...state,
-        project(undefined, action)
-      ];
+        projects: project(state.projects, action)
+      };
     }
-    case "FETCH_PROJECTS": {
-      return state;
+    case "FETCHING_PROJECTS": {
+      return {
+        ...state,
+        fetchingProjects: true
+      };
+    }
+    case "RECEIVED_PROJECTS": {
+      return {
+        ...state,
+        projects: action.payload,
+        fetchingProjects: false
+      };
     }
     default: {
       return state;

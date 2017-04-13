@@ -6,12 +6,12 @@ const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
 const port = process.env.PORT || 3000;
 const pgp = require('pg-promise')();
-// const config = {
-//   host: 'localhost',
-//   port: 5432,
-//   database: 'gecko'
-// };
-var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
+const config = {
+  host: 'localhost',
+  port: 5432,
+  database: 'gecko'
+};
+// var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 const passportGithub = require('./auth/github');
 const db = require('../db/db')
 const app = express();
@@ -50,6 +50,10 @@ app.get('/auth/github/callback',
     res.redirect('/')
   }
 );
+
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
 
 app.listen(port, function() {
   console.log('listening on port', port);
