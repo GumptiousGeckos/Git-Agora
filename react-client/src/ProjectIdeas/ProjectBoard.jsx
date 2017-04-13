@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProjectBoardEntry from './ProjectBoardEntry.jsx';
-import { addProject } from './projectActions';
+import { addProject, fetchProjects } from './projectActions';
 
 export class ProjectBoard extends React.Component {
 
@@ -13,6 +13,10 @@ export class ProjectBoard extends React.Component {
   redirectToProjectCreation() {
     // Create Project button hardcoded to create dummy data
     this.props.dispatch(addProject());
+  }
+
+  componentWillMount() {
+    // this.props.dispatch(fetchProjects());
   }
 
   render() {

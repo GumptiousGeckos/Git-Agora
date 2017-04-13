@@ -24,6 +24,9 @@ const projects = (state=[], action) => {
         project(undefined, action)
       ];
     }
+    case "FETCH_PROJECTS": {
+      return state;
+    }
     default: {
       return state;
     }
