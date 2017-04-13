@@ -1,10 +1,16 @@
 require('dotenv').config()
+ var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
+//
+// var config = {
+//   host: 'localhost',
+//   port: 5432,
+//   database: 'gecko'
+// };
 
 var path = require('path');
-var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
-
 var pgp = require('pg-promise')();
 var db = pgp(config);
+
 
 function sql(file) {
   var fullPath = path.join(__dirname, './tables', file);
@@ -23,7 +29,8 @@ var queries = {
   ratings: sql('ratings.sql'),
   tags: sql('tags.sql'),  
   tagsTopics: sql('tags_topics.sql'),
-  votes: sql('votes.sql')  
+  votes: sql('votes.sql'),
+  sessions: sql('sessions.sql')
 };
 
 db.tx(t => {
