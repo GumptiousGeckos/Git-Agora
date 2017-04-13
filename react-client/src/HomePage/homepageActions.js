@@ -97,47 +97,47 @@ const hotNewsDummyData = [
   }
 ];
 
-const requestHotProjects = () => {
+export const requestHotProjects = () => {
   return {
     type: "FETCHING_HOT_PROJECTS",
   };
 };
 
-const receivedHotProjects = (projects) => {
+export const receivedHotProjects = (projects) => {
   return {
     type: 'RECEIVED_HOT_PROJECTS',
     payload: projects
   };
 };
 
-const errorHotProjects = (err) => {
+export const errorHotProjects = (err) => {
   return {
     type: 'REQUEST_HOT_PROJECTS_ERROR',
     error: err
   };
 };
 
-const requestHotNews = () => {
+export const requestHotNews = () => {
   return {
     type: "FETCHING_HOT_NEWS",
   };
 };
 
-const receivedHotNews = (projects) => {
+export const receivedHotNews = (projects) => {
   return {
     type: 'RECEIVED_HOT_NEWS',
     payload: projects
   };
 };
 
-const errorHotNews = (err) => {
+export const errorHotNews = (err) => {
   return {
     type: 'REQUEST_HOT_NEWS_ERROR',
     error: err
   };
 };
 
-export function fetchHotProjects() {
+export const fetchHotProjects = () => {
   return (dispatch) => {
     dispatch(requestHotProjects());
     // axios.get('http://localhost:3000/api/projects/?')
@@ -153,7 +153,7 @@ export function fetchHotProjects() {
   };
 };
 
-export function fetchHotNews() {
+export const fetchHotNews = () => {
   return (dispatch) => {
     dispatch(requestHotNews());
     // axios.get('http://localhost:3000/api/news/?')

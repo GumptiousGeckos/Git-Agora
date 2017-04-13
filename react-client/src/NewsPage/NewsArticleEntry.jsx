@@ -10,9 +10,9 @@ export default (props) => {
         <a href={url}>
           <h4>{title}</h4>
         </a>
-          <span>{description}</span>
-          <br />
-          <span>- {source}</span>
+        <span>{description}</span>
+        <br />
+        <span>- {source}</span>
       </div>
     </div>
   );

@@ -14,6 +14,26 @@ describe('Project Actions', () => {
     };
     expect(actions.addProject()).toEqual(expectedAction);
   });
+  it('should have FETCHING_PROJECTS action', () => {
+    const expectedAction = {
+      type: 'FETCHING_PROJECTS'
+    };
+    expect(actions.requestProjects()).toEqual(expectedAction);
+  });
+  it('should have RECEIVED_PROJECTS action', () => {
+    const expectedAction = {
+      type: 'RECEIVED_PROJECTS',
+      payload: [{test: 'test'}]
+    };
+    expect(actions.receivedProjects([{test: 'test'}])).toEqual(expectedAction);
+  });
+  it('should have REQUEST_PROJECTS_ERROR action', () => {
+    const expectedAction = {
+      type: 'REQUEST_PROJECTS_ERROR',
+      error: 'error'
+    };
+    expect(actions.errorProjects('error')).toEqual(expectedAction);
+  });
 });
 
 describe('Project Reducer', () => {
@@ -52,8 +72,8 @@ describe('Components', () => {
     };
     it('should show the project title and description', () => {
       const wrapper = shallow(<ProjectBoardEntry project={sampleProject} />);
-      expect(wrapper.find('span').text()).toBe('Project Title');
-      expect(wrapper.find('h4').text()).toBe('Project Description!');
+      expect(wrapper.contains('Project Title')).toBe(true);
+      expect(wrapper.contains('Project Description!')).toBe(true);
     });
   });
 

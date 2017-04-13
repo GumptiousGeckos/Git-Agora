@@ -5,7 +5,7 @@ import ProjectBoardEntry from '../ProjectIdeas/ProjectBoardEntry.jsx';
 import { fetchHotProjects, fetchHotNews } from './homepageActions';
 
 
-class HomePage extends React.Component {
+export class HomePage extends React.Component {
 
   componentWillMount() {
     const { getHotProjects, getHotNews } = this.props;

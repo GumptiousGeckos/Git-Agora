@@ -24,33 +24,33 @@ const projectDummyData = [
   }
 ];
 
-export function addProject() {
+export const addProject = () => {
   return {
     type: "ADD_PROJECT",
   };
 };
 
-const requestProjects = () => {
+export const requestProjects = () => {
   return {
     type: "FETCHING_PROJECTS",
   };
 };
 
-const receivedProjects = (projects) => {
+export const receivedProjects = (projects) => {
   return {
     type: 'RECEIVED_PROJECTS',
     payload: projects
   };
 };
 
-const errorProjects = (err) => {
+export const errorProjects = (err) => {
   return {
     type: 'REQUEST_PROJECTS_ERROR',
     error: err
   };
 };
 
-export function fetchProjects() {
+export const fetchProjects = () => {
   return (dispatch) => {
     dispatch(requestProjects());
     // axios.get('http://localhost:3000/api/projects/?')
