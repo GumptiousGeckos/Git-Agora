@@ -11,9 +11,9 @@ export class NewsBoard extends React.Component {
   }
 
   render() {
-    const { articles } = this.props.articles;
+    console.log(this.props)
+    const { articles } = this.props.news;
     if (articles && articles.length > 0) {
-      console.log('toBe mapped', articles)
       return (
         <div className="col-md-12">
           <ul className="nav nav-tabs">
@@ -56,7 +56,7 @@ export class NewsBoard extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    articles: state.news
+    news: state.news
   };
 };
 

@@ -6,7 +6,7 @@ const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
 const port = process.env.PORT || 3000;
 const pgp = require('pg-promise')();
-// const local = {
+// const config = {
 //   host: 'localhost',
 //   port: 5432,
 //   database: 'gecko'

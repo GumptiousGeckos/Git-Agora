@@ -24,7 +24,7 @@ describe('News Actions', () => {
 describe('News Components', () => {
   describe('NewsBoard', () => {
     it('should render Top, Trending, and New tabs', () => {
-      const wrapper = shallow(<NewsBoard getArticles={fetchArticles}/>);
+      const wrapper = shallow(<NewsBoard getArticles={fetchArticles} news={{}}/>);
       expect(wrapper.find('div').length).toBe(1);
       expect(wrapper.find('div').children('ul').children('li').length).toBe(3);
       expect(wrapper.contains(<a href="#">Top</a>)).toBe(true);
@@ -33,7 +33,7 @@ describe('News Components', () => {
     });
 
     it('should render Fetching Articles', () => {
-      const wrapper = shallow(<NewsBoard getArticles={fetchArticles}/>);
+      const wrapper = shallow(<NewsBoard getArticles={fetchArticles} news={{}}/>);
       expect(wrapper.contains('Fetching articles!')).toBe(true);
     });
   });
