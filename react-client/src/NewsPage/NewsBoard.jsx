@@ -11,7 +11,7 @@ export class NewsBoard extends React.Component {
   }
 
   render() {
-    const { articles } = this.props;
+    const { articles } = this.props.articles;
     if (articles && articles.length > 0) {
       console.log('toBe mapped', articles)
       return (
@@ -56,7 +56,7 @@ export class NewsBoard extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    articles: state.newsReducer.articles
+    articles: state.news
   };
 };
 

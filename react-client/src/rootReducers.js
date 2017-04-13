@@ -8,7 +8,7 @@ const appReducer = combineReducers({
   // all reducers in project
   testReducer,
   projects: projectReducer,
-  newsReducer,
+  news: newsReducer,
 });
 
 const rootReducer = (state, action) => {
