@@ -12,7 +12,8 @@ export class ProjectBoard extends React.Component {
 
   redirectToProjectCreation() {
     // Create Project button hardcoded to create dummy data
-    this.props.dispatch(addProject());
+    const { createProject } = this.props;
+    createProject();
   }
 
   componentWillMount() {
@@ -67,7 +68,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getProjects: () => dispatch(fetchProjects())
+    getProjects: () => dispatch(fetchProjects()),
+    createProject: () => dispatch(addProject())
   };
 };
 

@@ -24,6 +24,7 @@ const hotProjectDummyData = [
 
 const hotNewsDummyData = [
   {
+    "id": 0,
     "author": "Brian Heater",
     "title": "Don’t run commercials designed to trigger smart assistants",
     "description": "A well-known fast food chain – let’s call them Kurger Bing – is debuting a new 15 second ad today set to start running nationally. It starts off simply..",
@@ -35,6 +36,7 @@ const hotNewsDummyData = [
     "dislikes": 0
   },
   {
+    "id": 1,
     "author": "Josh Constine",
     "title": "Facebook Messenger hits 1.2 billion monthly users, up from 1B in July",
     "description": "Normally adding 200 million users in 8 months to a product that already has a billion would reduce the average engagement, but most apps don't have Facebook..",
@@ -46,6 +48,7 @@ const hotNewsDummyData = [
     "dislikes": 2
   },
   {
+    "id": 2,
     "author": "Sarah Buhr",
     "title": "Qualtrics waits on that IPO, raises $180 million at a $2.5 billion valuation instead",
     "description": "That Qualtrics IPO many have been expecting is on hold for now. The online market research platform has just raised its third round for $180 million at a..",
@@ -57,6 +60,7 @@ const hotNewsDummyData = [
     "dislikes": 4
   },
   {
+    "id": 3,
     "author": "Brian Heater",
     "title": "Don’t run commercials designed to trigger smart assistants",
     "description": "A well-known fast food chain – let’s call them Kurger Bing – is debuting a new 15 second ad today set to start running nationally. It starts off simply..",
@@ -68,6 +72,7 @@ const hotNewsDummyData = [
     "dislikes": 0
   },
   {
+    "id": 4,
     "author": "Josh Constine",
     "title": "Facebook Messenger hits 1.2 billion monthly users, up from 1B in July",
     "description": "Normally adding 200 million users in 8 months to a product that already has a billion would reduce the average engagement, but most apps don't have Facebook..",
@@ -79,6 +84,7 @@ const hotNewsDummyData = [
     "dislikes": 2
   },
   {
+    "id": 5,
     "author": "Sarah Buhr",
     "title": "Qualtrics waits on that IPO, raises $180 million at a $2.5 billion valuation instead",
     "description": "That Qualtrics IPO many have been expecting is on hold for now. The online market research platform has just raised its third round for $180 million at a..",

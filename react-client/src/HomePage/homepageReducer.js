@@ -1,4 +1,4 @@
-const hotProjects = (state={}, action) => {
+const homepage = (state={}, action) => {
   switch(action.type) {
     case "FETCHING_HOT_PROJECTS": {
       return {
@@ -32,4 +32,4 @@ const hotProjects = (state={}, action) => {
   }
 };
 
-export default hotProjects;
+export default homepage;

@@ -24,7 +24,7 @@ class HomePage extends React.Component {
         <div className="row news-border">
           {
             hotNews && hotNews.map((article) =>
-              <div className="col-md-4">
+              <div className="col-md-4" key={article.id}>
                 <div className="thumbnail">
                   <a href={article.url}>
                     <h4 className="title">{article.title}</h4>
@@ -45,7 +45,6 @@ class HomePage extends React.Component {
         <div className="list-group">
           {
             hotProjects && hotProjects.map((project) =>
-
               <button type="button" className="list-group-item" key={project.id}>
                 <span>{project.title}</span>
                 <h4>{project.description}</h4>
