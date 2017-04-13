@@ -7,7 +7,7 @@ import { changeTab } from './navActions';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.handleNavOnClick = this.handleNavOnClick.bind(this)
+    this.handleNavOnClick = this.handleNavOnClick.bind(this);
   }
 
   handleNavOnClick(event) {
@@ -19,7 +19,7 @@ class NavBar extends React.Component {
     const { activeTab } = this.props;
 
     return (
-      <div className="navbar navbar-default">
+      <div className="navbar navbar-default navbar-fixed-top">
         <div className="container-fluid">
           <div className="navbar-header">
             <Link to={'/'}>

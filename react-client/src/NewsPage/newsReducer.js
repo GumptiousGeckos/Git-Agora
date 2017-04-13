@@ -1,7 +1,7 @@
 const initialState = {
   fetchingArticles: false, 
   articles: [],
-}
+};
 
 const articleDummyData = [
   {
@@ -48,7 +48,7 @@ const articleDummyData = [
     "likes": 12,
     "dislikes": 3
   }
-]
+];
 
 const articles = (state = initialState, action) => {
   switch(action.type) {
@@ -56,20 +56,19 @@ const articles = (state = initialState, action) => {
       return {
         ...state,
         fetchingArticles: true
-      }
-      
+      };
     }
     case "RECEIVED_ARTICLES" : {
       return {
         ...state,
         articles: articleDummyData,
         fetchingArticles: false
-      }
+      };
     }
     default: {
       return state;
     }
   }
-}
+};
 
 export default articles;

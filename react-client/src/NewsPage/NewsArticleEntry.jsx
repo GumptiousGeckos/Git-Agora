@@ -15,5 +15,5 @@ export default (props) => {
           <span>- {source}</span>
       </div>
     </div>
-  )
-}
+  );
+};

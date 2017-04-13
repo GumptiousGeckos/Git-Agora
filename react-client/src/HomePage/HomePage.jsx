@@ -29,7 +29,7 @@ class HomePage extends React.Component {
               <a href="">
                 <img src="https://images-cdn.9gag.com/photo/4292339_700b_v1.jpg" />
                 <div className="caption text-center">
-                  <p>How to write personal narrativesa w ffjsfj; lg kjsdf;gdj fhsdkf hsdk</p>
+                  <p>How to write personal narratives and How to write personal narratives and How to write personal narratives and How to write personal narratives end</p>
                 </div>
               </a>
             </div>
