@@ -17,5 +17,5 @@ export const fetchArticles = () => {
     setTimeout(() => {
       dispatch(receivedArticles());
     }, 1000);
-  }
-}
+  };
+};

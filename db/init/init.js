@@ -1,7 +1,7 @@
 require('dotenv').config()
-var config = process.env.DATABASE_URL || 'postgres://onhqrnvb:DzLFk_3CupxYPsTDo0xfVwOnym8HKhax@stampy.db.elephantsql.com:5432/onhqrnvb';
-
-// var local = {
+ var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
+//
+// var config = {
 //   host: 'localhost',
 //   port: 5432,
 //   database: 'gecko'
@@ -9,7 +9,7 @@ var config = process.env.DATABASE_URL || 'postgres://onhqrnvb:DzLFk_3CupxYPsTDo0
 
 var path = require('path');
 var pgp = require('pg-promise')();
-var db = pgp(config);
+var db = pgp('postgres://postgres@localhost:5432/gecko');
 
 
 function sql(file) {

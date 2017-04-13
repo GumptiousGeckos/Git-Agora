@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProjectBoardEntry from './ProjectBoardEntry.jsx';
-import { addProject } from './projectActions';
+import { addProject, fetchProjects } from './projectActions';
 
 export class ProjectBoard extends React.Component {
 
@@ -12,7 +12,13 @@ export class ProjectBoard extends React.Component {
 
   redirectToProjectCreation() {
     // Create Project button hardcoded to create dummy data
-    this.props.dispatch(addProject());
+    const { createProject } = this.props;
+    createProject();
+  }
+
+  componentWillMount() {
+    const { getProjects } = this.props;
+    getProjects();
   }
 
   render() {
@@ -56,8 +62,15 @@ export class ProjectBoard extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    projects: state.projects
+    projects: state.projects.projects
   };
 };
 
-export default connect(mapStateToProps)(ProjectBoard);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProjects: () => dispatch(fetchProjects()),
+    createProject: () => dispatch(addProject())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectBoard);

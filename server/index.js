@@ -68,7 +68,7 @@ app.get('/auth/github/callback',
 
 app.get('/github/user/repos', (req, res) => {
   rp({
-    uri: 'https://api.github.com/user/repos',
+    uri: 'https://api.github.com/user/repos', //CHANGE: Will need to change this to something we get from our request
     headers: {
       'User-Agent': 'git-agora',
       'Authorization': `token ${req.cookies.git_token}`
@@ -91,13 +91,13 @@ app.get('/github/user/repos', (req, res) => {
 app.get('/github/hook', (req, res) => {
   rp({
     method: 'POST',
-    uri: 'https://api.github.com/repos/echan91/testRepo/hooks',
+    uri: 'https://api.github.com/repos/echan91/testRepo/hooks', //CHANGE: Will need to change this to something we get from our request
     body: {
       "name":"web",
       "active":true,
       "events":["pull_request","push"],
       "config":{
-        "url":"http://b10d2993.ngrok.io/github/hook",
+        "url":"http://b10d2993.ngrok.io/github/hook", //CHANGE: to deployment URL
         "content_type":"json"
       }
     },
@@ -111,12 +111,20 @@ app.get('/github/hook', (req, res) => {
     console.log('webhook successful');
     res.redirect('/');
   })
+  .catch( error => {
+    console.log('error', error);
+    res.redirect('/');
+  })
 })
 
 app.post('/github/hook', (req, res) => {
-  console.log('hearing webhook', req);
+  console.log('receiving post from webhook', req);
   res.end();
 })
+
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
 
 app.listen(port, function() {
   console.log('listening on port', port);
