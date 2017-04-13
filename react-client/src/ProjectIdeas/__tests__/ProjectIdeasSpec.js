@@ -18,26 +18,26 @@ describe('Project Actions', () => {
 
 describe('Project Reducer', () => {
   it('should return the initial state', () => {
-    expect(reducer(undefined, {})).toEqual([]);
+    expect(reducer(undefined, {})).toEqual({});
   });
 
   it('should handle ADD_PROJECT', () => {
-    expect(reducer([], {
+    expect(reducer(undefined, {
       type: 'ADD_PROJECT'
-    })).toEqual([{
-        id: 0,
+    })).toEqual({projects: [{
+        id: 3,
         title: "Project Title",
         description: "Project Description!",
         likes: 5,
         dislikes: 1
-    }]);
+    }]});
   });
 });
 
 describe('Components', () => {
   describe('ProjectBoard', () => {
     it('should render a button', () => {
-      const wrapper = shallow(<ProjectBoard />);
+      const wrapper = shallow(<ProjectBoard getProjects={actions.fetchProjects} />);
       expect(wrapper.find('button').length).toBe(1);
     });
   });

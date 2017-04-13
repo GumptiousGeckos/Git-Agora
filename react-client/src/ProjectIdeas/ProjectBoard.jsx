@@ -16,7 +16,8 @@ export class ProjectBoard extends React.Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(fetchProjects());
+    const { getProjects } = this.props;
+    getProjects();
   }
 
   render() {
@@ -64,4 +65,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ProjectBoard);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProjects: () => dispatch(fetchProjects())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectBoard);
