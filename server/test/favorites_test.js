@@ -13,21 +13,21 @@ describe('/favorites tests: ', function(done) {
     request(app)
       .get('/favorites')
       .expect('Content-type', /json/)
-      .expect(201, done);
+      .expect(200, done);
   });
 
   it('should add a favorite topic for a user', function(done) {
     request(app)
       .post('/favorites')
       .send({user_id: 2, topic_id: 4})
-      .expect(202, done);
+      .expect(201, done);
   });
 
   it('should delete a favorite of a user', function(done) {
     request(app)
       .delete('/favorites')
       .send({user_id: 2, topic_id: 4})
-      .expect(202, done);
+      .expect(204, done);
   });
 
 

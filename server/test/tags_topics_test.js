@@ -13,14 +13,14 @@ describe('/tags_topics tests: ', function() {
     request(app)
       .get('/tagstopics')
       .expect('Content-type', /json/)
-      .expect(201, done);
+      .expect(200, done);
   });
 
   it('should successfully add a topic tag entry', function(done) {
     request(app)
       .post('/tagstopics')
       .send({tag_id: 2, topic_id: 3})
-      .expect(202, done);
+      .expect(201, done);
   });
 });
 

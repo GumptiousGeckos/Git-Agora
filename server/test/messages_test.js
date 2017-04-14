@@ -13,14 +13,14 @@ describe('/messages tests: ', function() {
     request(app)
       .get('/messages')
       .expect('Content-type', /json/)
-      .expect(201, done);
+      .expect(200, done);
   });
 
   it('should successfully add a message', function(done) {
     request(app)
       .post('/messages')
       .send({sender_id: 2, receiver_id: 4, content: 'Sup Bud'})
-      .expect(202, done);
+      .expect(201, done);
   });
 });
 

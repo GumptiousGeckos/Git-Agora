@@ -13,13 +13,13 @@ describe('/ratings tests: ', function() {
     request(app)
       .get('/ratings')
       .expect('Content-type', /json/)
-      .expect(201, done);
+      .expect(200, done);
   });
 
   it('should successfully add a user\'s ratings', function(done) {
     request(app)
       .post('/ratings')
       .send({user_id: 3, dev_points: 250, idea_points: 69})
-      .expect(202, done);
+      .expect(201, done);
   });
 });

@@ -13,6 +13,6 @@ describe('/tags tests: ', function() {
     request(app)
       .post('/tags')
       .send({tag_name: "Technology over everything"})
-      .expect(202, done);
+      .expect(201, done);
   });
 });

@@ -19,7 +19,7 @@ describe('/topics tests: ', function() {
   "link": "www.google.com",
   "type": "project"
 })
-      .expect(202, done);
+      .expect(201, done);
   });
 });
 

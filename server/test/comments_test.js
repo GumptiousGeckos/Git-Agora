@@ -13,14 +13,14 @@ describe('/comments tests: ', function() {
     request(app)
       .get('/comments')
       .expect('Content-type', /json/)
-      .expect(201, done);
+      .expect(200, done);
   });
 
   it('should successfully add a comment', function(done) {
     request(app)
       .post('/comments')
       .send({user_id: 2, topic_id: 4})
-      .expect(202, done);
+      .expect(201, done);
   });
 });
 
