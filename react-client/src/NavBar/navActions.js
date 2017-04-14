@@ -1,6 +1,6 @@
-export const changeTab = (tab) => {
-  return {
-    type: "CHANGE_TAB",
-    payload: tab
-  };
-};
+export const changeTab = tab => ({
+  type: 'CHANGE_TAB',
+  payload: tab
+});
+
+export default changeTab;
