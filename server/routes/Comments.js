@@ -5,37 +5,40 @@ const pgp = require('pg-promise')();
 
 
 
-
-
 function sql(file) {
-  var fullPath = path.join(__dirname, './../../db/queries', file);
+  var fullPath = path.join(__dirname, './../../db/queries/comments', file);
   return new pgp.QueryFile(fullPath, {minify: true});
 }
 
 let queries = {
   getComments: sql('getCommentsByTopicId.sql'),
-  insertComment: sql('insertComment.sql')
+  addComment: sql('insertComment.sql')
 }
 
 
-module.exports.getComments = (topic_id) => {
+module.exports.getComments = (req, res) => {
+  const { topic_id } = req.query;
+
   return db.query(queries.getComments, [topic_id])
-  .then(data => {
-    return data;
+  .then( data => {
+    console.log('Success getting comments');
+    res.status(201).json(data);
   })
-  .catch(error => {
-    console.log('error');
+  .catch( error => {
+    res.status(404).send(error, 'FAILED getting comments');
   });
 }
 
 
-module.exports.addComment = (user_id, topic_id, content) => {
-  return db.query(queries.insertComment, [user_id, topic_id, content])
-  .then(() => {
+module.exports.addComment = (req, res) => {
+  const { user_id, topic_id, content } = req.body;
 
+  return db.query(queries.addComment, [user_id, topic_id, content])
+  .then(() => {
+    res.status(202).send('Success adding comment');
   })
-  .catch(error => {
-    console.log('error');
+  .catch( error => {
+    res.status(404).send('failed to add comment');
   })
 }
 
