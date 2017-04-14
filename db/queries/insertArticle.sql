@@ -1,0 +1,1 @@
+insert into news(title, author, description, url, photo, published_at, source, unique) select ${title}, ${author}, ${description}, ${url}, ${photo}, ${published_at}, ${source}, ${unique} where not exists (select 1 from news where unique=${unique})
