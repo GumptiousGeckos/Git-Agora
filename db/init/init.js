@@ -32,7 +32,6 @@ var queries = {
   tagsTopics: sql('tags_topics.sql'),
   votes: sql('votes.sql'),
   sessions: sql('sessions.sql')
-
 };
 
 db.tx(t => {
