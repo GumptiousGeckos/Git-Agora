@@ -13,7 +13,7 @@
     "server-dev": "nodemon server/index.js",
     "test": "jest --verbose",
     "postinstall": "webpack",
-    "lint": "eslint client server",
+    "lint": "eslint react-client/src server",
     "lint-fix": "eslint client server"
   },
   "dependencies": {
@@ -41,6 +41,7 @@
     "react-redux": "^5.0.3",
     "react-router-dom": "^4.1.0",
     "redux": "^3.6.0",
+    "redux-logger": "^3.0.1",
     "redux-thunk": "^2.2.0",
     "webpack": "^2.3.3"
   },
