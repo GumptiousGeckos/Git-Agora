@@ -10,7 +10,6 @@ require('dotenv').config()
 var path = require('path');
 var pgp = require('pg-promise')();
 var db = pgp(config);
-var path = require('path');
 
 
 function sql(file) {
