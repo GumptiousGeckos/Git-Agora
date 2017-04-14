@@ -5,6 +5,7 @@ import HomePage from '../HomePage/HomePage.jsx';
 import ProjectBoard from '../ProjectIdeas/ProjectBoard.jsx';
 import NavBar from '../NavBar/NavBar.jsx';
 import NewsBoard from '../NewsPage/NewsBoard.jsx';
+import RepoList from '../RepoList/RepoList.jsx';
 
 class App extends React.Component {
 
@@ -16,6 +17,7 @@ class App extends React.Component {
           <Route exact path='/' component={HomePage} />
           <Route path='/projects' component={ProjectBoard} />
           <Route path='/news' component={NewsBoard} />
+          <Route path='/createproject' component={RepoList} /> 
         </div>
       </Router>
     );

@@ -4,6 +4,7 @@ import navReducer from './NavBar/navReducer';
 import projectReducer from './ProjectIdeas/projectReducer';
 import newsReducer from './NewsPage/newsReducer';
 import homepageReducer from './HomePage/homepageReducer';
+import repoListReducer from './RepoList/repoListReducer';
 
 const appReducer = combineReducers({
   // all reducers in project
@@ -11,6 +12,7 @@ const appReducer = combineReducers({
   projects: projectReducer,
   activeTab: navReducer,
   news: newsReducer,
+  repos: repoListReducer
 });
 
 const rootReducer = (state, action) => {

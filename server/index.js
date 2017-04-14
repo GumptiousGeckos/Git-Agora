@@ -74,13 +74,15 @@ app.get('/github/user/repos', (req, res) => {
       'Authorization': `token ${req.cookies.git_token}`
     },
     qs: {
-      sort: 'updated'
+      sort: 'updated',
+      visibility: 'public',
+      per_page: '100'
     },
     json: true
   })
   .then(results => {
-    console.log('gh user repo', results[0]);
-    res.redirect('/')
+    console.log('gh user repo', results.length);
+    res.json(results);
   })
   .catch( error => {
     console.log('error', error);
