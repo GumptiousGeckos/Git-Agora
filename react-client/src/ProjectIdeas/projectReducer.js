@@ -1,8 +1,8 @@
-var idCount = 3;
+let idCount = 3;
 
-const project = (state=[], action) => {
-  switch(action.type) {
-    case 'ADD_PROJECT': {
+const project = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_PROJECT':
       return [
         ...state,
         {
@@ -13,15 +13,13 @@ const project = (state=[], action) => {
           dislikes: 1
         }
       ];
-    }
-    default: {
+    default:
       return state;
-    }
   }
 };
 
-const projects = (state={}, action) => {
-  switch(action.type) {
+const projects = (state = {}, action) => {
+  switch (action.type) {
     case 'ADD_PROJECT':
       return {
         ...state,

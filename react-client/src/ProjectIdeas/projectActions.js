@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 const projectDummyData = [
   {
@@ -7,7 +7,7 @@ const projectDummyData = [
     description: 'Project Description!',
     likes: 5,
     dislikes: 1,
-    collaborators: [{name: 'Jon'}]
+    collaborators: [{ name: 'Jon' }]
   },
   {
     id: 1,
@@ -15,7 +15,7 @@ const projectDummyData = [
     description: 'Project Description2!',
     likes: 2,
     dislikes: 2,
-    collaborators: [{name: 'Jon'}, {name: 'Paul'}]
+    collaborators: [{ name: 'Jon' }, { name: 'Paul' }]
   },
   {
     id: 2,
@@ -23,45 +23,37 @@ const projectDummyData = [
     description: 'Project Description3!',
     likes: 0,
     dislikes: 2,
-    collaborators: [{name: 'Jon'}, {name: 'Paul'}, {name: 'Ed'}, {name: 'Gus'}]
+    collaborators: [{ name: 'Jon' }, { name: 'Paul' }, { name: 'Ed' }, { name: 'Gus' }]
   }
 ];
 
 export const addProject = () => {
   return {
-    type: 'ADD_PROJECT',
+    type: 'ADD_PROJECT'
   };
 };
 
-export const requestProjects = () => {
-  return {
-    type: 'FETCHING_PROJECTS',
-  };
-};
+export const requestProjects = () => ({
+  type: 'FETCHING_PROJECTS'
+});
 
-export const receivedProjects = (projects) => {
-  return {
-    type: 'RECEIVED_PROJECTS',
-    payload: projects
-  };
-};
+export const receivedProjects = projects => ({
+  type: 'RECEIVED_PROJECTS',
+  payload: projects
+});
 
-export const errorProjects = (err) => {
-  return {
-    type: 'REQUEST_PROJECTS_ERROR',
-    error: err
-  };
-};
+export const errorProjects = err => ({
+  type: 'REQUEST_PROJECTS_ERROR',
+  error: err
+});
 
-export const updateMainProject = (project) => {
-  return {
-    type: 'UPDATE_MAIN_PROJECT',
-    payload: project
-  };
-};
+export const updateMainProject = project => ({
+  type: 'UPDATE_MAIN_PROJECT',
+  payload: project
+});
 
 export const fetchProjects = () => {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(requestProjects());
     // axios.get('http://localhost:3000/api/projects/?')
     //   .then((response) => {
