@@ -3,4 +3,6 @@ DELETE FROM
 where
   user_id = $1
 AND
-  type_id = $2
+  type = $2
+AND
+  type_id = $3

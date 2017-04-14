@@ -1,6 +1,6 @@
 /* get vote count for topic */
 SELECT
-  COUNT
+  *
 FROM
   votes
 where

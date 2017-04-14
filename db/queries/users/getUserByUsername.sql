@@ -1,5 +1,7 @@
 /* delete by username*/
-DELETE FROM
+SELECT
+  *
+FROM
   users
 where
   username = $1

@@ -1,6 +1,6 @@
 SELECT
   topic_id
 FROM
-  favorties
+  favorites
 where
   user_id = $1
