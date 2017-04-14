@@ -1,5 +1,6 @@
 require('dotenv').config()
-var axios = require('axios');
+const db = require('../db/db');
+const axios = require('axios');
 
 getArsTechnicaLatest = () => {
   return axios.get('https://newsapi.org/v1/articles', {
@@ -57,6 +58,7 @@ getTheVergeLatest = () => {
 
 axios.all([getArsTechnicaLatest(), getEngadgetLatest(), getRecodeLatest(), getTechCrunchLatest(), getTheNextWebLatest(), getTheVergeLatest()])
   .then(axios.spread(function (arsTechnica, engadget, recode, techCrunch, theNextWeb, theVerge) {
+    const articles = [];
     const formattedSources = {
       'ars-technica':'Ars Technica', 
       'engadget': 'Engadget', 
@@ -65,21 +67,24 @@ axios.all([getArsTechnicaLatest(), getEngadgetLatest(), getRecodeLatest(), getTe
       'the-next-web': 'The Next Web', 
       'the-verge': 'The Verge'
     };
-    const data = [];
-    const articles = [];
-    for (var i = 0; i < arguments.length; i++) {
-      data.push(arguments[i].data);
-    }
-    data.forEach((data) => {
-      var source = formattedSources[data.source];
-      data.articles.forEach((article) => {
+
+    for (let i = 0; i < arguments.length; i++) {
+      const source = formattedSources[arguments[i].data.source];
+      arguments[i].data.articles.forEach((article) => {
         article.source = source;
-        article.unique = article.publishedAt + article.author;
+        article.unique_id = article.publishedAt + article.author;
         articles.push(article);
       });
-    });
+    }
 
-    console.log(articles);
+    articles.forEach((article) => {
+      db.any('insert into news(title, author, description, url, url_to_image, published_at, source, unique_id) select ${title}, ${author}, ${description}, ${url}, ${url_to_image}, ${published_at}, ${source}, ${unique_id} where not exists (select 1 from news where unique_id=${unique_id})', { title: article.title, author : article.author, description: article.description, url: article.url, url_to_image: article.urlToImage, published_at: article.publishedAt, source: article.source, unique_id: article.unique_id})
+      .then(results => {
+      })
+      .catch(error => {
+        console.log('error', error)
+      });
+    })
   })).catch((error) => {
     throw error;
   });
