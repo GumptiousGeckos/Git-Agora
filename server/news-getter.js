@@ -1,25 +1,5 @@
 require('dotenv').config()
 var axios = require('axios');
-// Ignoreing Hacker-News due to lack of detail
-
-var sources = ['ars-technica', 'engadget', 'recode', 'techcrunch', 'the-next-web', 'the-verge']
-var formattedSourecs = ['Ars Technica', 'Engadget', 'Recode', 'TechCrunch', 'The Next Web', 'The Verge']
-
-axios({
-  method:'get',
-  url:'http://bit.ly/2mTM3nY',
-  responseType:'stream'
-})
-
-newsApi = {
-  baseURL: 'https://newsapi.org/v1/articles',
-  latest: 'latest',
-  top: 'top',
-  apiKey: process.env.NEWS_API_KEY,
-}
-
-//News Source Options: Ars Technica, Engadget, Hacker News, Recode, The Verge, The Next Web, TechCrunch
-// Sort Options: Top, Latest (the next web is latest only);
 
 getArsTechnicaLatest = () => {
   return axios.get('https://newsapi.org/v1/articles', {
@@ -27,7 +7,7 @@ getArsTechnicaLatest = () => {
       apiKey: process.env.NEWS_API_KEY,
       source: 'ars-technica',
     },
-  })
+  });
 };
 
 getEngadgetLatest = () => {
@@ -36,7 +16,7 @@ getEngadgetLatest = () => {
       apiKey: process.env.NEWS_API_KEY,
       source: 'engadget',
     },
-  })
+  });
 };
 
 getRecodeLatest = () => {
@@ -45,7 +25,7 @@ getRecodeLatest = () => {
       apiKey: process.env.NEWS_API_KEY,
       source: 'recode',
     },
-  })
+  });
 };
 
 getTechCrunchLatest = () => {
@@ -54,7 +34,7 @@ getTechCrunchLatest = () => {
       apiKey: process.env.NEWS_API_KEY,
       source: 'techcrunch',
     },
-  })
+  });
 };
 
 getTheNextWebLatest = () => {
@@ -63,7 +43,7 @@ getTheNextWebLatest = () => {
       apiKey: process.env.NEWS_API_KEY,
       source: 'the-next-web',
     },
-  })
+  });
 };
 
 getTheVergeLatest = () => {
@@ -72,13 +52,40 @@ getTheVergeLatest = () => {
       apiKey: process.env.NEWS_API_KEY,
       source: 'the-verge',
     },
-  })
+  });
 };
 
-axios.all([getArsTechnicaLatest(), getEngadgetLatest(), ])
-  .then(axios.spread(function (arsTechnica, engadget, ) {
-    // Both requests are now complete
-  }));
+axios.all([getArsTechnicaLatest(), getEngadgetLatest(), getRecodeLatest(), getTechCrunchLatest(), getTheNextWebLatest(), getTheVergeLatest()])
+  .then(axios.spread(function (arsTechnica, engadget, recode, techCrunch, theNextWeb, theVerge) {
+    const formattedSources = {
+      'ars-technica':'Ars Technica', 
+      'engadget': 'Engadget', 
+      'recode': 'Recode', 
+      'techcrunch': 'TechCrunch', 
+      'the-next-web': 'The Next Web', 
+      'the-verge': 'The Verge'
+    };
+    const data = [];
+    const articles = [];
+    for (var i = 0; i < arguments.length; i++) {
+      data.push(arguments[i].data);
+    }
+    data.forEach((data) => {
+      var source = formattedSources[data.source];
+      data.articles.forEach((article) => {
+        article.source = source;
+        article.unique = article.publishedAt + article.author;
+        articles.push(article);
+      });
+    });
+
+    console.log(articles);
+  })).catch((error) => {
+    throw error;
+  });
+
+
+
 
 
   
