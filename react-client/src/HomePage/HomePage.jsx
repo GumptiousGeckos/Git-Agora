@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import ProjectBoardEntry from '../ProjectIdeas/ProjectBoardEntry.jsx';
 import { fetchHotProjects, fetchHotNews } from './homepageActions';
+import { updateMainProject } from '../ProjectIdeas/projectActions';
 
 
 export class HomePage extends React.Component {
@@ -14,7 +16,7 @@ export class HomePage extends React.Component {
   }
 
   render() {
-    const { hotProjects, hotNews } = this.props;
+    const { hotProjects, hotNews, updateMainProject } = this.props;
 
     return (
       <div className="container">
@@ -45,10 +47,16 @@ export class HomePage extends React.Component {
         <div className="list-group">
           {
             hotProjects && hotProjects.map((project) =>
-              <button type="button" className="list-group-item" key={project.id}>
-                <span>{project.title}</span>
-                <h4>{project.description}</h4>
-              </button>
+              <Link to={'/projects/' + project.id} key={project.id}>
+                <button
+                  type="button"
+                  className="list-group-item"
+                  onClick={() => {updateMainProject(project)}}
+                >
+                  <span>{project.title}</span>
+                  <h4>{project.description}</h4>
+                </button>
+              </Link>
             )
           }
         </div>
@@ -67,7 +75,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getHotProjects: () => dispatch(fetchHotProjects()),
-    getHotNews: () => dispatch(fetchHotNews())
+    getHotNews: () => dispatch(fetchHotNews()),
+    updateMainProject: (project) => dispatch(updateMainProject(project))
   };
 };
 

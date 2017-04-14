@@ -58,8 +58,12 @@ export class NavBar extends React.Component {
               <li>
                 <a href="/auth/github">Log in with GitHub</a>
               </li>
+              <li>
+                <Link to={'/profile'}>
+                  <span className="glyphicon glyphicon-user" onClick={this.handleNavOnClick}> Profile</span>
+                </Link>
+              </li>
             </ul>
-
             <form className="navbar-form navbar-right">
               <div className="input-group add-on">
                 <input className="form-control" placeholder="Search" />

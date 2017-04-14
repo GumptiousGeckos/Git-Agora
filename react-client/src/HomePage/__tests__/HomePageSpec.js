@@ -24,9 +24,9 @@ describe('HomePage Actions', () => {
     it('should have a REQUEST_HOT_PROJECTS_ERROR action', () => {
       const expectedAction = {
         type: 'REQUEST_HOT_PROJECTS_ERROR',
-        error: "error"
+        error: 'error'
       };
-      expect(actions.errorHotProjects("error")).toEqual(expectedAction);
+      expect(actions.errorHotProjects('error')).toEqual(expectedAction);
     });
   });
 
@@ -47,9 +47,9 @@ describe('HomePage Actions', () => {
     it('should have a REQUEST_HOT_NEWS_ERROR action', () => {
       const expectedAction = {
         type: 'REQUEST_HOT_NEWS_ERROR',
-        error: "error"
+        error: 'error'
       };
-      expect(actions.errorHotNews("error")).toEqual(expectedAction);
+      expect(actions.errorHotNews('error')).toEqual(expectedAction);
     });
   });
 });
@@ -97,11 +97,17 @@ describe('Project Reducer', () => {
 describe('HomePage Components', () => {
   describe('HomePage', () => {
     it('should render Trending Tech News', () => {
-      const wrapper = shallow(<HomePage getHotProjects={(actions.fetchHotProjects)} getHotNews={actions.fetchHotNews} />);
+      const wrapper = shallow(<HomePage
+        getHotProjects={(actions.fetchHotProjects)}
+        getHotNews={actions.fetchHotNews}
+      />);
       expect(wrapper.contains('Trending Tech News')).toBe(true);
     });
     it('should render Hot Projects', () => {
-      const wrapper = shallow(<HomePage getHotProjects={(actions.fetchHotProjects)} getHotNews={actions.fetchHotNews} />);
+      const wrapper = shallow(<HomePage
+        getHotProjects={(actions.fetchHotProjects)}
+        getHotNews={actions.fetchHotNews}
+      />);
       expect(wrapper.contains('Hot Projects')).toBe(true);
     });
   });

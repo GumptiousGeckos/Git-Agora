@@ -1,10 +1,9 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
-const port = process.env.PORT || 3000;
 const pgp = require('pg-promise')();
 const rp = require('request-promise');
 const config = process.env.DATABASE_URL || process.env.DB_LOCAL;
@@ -13,9 +12,11 @@ const GITHUB_CLIENT_SECRET = process.env.GITHUB_SECRET;
 const GITHUB_CALLBACK = process.env.GITHUB_CALLBACK;
 const passportGithub = require('./auth/github');
 const db = require('../db/db')
+const port = process.env.PORT || 3000;
 const app = express();
 app.use(require('cookie-parser')());
-app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(session({
   store: new pgSession({
@@ -23,9 +24,9 @@ app.use(session({
     conString: config,
     tableName: 'sessions'
   }),
-  secret:'geckos', 
+  secret: 'geckos',
   name: 'git-agora',
-  resave: true, 
+  resave: true,
   saveUninitialized: true
 }));
 app.use(passport.initialize());
@@ -35,7 +36,8 @@ app.use((req, res, next) => {
   // console.log('session ', req.session);
   console.log(`Serving ${req.method} request on url ${req.url}`);
   next();
-})
+});
+
 app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.get('/auth/github', 
@@ -128,6 +130,6 @@ app.get('*', (req, res) => {
   res.redirect('/');
 });
 
-app.listen(port, function() {
+app.listen(port, () => {
   console.log('listening on port', port);
 });

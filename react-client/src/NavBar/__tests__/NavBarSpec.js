@@ -49,7 +49,7 @@ describe('NavBar Components', () => {
     });
     it('should render Users tab', () => {
       const wrapper = shallow(<NavBar />);
-      expect(wrapper.contains(' Users')).toBe(true);
+      expect(wrapper.contains(' Profile')).toBe(true);
     });
     it('should render Sign up tab', () => {
       const wrapper = shallow(<NavBar />);

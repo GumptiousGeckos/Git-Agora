@@ -23,9 +23,9 @@ describe('Project Actions', () => {
   it('should have RECEIVED_PROJECTS action', () => {
     const expectedAction = {
       type: 'RECEIVED_PROJECTS',
-      payload: [{test: 'test'}]
+      payload: [{ test: 'test' }]
     };
-    expect(actions.receivedProjects([{test: 'test'}])).toEqual(expectedAction);
+    expect(actions.receivedProjects([{ test: 'test' }])).toEqual(expectedAction);
   });
   it('should have REQUEST_PROJECTS_ERROR action', () => {
     const expectedAction = {
@@ -44,13 +44,13 @@ describe('Project Reducer', () => {
   it('should handle ADD_PROJECT', () => {
     expect(reducer(undefined, {
       type: 'ADD_PROJECT'
-    })).toEqual({projects: [{
-        id: 3,
-        title: "Project Title",
-        description: "Project Description!",
-        likes: 5,
-        dislikes: 1
-    }]});
+    })).toEqual({ projects: [{
+      id: 3,
+      title: 'Project Title',
+      description: 'Project Description!',
+      likes: 5,
+      dislikes: 1
+    }] });
   });
 });
 
@@ -63,10 +63,10 @@ describe('Components', () => {
   });
 
   describe('ProjectBoardEntry', () => {
-    var sampleProject = {
+    const sampleProject = {
       id: 0,
-      title: "Project Title",
-      description: "Project Description!",
+      title: 'Project Title',
+      description: 'Project Description!',
       likes: 5,
       dislikes: 1
     };
