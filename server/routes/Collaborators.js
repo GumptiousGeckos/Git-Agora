@@ -23,7 +23,7 @@ module.exports.getCollaborators = (req, res) => {
   return db.query(queries.getCollaborators, [topic_id])
   .then( data => {
     console.log('Success get collaborators');
-    res.status(201).json(data);
+    res.status(200).json(data);
   })
   .catch( error => {
     res.status(404).send('error getting collaborators', error);
@@ -36,7 +36,7 @@ module.exports.addCollaborator = (req, res) => {
 
   return db.query(queries.addCollaborator, [user_id, topic_id])
   .then( () => {
-    res.status(202).send('Success adding collaborator');
+    res.status(201).send('Success adding collaborator');
   })
   .catch( error => {
     res.status(404).send('Failed  adding collaborator');

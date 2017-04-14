@@ -22,7 +22,7 @@ module.exports.addFollow = (req, res) => {
 
   return db.query(queries.addFollow, [user_id, type, type_id])
   .then( () => {
-    res.status(202).send('Success adding follow');
+    res.status(201).send('Success adding follow');
   })
   .catch( error => {
     res.status(404).send('Error adding follow')
@@ -34,7 +34,7 @@ module.exports.deleteFollow = (req, res) => {
 
    return db.query(queries.deleteFollow, [user_id, type, type_id])
   .then( () => {
-    res.status(202).send('Success deleting follow');
+    res.status(204).send('Success deleting follow');
   })
   .catch( error => {
     res.status(404).send('Error deleting follow');
@@ -47,7 +47,7 @@ module.exports.getFollows = (req, res) => {
   db.query(queries.getFollows, [user_id])
   .then( data => {
     console.log('Success getting follows');
-    res.status(201).json(data);
+    res.status(200).json(data);
   })
    .catch( error => {
     console.log(error);

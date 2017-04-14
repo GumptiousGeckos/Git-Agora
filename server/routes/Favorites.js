@@ -22,7 +22,7 @@ module.exports.addFavorite = (req, res) => {
 
   return db.query(queries.addFavorite, [user_id, topic_id])
   .then( () => {
-    res.status(202).send('Success adding favorite');
+    res.status(201).send('Success adding favorite');
   })
   .catch( error => {
     res.status(404).send('Error adding favorite');
@@ -35,7 +35,7 @@ module.exports.deleteFavorite = (req, res) => {
 
   return db.query(queries.deleteFavorite, [user_id, topic_id])
   .then( () => {
-    res.status(202).send('Success deleting favorite');
+    res.status(204).send('Success deleting favorite');
   })
   .catch( error => {
     res.status(404).send('Error deleting favorite');
@@ -48,7 +48,7 @@ module.exports.getFavorites = (req, res) => {
   return db.query(queries.getFavorites, [user_id])
    .then( data => {
     console.log('Success getting favorites');
-    res.status(201).json(data);
+    res.status(200).json(data);
   })
   .catch( error => {
     console.log(error);

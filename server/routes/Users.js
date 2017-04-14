@@ -23,7 +23,7 @@ module.exports.addUser = (req, res) => {
 
   return db.query(queries.addUser, [username, password, email, mobile])
   .then( () => {
-    res.status(202).send('Success adding user');
+    res.status(201).send('Success adding user');
   })
   .catch( error => {
     console.log(error);
@@ -37,7 +37,7 @@ module.exports.getUser = (req, res) => {
   return db.query(queries.getUserByUsername, [username])
   .then( data => {
     console.log('Success getting user');
-    res.status(201).json(data);
+    res.status(200).json(data);
   })
   .catch( error => {
     res.status(404).send('FAILED getting user');
@@ -53,7 +53,7 @@ module.exports.deleteUser = (req, res) => {
   return db.query(queries.deleteUser, [username])
   .then( data => {
     console.log('You deleted this user:', data);
-    res.status(201).json(data);
+    res.status(204).json(data);
   })
   .catch( error => {
     console.log(error);

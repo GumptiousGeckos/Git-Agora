@@ -22,7 +22,7 @@ module.exports.addVote = (req, res) => {
 
   return db.query(queries.addVote, [user_id, topic_id, vote_type])
   .then( () => {
-    res.status(202).send('Success adding vote');
+    res.status(201).send('Success adding vote');
   })
   .catch( error => {
     res.status(404).send('Error adding vote');
@@ -35,7 +35,7 @@ module.exports.updateVote = (req, res) => {
 
   return db.query(queries.updateVote, [vote_type, user_id, topic_id])
   .then( () => {
-    res.status(202).send('Success updating vote');
+    res.status(204).send('Success updating vote');
   })
   .catch( error => {
     res.status(404).send('Error updating vote');
@@ -48,7 +48,7 @@ module.exports.getVotes = (req, res) => {
   return db.query(queries.getVotes, [topic_id])
    .then( data => {
     console.log('Success getting votes');
-    res.status(201).json(data);
+    res.status(200).json(data);
   })
   .catch( error => {
     console.log(error);

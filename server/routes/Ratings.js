@@ -22,7 +22,7 @@ module.exports.getRatings = (req, res) => {
   return db.query(queries.getRatings, [user_id])
   .then( data => {
     console.log('Success getting user ratings');
-    res.status(201).json(data);
+    res.status(200).json(data);
   })
   .catch( error => {
     res.status(404).send(error, 'FAILED getting user ratings');
@@ -35,7 +35,7 @@ module.exports.addRatings = (req, res) => {
 
   return db.query(queries.addRatings, [user_id, dev_points, idea_points])
   .then(() => {
-    res.status(202).send('Success adding user ratings');
+    res.status(201).send('Success adding user ratings');
   })
   .catch( error => {
     res.status(404).send('failed to add user ratings');

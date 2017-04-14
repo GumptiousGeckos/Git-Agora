@@ -20,7 +20,7 @@ module.exports.addTag = (req, res) => {
 
   return db.query(queries.addTag, [tag_name])
   .then( () => {
-    res.status(202).send('Success adding tag');
+    res.status(201).send('Success adding tag');
   })
   .catch( error => {
     res.status(404).send('error adding tag');

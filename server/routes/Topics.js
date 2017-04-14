@@ -20,7 +20,7 @@ module.exports.addTopic = (req, res) => {
 
   return db.query(queries.addTopic, [user_id, title, description, link, type])
   .then( () => {
-    res.status(202).send('Success adding topic');
+    res.status(201).send('Success adding topic');
   })
   .catch( error => {
     res.status(404).send('failed to add topic');

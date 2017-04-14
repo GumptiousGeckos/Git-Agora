@@ -22,7 +22,7 @@ module.exports.getTopicsByTag = (req, res) => {
   return db.query(queries.getTopicsByTag, [tag_id])
   .then( data => {
     console.log('Success getting topics by tag');
-    res.status(201).json(data);
+    res.status(200).json(data);
   })
   .catch( error => {
     res.status(404).send(error, 'FAILED getting topics by tag');
@@ -35,7 +35,7 @@ module.exports.addTopicTag = (req, res) => {
 
   return db.query(queries.addTopicTag, [tag_id, topic_id])
   .then(() => {
-    res.status(202).send('Success adding topic tag');
+    res.status(201).send('Success adding topic tag');
   })
   .catch( error => {
     res.status(404).send('failed to add topic tag');

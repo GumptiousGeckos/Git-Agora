@@ -22,7 +22,7 @@ module.exports.getMessages = (req, res) => {
   return db.query(queries.getMessages, [sender_id, receiver_id])
   .then( data => {
     console.log('Success getting messages');
-    res.status(201).json(data);
+    res.status(200).json(data);
   })
   .catch( error => {
     res.status(404).send(error, 'FAILED getting messages');
@@ -35,7 +35,7 @@ module.exports.addMessage = (req, res) => {
 
   return db.query(queries.addMessage, [sender_id, receiver_id, content])
   .then(() => {
-    res.status(202).send('Success adding message');
+    res.status(201).send('Success adding message');
   })
   .catch( error => {
     res.status(404).send('failed to add message');
