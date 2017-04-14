@@ -10,7 +10,7 @@ const appReducer = combineReducers({
   homepage: homepageReducer,
   projects: projectReducer,
   activeTab: navReducer,
-  news: newsReducer,
+  news: newsReducer
 });
 
 const rootReducer = (state, action) => {

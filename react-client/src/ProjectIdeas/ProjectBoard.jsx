@@ -2,13 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProjectBoardEntry from './ProjectBoardEntry.jsx';
-import { addProject, fetchProjects } from './projectActions';
+import { addProject, fetchProjects, updateMainProject } from './projectActions';
 
 export class ProjectBoard extends React.Component {
-
-  redirectToProjectView() {
-    console.log('redirect to PV');
-  }
 
   redirectToProjectCreation() {
     // Create Project button hardcoded to create dummy data
@@ -22,11 +18,11 @@ export class ProjectBoard extends React.Component {
   }
 
   render() {
-    const { projects } = this.props;
+    const { projects, updateMainProject } = this.props;
 
     return (
       <div>
-        <div className="col-md-10">
+        <div className="col-md-10 col-sm-9 col-xs-9">
           <ul className="nav nav-tabs">
             <li className="active">
               <a href="#">Top</a>
@@ -42,18 +38,20 @@ export class ProjectBoard extends React.Component {
             projects && projects.map((project) =>
               <ProjectBoardEntry
                 key={project.id}
-                onClick={this.redirectToProjectView.bind(this)}
                 project={project}
+                updateMainProject={updateMainProject}
               />
             )
           }
         </div>
-        <div className="col-md-2 text-center bordered">
-          <h2>Have an idea?</h2>
-          <button
-            onClick={this.redirectToProjectCreation.bind(this)}
-            className="btn btn-primary btn-lg"
-          >Create Project</button>
+        <div className="col-md-2 col-sm-3 col-xs-3">
+          <div className="text-center bordered">
+            <h2>Have an idea?</h2>
+            <button
+              onClick={this.redirectToProjectCreation.bind(this)}
+              className="btn btn-primary btn-lg"
+            >Create Project</button>
+          </div>
         </div>
       </div>
     );
@@ -69,7 +67,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getProjects: () => dispatch(fetchProjects()),
-    createProject: () => dispatch(addProject())
+    createProject: () => dispatch(addProject()),
+    updateMainProject: (project) => dispatch(updateMainProject(project))
   };
 };
 

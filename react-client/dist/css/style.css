@@ -1,5 +1,5 @@
 body {
-  background-color: #999;
+  background-color: #c2c2cc;
   padding-top: 70px;
 }
 
@@ -14,8 +14,9 @@ a:hover {
 
 .bordered {
   background-color: #F9F9F9;
-  padding: 40px 10px;
-  border-radius: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px auto;
 }
 
 .caption {
@@ -33,6 +34,10 @@ a:hover {
   border-radius: 20px;
 }
 
+.standard {
+  color: #000;
+}
+
 .thumbnail {
   background-color: #333;
   color: #FFF;
@@ -40,4 +45,8 @@ a:hover {
 
 .title {
   text-align: center;
+}
+
+.underline {
+  text-decoration: underline;
 }
