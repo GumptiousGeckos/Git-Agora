@@ -55,6 +55,18 @@ app.get('/auth/github/callback',
   }
 );
 
+app.get('/api/projects', (req, res) => {
+  const results = [{
+    id: 0,
+    title: 'Project Title',
+    description: 'Project Description!',
+    likes: 5,
+    dislikes: 1,
+    collaborators: [{ name: 'Jon' }]
+  }];
+  res.status(200).json(results);
+});
+
 app.get('*', (req, res) => {
   res.redirect('/');
 });

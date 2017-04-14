@@ -25,7 +25,7 @@ export class HomePage extends React.Component {
         </div>
         <div className="row news-border">
           {
-            hotNews && hotNews.map((article) =>
+            hotNews && hotNews.map(article =>
               <div className="col-md-4" key={article.id}>
                 <div className="thumbnail">
                   <a href={article.url}>
@@ -51,7 +51,7 @@ export class HomePage extends React.Component {
                 <button
                   type="button"
                   className="list-group-item"
-                  onClick={() => {updateMainProject(project)}}
+                  onClick={() => { updateMainProject(project); }}
                 >
                   <span>{project.title}</span>
                   <h4>{project.description}</h4>
@@ -63,7 +63,7 @@ export class HomePage extends React.Component {
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -76,7 +76,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getHotProjects: () => dispatch(fetchHotProjects()),
     getHotNews: () => dispatch(fetchHotNews()),
-    updateMainProject: (project) => dispatch(updateMainProject(project))
+    updateMainProject: project => dispatch(updateMainProject(project))
   };
 };
 

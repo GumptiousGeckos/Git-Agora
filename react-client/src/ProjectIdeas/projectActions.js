@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 const projectDummyData = [
   {
@@ -27,11 +27,9 @@ const projectDummyData = [
   }
 ];
 
-export const addProject = () => {
-  return {
-    type: 'ADD_PROJECT'
-  };
-};
+export const addProject = () => ({
+  type: 'ADD_PROJECT'
+});
 
 export const requestProjects = () => ({
   type: 'FETCHING_PROJECTS'
@@ -52,18 +50,18 @@ export const updateMainProject = project => ({
   payload: project
 });
 
-export const fetchProjects = () => {
-  return dispatch => {
+export const fetchProjects = () => (
+  (dispatch) => {
     dispatch(requestProjects());
-    // axios.get('http://localhost:3000/api/projects/?')
-    //   .then((response) => {
-    //     dispatch(receivedProjects(response.data));
-    //   })
-    //   .catch((err) => {
-    //     dispatch(errorProjects());
-    //   });
-    setTimeout(() => {
-      dispatch(receivedProjects(projectDummyData));
-    }, 1000);
-  };
-};
+    axios.get('/api/projects')
+      .then((response) => {
+        dispatch(receivedProjects(response.data));
+      })
+      .catch((err) => {
+        dispatch(errorProjects(err));
+      });
+    // setTimeout(() => {
+    //   dispatch(receivedProjects(projectDummyData));
+    // }, 1000);
+  }
+);

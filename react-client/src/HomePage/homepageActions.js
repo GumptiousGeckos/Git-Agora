@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const hotProjectDummyData = [
   {
     id: 0,
@@ -125,34 +127,34 @@ export const errorHotNews = err => ({
   error: err
 });
 
-export const fetchHotProjects = () => {
-  return dispatch => {
+export const fetchHotProjects = () => (
+  (dispatch) => {
     dispatch(requestHotProjects());
-    // axios.get('http://localhost:3000/api/projects/?')
-    //   .then((response) => {
-    //     dispatch(receivedHotProjects(response.data));
-    //   })
-    //   .catch((err) => {
-    //     dispatch(errorHotProjects());
-    //   });
-    setTimeout(() => {
-      dispatch(receivedHotProjects(hotProjectDummyData));
-    }, 1000);
-  };
-};
+    axios.get('/api/projects')
+      .then((response) => {
+        dispatch(receivedHotProjects(response.data));
+      })
+      .catch((err) => {
+        dispatch(errorHotProjects(err));
+      });
+    // setTimeout(() => {
+    //   dispatch(receivedHotProjects(hotProjectDummyData));
+    // }, 1000);
+  }
+);
 
-export const fetchHotNews = () => {
-  return dispatch => {
+export const fetchHotNews = () => (
+  (dispatch) => {
     dispatch(requestHotNews());
-    // axios.get('http://localhost:3000/api/news/?')
-    //   .then((response) => {
-    //     dispatch(receivedHotNews(response.data));
-    //   })
-    //   .catch((err) => {
-    //     dispatch(errorHotNews());
-    //   });
-    setTimeout(() => {
-      dispatch(receivedHotNews(hotNewsDummyData));
-    }, 1000);
-  };
-};
+    axios.get('/api/news')
+      .then((response) => {
+        dispatch(receivedHotNews(response.data));
+      })
+      .catch((err) => {
+        dispatch(errorHotNews(err));
+      });
+    // setTimeout(() => {
+    //   dispatch(receivedHotNews(hotNewsDummyData));
+    // }, 1000);
+  }
+);
