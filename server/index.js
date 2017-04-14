@@ -7,6 +7,7 @@ const pgSession = require('connect-pg-simple')(session);
 const pgp = require('pg-promise')();
 const passportGithub = require('./auth/github');
 const db = require('../db/db');
+const routes = require('./routes.js');
 
 // const config = {
 //   host: 'localhost',
@@ -60,40 +61,42 @@ app.get('/auth/github/callback',
 
 // app.use('/', '../react-client/dist');
 
-app.get('/comments', handler.getComments);
-app.post('/comments', handler.addComment);
+app.use('/api', routes);
 
-app.get('/collaborators', handler.getCollaborators);
-app.post('/collaborators', handler.addCollaborator);
+// app.get('/comments', handler.getComments);
+// app.post('/comments', handler.addComment);
 
-app.get('/favorites', handler.getFavorites);
-app.post('/favorites', handler.addFavorite);
-app.delete('/favorites', handler.deleteFavorite);
+// app.get('/collaborators', handler.getCollaborators);
+// app.post('/collaborators', handler.addCollaborator);
 
-app.get('/follows', handler.getFollows);
-app.post('/follows', handler.addFollow);
-app.delete('/follows', handler.deleteFollow);
+// app.get('/favorites', handler.getFavorites);
+// app.post('/favorites', handler.addFavorite);
+// app.delete('/favorites', handler.deleteFavorite);
 
-app.get('/messages', handler.getMessages);
-app.post('/messages', handler.addMessage);
+// app.get('/follows', handler.getFollows);
+// app.post('/follows', handler.addFollow);
+// app.delete('/follows', handler.deleteFollow);
 
-app.get('/ratings', handler.getRatings);
-app.post('/ratings', handler.addRatings);
+// app.get('/messages', handler.getMessages);
+// app.post('/messages', handler.addMessage);
 
-app.post('/tags', handler.addTag);
+// app.get('/ratings', handler.getRatings);
+// app.post('/ratings', handler.addRatings);
 
-app.get('/tagstopics', handler.getTopicsByTag);
-app.post('/tagstopics', handler.addTopicTag);
+// app.post('/tags', handler.addTag);
 
-app.post('/topics', handler.addTopic);
+// app.get('/tagstopics', handler.getTopicsByTag);
+// app.post('/tagstopics', handler.addTopicTag);
 
-app.post('/users', handler.addUser);
-app.get('/users', handler.getUser);
-app.delete('/users', handler.deleteUser);
+// app.post('/topics', handler.addTopic);
 
-app.post('/votes', handler.addVote);
-app.get('/votes', handler.getVotes);
-app.put('/votes', handler.updateVote);
+// app.post('/users', handler.addUser);
+// app.get('/users', handler.getUser);
+// app.delete('/users', handler.deleteUser);
+
+// app.post('/votes', handler.addVote);
+// app.get('/votes', handler.getVotes);
+// app.put('/votes', handler.updateVote);
 
 app.get('*', (req, res) => {
   res.redirect('/');
