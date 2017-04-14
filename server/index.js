@@ -18,13 +18,9 @@ const config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 
 const app = express();
 app.use(require('cookie-parser')());
-const express = require('express');
-const bodyParser = require('body-parser');
-const port = process.env.PORT || 3000;
 // const router = require ('./routes.js');
 let path = require('path');
 let handler = require('./routes/Request_Handler');
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -62,24 +58,13 @@ app.get('/auth/github/callback',
   }
 );
 
-app.get('*', (req, res) => {
-  res.redirect('/');
-});
-
-app.listen(port, () => {
-  console.log('listening on port', port);
-});
-
-
 // app.use('/', '../react-client/dist');
-
 
 app.get('/comments', handler.getComments);
 app.post('/comments', handler.addComment);
 
 app.get('/collaborators', handler.getCollaborators);
 app.post('/collaborators', handler.addCollaborator);
-
 
 app.get('/favorites', handler.getFavorites);
 app.post('/favorites', handler.addFavorite);
@@ -110,17 +95,12 @@ app.post('/votes', handler.addVote);
 app.get('/votes', handler.getVotes);
 app.put('/votes', handler.updateVote);
 
-
-
-
-
-
-
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
 
 app.listen(port, function() {
   console.log('listening on port', port);
 });
-
-
 
 module.exports = app;
