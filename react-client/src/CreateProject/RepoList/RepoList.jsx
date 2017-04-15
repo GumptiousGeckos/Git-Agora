@@ -7,7 +7,6 @@ export class RepoList extends React.Component {
 
   constructor(props) {
     super(props);
-
   }
 
   componentWillMount() {
@@ -30,8 +29,8 @@ export class RepoList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    list: state.createproject.repolist.list,
-    selected: state.createproject.repolist.selectedRepo
+    list: state.createproject.list,
+    selected: state.createproject.selectedRepo
   };
 };
 

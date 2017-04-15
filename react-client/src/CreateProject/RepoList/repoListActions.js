@@ -40,3 +40,10 @@ export const selectRepo = (repo) => {
     repo: repo
   }
 };
+
+export const confirmRepo = () => {
+  return {
+    type: 'CONFIRM_REPO',
+    page: 'PAGE_SUBMISSION'
+  }
+}

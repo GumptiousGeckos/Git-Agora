@@ -7,11 +7,25 @@ export class CreateProject extends React.Component {
   }
   render() {
     const { repo } = this.props;
+    if (this.state.page === 'REPO_LIST') {
+      return (
+        <div>
+        </div>
+      )
+    }
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    repos: state.createProject
+    ...state.createProject
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProject);

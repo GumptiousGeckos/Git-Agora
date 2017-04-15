@@ -9,13 +9,15 @@ const rp = require('request-promise');
 const db = require('../db/db');
 const cookieParser = require('cookie-parser');
 const passportGithub = require('./auth/github');
-
+const routes = require('./routes.js');
 const config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_SECRET;
 const port = process.env.PORT || 3000;
-const app = express();
+const path = require('path');
+const handler = require('./routes/Request_Handler');
 
+const app = express();
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -127,10 +129,14 @@ app.post('/github/hook', (req, res) => {
   res.end();
 });
 
+app.use('/api', routes);
+
 app.get('*', (req, res) => {
   res.redirect('/');
 });
 
-app.listen(port, () => {
+app.listen(port, function() {
   console.log('listening on port', port);
 });
+
+module.exports = app;
