@@ -1,17 +1,17 @@
-// const db = require('./db.js');
+const db = require('./db.js');
 const data = require('./dummyData.js');
 const pgp = require('pg-promise')();
 const path = require('path');
 const pg = require('pg');
 
 // This is here because env LOCAL DB not working
-const config = {
-  host: 'localhost',
-  port: 5432,
-  database: 'gecko'
-};
+// const config = {
+//   host: 'localhost',
+//   port: 5432,
+//   database: 'gecko'
+// };
 
-const db = pgp(config);
+// const db = pgp(config);
 
 
 
