@@ -1,11 +1,11 @@
 require('dotenv').config()
- var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
+ // var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 //
-// var config = {
-//   host: 'localhost',
-//   port: 5432,
-//   database: 'gecko'
-// };
+var config = {
+  host: 'localhost',
+  port: 5432,
+  database: 'gecko'
+};
 
 var path = require('path');
 var pgp = require('pg-promise')();
@@ -20,7 +20,7 @@ function sql(file) {
 var queries = {
   drop: sql('dropTables.sql'),
   users: sql('users.sql'),
-  topics: sql('topics.sql'),
+  projects: sql('projects.sql'),
   comments: sql('comments.sql'),
   collab: sql('collaborators.sql'),
   favorites: sql('favorites.sql'),
@@ -28,7 +28,8 @@ var queries = {
   messages: sql('messages.sql'),
   ratings: sql('ratings.sql'),
   tags: sql('tags.sql'),
-  tagsTopics: sql('tags_topics.sql'),
+  articles: sql('articles.sql'),
+  projectTags: sql('projects_tags.sql'),
   votes: sql('votes.sql'),
   sessions: sql('sessions.sql')
 };
@@ -41,6 +42,6 @@ db.tx(t => {
      pgp.end(); // to avoid delay exiting the process;
   })
   .catch(error => {
-     console.log('ERROR:', error);
+     console.log('ERROR Here:', error);
      pgp.end(); // to avoid delay exiting the process;
   });
