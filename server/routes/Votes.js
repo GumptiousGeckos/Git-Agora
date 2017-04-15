@@ -18,9 +18,9 @@ let queries = {
 
 
 module.exports.addVote = (req, res) => {
-  const { user_id, topic_id, vote_type } = req.body;
+  const { user_id, type, topic_id, vote_type } = req.body;
 
-  return db.query(queries.addVote, [user_id, topic_id, vote_type])
+  return db.query(queries.addVote, [user_id, type, topic_id, vote_type])
   .then( () => {
     res.status(201).send('Success adding vote');
   })
@@ -31,9 +31,9 @@ module.exports.addVote = (req, res) => {
 
 
 module.exports.updateVote = (req, res) => {
-  const { vote_type, user_id, topic_id } = req.body;
+  const { vote_type, user_id, type, topic_id } = req.body;
 
-  return db.query(queries.updateVote, [vote_type, user_id, topic_id])
+  return db.query(queries.updateVote, [vote_type, user_id, type, topic_id])
   .then( () => {
     res.status(204).send('Success updating vote');
   })
@@ -43,9 +43,9 @@ module.exports.updateVote = (req, res) => {
 }
 
 module.exports.getVotes = (req, res) => {
-  const { topic_id } = req.query;
+  const { type, topic_id } = req.query;
 
-  return db.query(queries.getVotes, [topic_id])
+  return db.query(queries.getVotes, [type, topic_id])
    .then( data => {
     console.log('Success getting votes');
     res.status(200).json(data);
