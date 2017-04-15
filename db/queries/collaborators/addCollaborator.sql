@@ -1,4 +1,4 @@
 INSERT INTO
-  collaborators (user_id, topic_id)
+  collaborators (user_id, project_id)
 VALUES
   ($1, $2)
