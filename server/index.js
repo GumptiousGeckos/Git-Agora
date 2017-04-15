@@ -4,8 +4,8 @@ const config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_SECRET;
 const express = require('express');
-const session = require('express-session');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const passport = require('passport');
 const pgp = require('pg-promise')();
 const rp = require('request-promise');
@@ -36,8 +36,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
+  console.log(req.user);
+  console.log(req.body);
   console.log(`Serving ${req.method} request on url ${req.url}`);
-  console.log('session ', req.session);
   next();
 });
 
@@ -47,27 +48,11 @@ app.get('/auth/github',
   passportGithub.authenticate('github', { scope: ['user', 'repo'] })
 );
 
-app.get('/auth/github/callback',
+app.get('/auth/github/callback', 
+  passportGithub.authenticate('github', { failureRedirect: '/auth/github' }),
   (req, res) => {
-    rp({
-      method: 'POST',
-      uri: 'https://github.com/login/oauth/access_token',
-      body: {
-        client_id: GITHUB_CLIENT_ID,
-        client_secret: GITHUB_CLIENT_SECRET,
-        code: req.query.code
-      },
-      json: true
-    })
-    .then((results) => {
-      console.log(results);
-      res.cookie('git_token', results.access_token);
-      res.redirect('/');
-    })
-    .catch((error) => {
-      console.log('error!', error);
-      res.redirect('/');
-    });
+    res.cookie('git_token', req.token);
+    res.redirect('/');
   }
 );
 
@@ -95,41 +80,41 @@ app.get('/github/user/repos', (req, res) => {
   });
 });
 
-app.get('/github/hook', (req, res) => {
-  rp({
-    method: 'POST',
-    uri: 'https://api.github.com/repos/echan91/testRepo/hooks', // CHANGE: Will need to change this to something we get from our request
-    body: {
-      name: 'web',
-      active: true,
-      events: ['pull_request', 'push'],
-      config: {
-        url: 'http://b10d2993.ngrok.io/github/hook', // CHANGE: to deployment URL
-        content_type: 'json'
-      }
-    },
-    headers: {
-      'User-Agent': 'git-agora',
-      Authorization: `token ${req.cookies.git_token}`
-    },
-    json: true
-  })
-  .then(() => {
-    console.log('webhook successful');
-    res.redirect('/');
-  })
-  .catch((error) => {
-    console.log('error', error);
-    res.redirect('/');
-  });
-});
+// app.get('/github/hook', (req, res) => {
+//   rp({
+//     method: 'POST',
+//     uri: 'https://api.github.com/repos/echan91/testRepo/hooks', // CHANGE: Will need to change this to something we get from our request
+//     body: {
+//       name: 'web',
+//       active: true,
+//       events: ['pull_request', 'push'],
+//       config: {
+//         url: 'http://b10d2993.ngrok.io/github/hook', // CHANGE: to deployment URL
+//         content_type: 'json'
+//       }
+//     },
+//     headers: {
+//       'User-Agent': 'git-agora',
+//       Authorization: `token ${req.cookies.git_token}`
+//     },
+//     json: true
+//   })
+//   .then(() => {
+//     console.log('webhook successful');
+//     res.redirect('/');
+//   })
+//   .catch((error) => {
+//     console.log('error', error);
+//     res.redirect('/');
+//   });
+// });
 
 app.post('/github/hook', (req, res) => {
   console.log('receiving post from webhook', req);
   res.end();
 });
 
-// app.use('/api', routes);
+app.use('/api', routes);
 
 
 app.get('*', (req, res) => {

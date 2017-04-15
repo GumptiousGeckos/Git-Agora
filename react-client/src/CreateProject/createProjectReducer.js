@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 const initialState = {
   list: [],
-  selected: {},
+  selectedRepo: {},
   fetchingRepos: false,
   error: null,
   name: '',

@@ -19,13 +19,23 @@ const startingSubmit = () => {
   }
 }
 
-export const submitProject = (projectName, description, webhook) => {
-  return dispatch => {
+export const submitProject = (name, projectId, description, link, webhook) => {
+  return (dispatch) => {
     dispatch(startingSubmit());
-    axios.put('api/projects', {
-      projectname,
+    axios.post('api/projects', {
+      name,
+      projectId,
       description,
+      link,
       webhook
+    })
+    .then((results) => {
+      console.log(results);
+    })
+    .catch((error) => {
+      console.log(error);
     }) // Insert right link here
   }
 }
+
+// name, description, link, webhook

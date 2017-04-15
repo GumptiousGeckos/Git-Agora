@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { backToRepos, projectDescription } from './projectSubmissionActions';
+import { backToRepos, projectDescription, submitProject } from './projectSubmissionActions';
 
 export const ProjectSubmission = (props) => {
-  const { backButtonClick, inputDescription } = props;
-  console.log(props);
+  const { name, description, backButtonClick, inputDescription, submitProjectClick } = props;
+  const { hooks_url, html_url, id } = props.selected;
   return (
     <div>
       <h1> Project Submission </h1>
@@ -16,21 +16,28 @@ export const ProjectSubmission = (props) => {
         onChange={(e)=>inputDescription(e.target.value)}/>
       </div>
       <button onClick={()=> backButtonClick()}> Back to Select Repo </button>
-      <button> Share Project! </button>
+      <button onClick={
+        () => { submitProjectClick(name, id, description, html_url, hooks_url) }
+      }> Share Project! </button>
     </div>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    selected: state.createproject.selectedRepo
+    selected: state.createproject.selectedRepo,
+    name: state.createproject.name,
+    description: state.createproject.description
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     inputDescription: (description) => { dispatch(projectDescription(description)); },
-    backButtonClick: () => {dispatch(backToRepos())}
+    backButtonClick: () => { dispatch(backToRepos()) },
+    submitProjectClick: (name, projectId, description, link, webhook) => {
+      dispatch(submitProject(name, projectId, description, link, webhook));
+    }
   }
 }
 

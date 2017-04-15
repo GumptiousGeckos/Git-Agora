@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS projects (
-  id serial PRIMARY KEY,
-  user_id int,
+  id integer PRIMARY KEY,
+  user_id integer,
   title varchar(40),
   description text,
   link text,
