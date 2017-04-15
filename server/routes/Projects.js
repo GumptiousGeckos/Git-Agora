@@ -1,16 +1,17 @@
+require('dotenv').config();
 const db = require('./../../db/db.js');
 const path = require('path');
 const pg = require('pg');
 const pgp = require('pg-promise')();
 const rp = require('request-promise');
-
+const GITHUB_CALLBACK = process.env.GITHUB_CALLBACK;
 
 function sql(file) {
-  var fullPath = path.join(__dirname, './../../db/queries/projects', file);
+  const fullPath = path.join(__dirname, './../../db/queries/projects', file);
   return new pgp.QueryFile(fullPath, { minify: true });
 }
 
-let queries = {
+const queries = {
   getAllProjects: sql('getAllProjects.sql'),
   addProject: sql('addProject.sql')
 };
@@ -23,7 +24,7 @@ module.exports.getAllProjects = (req, res) => {
     console.log('Success getting all projects');
     res.status(200).json(data);
   })
-  .catch(error => {
+  .catch((error) => {
     res.status(404).send('failed to get all projects');
   });
 };
@@ -39,7 +40,7 @@ module.exports.addProject = (req, res) => {
       active: true,
       events: ['pull_request', 'push'],
       config: {
-        url: 'http://2f6ced7d.ngrok.io/github/hook', // CHANGE: to deployment URL
+        url: GITHUB_CALLBACK + '/github/hook',
         content_type: 'json'
       }
     },
