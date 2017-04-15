@@ -39,7 +39,7 @@ module.exports.addProject = (req, res) => {
       active: true,
       events: ['pull_request', 'push'],
       config: {
-        url: 'http://8fdc15cc.ngrok.io/github/hook', // CHANGE: to deployment URL
+        url: 'http://2f6ced7d.ngrok.io/github/hook', // CHANGE: to deployment URL
         content_type: 'json'
       }
     },
