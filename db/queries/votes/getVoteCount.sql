@@ -4,4 +4,6 @@ SELECT
 FROM
   votes
 where
-  topic_id = $1
+  type = $1
+AND
+  topic_id = $2

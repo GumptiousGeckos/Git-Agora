@@ -6,4 +6,6 @@ SET
 where
   user_id = $2
 AND
-  topic_id = $3
+  type = $3
+AND
+  topic_id = $4
