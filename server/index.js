@@ -14,8 +14,8 @@ const cookieParser = require('cookie-parser');
 const passportGithub = require('./auth/github');
 const routes = require('./routes.js');
 const path = require('path');
-const handler = require('./routes/Request_Handler');
 const pgSession = require('connect-pg-simple')(session);
+const git_routes = require('./git_routes')
 
 const app = express();
 app.use(cookieParser());
@@ -36,8 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-  console.log(req.user);
-  console.log(req.body);
+  console.log('user', req.user);
   console.log(`Serving ${req.method} request on url ${req.url}`);
   next();
 });
@@ -56,37 +55,8 @@ app.get('/auth/github/callback',
   }
 );
 
-app.get('/github/user/repos', (req, res) => {
-  rp({
-    uri: 'https://api.github.com/user/repos',
-    headers: {
-      'User-Agent': 'git-agora',
-      Authorization: `token ${req.cookies.git_token}`
-    },
-    qs: {
-      sort: 'updated',
-      visibility: 'public',
-      per_page: '100'
-    },
-    json: true
-  })
-  .then((results) => {
-    console.log('gh user repo', results.length);
-    res.json(results);
-  })
-  .catch((error) => {
-    console.log('error', error);
-    res.status(404).send('ERROR', error);
-  });
-});
-
-app.post('/github/hook', (req, res) => {
-  console.log('receiving post from webhook', req);
-  res.end();
-});
-
 app.use('/api', routes);
-
+app.use('/github', git_routes)
 
 app.get('*', (req, res) => {
   res.redirect('/');
