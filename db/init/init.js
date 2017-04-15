@@ -11,7 +11,7 @@ var config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 
 var path = require('path');
 var pgp = require('pg-promise')();
-var db = pgp('postgres://postgres@localhost:5432/gecko');
+var db = pgp(config);
 
 
 function sql(file) {

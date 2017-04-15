@@ -49,6 +49,6 @@ export const submitProject = (name, projectId, description, link, webhook) => {
     .catch((error) => {
       console.log(error);
       dispatch(submitError(error));
-    }) // Insert right link here
+    })
   }
 }
