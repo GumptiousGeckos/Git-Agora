@@ -58,44 +58,7 @@ app.get('/auth/github/callback',
   }
 );
 
-// app.use('/', '../react-client/dist');
-
 app.use('/api', routes);
-
-// app.get('/comments', handler.getComments);
-// app.post('/comments', handler.addComment);
-
-// app.get('/collaborators', handler.getCollaborators);
-// app.post('/collaborators', handler.addCollaborator);
-
-// app.get('/favorites', handler.getFavorites);
-// app.post('/favorites', handler.addFavorite);
-// app.delete('/favorites', handler.deleteFavorite);
-
-// app.get('/follows', handler.getFollows);
-// app.post('/follows', handler.addFollow);
-// app.delete('/follows', handler.deleteFollow);
-
-// app.get('/messages', handler.getMessages);
-// app.post('/messages', handler.addMessage);
-
-// app.get('/ratings', handler.getRatings);
-// app.post('/ratings', handler.addRatings);
-
-// app.post('/tags', handler.addTag);
-
-// app.get('/tagstopics', handler.getTopicsByTag);
-// app.post('/tagstopics', handler.addTopicTag);
-
-// app.post('/topics', handler.addTopic);
-
-// app.post('/users', handler.addUser);
-// app.get('/users', handler.getUser);
-// app.delete('/users', handler.deleteUser);
-
-// app.post('/votes', handler.addVote);
-// app.get('/votes', handler.getVotes);
-// app.put('/votes', handler.updateVote);
 
 app.get('*', (req, res) => {
   res.redirect('/');

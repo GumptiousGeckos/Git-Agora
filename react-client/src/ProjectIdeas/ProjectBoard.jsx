@@ -5,16 +5,20 @@ import ProjectBoardEntry from './ProjectBoardEntry.jsx';
 import { addProject, fetchProjects, updateMainProject } from './projectActions';
 
 export class ProjectBoard extends React.Component {
-
-  redirectToProjectCreation() {
-    // Create Project button hardcoded to create dummy data
-    const { createProject } = this.props;
-    createProject();
+  constructor(props) {
+    super(props);
+    this.redirectToProjectCreation = this.redirectToProjectCreation.bind(this);
   }
 
   componentWillMount() {
     const { getProjects } = this.props;
     getProjects();
+  }
+
+  redirectToProjectCreation() {
+    // Create Project button hardcoded to create dummy data
+    const { createProject } = this.props;
+    createProject();
   }
 
   render() {
@@ -25,17 +29,17 @@ export class ProjectBoard extends React.Component {
         <div className="col-md-10 col-sm-9 col-xs-9">
           <ul className="nav nav-tabs">
             <li className="active">
-              <a href="#">Top</a>
+              <a>Top</a>
             </li>
             <li>
-              <a href="#">Trending</a>
+              <a>Trending</a>
             </li>
             <li>
-              <a href="#">New</a>
+              <a>New</a>
             </li>
           </ul>
           {
-            projects && projects.map((project) =>
+            projects && projects.map(project =>
               <ProjectBoardEntry
                 key={project.id}
                 project={project}
@@ -48,7 +52,7 @@ export class ProjectBoard extends React.Component {
           <div className="text-center bordered">
             <h2>Have an idea?</h2>
             <button
-              onClick={this.redirectToProjectCreation.bind(this)}
+              onClick={this.redirectToProjectCreation}
               className="btn btn-primary btn-lg"
             >Create Project</button>
           </div>
@@ -56,7 +60,7 @@ export class ProjectBoard extends React.Component {
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -68,7 +72,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getProjects: () => dispatch(fetchProjects()),
     createProject: () => dispatch(addProject()),
-    updateMainProject: (project) => dispatch(updateMainProject(project))
+    updateMainProject: project => dispatch(updateMainProject(project))
   };
 };
 

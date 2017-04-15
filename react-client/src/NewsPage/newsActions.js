@@ -7,7 +7,7 @@ export const receivedArticles = () => ({
 });
 
 export const fetchArticles = () => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(fetchingArticles());
     // Mimics axios request to server
     setTimeout(() => {
