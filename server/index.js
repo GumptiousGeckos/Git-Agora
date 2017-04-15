@@ -19,6 +19,10 @@ const git_routes = require('./git_routes');
 
 const app = express();
 app.use(cookieParser());
+app.use(require('cookie-parser')());
+// const router = require ('./routes.js');
+let path = require('path');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(session({
