@@ -11,6 +11,12 @@ const homepage = (state = {}, action) => {
         hotProjects: action.payload,
         fetchingHotProjects: false
       };
+    case 'REQUEST_HOT_PROJECTS_ERROR':
+      return {
+        ...state,
+        error: action.payload,
+        fetchingHotProjects: false
+      };
     case 'FETCHING_HOT_NEWS':
       return {
         ...state,
@@ -20,7 +26,13 @@ const homepage = (state = {}, action) => {
       return {
         ...state,
         hotNews: action.payload,
-        fetchingHotProjects: false
+        fetchingHotNews: false
+      };
+    case 'REQUEST_HOT_NEWS_ERROR':
+      return {
+        ...state,
+        error: action.payload,
+        fetchingHotNews: false
       };
     default:
       return state;

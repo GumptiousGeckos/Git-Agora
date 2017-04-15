@@ -1,21 +1,21 @@
 require('dotenv').config();
+const port = process.env.PORT || 3000;
+const config = process.env.DATABASE_URL || process.env.DB_LOCAL;
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT;
+const GITHUB_CLIENT_SECRET = process.env.GITHUB_SECRET;
 const express = require('express');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const session = require('express-session');
-const pgSession = require('connect-pg-simple')(session);
 const pgp = require('pg-promise')();
 const rp = require('request-promise');
 const db = require('../db/db');
 const cookieParser = require('cookie-parser');
 const passportGithub = require('./auth/github');
 const routes = require('./routes.js');
-const config = process.env.DATABASE_URL || process.env.DB_LOCAL;
-const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT;
-const GITHUB_CLIENT_SECRET = process.env.GITHUB_SECRET;
-const port = process.env.PORT || 3000;
 const path = require('path');
 const handler = require('./routes/Request_Handler');
+const pgSession = require('connect-pg-simple')(session);
 
 const app = express();
 app.use(cookieParser());
@@ -36,8 +36,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-  // console.log('session ', req.session);
   console.log(`Serving ${req.method} request on url ${req.url}`);
+  console.log('session ', req.session);
   next();
 });
 
@@ -129,7 +129,8 @@ app.post('/github/hook', (req, res) => {
   res.end();
 });
 
-app.use('/api', routes);
+// app.use('/api', routes);
+
 
 app.get('*', (req, res) => {
   res.redirect('/');

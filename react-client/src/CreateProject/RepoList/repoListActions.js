@@ -41,9 +41,8 @@ export const selectRepo = (repo) => {
   }
 };
 
-export const confirmRepo = () => {
+export const moveToSubmission = () => {
   return {
-    type: 'CONFIRM_REPO',
-    page: 'PAGE_SUBMISSION'
+    type: 'MOVE_TO_SUBMISSION'
   }
 }

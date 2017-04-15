@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchRepoList, selectRepo } from './repoListActions';
+import { fetchRepoList, selectRepo, moveToSubmission } from './repoListActions';
 import RepoListEntry from './RepoListEntry.jsx';
 
 export class RepoList extends React.Component {
@@ -14,14 +14,14 @@ export class RepoList extends React.Component {
   }
 
   render() {
-    const { list, selected, repoClick } = this.props;
+    const { list, selected, repoClick, buttonClick } = this.props;
     return (
       <div>
         <h2> Repo List </h2>
         {list.map(repo => {
           return <RepoListEntry key={repo.id} repo={repo} handleClick={repoClick} />
         })}
-        <button onClick={()=>console.log('hi')}> Select Project </button>
+        <button onClick={()=>buttonClick()}> Select Project </button>
       </div>
     );
   }
@@ -37,7 +37,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchList: () => { dispatch(fetchRepoList()); },
-    repoClick: (repo) => { dispatch(selectRepo(repo)); }
+    repoClick: (repo) => { dispatch(selectRepo(repo)); },
+    buttonClick: () => { dispatch(moveToSubmission()); }
   };
 };
 
