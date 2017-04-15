@@ -33,8 +33,7 @@ var queries = {
   articles: sql('articles.sql'),
   projectTags: sql('projects_tags.sql'),
   votes: sql('votes.sql'),
-  sessions: sql('sessions.sql'),
-  news: sql('news.sql')
+  sessions: sql('sessions.sql')
 };
 
 db.tx(t => {
