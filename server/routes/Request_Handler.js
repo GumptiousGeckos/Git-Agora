@@ -20,10 +20,8 @@ module.exports.addRatings = require('./Ratings').addRatings;
 
 module.exports.addTag = require('./Tags').addTag;
 
-module.exports.getTopicsByTag = require('./Tags_Topics').getTopicsByTag;
-module.exports.addTopicTag = require('./Tags_Topics').addTopicTag;
-
-module.exports.addTopic = require('./Topics').addTopic;
+module.exports.getProjectsByTag = require('./Projects_Tags').getProjectsByTag;
+module.exports.addProjectTag = require('./Projects_Tags').addProjectTag;
 
 module.exports.addUser = require('./Users').addUser;
 module.exports.getUser = require('./Users').getUser;
@@ -32,3 +30,8 @@ module.exports.deleteUser = require('./Users').deleteUser;
 module.exports.addVote = require('./Votes').addVote;
 module.exports.updateVote = require('./Votes').updateVote;
 module.exports.getVotes = require('./Votes').getVotes;
+
+module.exports.addTopic = require('./Topics').addTopic;
+
+module.exports.getAllProjects = require('./Projects').getAllProjects;
+module.exports.addProject = require('./Projects').addProject;

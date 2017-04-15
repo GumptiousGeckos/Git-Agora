@@ -25,10 +25,8 @@ router.route('/ratings').post(handler.addRatings);
 
 router.route('/tags').post(handler.addTag);
 
-router.route('/tagstopics').get(handler.getTopicsByTag);
-router.route('/tagstopics').post(handler.addTopicTag);
-
-router.route('/topics').post(handler.addTopic);
+router.route('/projectsTags').get(handler.getProjectsByTag);
+router.route('/projectsTags').post(handler.addProjectTag);
 
 router.route('/users').post(handler.addUser);
 router.route('/users').get(handler.getUser);
@@ -37,6 +35,13 @@ router.route('/users').delete(handler.deleteUser);
 router.route('/votes').post(handler.addVote);
 router.route('/votes').get(handler.getVotes);
 router.route('/votes').put(handler.updateVote);
+
+router.route('/projects').get(handler.getAllProjects);
+router.route('/projects').post(handler.addProject);
+
+
+// router.route('/topics').post(handler.addTopic);
+
 
 
 module.exports = router;
