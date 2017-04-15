@@ -7,6 +7,7 @@ const pgSession = require('connect-pg-simple')(session);
 const pgp = require('pg-promise')();
 const passportGithub = require('./auth/github');
 const db = require('../db/db');
+const routes = require('./routes.js');
 
 // const config = {
 //   host: 'localhost',
@@ -18,6 +19,9 @@ const config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 
 const app = express();
 app.use(require('cookie-parser')());
+// const router = require ('./routes.js');
+let path = require('path');
+let handler = require('./routes/Request_Handler');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -55,22 +59,26 @@ app.get('/auth/github/callback',
   }
 );
 
-app.get('/api/projects', (req, res) => {
-  const results = [{
-    id: 0,
-    title: 'Project Title',
-    description: 'Project Description!',
-    likes: 5,
-    dislikes: 1,
-    collaborators: [{ name: 'Jon' }]
-  }];
-  res.status(200).json(results);
-});
+// app.get('/api/projects', (req, res) => {
+//   const results = [{
+//     id: 0,
+//     title: 'Project Title',
+//     description: 'Project Description!',
+//     likes: 5,
+//     dislikes: 1,
+//     collaborators: [{ name: 'Jon' }]
+//   }];
+//   res.status(200).json(results);
+// });
+
+app.use('/api', routes);
 
 app.get('*', (req, res) => {
   res.redirect('/');
 });
 
-app.listen(port, () => {
+app.listen(port, function() {
   console.log('listening on port', port);
 });
+
+module.exports = app;
