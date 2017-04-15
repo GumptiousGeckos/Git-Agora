@@ -1,12 +1,13 @@
 const initialState = {
   isFetchingRepos: false,
   error: null,
-  RepoList: []
-}
+  list: [],
+  selectedRepo: {}
+};
 
-const repoListsReducer = (state = initialState, action) => {
-  switch(action.type) {
-    case 'FETCH_REPO': 
+const repoListReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'FETCH_REPO':
       return {
         ...state,
         isFetchingRepos: true
@@ -21,11 +22,16 @@ const repoListsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetchingRepos: false,
-        RepoList: [ ...action.repos ]
-      }
-    default: 
-      return state
+        list: [...action.repos]
+      };
+    case 'SELECT_REPO':
+      return {
+        ...state,
+        selectedRepo: action.repo
+      };
+    default:
+      return state;
   }
-}
+};
 
-export default repoListsReducer;
+export default repoListReducer;
