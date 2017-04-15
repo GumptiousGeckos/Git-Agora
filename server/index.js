@@ -16,7 +16,6 @@ const routes = require('./routes.js');
 // };
 const port = process.env.PORT || 3000;
 const config = process.env.DATABASE_URL || process.env.DB_LOCAL;
-
 const app = express();
 app.use(require('cookie-parser')());
 // const router = require ('./routes.js');
