@@ -43,21 +43,22 @@ export class NavBar extends React.Component {
                   <span className="glyphicon glyphicon-tags"> Categories</span>
                 </Link>
               </li>
+              <li className={(activeTab === 'createproject') ? "active": ""} onClick={this.handleNavOnClick}>
+                <Link to={'/createproject'}>
+                  <span className="glyphicon glyphicon-user"> Create Project </span>
+                </Link>
+              </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
+              <li>
+                <a href="/auth/github">Log in with GitHub</a>
+              </li>
               <li>
                 <Link to={'/profile'}>
                   <span className="glyphicon glyphicon-user" onClick={this.handleNavOnClick}> Profile</span>
                 </Link>
               </li>
-              <li>
-                <a href="#">Sign up</a>
-              </li>
-              <li>
-                <a href="#">Log in</a>
-              </li>
             </ul>
-
             <form className="navbar-form navbar-right">
               <div className="input-group add-on">
                 <input className="form-control" placeholder="Search" />
