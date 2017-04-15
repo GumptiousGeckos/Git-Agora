@@ -43,11 +43,6 @@ export class NavBar extends React.Component {
                   <span className="glyphicon glyphicon-tags"> Categories</span>
                 </Link>
               </li>
-              <li className={(activeTab === 'users') ? "active": ""} onClick={this.handleNavOnClick}>
-                <Link to={'/users'}>
-                  <span className="glyphicon glyphicon-user"> Users</span>
-                </Link>
-              </li>
               <li className={(activeTab === 'createproject') ? "active": ""} onClick={this.handleNavOnClick}>
                 <Link to={'/createproject'}>
                   <span className="glyphicon glyphicon-user"> Create Project </span>
