@@ -58,7 +58,7 @@ app.get('/auth/github/callback',
 
 app.get('/github/user/repos', (req, res) => {
   rp({
-    uri: 'https://api.github.com/user/repos', // CHANGE: Will need to change this to something we get from our request
+    uri: 'https://api.github.com/user/repos',
     headers: {
       'User-Agent': 'git-agora',
       Authorization: `token ${req.cookies.git_token}`
