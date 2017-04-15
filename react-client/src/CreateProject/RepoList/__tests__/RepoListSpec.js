@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { RepoList } from '../RepoList.jsx';
 import RepoListEntry from '../RepoListEntry.jsx';
 import * as actions from '../repoListActions';
-import repoListReducer from '../repoListReducer';
+// import repoListReducer from '../repoListReducer';
 
 xdescribe('Repo List Actions', () => {
   it('should have a FETCH_REPO action', () => {

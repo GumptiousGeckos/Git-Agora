@@ -16,6 +16,19 @@ export const projectDescription = (description) => {
 const startingSubmit = () => {
   return {
     type: 'SUBMITTING_PROJECT'
+  };
+}
+
+const projectSubmitted = () => {
+  return {
+    type: 'PROJECT_SUBMITTED'
+  };
+}
+
+const submitError = (error) => {
+  return {
+    type: 'SUBMIT_ERROR',
+    error: error
   }
 }
 
@@ -31,11 +44,11 @@ export const submitProject = (name, projectId, description, link, webhook) => {
     })
     .then((results) => {
       console.log(results);
+      dispatch(projectSubmitted());
     })
     .catch((error) => {
       console.log(error);
+      dispatch(submitError(error));
     }) // Insert right link here
   }
 }
-
-// name, description, link, webhook
