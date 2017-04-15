@@ -1,8 +1,17 @@
-const db = require('./db.js');
+// const db = require('./db.js');
 const data = require('./dummyData.js');
 const pgp = require('pg-promise')();
 const path = require('path');
 const pg = require('pg');
+
+// This is here because env LOCAL DB not working
+const config = {
+  host: 'localhost',
+  port: 5432,
+  database: 'gecko'
+};
+
+const db = pgp(config);
 
 
 
@@ -20,8 +29,9 @@ let queries = {
   addMessage: sql('messages/insertMessage.sql'),
   addRating: sql('ratings/addRatings.sql'),
   addTag: sql('tags/insertTag.sql'),
-  addTagTopic: sql('tags_topics/addTopicTag.sql'),
-  addTopic: sql('topics/insertTopic.sql'),
+  addProjectTag: sql('projects_tags/addProjectTag.sql'),
+  addProject: sql('projects/addProject.sql'),
+  // addArticle: sql('articles/addArticle.sql'),
   addUser: sql('users/createUser.sql'),
   addVote: sql('votes/insertVote.sql')
 }
@@ -29,13 +39,13 @@ let queries = {
 
 
 data.users.forEach( (user) => {
-  db.query(queries.addUser, [user.username, user.password, user.email, user.mobile])
+  db.query(queries.addUser, [user.id, user.username, user.email, user.mobile])
   .then(result => console.log('success entering user', result))
   .catch(err => console.log('an error entering user into db', err));
 });
 
-data.topics.forEach( (topic) => {
-  db.query(queries.addTopic, [topic.user_id, topic.title, topic.description, topic.link, topic.type])
+data.projects.forEach( (project) => {
+  db.query(queries.addProject, [project.user_id, project.title, project.description, project.link])
   .then(result => console.log('success entering topic', result))
   .catch(err => console.log('an error entering topic into db', err));
 });
@@ -47,7 +57,7 @@ data.tags.forEach( (tag) => {
 });
 
 data.comments.forEach( (comment) => {
-  db.query(queries.addComment, [comment.user_id, comment.topic_id, comment.content])
+  db.query(queries.addComment, [comment.user_id, comment.type, comment.topic_id, comment.content])
   .then(result => console.log('success entering comment', result))
   .catch(err => console.log('an error entering comment into db', err));
 });
@@ -76,20 +86,20 @@ data.ratings.forEach( (rating) => {
   .catch(err => console.log('an error entering rating into db', err));
 });
 
-data.tags_topics.forEach( (tag_topic) => {
-  db.query(queries.addTagTopic, [tag_topic.tag_id, tag_topic.topic_id])
-  .then(result => console.log('success entering topic-tag', result))
-  .catch(err => console.log('an error entering topic-tag into db', err));
+data.projects_tags.forEach( (project_tag) => {
+  db.query(queries.addProjectTag, [project_tag.tag_id, project_tag.project_id])
+  .then(result => console.log('success entering project-tag', result))
+  .catch(err => console.log('an error entering project-tag into db', err));
 });
 
 data.votes.forEach( (vote) => {
-  db.query(queries.addVote, [vote.user_id, vote.topic_id, vote.vote_type])
-  .then(result => console.log('success entering collaborator', result))
-  .catch(err => console.log('an error entering collaborator into db', err));
+  db.query(queries.addVote, [vote.user_id, vote.type, vote.topic_id, vote.vote_type])
+  .then(result => console.log('success entering vote', result))
+  .catch(err => console.log('an error entering vote into db', err));
 });
 
 data.collaborators.forEach( (collaborator) => {
-  db.query(queries.addCollaborator, [collaborator.user_id, collaborator.topic_id])
+  db.query(queries.addCollaborator, [collaborator.user_id, collaborator.project_id])
   .then(result => console.log('success entering collaborator', result))
   .catch(err => console.log('an error entering collaborator into db', err));
 });
