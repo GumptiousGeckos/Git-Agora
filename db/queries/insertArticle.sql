@@ -1,1 +1,1 @@
-insert into articles(title, author, description, url, url_to_image, published_at, source, unique_id) select ${title}, ${author}, ${description}, ${url}, ${url_to_image}, ${published_at}, ${source}, ${unique_id} where not exists (select 1 from news where unique_id=${unique_id})
+insert into articles(title, author, description, url, url_to_image, published_at, source, unique_id) select ${title}, ${author}, ${description}, ${url}, ${url_to_image}, ${published_at}, ${source}, ${unique_id} where not exists (select 1 from articles where unique_id=${unique_id})

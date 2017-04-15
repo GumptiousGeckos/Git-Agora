@@ -78,7 +78,7 @@ axios.all([getArsTechnicaLatest(), getEngadgetLatest(), getRecodeLatest(), getTe
     }
 
     articles.forEach((article) => {
-      db.any('insert into articles(title, author, description, url, url_to_image, published_at, source, unique_id) select ${title}, ${author}, ${description}, ${url}, ${url_to_image}, ${published_at}, ${source}, ${unique_id} where not exists (select 1 from news where unique_id=${unique_id})', { title: article.title, author : article.author, description: article.description, url: article.url, url_to_image: article.urlToImage, published_at: article.publishedAt, source: article.source, unique_id: article.unique_id})
+      db.any('insert into articles(title, author, description, url, url_to_image, published_at, source, unique_id) select ${title}, ${author}, ${description}, ${url}, ${url_to_image}, ${published_at}, ${source}, ${unique_id} where not exists (select 1 from articles where unique_id=${unique_id})', { title: article.title, author : article.author, description: article.description, url: article.url, url_to_image: article.urlToImage, published_at: article.publishedAt, source: article.source, unique_id: article.unique_id})
       .then(results => {
       })
       .catch(error => {
