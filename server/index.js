@@ -43,6 +43,20 @@ app.use((req, res, next) => {
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 
+app.get('/auth/user', (req, res) => {
+  console.log('requser:', req.user);
+  if (req.user) {
+    res.send({
+      auth: true,
+      user: req.user
+    });
+  } else {
+    res.send({
+      auth: false
+    });
+  }
+});
+
 app.get('/auth/github',
   passportGithub.authenticate('github', { scope: ['user', 'repo'] })
 );

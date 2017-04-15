@@ -24,6 +24,14 @@ a:hover {
   height: 100px;
 }
 
+.nav-center {
+  margin-top: 20px;
+}
+
+.navbar-right:last-child {
+  margin-right: 50px;
+}
+
 .nav-tabs {
   margin-bottom: 10px;
 }
