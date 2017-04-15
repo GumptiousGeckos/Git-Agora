@@ -1,26 +1,4 @@
-const hotProjectDummyData = [
-  {
-    id: 0,
-    title: 'Project Title',
-    description: 'Project Description!',
-    likes: 5,
-    dislikes: 1
-  },
-  {
-    id: 1,
-    title: 'Project Title2',
-    description: 'Project Description2!',
-    likes: 2,
-    dislikes: 2
-  },
-  {
-    id: 2,
-    title: 'Project Title3',
-    description: 'Project Description3!',
-    likes: 0,
-    dislikes: 2
-  }
-];
+import axios from 'axios';
 
 const hotNewsDummyData = [
   {
@@ -125,34 +103,31 @@ export const errorHotNews = err => ({
   error: err
 });
 
-export const fetchHotProjects = () => {
-  return dispatch => {
+export const fetchHotProjects = () => (
+  (dispatch) => {
     dispatch(requestHotProjects());
-    // axios.get('http://localhost:3000/api/projects/?')
-    //   .then((response) => {
-    //     dispatch(receivedHotProjects(response.data));
-    //   })
-    //   .catch((err) => {
-    //     dispatch(errorHotProjects());
-    //   });
-    setTimeout(() => {
-      dispatch(receivedHotProjects(hotProjectDummyData));
-    }, 1000);
-  };
-};
+    axios.get('/api/projects')
+      .then((response) => {
+        dispatch(receivedHotProjects(response.data));
+      })
+      .catch((err) => {
+        dispatch(errorHotProjects(err));
+      });
+  }
+);
 
-export const fetchHotNews = () => {
-  return dispatch => {
+export const fetchHotNews = () => (
+  (dispatch) => {
     dispatch(requestHotNews());
-    // axios.get('http://localhost:3000/api/news/?')
+    // axios.get('/api/news')
     //   .then((response) => {
     //     dispatch(receivedHotNews(response.data));
     //   })
     //   .catch((err) => {
-    //     dispatch(errorHotNews());
+    //     dispatch(errorHotNews(err));
     //   });
     setTimeout(() => {
       dispatch(receivedHotNews(hotNewsDummyData));
     }, 1000);
-  };
-};
+  }
+);

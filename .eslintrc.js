@@ -18,4 +18,4 @@ module.exports = {
   "rules": {
     "comma-dangle": ["error", "never"]
   }
-};
+}

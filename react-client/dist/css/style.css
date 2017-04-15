@@ -31,7 +31,11 @@ a:hover {
 .news-border {
   padding: 10px;
   border-style: solid;
-  border-radius: 20px;
+}
+
+.picture img {
+  height: 300px;
+  border-radius: 10px;
 }
 
 .standard {
@@ -41,6 +45,12 @@ a:hover {
 .thumbnail {
   background-color: #333;
   color: #FFF;
+}
+
+.thumbnail img {
+  padding: 30px 0px;
+  max-width: 400px;
+  /*max-height: 300px;*/
 }
 
 .title {
