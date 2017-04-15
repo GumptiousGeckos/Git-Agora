@@ -80,35 +80,6 @@ app.get('/github/user/repos', (req, res) => {
   });
 });
 
-// app.get('/github/hook', (req, res) => {
-//   rp({
-//     method: 'POST',
-//     uri: 'https://api.github.com/repos/echan91/testRepo/hooks', // CHANGE: Will need to change this to something we get from our request
-//     body: {
-//       name: 'web',
-//       active: true,
-//       events: ['pull_request', 'push'],
-//       config: {
-//         url: 'http://b10d2993.ngrok.io/github/hook', // CHANGE: to deployment URL
-//         content_type: 'json'
-//       }
-//     },
-//     headers: {
-//       'User-Agent': 'git-agora',
-//       Authorization: `token ${req.cookies.git_token}`
-//     },
-//     json: true
-//   })
-//   .then(() => {
-//     console.log('webhook successful');
-//     res.redirect('/');
-//   })
-//   .catch((error) => {
-//     console.log('error', error);
-//     res.redirect('/');
-//   });
-// });
-
 app.post('/github/hook', (req, res) => {
   console.log('receiving post from webhook', req);
   res.end();
