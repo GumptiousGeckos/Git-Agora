@@ -5,11 +5,9 @@ export const changeTab = tab => ({
   payload: tab
 });
 
-export const requestUserStatus = () => {
-  return {
-    type: 'FETCHING_USER_STATUS'
-  };
-};
+export const requestUserStatus = () => ({
+  type: 'FETCHING_USER_STATUS'
+});
 
 export const receivedUserStatus = userInfo => ({
   type: 'RECEIVED_USER_STATUS',

@@ -37,6 +37,9 @@ export class NavBar extends React.Component {
               <span className="glyphicon glyphicon-user" onClick={this.handleNavOnClick}> Profile</span>
             </Link>
           </li>
+          <li>
+            <a>Log out</a>
+          </li>
         </ul>
       );
     } else {
@@ -59,24 +62,24 @@ export class NavBar extends React.Component {
           </div>
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
-              <li className={(activeTab === 'news') ? "active": ""} onClick={this.handleNavOnClick}>
+              <li className={(activeTab === 'news') ? 'active' : ''} onClick={this.handleNavOnClick}>
                 <Link to={'/news'}>
                   <span className="glyphicon glyphicon-globe"> News</span>
                 </Link>
               </li>
-              <li className={(activeTab === 'projects') ? "active": ""} onClick={this.handleNavOnClick}>
+              <li className={(activeTab === 'projects') ? 'active' : ''} onClick={this.handleNavOnClick}>
                 <Link to={'/projects'}>
                   <span className="glyphicon glyphicon-pencil"> Projects</span>
                 </Link>
               </li>
-              <li className={(activeTab === 'categories') ? "active": ""} onClick={this.handleNavOnClick}>
+              <li className={(activeTab === 'categories') ? 'active' : ''} onClick={this.handleNavOnClick}>
                 <Link to={'/categories'}>
                   <span className="glyphicon glyphicon-tags"> Categories</span>
                 </Link>
               </li>
-              <li className={(activeTab === 'createproject') ? "active": ""} onClick={this.handleNavOnClick}>
+              <li className={(activeTab === 'createproject') ? 'active' : ''} onClick={this.handleNavOnClick}>
                 <Link to={'/createproject'}>
-                  <span className="glyphicon glyphicon-user"> Create Project </span>
+                  <span className="glyphicon glyphicon-user"> Create Project</span>
                 </Link>
               </li>
             </ul>
