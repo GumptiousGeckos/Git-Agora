@@ -33,6 +33,11 @@ a:hover {
   border-style: solid;
 }
 
+.picture img {
+  height: 300px;
+  border-radius: 10px;
+}
+
 .standard {
   color: #000;
 }
@@ -40,6 +45,12 @@ a:hover {
 .thumbnail {
   background-color: #333;
   color: #FFF;
+}
+
+.thumbnail img {
+  padding: 30px 0px;
+  max-width: 400px;
+  /*max-height: 300px;*/
 }
 
 .title {

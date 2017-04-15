@@ -46,7 +46,7 @@ export class HomePage extends React.Component {
         </div>
         <div className="list-group">
           {
-            hotProjects && hotProjects.map((project) =>
+            hotProjects && hotProjects.map(project =>
               <Link to={'/projects/' + project.id} key={project.id}>
                 <button
                   type="button"
