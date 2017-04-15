@@ -1,9 +1,10 @@
+require('dotenv').config();
 const db = require('./../../db/db.js');
 const path = require('path');
 const pg = require('pg');
 const pgp = require('pg-promise')();
 const rp = require('request-promise');
-
+const GITHUB_CALLBACK = process.env.GITHUB_CALLBACK
 
 function sql(file) {
   var fullPath = path.join(__dirname, './../../db/queries/projects', file);
@@ -39,7 +40,7 @@ module.exports.addProject = (req, res) => {
       active: true,
       events: ['pull_request', 'push'],
       config: {
-        url: 'http://8fdc15cc.ngrok.io/github/hook', // CHANGE: to deployment URL
+        url: GITHUB_CALLBACK+'/github/hook', // CHANGE: to deployment URL
         content_type: 'json'
       }
     },
