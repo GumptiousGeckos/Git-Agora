@@ -1,5 +1,5 @@
 /* create user */
 INSERT INTO
-  users (username, email, mobile)
+  users (id, username, email, mobile)
 VALUES
-  ($1, $3, $4)
+  ($1, $2, $3, $4)
