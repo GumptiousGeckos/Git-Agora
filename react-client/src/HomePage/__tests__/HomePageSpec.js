@@ -89,7 +89,7 @@ describe('Project Reducer', () => {
       payload: []
     })).toEqual({
       hotNews: [],
-      fetchingHotProjects: false
+      fetchingHotNews: false
     });
   });
 });
