@@ -14,7 +14,6 @@ export class UserProfile extends React.Component {
 
   render() {
     const { user, userProjects, updateMainProject } = this.props;
-    console.log('userProjects', userProjects);
     return (
       <div className="container">
         <div className="col-md-6">
@@ -22,9 +21,10 @@ export class UserProfile extends React.Component {
             <img src="http://weknowmemes.com/wp-content/uploads/2012/07/oh-god-who-am-i.jpg" />
             <div className="text-left">
               <h4>information about user</h4>
-              <h5>Name: </h5>
-              <h5>Handle: </h5>
-              <h5>Points: </h5>
+              <h5>Name: {user[0].name}</h5>
+              <h5>Handle: {user[0].username}</h5>
+              <h5>Email: {user[0].email}</h5>
+              <h5>Points: {user[0].points}</h5>
             </div>
           </div>
         </div>
@@ -54,8 +54,8 @@ export class UserProfile extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user.user,
-    userProjects: state.user.userProjects
+    user: state.navBar.user,
+    userProjects: state.userProfile.userProjects
   };
 };
 

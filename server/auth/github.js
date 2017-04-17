@@ -1,14 +1,11 @@
 require('dotenv').config();
 const passport = require('passport');
-// const init = require('./init');
 const GitHubStrategy = require('passport-github2').Strategy;
 const db = require('../../db/db');
 
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_SECRET;
 const GITHUB_CALLBACK = process.env.GITHUB_CALLBACK;
-
-
 
 passport.serializeUser((user, done) => {
   console.log('serializing');
@@ -33,7 +30,7 @@ passport.use(new GitHubStrategy({
 },
   (req, accessToken, refreshToken, profile, done) => {
     req.token = accessToken;
-    db.any('INSERT INTO users(id, username, email) SELECT ${id}, ${username}, ${email} WHERE NOT EXISTS (SELECT 1 FROM users WHERE id=${id})', 
+    db.any('INSERT INTO users(id, username, email) SELECT ${id}, ${username}, ${email} WHERE NOT EXISTS (SELECT 1 FROM users WHERE id=${id})',
       { id: profile.id, username: profile.username, email: profile.email })
     .then(results => {
       return done(null, profile);
@@ -43,7 +40,5 @@ passport.use(new GitHubStrategy({
     });
   }
 ));
-
-// init();
 
 module.exports = passport;
