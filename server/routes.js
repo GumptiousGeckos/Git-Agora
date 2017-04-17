@@ -50,7 +50,11 @@ router.route('/projects')
   .get(handler.getAllProjects)
   .post(handler.addProject);
 
+router.route('/articles')
+.get(handler.getAllArticles);
 
+router.route('/topSixArticles')
+.get(handler.getTopSixArticles);
 // router.route('/topics').post(handler.addTopic);
 
 
