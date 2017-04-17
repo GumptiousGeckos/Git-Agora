@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const fetchingArticles = () => ({
   type: 'FETCHING_ARTICLES'
 });
