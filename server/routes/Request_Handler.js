@@ -36,3 +36,6 @@ module.exports.addTopic = require('./Topics').addTopic;
 module.exports.getAllProjects = require('./Projects').getAllProjects;
 module.exports.addProject = require('./Projects').addProject;
 module.exports.getUserProjects = require('./Projects').getUserProjects;
+
+module.exports.getAllArticles = require('./Articles').getAllArticles;
+module.exports.getTopSixArticles = require('./Articles').getTopSixArticles;
