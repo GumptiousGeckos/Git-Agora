@@ -44,7 +44,7 @@ router.route('/votes')
   .get(handler.getVotes)
   .put(handler.updateVote);
 
-router.route('/projects/:userid')
+router.route('/projects/users/:id')
   .get(handler.getUserProjects);
 
 router.route('/projects')

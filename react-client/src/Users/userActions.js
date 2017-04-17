@@ -41,7 +41,7 @@ export const errorUserProjects = err => ({
 export const fetchUserProjects = id => (
   (dispatch) => {
     dispatch(requestUserProjects());
-    axios.get('/api/projects/' + id)
+    axios.get('/api/projects/users/' + id)
     .then((response) => {
       dispatch(receivedUserProjects(response.data));
     })
