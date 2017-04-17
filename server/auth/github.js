@@ -14,7 +14,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((user, done) => {
   console.log('deserializing');
-  db.query('SELECT id, username FROM users where id=$1', [user.id])
+  db.query('SELECT id, name, username, email, picture FROM users where id=$1', [user.id])
   .then(results => {
     done(null, results);
   })
@@ -30,8 +30,16 @@ passport.use(new GitHubStrategy({
 },
   (req, accessToken, refreshToken, profile, done) => {
     req.token = accessToken;
-    db.any('INSERT INTO users(id, username, email) SELECT ${id}, ${username}, ${email} WHERE NOT EXISTS (SELECT 1 FROM users WHERE id=${id})',
-      { id: profile.id, username: profile.username, email: profile.email })
+    console.log(profile._json.avatar_url);
+    db.any('INSERT INTO users(id, name, username, email, picture) SELECT ${id}, ${name}, ${username}, ${email}, ${picture} WHERE NOT EXISTS (SELECT 1 FROM users WHERE id=${id})',
+      {
+        id: profile.id,
+        name: profile.displayName,
+        username: profile.username,
+        email: profile.emails[0].value,
+        picture: profile._json.avatar_url
+      }
+    )
     .then(results => {
       return done(null, profile);
     })

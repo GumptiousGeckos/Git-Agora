@@ -58,3 +58,9 @@ module.exports.addProject = (req, res) => {
     res.status(404).send('failed adding project');
   });
 };
+
+module.exports.getUserProjects = (req, res) => {
+  // query for specific user's projects
+  console.log(req.params.userid);
+  res.status(200).send('woo');
+};

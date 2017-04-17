@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const handler = require('./routes/Request_Handler');
 
-
-
 router.route('/comments')
   .get(handler.getComments)
   .post(handler.addComment);
@@ -46,13 +44,11 @@ router.route('/votes')
   .get(handler.getVotes)
   .put(handler.updateVote);
 
+router.route('/projects/:userid')
+  .get(handler.getUserProjects);
+
 router.route('/projects')
   .get(handler.getAllProjects)
   .post(handler.addProject);
-
-
-// router.route('/topics').post(handler.addTopic);
-
-
 
 module.exports = router;

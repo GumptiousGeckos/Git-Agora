@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 const userProjectDummyData = [
   {
@@ -38,18 +38,15 @@ export const errorUserProjects = err => ({
   error: err
 });
 
-export const fetchUserProjects = () => (
+export const fetchUserProjects = id => (
   (dispatch) => {
     dispatch(requestUserProjects());
-    // axios.get('/api/user/projects')
-    //   .then((response) => {
-    //     dispatch(receivedUserProjects(response.data));
-    //   })
-    //   .catch((err) => {
-    //     dispatch(errorUserProjects(err));
-    //   });
-    setTimeout(() => {
-      dispatch(receivedUserProjects(userProjectDummyData));
-    }, 1000);
+    axios.get('/api/projects/' + id)
+    .then((response) => {
+      dispatch(receivedUserProjects(response.data));
+    })
+    .catch((err) => {
+      dispatch(errorUserProjects(err));
+    });
   }
 );

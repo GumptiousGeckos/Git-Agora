@@ -8,8 +8,8 @@ import { updateMainProject } from '../ProjectIdeas/projectActions';
 export class UserProfile extends React.Component {
 
   componentWillMount() {
-    const { getUserProjects } = this.props;
-    getUserProjects();
+    const { user, getUserProjects } = this.props;
+    getUserProjects(user[0].id);
   }
 
   render() {
@@ -18,7 +18,7 @@ export class UserProfile extends React.Component {
       <div className="container">
         <div className="col-md-6">
           <div className="picture">
-            <img src="http://weknowmemes.com/wp-content/uploads/2012/07/oh-god-who-am-i.jpg" />
+            <img src={user[0].picture} />
             <div className="text-left">
               <h4>information about user</h4>
               <h5>Name: {user[0].name}</h5>
@@ -61,7 +61,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUserProjects: () => dispatch(fetchUserProjects()),
+    getUserProjects: id => dispatch(fetchUserProjects(id)),
     updateMainProject: project => dispatch(updateMainProject(project))
   };
 };

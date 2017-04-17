@@ -1,5 +1,5 @@
-/* get all user s*/
+/* get all users */
 SELECT
-  id, username
+  id, name, username, email, picture
 FROM
   users

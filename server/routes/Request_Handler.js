@@ -35,3 +35,4 @@ module.exports.addTopic = require('./Topics').addTopic;
 
 module.exports.getAllProjects = require('./Projects').getAllProjects;
 module.exports.addProject = require('./Projects').addProject;
+module.exports.getUserProjects = require('./Projects').getUserProjects;
