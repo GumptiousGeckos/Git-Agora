@@ -119,15 +119,15 @@ export const fetchHotProjects = () => (
 export const fetchHotNews = () => (
   (dispatch) => {
     dispatch(requestHotNews());
-    // axios.get('/api/news')
-    //   .then((response) => {
-    //     dispatch(receivedHotNews(response.data));
-    //   })
-    //   .catch((err) => {
-    //     dispatch(errorHotNews(err));
-    //   });
-    setTimeout(() => {
-      dispatch(receivedHotNews(hotNewsDummyData));
-    }, 1000);
+    axios.get('/api/topSixArticles')
+      .then((response) => {
+        dispatch(receivedHotNews(response.data));
+      })
+      .catch((err) => {
+        dispatch(errorHotNews(err));
+      });
+    // setTimeout(() => {
+    //   dispatch(receivedHotNews(hotNewsDummyData));
+    // }, 1000);
   }
 );

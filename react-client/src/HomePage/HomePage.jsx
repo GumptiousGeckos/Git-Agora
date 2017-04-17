@@ -30,7 +30,7 @@ export class HomePage extends React.Component {
                 <div className="thumbnail">
                   <a href={article.url}>
                     <h4 className="title">{article.title}</h4>
-                    <img src={article.urlToImage} />
+                    <img src={article.url_to_image} />
                     <div className="caption text-center">
                       <p>{article.description}</p>
                     </div>
