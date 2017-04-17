@@ -18,8 +18,8 @@ class Vote extends Component {
   }
 
   render() {
-    const upVoteButton = <button className="btn btn-lg btn-block green-button" ><span className="glyphicon glyphicon-triangle-top" /></button>
-    const downVoteButton = <button className="btn btn-lg btn-block"><span className="glyphicon glyphicon-triangle-bottom" /></button>
+    const upVoteButton = <button className="btn btn-lg btn-block btn-success" ><span className="glyphicon glyphicon-triangle-top" /></button>
+    const downVoteButton = <button className="btn btn-lg btn-block btn-danger"><span className="glyphicon glyphicon-triangle-bottom" /></button>
     const neutralUpVoteButton = <button className="btn btn-lg btn-block"><span className="glyphicon glyphicon-triangle-top" /></button>
     const neutralDownVoteButton = <button className="btn btn-lg btn-block red-button"><span className="glyphicon glyphicon-triangle-bottom" /></button>
     return (
