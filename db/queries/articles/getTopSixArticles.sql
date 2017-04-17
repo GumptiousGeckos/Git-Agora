@@ -1,0 +1,1 @@
+select * from articles limit 6
