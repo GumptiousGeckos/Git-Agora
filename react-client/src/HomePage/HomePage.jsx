@@ -26,7 +26,7 @@ export class HomePage extends React.Component {
         <div className="row news-border">
           {
             hotNews && hotNews.map(article =>
-              <div className="col-md-4" key={article.id}>
+              <div className="col-md-4 front-page" key={article.id}>
                 <div className="thumbnail">
                   <a href={article.url}>
                     <h4 className="title">{article.title}</h4>

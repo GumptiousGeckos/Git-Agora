@@ -69,3 +69,7 @@ a:hover {
 .underline {
   text-decoration: underline;
 }
+
+.front-page {
+  max-height: 400px;
+}

@@ -48,8 +48,7 @@ describe('News Components', () => {
       urlToImage: 'https://tctechcrunch2011.files.wordpress.com/2016/01/walmart-truckclose-up-side-view_129821854433586541.jpg?w=764&h=400&crop=1',
       publishedAt: '2017-04-12T04:01:08Z',
       source: 'techcrunch',
-      likes: 12,
-      dislikes: 3
+      votes: 12
     };
     it('should render the title', () => {
       const wrapper = shallow(<NewsArticleEntry article={article} />);
@@ -74,10 +73,9 @@ describe('News Components', () => {
       const wrapper = shallow(<Votes />);
       expect(wrapper.find('button').length).toBe(2);
     });
-    it('should render likes and dislikes', () => {
-      const wrapper = shallow(<Votes likes={12} dislikes={3} />);
+    it('should render votes', () => {
+      const wrapper = shallow(<Votes votes={12}/>);
       expect(wrapper.contains(<span>12 </span>)).toBe(true);
-      expect(wrapper.contains(<span>3 </span>)).toBe(true);
     });
   });
 });
