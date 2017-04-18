@@ -20,13 +20,26 @@ export class UserProfile extends React.Component {
           <div className="picture">
             <img src={user[0].picture} />
             <div className="text-left">
-              <h4>information about user</h4>
-              <h5>Name: {user[0].name}</h5>
-              <h5>Github Handle: {user[0].username}</h5>
-              <h5>Email: {user[0].email}</h5>
-              <h5>Points: {user[0].points}</h5>
+              <div id="userDescription" className="col-md-10">
+                Description about myself that I want to use to inspire other software engineers to collaborate with me
+              </div>
+              <div className="col-md-2 text-right">
+                <button type="button" className="btn btn-default">
+                  <span className="glyphicon glyphicon-edit" />
+                </button>
+              </div>
+              <div className="col-md-12">
+                <h5>Name: {user[0].name}</h5>
+                <h5>{'Github:' + ' '}
+                  <a href={'https://www.github.com/' + user[0].username} target="_blank">
+                    {user[0].username}
+                  </a>
+                </h5>
+                <h5>Email: {user[0].email}</h5>
+                <h5>Points: {user[0].points}</h5>
+              </div>
             </div>
-            <div className="text-left">
+            <div className="text-left col-md-12">
               <h4 className="underline">Tags</h4>
             </div>
           </div>
