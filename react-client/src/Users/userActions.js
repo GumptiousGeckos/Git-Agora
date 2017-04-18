@@ -49,17 +49,17 @@ export const errorSavingChanges = err => ({
   error: err
 });
 
-export const saveChanges = (text) => (
+export const saveChanges = text => (
   (dispatch) => {
     dispatch(savingChanges());
     axios.put('api/users/', {
       description: text
     })
-    .then((response) => {
+    .then(() => {
       dispatch(savedChanges());
     })
     .catch((err) => {
-      dispatch(errorSavingChanges(err))
+      dispatch(errorSavingChanges(err));
     });
   }
 );

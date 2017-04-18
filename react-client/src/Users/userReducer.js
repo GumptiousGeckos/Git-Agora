@@ -42,7 +42,7 @@ const user = (state = {}, action) => {
         ...state,
         savingChanges: false,
         error: action.error
-      }
+      };
     default:
       return state;
   }
