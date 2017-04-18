@@ -32,7 +32,8 @@ router.route('/tags')
 
 router.route('/projectsTags')
   .get(handler.getProjectsByTag)
-  .post(handler.addProjectTag);
+  .post(handler.addProjectTag)
+  .put(handler.createProjectTag);
 
 router.route('/users')
   .post(handler.addUser)
