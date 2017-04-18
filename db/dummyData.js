@@ -314,39 +314,225 @@ module.exports = {
 
   votes: [
     {
-      id: 1,
+      type: 'article',
       user_id: 1,
       topic_id: 2,
       vote_type: 0
     },
     {
-      id: 2,
+      type: 'article',
       user_id: 2,
       topic_id: 3,
       vote_type: 1
     },
     {
-      id: 3,
+      type: 'article',
       user_id: 3,
       topic_id: 4,
       vote_type: 1
     },
     {
-      id: 4,
+      type: 'article',
       user_id: 4,
       topic_id: 5,
       vote_type: 1
     },
     {
-      id: 5,
+      type: 'article',
       user_id: 5,
+      topic_id: 6,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 6,
+      vote_type: 1
+    },
+        {
+      type: 'article',
+      user_id: 1,
       topic_id: 6,
       vote_type: 0
     },
     {
-      id: 6,
+      type: 'article',
+      user_id: 2,
+      topic_id: 7,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 3,
+      topic_id: 8,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 4,
+      topic_id: 8,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 5,
+      topic_id: 9,
+      vote_type: 1
+    },
+    {
+      type: 'article',
       user_id: 6,
-      topic_id: 6,
+      topic_id: 10,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 1,
+      topic_id: 11,
+      vote_type: 0
+    },
+    {
+      type: 'article',
+      user_id: 2,
+      topic_id: 12,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 3,
+      topic_id: 13,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 4,
+      topic_id: 14,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 5,
+      topic_id: 15,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 16,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 1,
+      topic_id: 17,
+      vote_type: 0
+    },
+    {
+      type: 'article',
+      user_id: 2,
+      topic_id: 18,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 3,
+      topic_id: 19,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 4,
+      topic_id: 20,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 5,
+      topic_id: 21,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 22,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 23,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 1,
+      topic_id: 24,
+      vote_type: 0
+    },
+    {
+      type: 'article',
+      user_id: 2,
+      topic_id: 25,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 3,
+      topic_id: 22,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 4,
+      topic_id: 23,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 5,
+      topic_id: 23,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 25,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 1,
+      topic_id: 23,
+      vote_type: 0
+    },
+    {
+      type: 'article',
+      user_id: 2,
+      topic_id: 20,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 3,
+      topic_id: 19,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 4,
+      topic_id: 20,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 5,
+      topic_id: 20,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 19,
       vote_type: 1
     }
   ]
