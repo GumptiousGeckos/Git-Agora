@@ -22,7 +22,7 @@ const articles = (state = initialState, action) => {
         ...state,
         error: action.payload,
         fetchingArticles: false
-      }
+      };
     default:
       return state;
   }
