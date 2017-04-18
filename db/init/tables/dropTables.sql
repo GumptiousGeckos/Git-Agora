@@ -1,1 +1,15 @@
-DROP TABLE IF EXISTS collaborators, comments, favorites, follows, messages, ratings, tags, projects_tags, votes, projects, users, sessions, articles cascade;
+DROP TABLE IF EXISTS 
+collaborators, 
+contributions, 
+comments, 
+favorites, 
+follows, 
+messages, 
+ratings, 
+tags, 
+projects_tags, 
+votes, 
+projects, 
+users, 
+sessions, 
+articles cascade;
