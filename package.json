@@ -41,6 +41,7 @@
     "react-dom": "^15.5.3",
     "react-redux": "^5.0.3",
     "react-router-dom": "^4.1.0",
+    "react-tag-input": "^4.7.0",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.1",
     "redux-thunk": "^2.2.0",
@@ -56,16 +57,14 @@
     "redux-logger": "^3.0.1",
     "jest": "^19.0.2",
     "mocha": "^3.2.0",
-    "react-addons-test-utils": "^15.5.1",
+    "react-addons-test-utils": "^15.5.0",
     "supertest": "^3.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "react-addons-test-utils": "^15.5.0",
-    "should": "^11.2.1",
-    "supertest": "^3.0.0"
+    "should": "^11.2.1"
   },
   "babel": {
     "presets": [
