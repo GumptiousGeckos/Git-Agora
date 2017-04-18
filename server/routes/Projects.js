@@ -13,6 +13,7 @@ function sql(file) {
 
 const queries = {
   getAllProjects: sql('getAllProjects.sql'),
+  getUserProjects: sql('getUserProjects.sql'),
   addProject: sql('addProject.sql')
 };
 
@@ -56,5 +57,15 @@ module.exports.addProject = (req, res) => {
   })
   .catch((error) => {
     res.status(404).send('failed adding project');
+  });
+};
+
+module.exports.getUserProjects = (req, res) => {
+  db.query(queries.getUserProjects, { id: req.params.id })
+  .then(results => {
+    res.status(200).json(results);
+  })
+  .catch(error => {
+    res.status(404).send('ERROR', error);
   });
 };

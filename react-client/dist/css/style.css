@@ -8,6 +8,10 @@ p {
   color: #FFF;
 }
 
+textarea {
+  resize: none;
+}
+
 a:hover {
   cursor: pointer;
   text-decoration: none;

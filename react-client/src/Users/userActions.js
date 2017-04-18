@@ -1,28 +1,4 @@
-// import axios from 'axios';
-
-const userProjectDummyData = [
-  {
-    id: 0,
-    title: 'Project Title',
-    description: 'Project Description!',
-    likes: 5,
-    dislikes: 1
-  },
-  {
-    id: 1,
-    title: 'Project Title2',
-    description: 'Project Description2!',
-    likes: 2,
-    dislikes: 2
-  },
-  {
-    id: 2,
-    title: 'Project Title3',
-    description: 'Project Description3!',
-    likes: 0,
-    dislikes: 2
-  }
-];
+import axios from 'axios';
 
 export const requestUserProjects = () => ({
   type: 'FETCHING_USER_PROJECTS'
@@ -38,18 +14,52 @@ export const errorUserProjects = err => ({
   error: err
 });
 
-export const fetchUserProjects = () => (
+export const fetchUserProjects = id => (
   (dispatch) => {
     dispatch(requestUserProjects());
-    // axios.get('/api/user/projects')
-    //   .then((response) => {
-    //     dispatch(receivedUserProjects(response.data));
-    //   })
-    //   .catch((err) => {
-    //     dispatch(errorUserProjects(err));
-    //   });
-    setTimeout(() => {
-      dispatch(receivedUserProjects(userProjectDummyData));
-    }, 1000);
+    axios.get('api/projects/users/' + id)
+    .then((response) => {
+      dispatch(receivedUserProjects(response.data));
+    })
+    .catch((err) => {
+      dispatch(errorUserProjects(err));
+    });
+  }
+);
+
+export const toggleEditMode = () => ({
+  type: 'TOGGLE_EDIT_MODE'
+});
+
+export const updateDescriptionText = text => ({
+  type: 'UPDATE_DESCRIPTION_TEXT',
+  payload: text
+});
+
+export const savingChanges = () => ({
+  type: 'SAVING_CHANGES'
+});
+
+export const savedChanges = () => ({
+  type: 'SAVED_CHANGES'
+});
+
+export const errorSavingChanges = err => ({
+  type: 'ERROR_SAVING_CHANGES',
+  error: err
+});
+
+export const saveChanges = text => (
+  (dispatch) => {
+    dispatch(savingChanges());
+    axios.put('api/users/', {
+      description: text
+    })
+    .then(() => {
+      dispatch(savedChanges());
+    })
+    .catch((err) => {
+      dispatch(errorSavingChanges(err));
+    });
   }
 );

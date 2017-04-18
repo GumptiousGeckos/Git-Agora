@@ -38,12 +38,16 @@ router.route('/projectsTags')
 router.route('/users')
   .post(handler.addUser)
   .get(handler.getUser)
+  .put(handler.updateUser)
   .delete(handler.deleteUser);
 
 router.route('/votes')
   .post(handler.addVote)
   .get(handler.getVotes)
   .put(handler.updateVote);
+
+router.route('/projects/users/:id')
+  .get(handler.getUserProjects);
 
 router.route('/projects')
   .get(handler.getAllProjects)
@@ -54,6 +58,5 @@ router.route('/articles')
 
 router.route('/topSixArticles')
 .get(handler.getTopSixArticles);
-// router.route('/topics').post(handler.addTopic);
 
 module.exports = router;

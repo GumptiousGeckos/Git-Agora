@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 export class ProjectView extends React.Component {
 
   render() {
-    
     const { mainProject } = this.props;
 
     return (
