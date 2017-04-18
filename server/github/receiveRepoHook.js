@@ -16,7 +16,6 @@ module.exports = (req, res) => {
   const pullRequest = req.body.pull_request;
   const repository = req.body.repository;
   if (req.body.action === 'opened') {
-    console.log('open PR', req.body);
     db.none(queries.newContribution, {
       id: pullRequest.id,
       user_id: pullRequest.user.id,
@@ -27,7 +26,6 @@ module.exports = (req, res) => {
       idea_points: 1
     });
   } else if (req.body.action === 'reopened') {
-    console.log('reopened PR', req.body);
     db.none(queries.editContribution, {
       id: pullRequest.id,
       stage: 'OPEN',
@@ -35,7 +33,6 @@ module.exports = (req, res) => {
       idea_points: 1
     });
   } else if (req.body.action === 'closed' && pullRequest.merged) {
-    console.log('closed PR and merged', req.body);
     db.none(queries.editContribution, {
       id: pullRequest.id,
       stage: 'CLOSED',
@@ -43,7 +40,6 @@ module.exports = (req, res) => {
       idea_points: 3
     });
   } else if (req.body.action === 'closed') {
-    console.log('closed PR and not merged', req.body);
     db.none(queries.editContribution, {
       id: pullRequest.id,
       stage: 'REJECTED',
