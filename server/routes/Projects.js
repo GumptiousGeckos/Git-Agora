@@ -38,7 +38,7 @@ module.exports.addProject = (req, res) => {
     body: {
       name: 'web',
       active: true,
-      events: ['pull_request', 'push'],
+      events: ['pull_request'],
       config: {
         url: GITHUB_CALLBACK + '/github/hook',
         content_type: 'json'
