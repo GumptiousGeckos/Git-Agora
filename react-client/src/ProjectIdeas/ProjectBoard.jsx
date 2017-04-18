@@ -16,7 +16,6 @@ export class ProjectBoard extends React.Component {
   }
 
   redirectToProjectCreation() {
-    // Create Project button hardcoded to create dummy data
     const { createProject } = this.props;
     createProject();
   }
@@ -26,7 +25,7 @@ export class ProjectBoard extends React.Component {
 
     return (
       <div>
-        <div className="col-md-10 col-sm-9 col-xs-9">
+        <div className="col-md-12">
           <ul className="nav nav-tabs">
             <li className="active">
               <a>Top</a>
@@ -47,15 +46,6 @@ export class ProjectBoard extends React.Component {
               />
             )
           }
-        </div>
-        <div className="col-md-2 col-sm-3 col-xs-3">
-          <div className="text-center bordered">
-            <h2>Have an idea?</h2>
-            <button
-              onClick={this.redirectToProjectCreation}
-              className="btn btn-primary btn-lg"
-            >Create Project</button>
-          </div>
         </div>
       </div>
     );

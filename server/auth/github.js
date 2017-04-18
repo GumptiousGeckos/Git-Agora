@@ -15,10 +15,10 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((user, done) => {
   console.log('deserializing');
   db.query('SELECT id, name, username, email, picture, description FROM users where id=$1', [user.id])
-  .then(results => {
+  .then((results) => {
     done(null, results);
   })
-  .catch(error => {
+  .catch((error) => {
     done(error, null);
   });
 });
@@ -40,10 +40,10 @@ passport.use(new GitHubStrategy({
         picture: profile._json.avatar_url
       }
     )
-    .then(results => {
+    .then(() => {
       return done(null, profile);
     })
-    .catch(error => {
+    .catch((error) => {
       return done(error, null);
     });
   }

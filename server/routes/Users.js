@@ -1,14 +1,13 @@
 const db = require('./../../db/db.js');
 const path = require('path');
-const pg = require('pg');
 const pgp = require('pg-promise')();
 
 function sql(file) {
-  var fullPath = path.join(__dirname, './../../db/queries/users', file);
-  return new pgp.QueryFile(fullPath, {minify: true});
+  const fullPath = path.join(__dirname, './../../db/queries/users', file);
+  return new pgp.QueryFile(fullPath, { minify: true });
 }
 
-let queries = {
+const queries = {
   addUser: sql('createUser.sql'),
   getUserById: sql('getUserById.sql'),
   getUserByUsername: sql('getUserByUsername.sql'),
@@ -54,7 +53,7 @@ module.exports.deleteUser = (req, res) => {
     console.log('You deleted this user:', data);
     res.status(204).json(data);
   })
-  .catch ((error) => {
+  .catch((error) => {
     console.log(error);
     res.status(404).send('FAILED deleting user');
   });
@@ -65,13 +64,13 @@ module.exports.updateUser = (req, res) => {
   const { username } = req.user[0];
 
   db.query(queries.updateUser, {
-    username: username,
-    description: description
+    username,
+    description
   })
   .then(() => {
     res.end();
   })
-  .catch ((error) => {
-    res.status(404).send('FAILED updating user');
+  .catch((error) => {
+    res.status(404).send('FAILED updating user', error);
   });
 };
