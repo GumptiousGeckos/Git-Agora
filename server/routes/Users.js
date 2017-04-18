@@ -8,7 +8,7 @@ function sql(file) {
 }
 
 const queries = {
-  addUser: sql('createUser.sql'),
+  addUser: sql('createUser.sql').query,
   getUserById: sql('getUserById.sql'),
   getUserByUsername: sql('getUserByUsername.sql'),
   deleteUser: sql('deleteUserByUsername.sql'),
