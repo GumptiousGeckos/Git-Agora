@@ -55,13 +55,6 @@ describe('Project Reducer', () => {
 });
 
 describe('Components', () => {
-  describe('ProjectBoard', () => {
-    it('should render a button', () => {
-      const wrapper = shallow(<ProjectBoard getProjects={actions.fetchProjects} />);
-      expect(wrapper.find('button').length).toBe(1);
-    });
-  });
-
   describe('ProjectBoardEntry', () => {
     const sampleProject = {
       id: 0,
