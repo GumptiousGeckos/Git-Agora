@@ -29,8 +29,8 @@ let queries = {
   addMessage: sql('messages/insertMessage.sql'),
   addRating: sql('ratings/addRatings.sql'),
   addTag: sql('tags/insertTag.sql'),
-  addProjectTag: sql('projects_tags/addProjectTag.sql'),
   addProject: sql('projects/addProject.sql'),
+  addProjectTag: sql('projects_tags/addProjectTag.sql'),
   // addArticle: sql('articles/addArticle.sql'),
   addUser: sql('users/createUser.sql'),
   addVote: sql('votes/insertVote.sql')
@@ -45,7 +45,7 @@ data.users.forEach( (user) => {
 });
 
 data.projects.forEach( (project) => {
-  db.query(queries.addProject, [project.user_id, project.title, project.description, project.link])
+  db.query(queries.addProject, [project.id, project.user_id, project.title, project.description, project.link])
   .then(result => console.log('success entering topic', result))
   .catch(err => console.log('an error entering topic into db', err));
 });
