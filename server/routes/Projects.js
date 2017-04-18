@@ -4,30 +4,30 @@ const path = require('path');
 const pg = require('pg');
 const pgp = require('pg-promise')();
 const rp = require('request-promise');
-const GITHUB_CALLBACK = process.env.GITHUB_CALLBACK
+const GITHUB_CALLBACK = process.env.GITHUB_CALLBACK;
 
 function sql(file) {
-  var fullPath = path.join(__dirname, './../../db/queries/projects', file);
-  return new pgp.QueryFile(fullPath, {minify: true});
+  const fullPath = path.join(__dirname, './../../db/queries/projects', file);
+  return new pgp.QueryFile(fullPath, { minify: true });
 }
 
-let queries = {
+const queries = {
   getAllProjects: sql('getAllProjects.sql'),
   addProject: sql('addProject.sql')
-}
+};
 
 
 module.exports.getAllProjects = (req, res) => {
 
   return db.query(queries.getAllProjects)
-  .then( (data) => {
+  .then((data) => {
     console.log('Success getting all projects');
     res.status(200).json(data);
   })
-  .catch( error => {
+  .catch((error) => {
     res.status(404).send('failed to get all projects');
-  })
-}
+  });
+};
 
 module.exports.addProject = (req, res) => {
   const { id } = req.user[0];
@@ -38,9 +38,9 @@ module.exports.addProject = (req, res) => {
     body: {
       name: 'web',
       active: true,
-      events: ['pull_request', 'push'],
+      events: ['pull_request'],
       config: {
-        url: GITHUB_CALLBACK+'/github/hook', // CHANGE: to deployment URL
+        url: GITHUB_CALLBACK + '/github/hook',
         content_type: 'json'
       }
     },
@@ -49,13 +49,12 @@ module.exports.addProject = (req, res) => {
       Authorization: `token ${req.cookies.git_token}`
     },
     json: true
-  })
+  });
   return db.query(queries.addProject, [projectId, id, name, description, link])
-  .then( (results) => {
+  .then((results) => {
     res.status(201).send(results);
   })
-  .catch( error => {
+  .catch((error) => {
     res.status(404).send('failed adding project');
-  })
-}
-
+  });
+};

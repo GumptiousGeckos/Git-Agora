@@ -1,6 +1,7 @@
 body {
-  background-color: #c2c2cc;
   padding-top: 70px;
+  background: url(http://cdn.wallpapersafari.com/83/55/jp8GTn.jpg);
+  background-size: cover;
 }
 
 p {
@@ -22,6 +23,14 @@ a:hover {
 .caption {
   background-color: #333;
   height: 100px;
+}
+
+.nav-center {
+  margin-top: 20px;
+}
+
+.navbar-right:last-child {
+  margin-right: 50px;
 }
 
 .nav-tabs {

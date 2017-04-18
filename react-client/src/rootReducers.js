@@ -9,10 +9,10 @@ import userReducer from './Users/userReducer';
 
 const appReducer = combineReducers({
   // all reducers in project
-  user: userReducer,
+  userProfile: userReducer,
   homepage: homepageReducer,
   projects: projectReducer,
-  activeTab: navReducer,
+  navBar: navReducer,
   news: newsReducer,
   createproject: createProjectReducer
 });
