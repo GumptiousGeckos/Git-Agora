@@ -14,7 +14,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((user, done) => {
   console.log('deserializing');
-  db.query('SELECT id, name, username, email, picture FROM users where id=$1', [user.id])
+  db.query('SELECT id, name, username, email, picture, description FROM users where id=$1', [user.id])
   .then(results => {
     done(null, results);
   })

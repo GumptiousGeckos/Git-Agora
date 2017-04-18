@@ -12,7 +12,8 @@ let queries = {
   addUser: sql('createUser.sql'),
   getUserById: sql('getUserById.sql'),
   getUserByUsername: sql('getUserByUsername.sql'),
-  deleteUser: sql('deleteUserByUsername.sql')
+  deleteUser: sql('deleteUserByUsername.sql'),
+  updateUser: sql('updateUser.sql')
 };
 
 
@@ -56,5 +57,21 @@ module.exports.deleteUser = (req, res) => {
   .catch ((error) => {
     console.log(error);
     res.status(404).send('FAILED deleting user');
+  });
+};
+
+module.exports.updateUser = (req, res) => {
+  const { description } = req.body;
+  const { username } = req.user[0];
+
+  db.query(queries.updateUser, {
+    username: username,
+    description: description
+  })
+  .then(() => {
+    res.end();
+  })
+  .catch ((error) => {
+    res.status(404).send('FAILED updating user');
   });
 };

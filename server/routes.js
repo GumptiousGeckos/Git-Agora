@@ -37,6 +37,7 @@ router.route('/projectsTags')
 router.route('/users')
   .post(handler.addUser)
   .get(handler.getUser)
+  .put(handler.updateUser)
   .delete(handler.deleteUser);
 
 router.route('/votes')
