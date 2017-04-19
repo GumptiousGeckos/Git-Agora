@@ -20,10 +20,10 @@ export const errorComments = err => ({
 })
 
 
-export const fetchComments = () => (
+export const fetchComments = (topic_id, type) => (
   (dispatch) => {
     dispatch(getComments());
-    axios.get('/api/comments')
+    axios.get('/api/comments', {params: {topic_id, type}})
       .then((response) => {
         dispatch(receivedComments(response.data));
       })
@@ -32,3 +32,20 @@ export const fetchComments = () => (
       });
   }
 );
+
+export const insertComment = (topic_id, type, user_id, content) => (
+  (dispatch) => {
+    dispatch(addComment());
+    axios.post('/api/comments', {topic_id, type, user_id, content})
+      .then((response) => {
+        console.log('Comment added');
+      })
+      .then(() => {
+        dispatch(fetchComments(topic_id, type));
+      })
+      .catch((err) => {
+        console.log('ERROR adding comment: ', err)
+      })
+  }
+);
+
