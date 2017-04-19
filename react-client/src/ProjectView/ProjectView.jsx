@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import CommentSection from '../CommentSection/CommentSection.jsx';
 
 export class ProjectView extends React.Component {
 
   render() {
+
     const { mainProject } = this.props;
 
     return (
@@ -24,13 +26,14 @@ export class ProjectView extends React.Component {
           </div>
           <div>
             <h1>COMMENTS SECTION PLACEHOLDER</h1>
+            <CommentSection />
           </div>
         </div>
         <div className="col-md-3">
           <div className="text-center bordered">
             <h1 className="underline">Collaborators</h1>
             {
-              mainProject.collaborators && mainProject.collaborators.map((person, index) => 
+              mainProject.collaborators && mainProject.collaborators.map((person, index) =>
                 <div key={index}>
                   <h3>{person.name}</h3>
                 </div>
