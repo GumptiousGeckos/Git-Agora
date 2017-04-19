@@ -1,17 +1,17 @@
-const db = require('./db.js');
+// const db = require('./db.js');
 const data = require('./dummyData.js');
 const pgp = require('pg-promise')();
 const path = require('path');
 const pg = require('pg');
 
 // This is here because env LOCAL DB not working
-// const config = {
-//   host: 'localhost',
-//   port: 5432,
-//   database: 'gecko'
-// };
+const config = {
+  host: 'localhost',
+  port: 5432,
+  database: 'gecko'
+};
 
-// const db = pgp(config);
+const db = pgp(config);
 
 
 
@@ -39,15 +39,15 @@ let queries = {
 
 
 data.users.forEach( (user) => {
-  db.query(queries.addUser, [user.id, user.username, user.email, user.mobile])
+  db.any(queries.addUser.query, {id: user.id, name: user.name, username: user.username, email: user.email, picture: user.picture})
   .then(result => console.log('success entering user', result))
   .catch(err => console.log('an error entering user into db', err));
 });
 
 data.projects.forEach( (project) => {
   db.query(queries.addProject, [project.id, project.user_id, project.title, project.description, project.link])
-  .then(result => console.log('success entering topic', result))
-  .catch(err => console.log('an error entering topic into db', err));
+  .then(result => console.log('success entering project', result))
+  .catch(err => console.log('an error entering project into db', err));
 });
 
 data.tags.forEach( (tag) => {
