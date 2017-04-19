@@ -39,5 +39,5 @@ module.exports.getAllProjects = require('./Projects').getAllProjects;
 module.exports.addProject = require('./Projects').addProject;
 module.exports.getUserProjects = require('./Projects').getUserProjects;
 
-module.exports.getAllArticles = require('./Articles').getAllArticles;
+module.exports.getAllArticles = require('./Articles').getTopArticles;
 module.exports.getTopSixArticles = require('./Articles').getTopSixArticles;
