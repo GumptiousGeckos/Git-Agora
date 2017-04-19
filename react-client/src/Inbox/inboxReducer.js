@@ -2,7 +2,7 @@ const initialState = {
   messages: [],
   selectedMessage: {},
   fetchingInbox: false,
-  messageError: false
+  messageError: null
 };
 
 const inboxReducer = (state = initialState, action) => {
@@ -17,6 +17,17 @@ const inboxReducer = (state = initialState, action) => {
         ...state,
         fetchingInbox: false,
         messages: action.messages
+      };
+    case 'ERROR_INBOX':
+      return {
+        ...state,
+        fetchingInbox: false,
+        messageError: action.error
+      };
+    case 'SELECT_MESSAGE':
+      return {
+        ...state,
+        selectedMessage: action.message
       };
     default:
       return state;

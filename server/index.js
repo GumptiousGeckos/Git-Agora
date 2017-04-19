@@ -8,7 +8,6 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const pgp = require('pg-promise')();
-const rp = require('request-promise');
 const db = require('../db/db');
 const cookieParser = require('cookie-parser');
 const passportGithub = require('./auth/github');
@@ -16,6 +15,7 @@ const routes = require('./routes.js');
 const path = require('path');
 const pgSession = require('connect-pg-simple')(session);
 const git_routes = require('./git_routes');
+const mongo = require('./../mongodb/mongo');
 
 const app = express();
 app.use(cookieParser());

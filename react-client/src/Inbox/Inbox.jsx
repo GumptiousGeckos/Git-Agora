@@ -6,9 +6,16 @@ export class Inbox extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    const { fetch } = this.props;
+    fetch();
+  }
   render() {
     return (
-      <div />
+      <div>
+        <h1> Inbox </h1>
+      </div>
     );
   }
 }
