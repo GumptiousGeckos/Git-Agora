@@ -21,24 +21,28 @@ module.exports = {
     {
       id: 1,
       user_id: 3,
+      type: 'project',
       topic_id: 3,
       content: 'Wow you In? That\'s a cool name'
     },
     {
       id: 2,
       user_id: 1,
-      topic_id: 2,
+      type: 'project',
+      topic_id: 3,
       content: 'You will be rich'
     },
     {
       id: 4,
       user_id: 5,
+      type: 'project',
       topic_id: 4,
       content: 'Can I get in on this?'
     },
     {
       id: 4,
       user_id: 7,
+      type: 'project',
       topic_id: 5,
       content: 'Yah for you'
     }
@@ -263,52 +267,52 @@ module.exports = {
   users: [
     {
       id: 1,
-      username: 'Ed',
-      password: 'jeff',
+      name: 'Ed',
+      username: 'Ed91',
       email: 'jeff@jeff.com',
-      mobile: '3444444'
+      picture: 'www.google.com'
     },
     {
       id: 2,
-      username: 'Paul',
-      password: 'jeff',
+      name: 'Paul',
+      username: 'Paul52',
       email: 'jeff1@jeff.com',
-      mobile: '3444444'
+      picture: 'www.google.com'
     },
     {
       id: 3,
-      username: 'Jon',
-      password: 'jeff',
+      name: 'Jon',
+      username: 'Jon99',
       email: 'jeff2@jeff.com',
-      mobile: '344-4444'
+      picture: '344-4444'
     },
     {
       id: 4,
-      username: 'Augustus',
-      password: 'jeff',
+      name: 'Augustus',
+      username: 'Augustus11',
       email: 'jeff3@jeff.com',
-      mobile: '3444444'
+      picture: 'www.google.com'
     },
     {
       id: 5,
-      username: 'Sarah',
-      password: 'jeff',
+      name: 'Sarah',
+      username: 'Sarah69',
       email: 'jeff4@jeff.com',
-      mobile: '3444444'
+      picture: 'www.google.com'
     },
     {
       id: 6,
-      username: 'Jessica',
-      password: 'jeff',
+      name: 'Jessica',
+      username: 'JessBess',
       email: 'jeff5@jeff.com',
-      mobile: '3444444'
+      picture: 'www.google.com'
     },
     {
       id: 7,
-      username: 'Ragnar',
-      password: 'jeff',
+      name: 'Ragnar',
+      username: 'Ragnar666',
       email: 'jeff6@jeff.com',
-      mobile: '3444444'
+      picture: 'www.google.com'
     }
   ],
 
