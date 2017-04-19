@@ -2,33 +2,35 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CommentEntry from './CommentEntry.jsx';
-import { addComment, fetchComments } from './commentActions';
+import { insertComment, fetchComments } from './commentActions';
 
 export class CommentSection extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      content: '',
-      type: 'project',
-      topic_id: 3
+      content: ''
     }
   }
 
   componentWillMount() {
-    const { getComments } = this.props;
-    getComments();
+    const { getComments, projectId, type } = this.props;
+    getComments(projectId, type);
   }
 
   handleChange(e) {
+    console.log(this.state.content);
     this.setState({
       content: e.target.value
     })
   }
 
-  addComment() {
-    const { addComment } = this.props;
-    addComment();
+  handleSubmit(e) {
+    e.preventDefault();
+    const { addComment, type, projectId } = this.props;
+    let content = this.state.content;
+    let user_id = 3;
+    addComment(projectId, type, user_id, content);
   }
 
   render () {
@@ -43,7 +45,7 @@ export class CommentSection extends React.Component {
         </div>
         <form>
           <input onChange={this.handleChange.bind(this)}type="textbox"></input>
-          <button>Add Comment</button>
+          <button onClick={this.handleSubmit.bind(this)}>Add Comment</button>
         </form>
       </div>
     )
@@ -59,8 +61,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getComments: () => dispatch(fetchComments()),
-    addComment: () => dispatch(addComment())
+    getComments: (topic_id, type) => dispatch(fetchComments(topic_id, type)),
+    addComment: (topic_id, type, user_id, content) => dispatch(insertComment(topic_id, type, user_id, content))
   };
 };
 
