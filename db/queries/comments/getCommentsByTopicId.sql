@@ -1,5 +1,10 @@
 /* get all comments by topic Id */
 SELECT
   *
-from
+FROM
   comments
+where
+  type = ${type}
+AND
+  topic_id = ${topic_id}
+
