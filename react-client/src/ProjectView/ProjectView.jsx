@@ -6,6 +6,8 @@ export class ProjectView extends React.Component {
 
   render() {
 
+    console.log('PROPS', this.props);
+
     const { mainProject } = this.props;
 
     return (
@@ -26,7 +28,9 @@ export class ProjectView extends React.Component {
           </div>
           <div>
             <h1>COMMENTS SECTION PLACEHOLDER</h1>
-            <CommentSection />
+            <CommentSection
+              projectId={mainProject.id}
+              type={'project'}/>
           </div>
         </div>
         <div className="col-md-3">
