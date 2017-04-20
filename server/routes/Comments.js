@@ -19,7 +19,7 @@ let queries = {
 module.exports.getComments = (req, res) => {
   const { type, topic_id } = req.query;
 
-  return db.query(queries.getComments, { type: type, topic_id: topic_id })
+  return db.query(queries.getComments, { type, topic_id })
   .then( data => {
     console.log('Success getting comments');
     res.status(200).json(data);
@@ -31,9 +31,9 @@ module.exports.getComments = (req, res) => {
 
 
 module.exports.addComment = (req, res) => {
-  const { user_id, type, topic_id, content } = req.body;
+  const { user_id, date_created, type, topic_id, content } = req.body;
 
-  return db.query(queries.addComment, [user_id, type, topic_id, content])
+  return db.query(queries.addComment, { user_id, type, date_created, topic_id, content })
   .then(() => {
     res.status(201).send('Success adding comment');
   })
