@@ -1,0 +1,1 @@
+select * from votes where user_id = ${user_id} and topic_id = ${topic_id} and type = ${type}

@@ -53,7 +53,7 @@ router.route('/projects/:id')
   .get(handler.getProjectById);
 
 router.route('/projects')
-  .get(handler.getAllProjects)
+  .get(handler.getTopProjects)
   .post(handler.addProject);
 
 router.route('/articles')

@@ -30,6 +30,11 @@ const navBar = (state = initialState, action) => {
         error: action.payload,
         fetchingUserStatus: false
       };
+    case 'LOG_IN_TO_VOTE':
+      return {
+        ...state
+        // figure out log in message
+      }
     default: {
       return state;
     }

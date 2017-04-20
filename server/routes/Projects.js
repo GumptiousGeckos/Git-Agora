@@ -15,7 +15,9 @@ const queries = {
   getAllProjects: sql('getAllProjects.sql'),
   getUserProjects: sql('getUserProjects.sql'),
   addProject: sql('addProject.sql'),
-  getProjectById: sql('getProjectById.sql')
+  getProjectById: sql('getProjectById.sql'),
+  addTopProjects: sql('getTopProjects.sql'),
+  addTopProjectsAndUserVotes: sql('getTopProjectsAndUserVotes.sql')
 };
 
 
@@ -79,4 +81,27 @@ module.exports.getProjectById = (req, res) => {
   .catch((error) => {
     res.status(404).send('ERROR', error);
   });
+};
+
+module.exports.getTopProjects = (req, res) => {
+  if (req.user) {
+    console.log(req.user[0]);
+    return db.query(queries.addTopProjectsAndUserVotes, {user_id: req.user[0].id})
+    .then((data) => {
+      console.log('Success getting top projects', data);
+      res.status(200).json(data);
+    })
+    .catch( error => {
+      res.status(404).send('failed to get projects and user votes');
+    });
+  } else {
+    return db.query(queries.addTopProjects)
+    .then((data) => {
+      console.log('Success getting projects');
+      res.status(200).json(data);
+    })
+    .catch( error => {
+      res.status(404).send('failed to get projects without userId');
+    });
+  }
 };

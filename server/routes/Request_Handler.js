@@ -35,10 +35,10 @@ module.exports.getVotes = require('./Votes').getVotes;
 
 module.exports.addTopic = require('./Topics').addTopic;
 
-module.exports.getAllProjects = require('./Projects').getAllProjects;
+module.exports.getTopProjects = require('./Projects').getTopProjects;
 module.exports.addProject = require('./Projects').addProject;
 module.exports.getUserProjects = require('./Projects').getUserProjects;
 module.exports.getProjectById = require('./Projects').getProjectById;
 
-module.exports.getAllArticles = require('./Articles').getAllArticles;
+module.exports.getAllArticles = require('./Articles').getTopArticles;
 module.exports.getTopSixArticles = require('./Articles').getTopSixArticles;

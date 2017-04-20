@@ -11,21 +11,9 @@ function sql(file) {
 }
 
 let queries = {
-  getAllArticles: sql('getAllArticles.sql'),
-  getTopSixArticles: sql('getTopSixArticles.sql')
-}
-
-
-module.exports.getAllArticles = (req, res) => {
-
-  return db.query(queries.getAllArticles)
-  .then( (data) => {
-    console.log('Success getting articles');
-    res.status(200).json(data);
-  })
-  .catch( error => {
-    res.status(404).send('failed to get articles');
-  })
+  getTopArticles: sql('getTopArticles.sql'),
+  getTopSixArticles: sql('getTopSixArticles.sql'),
+  getTopArticlesAndUserVotes: sql('getTopArticlesAndUserVotes.sql')
 }
 
 
@@ -38,5 +26,29 @@ module.exports.getTopSixArticles = (req, res) => {
   })
   .catch( error => {
     res.status(404).send('failed to get articles');
-  })
+  });
+}
+
+
+module.exports.getTopArticles = (req, res) => {
+  if (req.user) {
+    console.log(req.user[0]);
+    return db.query(queries.getTopArticlesAndUserVotes, {user_id: req.user[0].id})
+    .then( (data) => {
+    console.log('Success getting top articles', data);
+    res.status(200).json(data);
+    })
+    .catch( error => {
+      res.status(404).send('failed to get articles and user votes');
+    });
+  } else {
+    return db.query(queries.getTopArticles)
+    .then( (data) => {
+    console.log('Success getting articles');
+    res.status(200).json(data);
+    })
+    .catch( error => {
+    res.status(404).send('failed to get articles without userId');
+    });
+  }
 }
