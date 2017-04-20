@@ -17,7 +17,6 @@ const toggleProjectVote = (topic_id, vote_type) => ({
 
 export const vote = (user, vote_type, type, topic_id, userVote) => ( (dispatch) => {
     if (user) {
-      console.log(type);
       if (type === 'article') {
         dispatch(toggleArticleVote(topic_id, vote_type))
       } 
