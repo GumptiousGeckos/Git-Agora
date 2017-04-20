@@ -20,11 +20,11 @@ module.exports.getComments = (req, res) => {
   const { type, topic_id } = req.query;
 
   return db.query(queries.getComments, { type, topic_id })
-  .then( data => {
+  .then((data) => {
     console.log('Success getting comments');
     res.status(200).json(data);
   })
-  .catch( error => {
+  .catch((error) => {
     res.status(404).send(error, 'FAILED getting comments');
   });
 }
@@ -37,7 +37,7 @@ module.exports.addComment = (req, res) => {
   .then(() => {
     res.status(201).send('Success adding comment');
   })
-  .catch( error => {
+  .catch((error) => {
     res.status(404).send('failed to add comment');
   })
 }
