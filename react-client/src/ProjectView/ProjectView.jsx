@@ -5,9 +5,6 @@ import CommentSection from '../CommentSection/CommentSection.jsx';
 export class ProjectView extends React.Component {
 
   render() {
-
-    console.log('PROPS', this.props);
-
     const { mainProject } = this.props;
 
     return (
