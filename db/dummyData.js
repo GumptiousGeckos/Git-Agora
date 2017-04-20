@@ -21,6 +21,7 @@ module.exports = {
     {
       id: 1,
       user_id: 3,
+      date_created: new Date().toDateString(),
       type: 'project',
       topic_id: 3,
       content: 'Wow you In? That\'s a cool name'
@@ -28,6 +29,7 @@ module.exports = {
     {
       id: 2,
       user_id: 1,
+      date_created: new Date().toDateString(),
       type: 'project',
       topic_id: 3,
       content: 'You will be rich'
@@ -35,6 +37,7 @@ module.exports = {
     {
       id: 4,
       user_id: 5,
+      date_created: new Date().toDateString(),
       type: 'project',
       topic_id: 4,
       content: 'Can I get in on this?'
@@ -42,6 +45,7 @@ module.exports = {
     {
       id: 4,
       user_id: 7,
+      date_created: new Date().toDateString(),
       type: 'project',
       topic_id: 5,
       content: 'Yah for you'
@@ -270,49 +274,49 @@ module.exports = {
       name: 'Ed',
       username: 'Ed91',
       email: 'jeff@jeff.com',
-      picture: 'www.google.com'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 2,
       name: 'Paul',
       username: 'Paul52',
       email: 'jeff1@jeff.com',
-      picture: 'www.google.com'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 3,
       name: 'Jon',
       username: 'Jon99',
       email: 'jeff2@jeff.com',
-      picture: '344-4444'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 4,
       name: 'Augustus',
       username: 'Augustus11',
       email: 'jeff3@jeff.com',
-      picture: 'www.google.com'
+      picture: 'www.https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 5,
       name: 'Sarah',
       username: 'Sarah69',
       email: 'jeff4@jeff.com',
-      picture: 'www.google.com'
+      picture: 'www.https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 6,
       name: 'Jessica',
       username: 'JessBess',
       email: 'jeff5@jeff.com',
-      picture: 'www.google.com'
+      picture: 'www.https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 7,
       name: 'Ragnar',
       username: 'Ragnar666',
       email: 'jeff6@jeff.com',
-      picture: 'www.google.com'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     }
   ],
 
