@@ -1,0 +1,1 @@
+select projectstable.*, votestable.votes from (select sum(vote_type) votes, topic_id from votes where type='project' group by topic_id) votestable left join (select * from projects) projectstable on (projectstable.id = votestable.topic_id) order by votestable.votes desc limit 25;
