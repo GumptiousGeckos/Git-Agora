@@ -2,10 +2,10 @@
 UPDATE
   votes
 SET
-  vote_type = $1
+  vote_type = ${vote_type}
 where
-  user_id = $2
+  user_id = ${user_id}
 AND
-  type = $3
+  type = ${type}
 AND
-  topic_id = $4
+  topic_id = ${topic_id}
