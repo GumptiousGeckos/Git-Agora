@@ -534,6 +534,65 @@ module.exports = {
       user_id: 6,
       topic_id: 19,
       vote_type: 1
-    }
+    }, {
+      type: 'project',
+      user_id: 1,
+      topic_id: 2,
+      vote_type: 0
+    },
+    {
+      type: 'project',
+      user_id: 2,
+      topic_id: 3,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 3,
+      topic_id: 4,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 4,
+      topic_id: 5,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 5,
+      topic_id: 6,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 6,
+      topic_id: 6,
+      vote_type: 1
+    },
+        {
+      type: 'project',
+      user_id: 1,
+      topic_id: 6,
+      vote_type: 0
+    },
+    {
+      type: 'project',
+      user_id: 2,
+      topic_id: 7,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 3,
+      topic_id: 8,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 4,
+      topic_id: 8,
+      vote_type: 1
+    },
   ]
 }
