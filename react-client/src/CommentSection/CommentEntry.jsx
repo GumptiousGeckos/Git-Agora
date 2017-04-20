@@ -1,35 +1,30 @@
 import React from 'react';
 
 export default (props) => {
-  let comment = {
-    username: 'NoFussGus',
-    time: '2 days ago',
-    content: 'That\'s Amaazing dood',
-    dev_points: 150,
-    idea_points: 233
-  }
-
+  const { comment } = props;
 
 
   return (
     <div className="comment">
       <div className="row">
         <div className="col-md-1">
-        Post #1
+        {`#:  ${comment.id}`}
         </div>
         <div className="col-md-11">
-          <span id="username">{props.comment.user_id}</span>
-          <span className="timestamp">{props.comment.created_at}</span>
+          <div className="col-md-2">
+            <span id="username">{comment.username}</span>
+          </div>
+          <div className="col-md-10">
+            <span className="date-created">{comment.date_created}</span>
+          </div>
         </div>
       </div>
       <div className="row">
         <div className="col-md-1">
-          <div >Dev: 250</div>
-          <div >Idea: 350</div>
-
+          <img id="icon" src={comment.picture} className="img-fluid" alt="Responsive image"/>
         </div>
-        <div className="col-md-11">
-          <p>{props.comment.content}   </p>
+        <div className="col-md-11" id="content-section">
+          <p id="content">{comment.content}</p>
         </div>
       </div>
     </div>
