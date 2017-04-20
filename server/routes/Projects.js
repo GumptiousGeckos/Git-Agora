@@ -14,7 +14,8 @@ function sql(file) {
 const queries = {
   getAllProjects: sql('getAllProjects.sql'),
   getUserProjects: sql('getUserProjects.sql'),
-  addProject: sql('addProject.sql')
+  addProject: sql('addProject.sql'),
+  getProjectById: sql('getProjectById.sql')
 };
 
 
@@ -62,10 +63,20 @@ module.exports.addProject = (req, res) => {
 
 module.exports.getUserProjects = (req, res) => {
   db.query(queries.getUserProjects, { id: req.params.id })
-  .then(results => {
+  .then((results) => {
     res.status(200).json(results);
   })
-  .catch(error => {
+  .catch((error) => {
+    res.status(404).send('ERROR', error);
+  });
+};
+
+module.exports.getProjectById = (req, res) => {
+  db.query(queries.getProjectById, { id: req.params.id })
+  .then((results) => {
+    res.status(200).json(results);
+  })
+  .catch((error) => {
     res.status(404).send('ERROR', error);
   });
 };

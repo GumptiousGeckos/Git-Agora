@@ -1,4 +1,11 @@
-const navBar = (state = {}, action) => {
+const initialState = {
+  activeTab: '',
+  authorized: false,
+  fetchingUserStatus: false,
+  error: null
+};
+
+const navBar = (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_TAB':
       return {

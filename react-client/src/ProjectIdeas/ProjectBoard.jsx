@@ -38,7 +38,7 @@ export class ProjectBoard extends React.Component {
             </li>
           </ul>
           {
-            projects && projects.map(project =>
+            projects.map(project =>
               <ProjectBoardEntry
                 key={project.id}
                 project={project}

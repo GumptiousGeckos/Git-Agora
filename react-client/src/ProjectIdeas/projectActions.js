@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-export const addProject = () => ({
-  type: 'ADD_PROJECT'
-});
-
 export const requestProjects = () => ({
   type: 'FETCHING_PROJECTS'
 });
@@ -16,11 +12,6 @@ export const receivedProjects = projects => ({
 export const errorProjects = err => ({
   type: 'REQUEST_PROJECTS_ERROR',
   error: err
-});
-
-export const updateMainProject = project => ({
-  type: 'UPDATE_MAIN_PROJECT',
-  payload: project
 });
 
 export const fetchProjects = () => (

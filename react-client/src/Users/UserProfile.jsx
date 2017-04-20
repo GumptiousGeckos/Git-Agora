@@ -9,12 +9,12 @@ export class UserProfile extends React.Component {
 
   componentWillMount() {
     const { user, getUserProjects } = this.props;
-    getUserProjects(user[0].id);
+    getUserProjects(user.id);
   }
 
   render() {
     const { user, userProjects, editMode,
-            descriptionText = user[0].description,
+            descriptionText = user.description,
             updateMainProject, toggleEditMode,
             updateDescriptionText, saveChanges } = this.props;
 
@@ -65,19 +65,19 @@ export class UserProfile extends React.Component {
       <div className="container">
         <div className="col-md-4">
           <div className="picture">
-            <img src={user[0].picture} />
+            <img src={user.picture} />
             <div className="text-left">
               {description}
               {editModeButton}
               <div className="col-md-12">
-                <h5>Name: {user[0].name}</h5>
+                <h5>Name: {user.name}</h5>
                 <h5>{'Github: '}
-                  <a href={'https://www.github.com/' + user[0].username} target="_blank">
-                    {user[0].username}
+                  <a href={'https://www.github.com/' + user.username} target="_blank">
+                    {user.username}
                   </a>
                 </h5>
-                <h5>Email: {user[0].email}</h5>
-                <h5>Points: {user[0].points}</h5>
+                <h5>Email: {user.email}</h5>
+                <h5>Points: {user.points}</h5>
               </div>
             </div>
             <div className="text-left col-md-12">
