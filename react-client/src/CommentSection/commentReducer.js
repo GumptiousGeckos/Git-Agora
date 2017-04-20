@@ -1,17 +1,7 @@
-let idCount = 11;
-
 const comment = (state = [], action) => {
   switch (action.type) {
     case 'ADD_COMMENT':
-      return [
-        ...state,
-        {
-          id: idCount++,
-          username: 'NoFussGus',
-          time: '3 AM EVERYDAY',
-          content: 'THIS IS THE BEST COMMENT'
-        }
-      ];
+      return [...state];
     default:
       return state;
   }
@@ -23,7 +13,7 @@ const comments = (state = {}, action) => {
     case 'ADD_COMMENT':
       return {
         ...state,
-        comments: comment(state.coments, action)
+        comments: comment(state.comments, action)
       };
     case 'FETCHING_COMMENTS':
       return {
