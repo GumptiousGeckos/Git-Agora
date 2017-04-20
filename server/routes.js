@@ -50,7 +50,7 @@ router.route('/projects/users/:id')
   .get(handler.getUserProjects);
 
 router.route('/projects')
-  .get(handler.getAllProjects)
+  .get(handler.getTopProjects)
   .post(handler.addProject);
 
 router.route('/articles')

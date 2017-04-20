@@ -35,7 +35,7 @@ module.exports.getVotes = require('./Votes').getVotes;
 
 module.exports.addTopic = require('./Topics').addTopic;
 
-module.exports.getAllProjects = require('./Projects').getAllProjects;
+module.exports.getTopProjects = require('./Projects').getTopProjects;
 module.exports.addProject = require('./Projects').addProject;
 module.exports.getUserProjects = require('./Projects').getUserProjects;
 
