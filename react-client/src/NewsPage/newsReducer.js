@@ -46,7 +46,7 @@ const news = (state = initialState, action) => {
             return article;
           }
         })
-      }
+      };
     default:
       return state;
   }
