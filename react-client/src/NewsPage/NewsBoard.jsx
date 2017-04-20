@@ -12,6 +12,7 @@ export class NewsBoard extends React.Component {
 
   render() {
     const { articles } = this.props.news;
+
     if (articles && articles.length > 0) {
       return (
         <div className="col-md-12">
@@ -27,7 +28,7 @@ export class NewsBoard extends React.Component {
             </li>
           </ul>
           {articles.map((article) => 
-            <NewsArticleEntry key={article.publishedAt} article={article} />
+            <NewsArticleEntry key={article.published_at} article={article} />
           )}
         </div>
       );
