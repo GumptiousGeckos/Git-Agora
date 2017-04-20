@@ -19,7 +19,6 @@ export class CommentSection extends React.Component {
   }
 
   handleChange(e) {
-    console.log(this.state.content);
     this.setState({
       content: e.target.value
     })
@@ -29,15 +28,15 @@ export class CommentSection extends React.Component {
     e.preventDefault();
     const { addComment, type, projectId } = this.props;
     let content = this.state.content;
+    // hard coded userId here, need to change/integrate with Github Auth
     let user_id = 3;
-    addComment(projectId, type, user_id, content);
+    let date_created = new Date().toDateString();
+    addComment(projectId, type, user_id, date_created, content);
   }
 
   render () {
-
     const { comments } = this.props;
 
-    // console.log('PROPS', this.props);
     return (
       <div>
         <div>
@@ -62,7 +61,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getComments: (topic_id, type) => dispatch(fetchComments(topic_id, type)),
-    addComment: (topic_id, type, user_id, content) => dispatch(insertComment(topic_id, type, user_id, content))
+    addComment: (topic_id, type, user_id, date_created, content) => dispatch(insertComment(topic_id, type, user_id, date_created, content))
   };
 };
 
