@@ -7,6 +7,7 @@ import newsReducer from './NewsPage/newsReducer';
 import homepageReducer from './HomePage/homepageReducer';
 import createProjectReducer from './CreateProject/createProjectReducer';
 import userReducer from './Users/userReducer';
+import commentReducer from './CommentSection/commentReducer';
 
 const appReducer = combineReducers({
   // all reducers in project
@@ -16,7 +17,8 @@ const appReducer = combineReducers({
   projects: projectsReducer,
   navBar: navReducer,
   news: newsReducer,
-  createproject: createProjectReducer
+  createproject: createProjectReducer,
+  comments: commentReducer
 });
 
 const rootReducer = (state, action) => {

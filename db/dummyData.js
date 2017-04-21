@@ -21,24 +21,32 @@ module.exports = {
     {
       id: 1,
       user_id: 3,
+      date_created: new Date().toDateString(),
+      type: 'project',
       topic_id: 3,
       content: 'Wow you In? That\'s a cool name'
     },
     {
       id: 2,
       user_id: 1,
-      topic_id: 2,
+      date_created: new Date().toDateString(),
+      type: 'project',
+      topic_id: 3,
       content: 'You will be rich'
     },
     {
       id: 4,
       user_id: 5,
+      date_created: new Date().toDateString(),
+      type: 'project',
       topic_id: 4,
       content: 'Can I get in on this?'
     },
     {
       id: 4,
       user_id: 7,
+      date_created: new Date().toDateString(),
+      type: 'project',
       topic_id: 5,
       content: 'Yah for you'
     }
@@ -263,45 +271,52 @@ module.exports = {
   users: [
     {
       id: 1,
-      username: 'Ed',
-      password: 'jeff',
-      email: 'jeff@jeff.com'
+      name: 'Ed',
+      username: 'Ed91',
+      email: 'jeff@jeff.com',
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 2,
-      username: 'Paul',
-      password: 'jeff',
-      email: 'jeff1@jeff.com'
+      name: 'Paul',
+      username: 'Paul52',
+      email: 'jeff1@jeff.com',
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 3,
-      username: 'Jon',
-      password: 'jeff',
-      email: 'jeff2@jeff.com'
+      name: 'Jon',
+      username: 'Jon99',
+      email: 'jeff2@jeff.com',
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 4,
-      username: 'Augustus',
-      password: 'jeff',
-      email: 'jeff3@jeff.com'
+      name: 'Augustus',
+      username: 'Augustus11',
+      email: 'jeff3@jeff.com',
+      picture: 'www.https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 5,
-      username: 'Sarah',
-      password: 'jeff',
-      email: 'jeff4@jeff.com'
+      name: 'Sarah',
+      username: 'Sarah69',
+      email: 'jeff4@jeff.com',
+      picture: 'www.https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 6,
-      username: 'Jessica',
-      password: 'jeff',
-      email: 'jeff5@jeff.com'
+      name: 'Jessica',
+      username: 'JessBess',
+      email: 'jeff5@jeff.com',
+      picture: 'www.https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 7,
-      username: 'Ragnar',
-      password: 'jeff',
-      email: 'jeff6@jeff.com'
+      name: 'Ragnar',
+      username: 'Ragnar666',
+      email: 'jeff6@jeff.com',
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     }
   ],
 

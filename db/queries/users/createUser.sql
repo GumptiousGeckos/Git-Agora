@@ -6,5 +6,6 @@ WHERE NOT EXISTS
   (SELECT 1 FROM
     users
   WHERE
-    id = ${id}
-  )
+    id = ${id})
+RETURNING
+  id;
