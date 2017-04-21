@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import CommentSection from '../CommentSection/CommentSection.jsx';
 
 import { getProjectById } from './projectViewActions';
 
@@ -30,7 +31,9 @@ export class ProjectView extends React.Component {
             <h4>Github: {project.githubLink}</h4>
           </div>
           <div>
-            <h1>COMMENTS SECTION PLACEHOLDER</h1>
+            <CommentSection
+              projectId={mainProject.id}
+              type={'project'}/>
           </div>
         </div>
         <div className="col-md-3">

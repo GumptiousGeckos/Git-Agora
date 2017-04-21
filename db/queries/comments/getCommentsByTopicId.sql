@@ -1,9 +1,12 @@
-/* get all comments by topic Id */
-SELECT
-  *
+select
+  comments.*, users.username, users.picture
 from
   comments
+LEFT JOIN
+  users
+ON
+  comments.user_id = users.id
 WHERE
-  type = $1
+  comments.type = ${type}
 AND
-  topic_id = $1
+  comments.topic_id = ${topic_id};

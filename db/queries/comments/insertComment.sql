@@ -1,5 +1,5 @@
 /* insert comment of a topic */
 INSERT INTO
-  comments (user_id, type, topic_id, content)
+  comments (user_id, date_created, type, topic_id, content)
 VALUES
-  ($1, $2, $3, $4)
+  (${user_id}, ${date_created}, ${type}, ${topic_id}, ${content})
