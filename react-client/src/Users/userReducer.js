@@ -1,4 +1,15 @@
-const user = (state = {}, action) => {
+const initialState = {
+  fetchingUserProjects: false,
+  fetchingUser: false,
+  savingChanges: false,
+  editMode: false,
+  descriptionText: '',
+  user: {},
+  userProjects: [],
+  error: null
+};
+
+const user = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCHING_USER_PROJECTS':
       return {
@@ -42,6 +53,23 @@ const user = (state = {}, action) => {
         ...state,
         savingChanges: false,
         error: action.error
+      };
+    case 'FETCHING_USER':
+      return {
+        ...state,
+        fetchingUser: true
+      };
+    case 'RECEIVED_USER':
+      return {
+        ...state,
+        user: action.payload,
+        fetchingUser: false
+      };
+    case 'REQUEST_USER_ERROR':
+      return {
+        ...state,
+        error: action.error,
+        fetchingUser: false
       };
     default:
       return state;

@@ -2,21 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { fetchUserProjects, toggleEditMode, updateDescriptionText, saveChanges } from './userActions';
-import { updateMainProject } from '../ProjectIdeas/projectActions';
+import UserProjects from './UserProjects.jsx';
+import { toggleEditMode, getUserById, updateDescriptionText,
+         saveChanges } from './userActions';
 
 export class UserProfile extends React.Component {
 
   componentWillMount() {
-    const { user, getUserProjects } = this.props;
-    getUserProjects(user.id);
+    const { user, getUserById, match } = this.props;
+    getUserById(match.params.id);
   }
 
   render() {
     const { user, userProjects, editMode,
-            descriptionText = user.description,
-            updateMainProject, toggleEditMode,
+            descriptionText = user.description, toggleEditMode,
             updateDescriptionText, saveChanges } = this.props;
+    const { id } = this.props.match.params;
 
     let description, editModeButton;
 
@@ -86,23 +87,7 @@ export class UserProfile extends React.Component {
           </div>
         </div>
         <div className="col-md-8">
-          <h1 className="text-center">Projects</h1>
-          <div className="list-group">
-            {
-              userProjects && userProjects.map(project =>
-                <Link to={'/projects/' + project.id} key={project.id}>
-                  <button
-                    type="button"
-                    className="list-group-item"
-                    onClick={() => { updateMainProject(project); }}
-                  >
-                    <span>{project.title}</span>
-                    <h4>{project.description}</h4>
-                  </button>
-                </Link>
-              )
-            }
-          </div>
+          <UserProjects id={id} />
         </div>
       </div>
     );
@@ -111,7 +96,7 @@ export class UserProfile extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.navBar.user,
+    user: state.userProfile.user,
     userProjects: state.userProfile.userProjects,
     editMode: state.userProfile.editMode,
     descriptionText: state.userProfile.descriptionText
@@ -120,11 +105,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUserProjects: id => dispatch(fetchUserProjects(id)),
-    updateMainProject: project => dispatch(updateMainProject(project)),
     toggleEditMode: () => dispatch(toggleEditMode()),
     updateDescriptionText: text => dispatch(updateDescriptionText(text)),
-    saveChanges: text => dispatch(saveChanges(text))
+    saveChanges: text => dispatch(saveChanges(text)),
+    getUserById: id => dispatch(getUserById(id))
   };
 };
 

@@ -23,6 +23,8 @@ class App extends React.Component {
           <Route path="/projects/:id" component={ProjectView} />
           <Route path="/profile" component={UserProfile} />
           <Route path="/createproject" component={CreateProject} />
+          <Route path="/users/:id" component={UserProfile} />
+
         </div>
       </Router>
     );
