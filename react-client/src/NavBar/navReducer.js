@@ -1,6 +1,7 @@
 const initialState = {
   activeTab: '',
   authorized: false,
+  user: {},
   fetchingUserStatus: false,
   error: null
 };
@@ -34,7 +35,7 @@ const navBar = (state = initialState, action) => {
       return {
         ...state
         // figure out log in message
-      }
+      };
     default: {
       return state;
     }
