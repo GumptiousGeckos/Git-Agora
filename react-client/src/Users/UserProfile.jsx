@@ -14,9 +14,8 @@ export class UserProfile extends React.Component {
   }
 
   render() {
-    const { user, userProjects, editMode,
-            descriptionText = user.description, toggleEditMode,
-            updateDescriptionText, saveChanges } = this.props;
+    const { user, editMode, descriptionText = user.description,
+            toggleEditMode, updateDescriptionText, saveChanges } = this.props;
     const { id } = this.props.match.params;
 
     let description, editModeButton;
@@ -66,7 +65,7 @@ export class UserProfile extends React.Component {
       <div className="container">
         <div className="col-md-4">
           <div className="picture">
-            <img src={user.picture} />
+            <img src={user.picture ? user.picture : 'http://www.plentyofcheddar.com/wp-content/uploads/2013/12/questionmark51.jpg'} />
             <div className="text-left">
               {description}
               {editModeButton}
@@ -97,7 +96,6 @@ export class UserProfile extends React.Component {
 const mapStateToProps = (state) => {
   return {
     user: state.userProfile.user,
-    userProjects: state.userProfile.userProjects,
     editMode: state.userProfile.editMode,
     descriptionText: state.userProfile.descriptionText
   };
