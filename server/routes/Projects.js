@@ -85,7 +85,6 @@ module.exports.getProjectById = (req, res) => {
 
 module.exports.getTopProjects = (req, res) => {
   if (req.user) {
-    console.log(req.user[0]);
     return db.query(queries.addTopProjectsAndUserVotes, {user_id: req.user[0].id})
     .then((data) => {
       console.log('Success getting top projects', data);
