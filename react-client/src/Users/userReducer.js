@@ -3,7 +3,7 @@ const initialState = {
   fetchingUser: false,
   savingChanges: false,
   editMode: false,
-  descriptionText: '',
+  descriptionText: undefined,
   user: {},
   userProjects: [],
   error: null
