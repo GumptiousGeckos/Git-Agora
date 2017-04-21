@@ -21,7 +21,7 @@ router.route('/follows')
 
 router.route('/messages')
   .get(handler.getMessages)
-  .post(handler.addMessage);
+  .post(handler.postMessages);
 
 router.route('/ratings')
   .get(handler.getRatings)

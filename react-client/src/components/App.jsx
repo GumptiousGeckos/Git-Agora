@@ -9,6 +9,8 @@ import NewsBoard from '../NewsPage/NewsBoard.jsx';
 import ProjectSubmission from '../CreateProject/ProjectSubmission/ProjectSubmission.jsx';
 import UserProfile from '../Users/UserProfile.jsx';
 import CreateProject from '../CreateProject/CreateProject.jsx';
+import Inbox from '../Inbox/Inbox.jsx';
+import InboxMessageThread from '../Inbox/InboxMessageThread.jsx';
 
 class App extends React.Component {
 
@@ -19,10 +21,12 @@ class App extends React.Component {
           <NavBar />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/projects" component={ProjectBoard} />
+          <Route exact path="/inbox" component={Inbox} />
           <Route path="/news" component={NewsBoard} />
           <Route path="/projects/:id" component={ProjectView} />
           <Route path="/profile" component={UserProfile} />
           <Route path="/createproject" component={CreateProject} />
+          <Route path="/inbox/:id" component={InboxMessageThread} />
         </div>
       </Router>
     );

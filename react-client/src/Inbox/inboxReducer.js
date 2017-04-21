@@ -2,7 +2,8 @@ const initialState = {
   messages: [],
   selectedMessage: {},
   fetchingInbox: false,
-  messageError: null
+  messageError: null,
+  messageText: ''
 };
 
 const inboxReducer = (state = initialState, action) => {
@@ -28,6 +29,28 @@ const inboxReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedMessage: action.message
+      };
+    case 'MESSAGE_ERROR':
+      return {
+        ...state,
+        messageError: action.error
+      };
+    case 'MESSAGE_SENT':
+      return {
+        ...state,
+        selectedMessage: {
+          ...state.selectedMessage,
+          messages: [
+            ...state.selectedMessage.messages,
+            action.message
+          ]
+        },
+        messageText: ''
+      };
+    case 'INPUT_TEXT':
+      return {
+        ...state,
+        messageText: action.text
       };
     default:
       return state;

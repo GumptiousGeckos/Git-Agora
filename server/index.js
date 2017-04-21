@@ -36,6 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
+  console.log(req.user);
   console.log(`Serving ${req.method} request on url ${req.url}`);
   next();
 });

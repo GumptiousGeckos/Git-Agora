@@ -5,7 +5,6 @@ const fetchingInbox = () => (
     type: 'FETCHING_INBOX'
   }
 );
-
 const receiveInbox = messages => (
   {
     type: 'RECEIVED_INBOX',
@@ -19,11 +18,14 @@ const errorInbox = error => (
     error
   }
 );
-
 export const fetchInbox = () => (
   (dispatch) => {
     dispatch(fetchingInbox());
-    axios.get('/api/messages')
+    axios.get('/api/messages', {
+      params: {
+        q: 'all'
+      }
+    })
     .then((results) => {
       dispatch(receiveInbox(results.data));
     })
@@ -40,9 +42,46 @@ export const selectMessage = message => (
   }
 );
 
-export const sendMessage = message => (
+const sendingMessage = () => (
   {
-    type: 'SEND_MESSAGE',
+    type: 'SENDING_MESSAGE'
+  }
+);
+const messageSent = message => (
+  {
+    type: 'MESSAGE_SENT',
     message
+  }
+);
+const sendMessageError = error => (
+  {
+    type: 'MESSAGE_ERROR',
+    error
+  }
+);
+
+export const submitMessage = (sender, receiver, text, id) => {
+  const messageInfo = {
+    sender,
+    receiver,
+    text,
+    timeSent: new Date().toString()
+  };
+  return (dispatch) => {
+    dispatch(sendingMessage());
+    axios.post('/api/messages', {
+      id,
+      message: messageInfo,
+      type: 'reply'
+    })
+    .then(() => dispatch(messageSent(messageInfo)))
+    .catch(error => dispatch(sendMessageError(error)));
+  };
+};
+
+export const inputText = text => (
+  {
+    type: 'INPUT_TEXT',
+    text
   }
 );

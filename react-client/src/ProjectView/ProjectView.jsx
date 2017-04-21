@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 export class ProjectView extends React.Component {
 
   render() {
-    
     const { mainProject } = this.props;
-
     return (
       <div>
         <div className="col-md-9">
@@ -31,7 +29,7 @@ export class ProjectView extends React.Component {
           <div className="text-center bordered">
             <h1 className="underline">Collaborators</h1>
             {
-              mainProject.collaborators && mainProject.collaborators.map((person, index) => 
+              mainProject.collaborators && mainProject.collaborators.map((person, index) =>
                 <div key={index}>
                   <h3>{person.name}</h3>
                 </div>

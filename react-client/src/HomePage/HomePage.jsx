@@ -65,19 +65,19 @@ export class HomePage extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     hotProjects: state.homepage.hotProjects,
     hotNews: state.homepage.hotNews
-  };
-};
+  }
+);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = dispatch => (
+  {
     getHotProjects: () => dispatch(fetchHotProjects()),
     getHotNews: () => dispatch(fetchHotNews()),
     updateMainProject: project => dispatch(updateMainProject(project))
-  };
-};
+  }
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
