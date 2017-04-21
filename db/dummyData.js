@@ -265,50 +265,43 @@ module.exports = {
       id: 1,
       username: 'Ed',
       password: 'jeff',
-      email: 'jeff@jeff.com',
-      mobile: '3444444'
+      email: 'jeff@jeff.com'
     },
     {
       id: 2,
       username: 'Paul',
       password: 'jeff',
-      email: 'jeff1@jeff.com',
-      mobile: '3444444'
+      email: 'jeff1@jeff.com'
     },
     {
       id: 3,
       username: 'Jon',
       password: 'jeff',
-      email: 'jeff2@jeff.com',
-      mobile: '344-4444'
+      email: 'jeff2@jeff.com'
     },
     {
       id: 4,
       username: 'Augustus',
       password: 'jeff',
-      email: 'jeff3@jeff.com',
-      mobile: '3444444'
+      email: 'jeff3@jeff.com'
     },
     {
       id: 5,
       username: 'Sarah',
       password: 'jeff',
-      email: 'jeff4@jeff.com',
-      mobile: '3444444'
+      email: 'jeff4@jeff.com'
     },
     {
       id: 6,
       username: 'Jessica',
       password: 'jeff',
-      email: 'jeff5@jeff.com',
-      mobile: '3444444'
+      email: 'jeff5@jeff.com'
     },
     {
       id: 7,
       username: 'Ragnar',
       password: 'jeff',
-      email: 'jeff6@jeff.com',
-      mobile: '3444444'
+      email: 'jeff6@jeff.com'
     }
   ],
 
@@ -593,6 +586,6 @@ module.exports = {
       user_id: 4,
       topic_id: 8,
       vote_type: 1
-    },
+    }
   ]
-}
+};
