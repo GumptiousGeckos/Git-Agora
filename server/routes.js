@@ -49,6 +49,9 @@ router.route('/votes')
 router.route('/projects/users/:id')
   .get(handler.getUserProjects);
 
+router.route('/projects/:id')
+  .get(handler.getProjectById);
+
 router.route('/projects')
   .get(handler.getTopProjects)
   .post(handler.addProject);

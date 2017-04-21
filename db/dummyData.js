@@ -601,6 +601,6 @@ module.exports = {
       user_id: 4,
       topic_id: 8,
       vote_type: 1
-    },
+    }
   ]
-}
+};
