@@ -6,7 +6,7 @@ import { fetchArticles } from './newsActions';
 
 export class NewsBoard extends React.Component {
   componentWillMount() {
-    const { dispatch, getArticles } = this.props;
+    const { getArticles } = this.props;
     getArticles();
   }
 

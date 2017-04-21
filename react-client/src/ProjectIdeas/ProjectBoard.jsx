@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProjectBoardEntry from './ProjectBoardEntry.jsx';
-import { addProject, fetchProjects, updateMainProject } from './projectActions';
+import { addProject, fetchProjects } from './projectActions';
 
 export class ProjectBoard extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export class ProjectBoard extends React.Component {
   }
 
   render() {
-    const { projects, updateMainProject } = this.props;
+    const { projects } = this.props;
 
     return (
       <div>
@@ -38,11 +38,10 @@ export class ProjectBoard extends React.Component {
             </li>
           </ul>
           {
-            projects && projects.map(project =>
+            projects.map(project =>
               <ProjectBoardEntry
                 key={project.id}
                 project={project}
-                updateMainProject={updateMainProject}
               />
             )
           }
@@ -61,8 +60,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getProjects: () => dispatch(fetchProjects()),
-    createProject: () => dispatch(addProject()),
-    updateMainProject: project => dispatch(updateMainProject(project))
+    createProject: () => dispatch(addProject())
   };
 };
 
