@@ -2,37 +2,39 @@ const Message = require('./../../mongodb/Message');
 
 module.exports.getMessages = (req, res) => {
   const { q, user } = req.query;
-  console.log(q, req.user[0].username);
   if (q === 'all') {
     return Message.find({ users: req.user[0].username })
     // Message.find({ users: user })
     .then((results) => {
       console.log(results);
+      results.sort((a, b) => a.lastUpdated < b.lastUpdated);
       res.json(results);
     })
     .catch((error) => {
-      console.log(error);
       res.json(error);
     });
-  } else {
-    res.end();
   }
+  res.end();
 };
 
 module.exports.postMessages = (req, res) => {
-    const { type, header, message } = req.body;
+  const { type, header, message } = req.body;
   if (type === 'new') {
     const newMessage = new Message({
       users: [message.sender.username, message.receiver.username],
       header,
-      messages: [message]
+      messages: [message],
+      lastUpdated: new Date().valueOf()
     });
     newMessage.save()
     .then(() => res.end())
     .catch(error => res.send(error));
   } else if (type === 'reply') {
     const { id } = req.body;
-    Message.findOneAndUpdate({ _id: id }, { $push: { messages: message } })
+    Message.findOneAndUpdate({ _id: id }, {
+      $push: { messages: message },
+      $set: { lastUpdated: new Date().valueOf() }
+    })
     .then(() => res.end())
     .catch(error => res.send(error));
   } else {

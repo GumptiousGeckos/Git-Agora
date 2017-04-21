@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectMessage, fetchInbox } from './inboxActions';
 import { Link } from 'react-router-dom';
+import InboxThreadEntry from './InboxThreadEntry.jsx';
 
 export class Inbox extends React.Component {
 
@@ -11,27 +12,19 @@ export class Inbox extends React.Component {
   }
   render() {
     const { messages, onMessageClick, user } = this.props;
-    console.log(this.props);
     return (
       <div>
         <h1> Inbox </h1>
         <div id="inbox-group" className="list-group">
           {
-          messages.map(message => (
-            <Link to={'/inbox/' + message._id} key={message._id} >
-              <button
-                className="list-group-item"
-                type="button"
-                onClick={() => onMessageClick(message)}
-              >
-                <h4> {message.header} - Last Message on {message.messages[message.messages.length - 1].timeSent} </h4>
-                <h4>
-                  Users: { message.users.filter(ele => ele !== user) }
-                </h4>
-              </button>
-            </Link>
-          ))
-        }
+            messages.map(message => (
+              <InboxThreadEntry
+                message={message}
+                user={user}
+                onMessageClick={onMessageClick}
+              />
+            ))
+          }
         </div>
       </div>
     );
