@@ -54,7 +54,7 @@ describe('HomePage Actions', () => {
   });
 });
 
-describe('Project Reducer', () => {
+xdescribe('Project Reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({});
   });
@@ -94,7 +94,7 @@ describe('Project Reducer', () => {
   });
 });
 
-describe('HomePage Components', () => {
+xdescribe('HomePage Components', () => {
   describe('HomePage', () => {
     it('should render Trending Tech News', () => {
       const wrapper = shallow(<HomePage
