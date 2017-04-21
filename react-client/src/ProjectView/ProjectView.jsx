@@ -24,7 +24,6 @@ export class ProjectView extends React.Component {
             <h4>Github: {mainProject.githubLink}</h4>
           </div>
           <div>
-            <h1>COMMENTS SECTION PLACEHOLDER</h1>
             <CommentSection
               projectId={mainProject.id}
               type={'project'}/>
