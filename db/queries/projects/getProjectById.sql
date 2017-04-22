@@ -1,3 +1,4 @@
+-- gets project with tags and votes
 select
   projectstable.*, votestable.votes
 from

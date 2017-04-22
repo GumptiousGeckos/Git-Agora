@@ -6,7 +6,6 @@ module.exports.getMessages = (req, res) => {
     return Message.find({ users: req.user[0].username })
     // Message.find({ users: user })
     .then((results) => {
-      console.log(results);
       results.sort((a, b) => a.lastUpdated < b.lastUpdated);
       res.json(results);
     })

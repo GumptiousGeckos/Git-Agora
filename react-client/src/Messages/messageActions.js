@@ -21,6 +21,7 @@ export const sendNewMessage = (sender, receiver, header, text) => (
     dispatch(sendingNewMessage());
     axios.post('/api/messages', {
       type: 'new',
+      header,
       message: {
         sender,
         receiver,
@@ -44,5 +45,12 @@ export const bodyInput = text => (
   {
     type: 'BODY_INPUT',
     body: text
+  }
+);
+
+export const receiverInput = text => (
+  {
+    type: 'RECEIVER_INPUT',
+    receiver: text
   }
 );

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectMessage, fetchInbox } from './inboxActions';
 import InboxThreadEntry from './InboxThreadEntry.jsx';
+import ComposeMessageButton from '../Messages/ComposeMessageButton.jsx';
 
 export class Inbox extends React.Component {
 
@@ -14,6 +15,7 @@ export class Inbox extends React.Component {
     return (
       <div>
         <h1> Inbox </h1>
+        <ComposeMessageButton />
         <div id="inbox-group" className="list-group">
           {
             messages.map(message => (
