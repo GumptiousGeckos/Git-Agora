@@ -22,15 +22,16 @@ module.exports.getComments = (req, res) => {
     res.status(200).json(data);
   })
   .catch((error) => {
-    res.status(404).send(error, 'FAILED getting comments');
+    console.log('FAILED GETTING COMMENTS');
+    res.status(404).send(error);
   });
 };
 
 
 module.exports.addComment = (req, res) => {
-  const { user_id, date_created, type, topic_id, content } = req.body;
+  const { username, date_created, type, topic_id, content } = req.body;
 
-  return db.query(queries.addComment, { user_id, type, date_created, topic_id, content })
+  return db.query(queries.addComment, { username, type, date_created, topic_id, content })
   .then(() => {
     res.status(201).send();
   })

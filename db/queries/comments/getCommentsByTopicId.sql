@@ -1,11 +1,11 @@
 select
-  comments.*, users.username, users.avatar
+  comments.*, users.username, users.avatar, users.id
 from
   comments
 LEFT JOIN
   users
 ON
-  comments.user_id = users.id
+  comments.username = users.username
 WHERE
   comments.type = ${type}
 AND
