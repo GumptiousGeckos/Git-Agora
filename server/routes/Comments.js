@@ -32,7 +32,7 @@ module.exports.addComment = (req, res) => {
 
   return db.query(queries.addComment, { user_id, type, date_created, topic_id, content })
   .then(() => {
-    res.status(201).send('Success adding comment');
+    res.status(201).send();
   })
   .catch((error) => {
     res.status(404).send('failed to add comment');

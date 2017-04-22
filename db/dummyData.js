@@ -274,49 +274,49 @@ module.exports = {
       name: 'Ed',
       username: 'Ed91',
       email: 'jeff@jeff.com',
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 2,
       name: 'Paul',
       username: 'Paul52',
       email: 'jeff1@jeff.com',
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 3,
       name: 'Jon',
       username: 'Jon99',
       email: 'jeff2@jeff.com',
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 4,
       name: 'Augustus',
       username: 'Augustus11',
       email: 'jeff3@jeff.com',
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 5,
       name: 'Sarah',
       username: 'Sarah69',
       email: 'jeff4@jeff.com',
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 6,
       name: 'Jessica',
       username: 'JessBess',
       email: 'jeff5@jeff.com',
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 7,
       name: 'Ragnar',
       username: 'Ragnar666',
       email: 'jeff6@jeff.com',
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     }
   ],
 

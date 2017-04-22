@@ -8,7 +8,7 @@ export default (props) => {
     <div className="comment">
       <div className="row">
         <div className="col-md-1">
-        {`#:  ${comment.id}`}
+          {`#:  ${comment.id}`}
         </div>
         <div className="col-md-11">
           <div className="col-md-2">
@@ -21,7 +21,7 @@ export default (props) => {
       </div>
       <div className="row">
         <div className="col-md-1">
-          <img id="icon" src={comment.picture} className="img-fluid" alt="Responsive image"/>
+          <img id="icon" src={comment.avatar} className="img-fluid" alt="Responsive image"/>
         </div>
         <div className="col-md-11" id="content-section">
           <p id="content">{comment.content}</p>

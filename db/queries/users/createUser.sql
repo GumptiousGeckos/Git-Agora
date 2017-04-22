@@ -1,7 +1,7 @@
 INSERT INTO
-  users (id, name, username, email, picture)
+  users (id, name, username, email, avatar)
 SELECT
-  ${id}, ${name}, ${username}, ${email}, ${picture}
+  ${id}, ${name}, ${username}, ${email}, ${avatar}
 WHERE NOT EXISTS
   (SELECT 1 FROM
     users

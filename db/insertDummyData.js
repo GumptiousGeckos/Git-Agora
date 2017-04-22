@@ -26,7 +26,7 @@ let queries = {
 
 
 const userPromises = data.users.map( (user) => {
-  return db.query(queries.addUser, { id: user.id, name: user.name, username: user.username, email: user.email, picture: user.picture })
+  return db.query(queries.addUser, { id: user.id, name: user.name, username: user.username, email: user.email, avatar: user.avatar })
   .then(result => {
     console.log('success entering user', result);
   })
@@ -54,7 +54,7 @@ Promise.all(userPromises).then(() => {
         type: comment.type,
         topic_id: comment.topic_id,
         content: comment.content,
-        date_created: undefined
+        date_created: comment.date_created
       })
       .then(result => console.log('success entering comment', result))
       .catch(err => console.log('an error entering comment into db', err));

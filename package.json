@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "reset-db": "node db/init/init.js",
+    "reset-db": "node db/init/init.js && node db/insertDummyData.js && node server/news-getter.js",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
     "test": "jest --verbose",
