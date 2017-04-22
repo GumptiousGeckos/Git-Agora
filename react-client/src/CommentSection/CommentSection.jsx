@@ -25,9 +25,9 @@ export class CommentSection extends React.Component {
     addComment(projectId, type, user_id, date_created, content);
   }
 
-
   render () {
-    const { comments, updateCommentText } = this.props;    
+    const { comments, updateCommentText } = this.props;
+
     return (
       <div>
         <div>
