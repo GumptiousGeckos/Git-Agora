@@ -295,21 +295,21 @@ module.exports = {
       name: 'Augustus',
       username: 'Augustus11',
       email: 'jeff3@jeff.com',
-      picture: 'www.https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 5,
       name: 'Sarah',
       username: 'Sarah69',
       email: 'jeff4@jeff.com',
-      picture: 'www.https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 6,
       name: 'Jessica',
       username: 'JessBess',
       email: 'jeff5@jeff.com',
-      picture: 'www.https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 7,
