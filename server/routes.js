@@ -35,9 +35,16 @@ router.route('/projectsTags')
   .post(handler.addProjectTag)
   .put(handler.createProjectTag);
 
+router.route('/users/:id/projects')
+  .get(handler.getUserProjects);
+
+router.route('/users/:id')
+  .get(handler.getUserById);
+
 router.route('/users')
   .post(handler.addUser)
   .get(handler.getUser)
+  .put(handler.updateUser)
   .delete(handler.deleteUser);
 
 router.route('/votes')
@@ -45,8 +52,11 @@ router.route('/votes')
   .get(handler.getVotes)
   .put(handler.updateVote);
 
+router.route('/projects/:id')
+  .get(handler.getProjectById);
+
 router.route('/projects')
-  .get(handler.getAllProjects)
+  .get(handler.getTopProjects)
   .post(handler.addProject);
 
 router.route('/articles')
@@ -54,6 +64,5 @@ router.route('/articles')
 
 router.route('/topSixArticles')
 .get(handler.getTopSixArticles);
-// router.route('/topics').post(handler.addTopic);
 
 module.exports = router;

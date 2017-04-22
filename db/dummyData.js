@@ -21,24 +21,32 @@ module.exports = {
     {
       id: 1,
       user_id: 3,
+      date_created: new Date().toDateString(),
+      type: 'project',
       topic_id: 3,
       content: 'Wow you In? That\'s a cool name'
     },
     {
       id: 2,
       user_id: 1,
-      topic_id: 2,
+      date_created: new Date().toDateString(),
+      type: 'project',
+      topic_id: 3,
       content: 'You will be rich'
     },
     {
       id: 4,
       user_id: 5,
+      date_created: new Date().toDateString(),
+      type: 'project',
       topic_id: 4,
       content: 'Can I get in on this?'
     },
     {
       id: 4,
       user_id: 7,
+      date_created: new Date().toDateString(),
+      type: 'project',
       topic_id: 5,
       content: 'Yah for you'
     }
@@ -263,52 +271,52 @@ module.exports = {
   users: [
     {
       id: 1,
-      username: 'Ed',
-      password: 'jeff',
+      name: 'Ed',
+      username: 'Ed91',
       email: 'jeff@jeff.com',
-      mobile: '3444444'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 2,
-      username: 'Paul',
-      password: 'jeff',
+      name: 'Paul',
+      username: 'Paul52',
       email: 'jeff1@jeff.com',
-      mobile: '3444444'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 3,
-      username: 'Jon',
-      password: 'jeff',
+      name: 'Jon',
+      username: 'Jon99',
       email: 'jeff2@jeff.com',
-      mobile: '344-4444'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 4,
-      username: 'Augustus',
-      password: 'jeff',
+      name: 'Augustus',
+      username: 'Augustus11',
       email: 'jeff3@jeff.com',
-      mobile: '3444444'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 5,
-      username: 'Sarah',
-      password: 'jeff',
+      name: 'Sarah',
+      username: 'Sarah69',
       email: 'jeff4@jeff.com',
-      mobile: '3444444'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 6,
-      username: 'Jessica',
-      password: 'jeff',
+      name: 'Jessica',
+      username: 'JessBess',
       email: 'jeff5@jeff.com',
-      mobile: '3444444'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 7,
-      username: 'Ragnar',
-      password: 'jeff',
+      name: 'Ragnar',
+      username: 'Ragnar666',
       email: 'jeff6@jeff.com',
-      mobile: '3444444'
+      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     }
   ],
 
@@ -534,6 +542,65 @@ module.exports = {
       user_id: 6,
       topic_id: 19,
       vote_type: 1
+    }, {
+      type: 'project',
+      user_id: 1,
+      topic_id: 2,
+      vote_type: 0
+    },
+    {
+      type: 'project',
+      user_id: 2,
+      topic_id: 3,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 3,
+      topic_id: 4,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 4,
+      topic_id: 5,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 5,
+      topic_id: 6,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 6,
+      topic_id: 6,
+      vote_type: 1
+    },
+        {
+      type: 'project',
+      user_id: 1,
+      topic_id: 6,
+      vote_type: 0
+    },
+    {
+      type: 'project',
+      user_id: 2,
+      topic_id: 7,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 3,
+      topic_id: 8,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 4,
+      topic_id: 8,
+      vote_type: 1
     }
   ]
-}
+};

@@ -1,5 +1,11 @@
-/* create user */
 INSERT INTO
-  users (id, username, email, mobile)
-VALUES
-  ($1, $2, $3, $4)
+  users (id, name, username, email, picture)
+SELECT
+  ${id}, ${name}, ${username}, ${email}, ${picture}
+WHERE NOT EXISTS
+  (SELECT 1 FROM
+    users
+  WHERE
+    id = ${id})
+RETURNING
+  id;

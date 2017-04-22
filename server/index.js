@@ -47,7 +47,7 @@ app.get('/auth/user', (req, res) => {
   if (req.user) {
     res.send({
       auth: true,
-      user: req.user
+      user: req.user[0]
     });
   } else {
     res.send({

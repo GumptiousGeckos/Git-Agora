@@ -1,6 +1,6 @@
 SELECT
   *
 FROM
-  users
+  projects
 where
   id = ${id}

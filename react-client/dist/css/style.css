@@ -8,6 +8,10 @@ p {
   color: #FFF;
 }
 
+textarea {
+  resize: none;
+}
+
 a:hover {
   cursor: pointer;
   text-decoration: none;
@@ -18,6 +22,42 @@ a:hover {
   padding: 10px;
   border-radius: 10px;
   margin: 10px auto;
+}
+
+.comment {
+  background-color: #162f56;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+
+#icon {
+  max-width: 100%;
+  height: auto;
+  border-right: 1px solid grey;
+  border-radius: 4px;
+}
+
+#username {
+  font-size: 24px;
+  padding-right: 100px;
+}
+
+#content-section {
+  border-top: 1px solid grey;
+  padding-top: 10px;
+
+}
+
+#content {
+  padding-top: 10px;
+  word-wrap: break-word;
+  color: #e0e3ff;
+}
+
+#date-created {
+  color: #a3a3a3;
 }
 
 .caption {
@@ -44,6 +84,7 @@ a:hover {
 
 .picture img {
   height: 300px;
+  width: 300px;
   border-radius: 10px;
 }
 
