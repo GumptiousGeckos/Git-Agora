@@ -1,3 +1,8 @@
+const initialState = {
+  fetchingComments: false,
+  comments: []
+};
+
 const comment = (state = [], action) => {
   switch (action.type) {
     case 'ADD_COMMENT':
@@ -7,8 +12,7 @@ const comment = (state = [], action) => {
   }
 };
 
-
-const comments = (state = {}, action) => {
+const comments = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_COMMENT':
       return {
@@ -34,11 +38,6 @@ const comments = (state = {}, action) => {
     default:
       return state;
   }
-}
-
-
+};
 
 export default comments;
-
-
-

@@ -1,32 +1,5 @@
 import axios from 'axios';
 
-export const requestUserProjects = () => ({
-  type: 'FETCHING_USER_PROJECTS'
-});
-
-export const receivedUserProjects = projects => ({
-  type: 'RECEIVED_USER_PROJECTS',
-  payload: projects
-});
-
-export const errorUserProjects = err => ({
-  type: 'REQUEST_USER_PROJECTS_ERROR',
-  error: err
-});
-
-export const fetchUserProjects = id => (
-  (dispatch) => {
-    dispatch(requestUserProjects());
-    axios.get('api/projects/users/' + id)
-    .then((response) => {
-      dispatch(receivedUserProjects(response.data));
-    })
-    .catch((err) => {
-      dispatch(errorUserProjects(err));
-    });
-  }
-);
-
 export const toggleEditMode = () => ({
   type: 'TOGGLE_EDIT_MODE'
 });
@@ -61,5 +34,32 @@ export const saveChanges = text => (
     .catch((err) => {
       dispatch(errorSavingChanges(err));
     });
+  }
+);
+
+export const requestUser = () => ({
+  type: 'FETCHING_USER'
+});
+
+export const receivedUser = projects => ({
+  type: 'RECEIVED_USER',
+  payload: projects
+});
+
+export const errorUser = err => ({
+  type: 'REQUEST_USER_ERROR',
+  error: err
+});
+
+export const getUserById = id => (
+  (dispatch) => {
+    dispatch(requestUser());
+    axios.get('api/users/' + id)
+      .then((response) => {
+        dispatch(receivedUser(response.data[0]));
+      })
+      .catch((err) => {
+        dispatch(errorUser(err));
+      });
   }
 );

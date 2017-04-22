@@ -25,9 +25,10 @@ export class CommentSection extends React.Component {
     addComment(projectId, type, user_id, date_created, content);
   }
 
+
   render () {
     const { comments, updateCommentText } = this.props;
-
+    
     return (
       <div>
         <div>
@@ -38,7 +39,7 @@ export class CommentSection extends React.Component {
           <button onClick={this.handleSubmit}>Add Comment</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
@@ -59,4 +60,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect (mapStateToProps, mapDispatchToProps)(CommentSection);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentSection);

@@ -30,10 +30,10 @@ export class NavBar extends React.Component {
       navBarRight = (
         <ul className="nav navbar-nav navbar-right">
           <li>
-            <h6 className="nav-center">Welcome {user.name}!</h6>
+            <h6 className="nav-center">Welcome {user.username}!</h6>
           </li>
           <li>
-            <Link to={'/profile'}>
+            <Link to={'/users/' + user.id}>
               <span className="glyphicon glyphicon-user" onClick={this.handleNavOnClick}> Profile</span>
             </Link>
           </li>

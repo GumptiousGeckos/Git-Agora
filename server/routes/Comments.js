@@ -3,18 +3,15 @@ const path = require('path');
 const pg = require('pg');
 const pgp = require('pg-promise')();
 
-
-
 function sql(file) {
-  var fullPath = path.join(__dirname, './../../db/queries/comments', file);
+  const fullPath = path.join(__dirname, './../../db/queries/comments', file);
   return new pgp.QueryFile(fullPath, {minify: true});
 }
 
-let queries = {
+const queries = {
   getComments: sql('getCommentsByTopicId.sql'),
   addComment: sql('insertComment.sql')
-}
-
+};
 
 module.exports.getComments = (req, res) => {
   const { type, topic_id } = req.query;
@@ -27,7 +24,7 @@ module.exports.getComments = (req, res) => {
   .catch((error) => {
     res.status(404).send(error, 'FAILED getting comments');
   });
-}
+};
 
 
 module.exports.addComment = (req, res) => {
@@ -39,8 +36,5 @@ module.exports.addComment = (req, res) => {
   })
   .catch((error) => {
     res.status(404).send('failed to add comment');
-  })
-}
-
-
-
+  });
+};
