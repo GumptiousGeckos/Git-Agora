@@ -42,7 +42,8 @@ const article = (state = initialState, action) => {
     case 'REQUEST_ARTICLE_ERROR':
       return {
         ...state,
-        error: action.error
+        error: action.error,
+        fetchingArticle: false
       };
     case 'TOGGLE_ARTICLE_VOTE': 
       return {
