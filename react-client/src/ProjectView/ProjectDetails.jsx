@@ -1,7 +1,8 @@
 import React from 'react';
 
 export default (props) => {
-  const { project, tags } = props;
+  const { project } = props;
+  const tagArray = project.tags ? project.tags.split(',') : [];
   return (
     <div>
       <div className="bordered text-center">
@@ -10,8 +11,8 @@ export default (props) => {
         </div>
         <div>
           {
-            tags.map((tag, index) =>
-              <span key={index}>{tag.tag_name + ' '}</span>
+            tagArray.map((tag, index) =>
+              <span key={index}>{tag + ' '}</span>
             )
           }
         </div>

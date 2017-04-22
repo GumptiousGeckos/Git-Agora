@@ -8,24 +8,10 @@ function sql(file) {
 }
 
 const queries = {
-  getTagsByProject: sql('getTagsByProject.sql'),
   getProjectsByTag: sql('getProjectsByTag.sql'),
   addProjectTag: sql('addProjectTag.sql'),
   insertTag: sql('./../tags/insertTag.sql'),
   findTagByName: sql('./../tags/findTagByName.sql')
-};
-
-module.exports.getTagsByProject = (req, res) => {
-  const { id } = req.query;
-
-  return db.query(queries.getTagsByProject, { id })
-  .then((data) => {
-    console.log('Success getting topics by tag');
-    res.status(200).json(data);
-  })
-  .catch((error) => {
-    res.status(404).send(error);
-  });
 };
 
 module.exports.getProjectsByTag = (req, res) => {

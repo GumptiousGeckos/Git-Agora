@@ -21,7 +21,6 @@ module.exports.addRatings = require('./Ratings').addRatings;
 module.exports.addTag = require('./Tags').addTag;
 
 module.exports.getProjectsByTag = require('./Projects_Tags').getProjectsByTag;
-module.exports.getTagsByProject = require('./Projects_Tags').getTagsByProject;
 module.exports.addProjectTag = require('./Projects_Tags').addProjectTag;
 module.exports.createProjectTag = require('./Projects_Tags').createProjectTag;
 

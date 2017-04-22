@@ -15,7 +15,7 @@ export default (props) => {
         <h4>{title}</h4>
         <h6>Tags:
           {
-            tagArray.map(tag =>
+            tagArray && tagArray.map(tag =>
               <span>{' ' + tag}</span>
             )
           }

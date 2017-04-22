@@ -28,20 +28,6 @@ export const errorCollaborators = err => ({
   error: err
 });
 
-export const requestTags = () => ({
-  type: 'FETCHING_TAGS'
-});
-
-export const receivedTags = tags => ({
-  type: 'RECEIVED_TAGS',
-  payload: tags
-});
-
-export const errorTags = err => ({
-  type: 'REQUEST_TAGS_ERROR',
-  error: err
-});
-
 export const getProjectById = id => (
   (dispatch) => {
     dispatch(requestProject());
@@ -64,19 +50,6 @@ export const getCollaborators = id => (
       })
       .catch((err) => {
         dispatch(errorCollaborators(err));
-      });
-  }
-);
-
-export const getProjectTags = id => (
-  (dispatch) => {
-    dispatch(requestTags());
-    axios.get('/api/projectsTags', { params: { id } })
-      .then((response) => {
-        dispatch(receivedTags(response.data));
-      })
-      .catch((err) => {
-        dispatch(errorTags(err));
       });
   }
 );

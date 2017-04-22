@@ -1,10 +1,8 @@
 const initialState = {
   fetchingProject: false,
   fetchingCollaborators: false,
-  fetchingTags: false,
   project: {},
   collaborators: [],
-  tags: [],
   error: null
 };
 
@@ -42,23 +40,6 @@ const project = (state = initialState, action) => {
       return {
         ...state,
         fetchingCollaborators: false,
-        error: action.error
-      };
-    case 'FETCHING_TAGS':
-      return {
-        ...state,
-        fetchingTags: true
-      };
-    case 'RECEIVED_TAGS':
-      return {
-        ...state,
-        tags: action.payload,
-        fetchingTags: false
-      };
-    case 'REQUEST_TAGS_ERROR':
-      return {
-        ...state,
-        fetchingTags: false,
         error: action.error
       };
     default:

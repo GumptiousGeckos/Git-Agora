@@ -4,26 +4,24 @@ import { connect } from 'react-redux';
 import CommentSection from '../CommentSection/CommentSection.jsx';
 import CollaboratorsList from './CollaboratorsList.jsx';
 import ProjectDetails from './ProjectDetails.jsx';
-import { getProjectById, getCollaborators, getProjectTags } from './projectViewActions';
+import { getProjectById, getCollaborators} from './projectViewActions';
 
 export class ProjectView extends React.Component {
 
   componentWillMount() {
-    const { getProjectById, getCollaborators, getProjectTags, match } = this.props;
+    const { getProjectById, getCollaborators, match } = this.props;
     getProjectById(match.params.id);
     getCollaborators(match.params.id);
-    getProjectTags(match.params.id);
   }
 
   render() {
-    const { project, collaborators, tags } = this.props;
+    const { project, collaborators } = this.props;
     const { id } = this.props.match.params;
     return (
       <div>
         <div className="col-md-9">
           <ProjectDetails
             project={project}
-            tags={tags}
           />
           <div>
             <CommentSection
@@ -55,15 +53,13 @@ const mapStateToProps = state => (
   {
     project: state.project.project,
     collaborators: state.project.collaborators,
-    tags: state.project.tags
   }
 );
 
 const mapDispatchToProps = dispatch => (
   {
     getProjectById: id => dispatch(getProjectById(id)),
-    getCollaborators: id => dispatch(getCollaborators(id)),
-    getProjectTags: id => dispatch(getProjectTags(id))
+    getCollaborators: id => dispatch(getCollaborators(id))
   }
 );
 
