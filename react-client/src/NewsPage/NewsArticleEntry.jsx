@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Votes from '../Votes/Votes.jsx';
 
 export default (props) => {
@@ -6,6 +7,7 @@ export default (props) => {
   return (
     <div>
       <Votes votes={votes} topic_type={'article'} vote_type={vote_type} topic_id={id}/>
+      <Link to={'/articles/' + id}>
       <div className="well col-lg-11 col-md-11 col-sm-10 col-xs-10">
         <a href={url}>
           <h4>{title}</h4>
@@ -14,6 +16,7 @@ export default (props) => {
         <br />
         <span>- {source}</span>
       </div>
+      </Link>
     </div>
   );
 };
