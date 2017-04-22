@@ -19,6 +19,7 @@ module.exports.getMessages = (req, res) => {
 
 module.exports.postMessages = (req, res) => {
   const { type, header, message } = req.body;
+  console.log(message);
   if (type === 'new') {
     const newMessage = new Message({
       users: [message.sender.username, message.receiver.username],
