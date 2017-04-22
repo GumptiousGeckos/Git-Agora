@@ -30,6 +30,11 @@ const comments = (state = initialState, action) => {
         comments: action.payload,
         fetchingComments: false
       };
+    case 'UPDATE_COMMENT_TEXT':
+      return {
+        ...state,
+        content: action.payload
+      };
     default:
       return state;
   }
