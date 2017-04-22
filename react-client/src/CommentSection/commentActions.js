@@ -13,11 +13,16 @@ export const receivedComments = comments => ({
   payload: comments
 });
 
-
 export const errorComments = err => ({
   type: 'REQUEST_COMMENTS_ERROR',
   error: err
 })
+
+export const updateCommentText = text => ({
+  type: 'UPDATE_COMMENT_TEXT',
+  payload: text
+});
+
 
 export const fetchComments = (topic_id, type) => (
   (dispatch) => {
