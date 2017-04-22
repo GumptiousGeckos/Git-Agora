@@ -6,5 +6,9 @@ CREATE TABLE IF NOT EXISTS users (
   created_at timestamp DEFAULT current_timestamp,
   email varchar(30) UNIQUE,
   mobile text,
+<<<<<<< HEAD
   picture text
+=======
+  avatar text
+>>>>>>> 70408d582e791c519851095694a48329a6f673d0
 );

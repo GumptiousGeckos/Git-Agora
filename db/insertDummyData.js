@@ -4,6 +4,7 @@ const pgp = require('pg-promise')();
 const path = require('path');
 const pg = require('pg');
 
+<<<<<<< HEAD
 // This is here because env LOCAL DB not working
 // const config = {
 //   host: 'localhost',
@@ -13,12 +14,13 @@ const pg = require('pg');
 
 // const db = pgp(config);
 
+=======
+>>>>>>> 70408d582e791c519851095694a48329a6f673d0
 function sql(file) {
   var fullPath = path.join(__dirname, './queries', file);
   return new pgp.QueryFile(fullPath, {minify: true});
 }
 
-// we need slash below?
 let queries = {
   addCollaborator: sql('collaborators/addCollaborator.sql'),
   addComment: sql('comments/insertComment.sql'),
@@ -34,8 +36,14 @@ let queries = {
   addVote: sql('votes/insertVote.sql')
 };
 
+<<<<<<< HEAD
 const userPromises = data.users.map( (user) => {
   return db.query(queries.addUser, { id: user.id, name: user.name, username: user.username, email: user.email, picture: user.picture })
+=======
+
+const userPromises = data.users.map( (user) => {
+  return db.query(queries.addUser, { id: user.id, name: user.name, username: user.username, email: user.email, avatar: user.avatar })
+>>>>>>> 70408d582e791c519851095694a48329a6f673d0
   .then(result => {
     console.log('success entering user', result);
   })
@@ -63,7 +71,11 @@ Promise.all(userPromises).then(() => {
         type: comment.type,
         topic_id: comment.topic_id,
         content: comment.content,
+<<<<<<< HEAD
         date_created: undefined
+=======
+        date_created: comment.date_created
+>>>>>>> 70408d582e791c519851095694a48329a6f673d0
       })
       .then(result => console.log('success entering comment', result))
       .catch(err => console.log('an error entering comment into db', err));

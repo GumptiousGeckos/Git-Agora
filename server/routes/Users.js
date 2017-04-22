@@ -17,9 +17,9 @@ const queries = {
 
 
 module.exports.addUser = (req, res) => {
-  const { username, password, email, mobile } = req.body;
+  const { id, name, username, email, avatar } = req.body;
 
-  return db.query(queries.addUser, { username, password, email, mobile})
+  return db.query(queries.addUser, { id, username, name, email, avatar })
   .then(() => {
     res.status(201).send('Success adding user');
   })
