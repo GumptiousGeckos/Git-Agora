@@ -50,7 +50,7 @@ passport.use(new GitHubStrategy({
       name: profile.displayName,
       username: profile.username,
       email: profile.emails ? profile.emails[0].value : null,
-      picture: profile._json.avatar_url
+      avatar: profile._json.avatar_url
     })
     .then(() => {
       return done(null, profile);
