@@ -18,7 +18,6 @@ const newMessageSentError = error => (
 );
 export const sendNewMessage = (sender, receiver, header, text) => (
   (dispatch) => {
-    console.log(text);
     dispatch(sendingNewMessage());
     axios.post('/api/messages', {
       type: 'new',

@@ -68,7 +68,7 @@ export class UserDetails extends React.Component {
     return (
       <div>
         <div className="picture">
-          <img src={user.picture ? user.picture : 'http://www.plentyofcheddar.com/wp-content/uploads/2013/12/questionmark51.jpg'} alt="user profile" />
+          <img src={user.avatar ? user.avatar : 'http://www.plentyofcheddar.com/wp-content/uploads/2013/12/questionmark51.jpg'} alt="user profile" />
           { !ownProfile ? (<ComposeMessageButton userProfile={user.username} />) : '' }
           <div className="text-left">
             {description}

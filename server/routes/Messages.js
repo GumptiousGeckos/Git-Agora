@@ -6,7 +6,6 @@ module.exports.getMessages = (req, res) => {
     return Message.find({ users: req.user[0].username })
     // Message.find({ users: user })
     .then((results) => {
-      console.log(results);
       results.sort((a, b) => a.lastUpdated < b.lastUpdated);
       res.json(results);
     })
@@ -19,7 +18,6 @@ module.exports.getMessages = (req, res) => {
 
 module.exports.postMessages = (req, res) => {
   const { type, header, message } = req.body;
-  console.log(message);
   if (type === 'new') {
     const newMessage = new Message({
       users: [message.sender.username, message.receiver.username],
