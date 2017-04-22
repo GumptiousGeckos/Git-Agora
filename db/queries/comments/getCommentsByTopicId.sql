@@ -1,9 +1,5 @@
 select
-<<<<<<< HEAD
-  comments.*, users.username, users.picture
-=======
   comments.*, users.username, users.avatar
->>>>>>> 70408d582e791c519851095694a48329a6f673d0
 from
   comments
 LEFT JOIN
