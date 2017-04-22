@@ -210,6 +210,12 @@ module.exports = {
       tag_id: 1,
       tag_name: 'Money',
       project_id: 4
+    },
+    {
+      id: 5,
+      tag_id: 3,
+      tag_name: 'Technology',
+      project_id: 3
     }
   ],
 

@@ -10,6 +10,7 @@ export default (props) => {
           <h1>{project.title}</h1>
         </div>
         <div>
+          <span>Tags: </span>
           {
             tagArray.map((tag, index) =>
               <span key={index}>{tag + ' '}</span>
