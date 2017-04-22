@@ -13,6 +13,7 @@ export class ProjectView extends React.Component {
 
   render() {
     const { project } = this.props;
+    const { id } = this.props.match.params;
 
     return (
       <div>
@@ -32,8 +33,9 @@ export class ProjectView extends React.Component {
           </div>
           <div>
             <CommentSection
-              projectId={mainProject.id}
-              type={'project'}/>
+              projectId={id}
+              type={'project'}
+            />
           </div>
         </div>
         <div className="col-md-3">

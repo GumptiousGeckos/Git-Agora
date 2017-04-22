@@ -28,6 +28,7 @@ module.exports.addUser = require('./Users').addUser;
 module.exports.getUser = require('./Users').getUser;
 module.exports.deleteUser = require('./Users').deleteUser;
 module.exports.updateUser = require('./Users').updateUser;
+module.exports.getUserById = require('./Users').getUserById;
 
 module.exports.addVote = require('./Votes').addVote;
 module.exports.updateVote = require('./Votes').updateVote;
@@ -37,8 +38,8 @@ module.exports.addTopic = require('./Topics').addTopic;
 
 module.exports.getTopProjects = require('./Projects').getTopProjects;
 module.exports.addProject = require('./Projects').addProject;
-module.exports.getUserProjects = require('./Projects').getUserProjects;
 module.exports.getProjectById = require('./Projects').getProjectById;
+module.exports.getUserProjects = require('./Projects').getUserProjects;
 
 module.exports.getAllArticles = require('./Articles').getTopArticles;
 module.exports.getTopSixArticles = require('./Articles').getTopSixArticles;

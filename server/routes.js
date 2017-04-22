@@ -35,6 +35,12 @@ router.route('/projectsTags')
   .post(handler.addProjectTag)
   .put(handler.createProjectTag);
 
+router.route('/users/:id/projects')
+  .get(handler.getUserProjects);
+
+router.route('/users/:id')
+  .get(handler.getUserById);
+
 router.route('/users')
   .post(handler.addUser)
   .get(handler.getUser)
@@ -45,9 +51,6 @@ router.route('/votes')
   .post(handler.addVote)
   .get(handler.getVotes)
   .put(handler.updateVote);
-
-router.route('/projects/users/:id')
-  .get(handler.getUserProjects);
 
 router.route('/projects/:id')
   .get(handler.getProjectById);
