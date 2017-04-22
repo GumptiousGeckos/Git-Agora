@@ -1,6 +1,7 @@
 const initialState = {
   header: '',
   body: '',
+  receiver: '',
   sendingNewMessage: false,
   newMessageError: null
 };
@@ -29,6 +30,11 @@ const messageReducer = (state = initialState, action) => {
       return {
         ...state,
         body: action.body
+      };
+    case 'RECEIVER_INPUT':
+      return {
+        ...state,
+        receiver: action.receiver
       };
     default:
       return state;
