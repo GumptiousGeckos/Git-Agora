@@ -11,27 +11,26 @@ export class CommentSection extends React.Component {
   }
 
   componentWillMount() {
-    const { getComments, projectId, type } = this.props;
-    getComments(projectId, type);
+    const { getComments, topic_id, type } = this.props;
+    getComments(topic_id, type);
   }
 
 
   handleSubmit(e) {
     e.preventDefault();
-    const { addComment, type, projectId, content } = this.props;
-    // hard coded userId here, need to change/integrate with Github Auth
-    let user_id = 2;
+    const { addComment, type, topic_id, content, user } = this.props;
+    const { username, avatar } = user;
     let date_created = new Date().toDateString();
-    addComment(projectId, type, user_id, date_created, content);
+    addComment(topic_id, type, username, date_created, content, avatar);
   }
 
   render () {
-    const { comments, updateCommentText } = this.props;
+    const { comments, updateCommentText, user } = this.props;
 
     return (
       <div>
         <div>
-          {comments && comments.map(comment => <div><CommentEntry comment={comment}/></div>)}
+          {comments && comments.map(comment => <div><CommentEntry comment={comment} user={user}/></div>)}
         </div>
         <form>
           <input onChange={(e) => {updateCommentText(e.target.value); }}type="textbox"></input>
@@ -46,14 +45,15 @@ export class CommentSection extends React.Component {
 const mapStateToProps = (state) => {
   return {
     comments: state.comments.comments,
-    content: state.comments.content
+    content: state.comments.content,
+    user: state.navBar.user
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getComments: (topic_id, type) => dispatch(fetchComments(topic_id, type)),
-    addComment: (topic_id, type, user_id, date_created, content) => dispatch(insertComment(topic_id, type, user_id, date_created, content)),
+    addComment: (topic_id, type, username, date_created, content, avatar) => dispatch(insertComment(topic_id, type, username, date_created, content, avatar)),
     updateCommentText: (text) => dispatch(updateCommentText(text))
   };
 };
