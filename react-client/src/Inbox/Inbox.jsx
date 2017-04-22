@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectMessage, fetchInbox } from './inboxActions';
-import { Link } from 'react-router-dom';
 import InboxThreadEntry from './InboxThreadEntry.jsx';
 
 export class Inbox extends React.Component {
@@ -34,7 +33,7 @@ export class Inbox extends React.Component {
 const mapStateToProps = state => (
   {
     ...state.inbox,
-    user: state.navBar.user[0].username
+    user: state.navBar.user.username
   }
 );
 

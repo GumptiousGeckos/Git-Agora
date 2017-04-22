@@ -1,4 +1,12 @@
-const homepage = (state = {}, action) => {
+const initialState = {
+  fetchingHotProjects: false,
+  fetchingHotNews: false,
+  hotProjects: [],
+  hotNews: [],
+  error: null
+};
+
+const homepage = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCHING_HOT_PROJECTS':
       return {

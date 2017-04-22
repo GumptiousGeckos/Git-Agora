@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 import HomePage from '../HomePage/HomePage.jsx';
 import ProjectBoard from '../ProjectIdeas/ProjectBoard.jsx';
@@ -27,6 +27,7 @@ class App extends React.Component {
           <Route path="/profile" component={UserProfile} />
           <Route path="/createproject" component={CreateProject} />
           <Route path="/inbox/:id" component={InboxMessageThread} />
+          <Route path="/users/:id" component={UserProfile} />
         </div>
       </Router>
     );

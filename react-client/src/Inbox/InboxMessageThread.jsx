@@ -46,7 +46,7 @@ const InboxMessage = (props) => {
 const mapStateToProps = state => (
   {
     message: state.inbox.selectedMessage,
-    user: state.navBar.user[0],
+    user: state.navBar.user,
     text: state.inbox.messageText
   }
 );

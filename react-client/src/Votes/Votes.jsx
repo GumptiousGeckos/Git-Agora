@@ -1,37 +1,33 @@
-import React { Component } from 'react';
+import React from 'react';
+import { vote } from './votesActions.js';
+import { connect } from 'react-redux';
 
-class Vote extends Component {
+class Vote extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      totalVotes: null,
-      userVote: null,
-    };
   }
 
-  componentDidMount() {
-    const userVote = props.userVote || 0;
-    this.setState({
-      totalVotes: props.totalVotes,
-      userVote: userVote,
-    });
+  componentWillMount() {
+    const { dispatch } = this.props;
   }
 
   render() {
-    const upVoteButton = <button className="btn btn-lg btn-block btn-success" ><span className="glyphicon glyphicon-triangle-top" /></button>
-    const downVoteButton = <button className="btn btn-lg btn-block btn-danger"><span className="glyphicon glyphicon-triangle-bottom" /></button>
-    const neutralUpVoteButton = <button className="btn btn-lg btn-block"><span className="glyphicon glyphicon-triangle-top" /></button>
-    const neutralDownVoteButton = <button className="btn btn-lg btn-block red-button"><span className="glyphicon glyphicon-triangle-bottom" /></button>
+    const { vote } = this.props;
+    const userVote = this.props.vote_type || 0;
+    const type = this.props.topic_type;
+    const totalVotes = this.props.votes;
+    const user = this.props.user;
+    const topic_id = this.props.topic_id;
+    const upVoteButton = <button className="btn btn-lg btn-block btn-success" onClick={()=>{ vote(user, -1, type, topic_id, userVote)}}><span className="glyphicon glyphicon-triangle-top" /></button>
+    const downVoteButton = <button className="btn btn-lg btn-block btn-danger" onClick={()=>{ vote(user, 1, type, topic_id, userVote)}}><span className="glyphicon glyphicon-triangle-bottom" /></button>
+    const neutralUpVoteButton = <button className="btn btn-lg btn-block" onClick={()=>{ vote(user, 1, type, topic_id, userVote)}}><span className="glyphicon glyphicon-triangle-top" /></button>
+    const neutralDownVoteButton = <button className="btn btn-lg btn-block" onClick={()=>{ vote(user, -1, type, topic_id, userVote)}}><span className="glyphicon glyphicon-triangle-bottom" /></button>
     return (
       <div className="text-center col-lg-1 col-md-1 col-sm-2 col-xs-2">
 
-        <button className="btn btn-lg btn-block">
-          <span className="glyphicon glyphicon-triangle-top" />
-        </button>
-        <div>{props.likes}</div>
-        <button className="btn btn-lg btn-block">
-          <span className="glyphicon glyphicon-triangle-bottom" />
-        </button>
+        {(this.props.user && userVote === 1) ? upVoteButton : neutralUpVoteButton}
+        <div>{totalVotes}</div>
+        {(this.props.user && userVote === -1) ? downVoteButton : neutralDownVoteButton}
       </div>
     )
   }
@@ -39,10 +35,14 @@ class Vote extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.navBar.user,
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
-
+  return {
+    vote: (user, vote_type, type, topic_id, userVote) => {dispatch(vote(user, vote_type, type, topic_id, userVote))}
+  }
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Vote);
