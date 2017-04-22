@@ -63,6 +63,9 @@ router.route('/projects')
 router.route('/articles')
 .get(handler.getAllArticles);
 
+router.route('/articles/:id')
+  .get(handler.getArticleById);
+
 router.route('/topSixArticles')
 .get(handler.getTopSixArticles);
 
