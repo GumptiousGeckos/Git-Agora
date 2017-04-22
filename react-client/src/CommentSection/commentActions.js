@@ -4,8 +4,9 @@ export const getComments = () => ({
   type: 'FETCHING_COMMENTS'
 });
 
-export const addComment = () => ({
-  type: 'ADD_COMMENT'
+export const addComment = (topic_id, type, user_id, date_created, content) => ({
+  type: 'ADD_COMMENT',
+  payload: { topic_id, type, user_id, date_created, content }
 });
 
 export const receivedComments = comments => ({
@@ -38,11 +39,11 @@ export const fetchComments = (topic_id, type) => (
 
 export const insertComment = (topic_id, type, user_id, date_created, content) => (
   (dispatch) => {
-    dispatch(addComment());
+    dispatch(addComment(topic_id, type, user_id, date_created, content));
     axios.post('/api/comments', { topic_id, type, user_id, date_created, content })
       .then((response) => {
         console.log('Comment added');
-        dispatch(fetchComments(topic_id, type));
+        // dispatch(fetchComments(topic_id, type));
       })
       .catch((err) => {
         console.log('ERROR adding comment: ', err);
