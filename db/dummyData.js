@@ -274,77 +274,49 @@ module.exports = {
       name: 'Ed',
       username: 'Ed91',
       email: 'jeff@jeff.com',
-<<<<<<< HEAD
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
-=======
       avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
->>>>>>> 70408d582e791c519851095694a48329a6f673d0
     },
     {
       id: 2,
       name: 'Paul',
       username: 'Paul52',
       email: 'jeff1@jeff.com',
-<<<<<<< HEAD
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
-=======
       avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
->>>>>>> 70408d582e791c519851095694a48329a6f673d0
     },
     {
       id: 3,
       name: 'Jon',
       username: 'Jon99',
       email: 'jeff2@jeff.com',
-<<<<<<< HEAD
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
-=======
       avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
->>>>>>> 70408d582e791c519851095694a48329a6f673d0
     },
     {
       id: 4,
       name: 'Augustus',
       username: 'Augustus11',
       email: 'jeff3@jeff.com',
-<<<<<<< HEAD
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
-=======
       avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
->>>>>>> 70408d582e791c519851095694a48329a6f673d0
     },
     {
       id: 5,
       name: 'Sarah',
       username: 'Sarah69',
       email: 'jeff4@jeff.com',
-<<<<<<< HEAD
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
-=======
       avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
->>>>>>> 70408d582e791c519851095694a48329a6f673d0
     },
     {
       id: 6,
       name: 'Jessica',
       username: 'JessBess',
       email: 'jeff5@jeff.com',
-<<<<<<< HEAD
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
-=======
       avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
->>>>>>> 70408d582e791c519851095694a48329a6f673d0
     },
     {
       id: 7,
       name: 'Ragnar',
       username: 'Ragnar666',
       email: 'jeff6@jeff.com',
-<<<<<<< HEAD
-      picture: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
-=======
       avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
->>>>>>> 70408d582e791c519851095694a48329a6f673d0
     }
   ],
 
@@ -606,7 +578,7 @@ module.exports = {
       topic_id: 6,
       vote_type: 1
     },
-        {
+    {
       type: 'project',
       user_id: 1,
       topic_id: 6,
