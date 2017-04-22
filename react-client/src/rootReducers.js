@@ -7,6 +7,7 @@ import newsReducer from './NewsPage/newsReducer';
 import homepageReducer from './HomePage/homepageReducer';
 import createProjectReducer from './CreateProject/createProjectReducer';
 import userReducer from './Users/userReducer';
+import inboxReducer from './Inbox/inboxReducer';
 import commentReducer from './CommentSection/commentReducer';
 
 const appReducer = combineReducers({
@@ -18,6 +19,7 @@ const appReducer = combineReducers({
   navBar: navReducer,
   news: newsReducer,
   createproject: createProjectReducer,
+  inbox: inboxReducer,
   comments: commentReducer
 });
 

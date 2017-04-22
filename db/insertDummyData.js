@@ -4,6 +4,15 @@ const pgp = require('pg-promise')();
 const path = require('path');
 const pg = require('pg');
 
+// This is here because env LOCAL DB not working
+// const config = {
+//   host: 'localhost',
+//   port: 5432,
+//   database: 'gecko'
+// };
+
+// const db = pgp(config);
+
 function sql(file) {
   var fullPath = path.join(__dirname, './queries', file);
   return new pgp.QueryFile(fullPath, {minify: true});
@@ -23,7 +32,6 @@ let queries = {
   addUser: sql('users/createUser.sql'),
   addVote: sql('votes/insertVote.sql')
 };
-
 
 const userPromises = data.users.map( (user) => {
   return db.query(queries.addUser, { id: user.id, name: user.name, username: user.username, email: user.email, avatar: user.avatar })

@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-import ProjectBoardEntry from '../ProjectIdeas/ProjectBoardEntry.jsx';
 import { fetchHotProjects, fetchHotNews } from './homepageActions';
 
 
@@ -63,18 +61,18 @@ export class HomePage extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     hotProjects: state.homepage.hotProjects,
     hotNews: state.homepage.hotNews
-  };
-};
+  }
+);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = dispatch => (
+  {
     getHotProjects: () => dispatch(fetchHotProjects()),
     getHotNews: () => dispatch(fetchHotNews())
-  };
-};
+  }
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

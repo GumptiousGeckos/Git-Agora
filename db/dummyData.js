@@ -578,7 +578,7 @@ module.exports = {
       topic_id: 6,
       vote_type: 1
     },
-        {
+    {
       type: 'project',
       user_id: 1,
       topic_id: 6,

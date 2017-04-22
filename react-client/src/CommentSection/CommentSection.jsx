@@ -7,7 +7,6 @@ import { insertComment, fetchComments, updateCommentText } from './commentAction
 export class CommentSection extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -15,6 +14,7 @@ export class CommentSection extends React.Component {
     const { getComments, projectId, type } = this.props;
     getComments(projectId, type);
   }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -27,8 +27,7 @@ export class CommentSection extends React.Component {
 
 
   render () {
-    const { comments, updateCommentText } = this.props;
-    
+    const { comments, updateCommentText } = this.props;    
     return (
       <div>
         <div>

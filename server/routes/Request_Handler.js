@@ -13,7 +13,7 @@ module.exports.deleteFollow = require('./Follows').deleteFollow;
 module.exports.getFollows = require('./Follows').getFollows;
 
 module.exports.getMessages = require('./Messages').getMessages;
-module.exports.addMessage = require('./Messages').addMessage;
+module.exports.postMessages = require('./Messages').postMessages;
 
 module.exports.getRatings = require('./Ratings').getRatings;
 module.exports.addRatings = require('./Ratings').addRatings;

@@ -38,6 +38,11 @@ export class NavBar extends React.Component {
             </Link>
           </li>
           <li>
+            <Link to={'/inbox'}>
+              <span className="glyphicon glyphicon-user" onClick={this.handleNavOnClick}> Inbox</span>
+            </Link>
+          </li>
+          <li>
             <a>Log out</a>
           </li>
         </ul>

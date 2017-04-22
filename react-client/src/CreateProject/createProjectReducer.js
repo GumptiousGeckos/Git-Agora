@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 const initialState = {
   list: [],
   selectedRepo: {},
@@ -9,7 +7,7 @@ const initialState = {
   description: '',
   page: 'SELECT_REPO',
   submittingProject: false
-}
+};
 
 const createProjectReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -68,6 +66,6 @@ const createProjectReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default createProjectReducer;

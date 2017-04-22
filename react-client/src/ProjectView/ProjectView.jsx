@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CommentSection from '../CommentSection/CommentSection.jsx';
-
 import { getProjectById } from './projectViewActions';
 
 export class ProjectView extends React.Component {
@@ -14,7 +13,6 @@ export class ProjectView extends React.Component {
   render() {
     const { project } = this.props;
     const { id } = this.props.match.params;
-
     return (
       <div>
         <div className="col-md-9">
@@ -56,7 +54,7 @@ export class ProjectView extends React.Component {
             <h2>{project.requirements}</h2>
             <button
               className="btn btn-success btn-lg"
-            >I'm Interested</button>
+            >{"I'm Interested"}</button>
           </div>
         </div>
       </div>
@@ -64,16 +62,16 @@ export class ProjectView extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     project: state.project.project
-  };
-};
+  }
+);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = dispatch => (
+  {
     getProjectById: id => dispatch(getProjectById(id))
-  };
-};
+  }
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectView);

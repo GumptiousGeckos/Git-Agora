@@ -2,6 +2,12 @@ require('dotenv').config();
 
 const config = process.env.DATABASE_URL || process.env.DB_LOCAL;
 
+// const config = {
+//   host: 'localhost',
+//   port: 5432,
+//   database: 'gecko'
+// };
+
 const path = require('path');
 const pgp = require('pg-promise')();
 

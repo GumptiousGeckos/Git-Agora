@@ -14,7 +14,7 @@ export class UserDetails extends React.Component {
   render() {
     const { user, currentUser, descriptionText = user.description,
             editMode, toggleEditMode, updateDescriptionText,
-            saveChanges } = this.props;
+            saveChanges, onSendMessageClick } = this.props;
     const ownProfile = currentUser ? user.id === currentUser.id : false;
 
     let description, editModeButton;
@@ -68,6 +68,7 @@ export class UserDetails extends React.Component {
       <div>
         <div className="picture">
           <img src={user.picture ? user.picture : 'http://www.plentyofcheddar.com/wp-content/uploads/2013/12/questionmark51.jpg'} />
+          { (ownProfile) ? (<button type="btn btn-default"> Send Message </button>) : '' }
           <div className="text-left">
             {description}
             {editModeButton}

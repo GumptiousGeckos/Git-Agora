@@ -23,7 +23,6 @@ export const updateCommentText = text => ({
   payload: text
 });
 
-
 export const fetchComments = (topic_id, type) => (
   (dispatch) => {
     dispatch(getComments());
