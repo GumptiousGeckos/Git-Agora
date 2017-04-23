@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default (props) => {
   const { comment, user } = props;
+  const user_id = comment.user_id || comment.id;
   return (
     <div className="comment">
       <div className="row">
@@ -11,7 +12,7 @@ export default (props) => {
         </div>
         <div className="col-md-11">
           <div className="col-md-2">
-            <Link to={'/users/' + comment.id}>
+            <Link to={'/users/' + comment.user_id}>
               <span id="username">{comment.username}</span>
             </Link>
           </div>
@@ -21,7 +22,7 @@ export default (props) => {
         </div>
       </div>
       <div className="row">
-        <Link to={'/users/' + comment.id}>
+        <Link to={'/users/' + comment.user_id}>
           <div className="col-md-1">
             <img id="icon" src={comment.avatar} className="img-fluid" alt="Responsive image"/>
           </div>

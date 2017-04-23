@@ -20,7 +20,7 @@ module.exports = {
   comments: [
     {
       id: 1,
-      username: 'Jon99',
+      user_id: 1,
       date_created: new Date().toDateString(),
       type: 'project',
       topic_id: 3,
@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       id: 2,
-      username: 'Gus11',
+      user_id: 2,
       date_created: new Date().toDateString(),
       type: 'project',
       topic_id: 3,
@@ -36,7 +36,7 @@ module.exports = {
     },
     {
       id: 4,
-      username: 'Ed91',
+      user_id: 3,
       date_created: new Date().toDateString(),
       type: 'project',
       topic_id: 4,
@@ -44,7 +44,7 @@ module.exports = {
     },
     {
       id: 4,
-      username: 'Paul52',
+      user_id: 4,
       date_created: new Date().toDateString(),
       type: 'project',
       topic_id: 5,

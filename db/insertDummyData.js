@@ -58,7 +58,7 @@ Promise.all(userPromises).then(() => {
   Promise.all(projectPromises).then(() => {
     data.comments.forEach( (comment) => {
       db.query(queries.addComment, {
-        username: comment.username,
+        user_id: comment.user_id,
         type: comment.type,
         topic_id: comment.topic_id,
         content: comment.content,

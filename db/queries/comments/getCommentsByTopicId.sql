@@ -5,7 +5,7 @@ from
 LEFT JOIN
   users
 ON
-  comments.username = users.username
+  comments.user_id = users.id
 WHERE
   comments.type = ${type}
 AND

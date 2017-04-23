@@ -1,8 +1,9 @@
 CREATE TABLE IF NOT EXISTS comments (
   id serial PRIMARY KEY,
-  username varchar(30),
+  user_id int,
   date_created text,
   type text,
   topic_id int,
-  content text
+  content text,
+  FOREIGN KEY(user_id) REFERENCES users
 );

@@ -19,9 +19,9 @@ export class CommentSection extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { addComment, type, topic_id, content, user } = this.props;
-    const { username, avatar } = user;
+    const { username, avatar, id } = user;
     let date_created = new Date().toDateString();
-    addComment(topic_id, type, username, date_created, content, avatar);
+    addComment(topic_id, type, username, id, date_created, content, avatar);
   }
 
   render () {
@@ -53,7 +53,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getComments: (topic_id, type) => dispatch(fetchComments(topic_id, type)),
-    addComment: (topic_id, type, username, date_created, content, avatar) => dispatch(insertComment(topic_id, type, username, date_created, content, avatar)),
+    addComment: (topic_id, type, username, user_id, date_created, content, avatar) => dispatch(insertComment(topic_id, type, username, user_id, date_created, content, avatar)),
     updateCommentText: (text) => dispatch(updateCommentText(text))
   };
 };
