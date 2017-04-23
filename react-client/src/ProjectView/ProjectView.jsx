@@ -25,7 +25,7 @@ export class ProjectView extends React.Component {
           />
           <div>
             <CommentSection
-              projectId={id}
+              topic_id={id}
               type={'project'}
             />
           </div>

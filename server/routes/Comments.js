@@ -22,7 +22,8 @@ module.exports.getComments = (req, res) => {
     res.status(200).json(data);
   })
   .catch((error) => {
-    res.status(404).send(error, 'FAILED getting comments');
+    console.log('FAILED GETTING COMMENTS');
+    res.status(404).send(error);
   });
 };
 

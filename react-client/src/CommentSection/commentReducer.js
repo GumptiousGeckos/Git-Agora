@@ -3,10 +3,12 @@ const initialState = {
   comments: []
 };
 
-const comment = (state = [], action) => {
+const comment = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_COMMENT':
-      return [...state];
+      return [
+        ...state, action.payload
+      ];
     default:
       return state;
   }
