@@ -141,3 +141,54 @@ a:hover {
 .createproject-repolist-select {
   background-color: #e8e5e5;
 }
+
+.navbar {
+  font-family: 'Roboto', sans-serif;
+  max-width: 100%;
+}
+
+.home-nav {
+  max-width: 100%;
+  text-align: center;
+}
+.main-page-nav {
+  max-width: 100%;
+}
+
+.user-nav {
+  max-width: 100%;
+}
+
+.nav-news {
+  min-width: 25%;
+  float: left;
+}
+.nav-projects {
+  min-width: 25%;
+  float: left;
+}
+.nav-categories {
+  min-width: 25%;
+  float: left;
+}
+.nav-create {
+  min-width: 25%;
+  float: left;
+}
+
+.nav-profile {
+  min-width: 33%;
+  float: left;
+}
+.nav-inbox {
+  min-width: 33%;
+  float: left;
+}
+.nav-logout {
+  min-width: 33%;
+  float: left;
+}
+
+.nav-icon {
+  padding-left: 5px;
+}
