@@ -1,14 +1,14 @@
 require('dotenv').config();
 const db = require('./../../db/db.js');
 const path = require('path');
-const pg = require('pg');
-const pgp = require('pg-promise')();
 const rp = require('request-promise');
 const GITHUB_CALLBACK = process.env.GITHUB_CALLBACK;
 
+var QueryFile = db.$config.pgp.QueryFile;
+
 function sql(file) {
   const fullPath = path.join(__dirname, './../../db/queries/projects', file);
-  return new pgp.QueryFile(fullPath, { minify: true });
+  return new QueryFile(fullPath, { minify: true });
 }
 
 const queries = {
