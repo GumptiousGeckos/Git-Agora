@@ -1,21 +1,12 @@
 const db = require('./db.js');
 const data = require('./dummyData.js');
-const pgp = require('pg-promise')();
 const path = require('path');
-const pg = require('pg');
 
-// This is here because env LOCAL DB not working
-// const config = {
-//   host: 'localhost',
-//   port: 5432,
-//   database: 'gecko'
-// };
-
-// const db = pgp(config);
+var QueryFile = db.$config.pgp.QueryFile;
 
 function sql(file) {
   var fullPath = path.join(__dirname, './queries', file);
-  return new pgp.QueryFile(fullPath, {minify: true});
+  return new QueryFile(fullPath, {minify: true});
 }
 
 let queries = {
