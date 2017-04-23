@@ -15,8 +15,8 @@ export default (props) => {
         <h4>{title}</h4>
         <h6>Tags:
           {
-            tagArray && tagArray.map(tag =>
-              <span>{' ' + tag}</span>
+            tagArray && tagArray.map((tag, index) =>
+              <span key={index}>{' ' + tag}</span>
             )
           }
         </h6>

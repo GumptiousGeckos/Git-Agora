@@ -8,11 +8,11 @@ from
   group by topic_id
   ) votestable
 left join
-  (select proj.*, tags.tag_name
+  (select proj.*, tags.tags
   FROM
     (select * from projects) proj
   LEFT JOIN
-    (select pt.project_id, array_to_string(array_agg(t.tag_name), ',') as tag_name
+    (select pt.project_id, array_to_string(array_agg(t.tag_name), ',') as tags
     from projects_tags pt
     left join tags t
     on (pt.tag_id = t.id)
