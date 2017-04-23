@@ -1,13 +1,11 @@
 const db = require('./../../db/db.js');
 const path = require('path');
-const pg = require('pg');
-var pgp = require('pg-promise')();
 
-
+var QueryFile = require('pg-promise').QueryFile;
 
 function sql(file) {
   var fullPath = path.join(__dirname, './../../db/queries/favorites', file);
-  return new pgp.QueryFile(fullPath, {minify: true});
+  return new QueryFile(fullPath, {minify: true});
 }
 
 let queries = {
