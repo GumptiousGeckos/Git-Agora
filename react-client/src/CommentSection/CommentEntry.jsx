@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 export default (props) => {
   const { comment, user } = props;
-  const user_id = comment.user_id || comment.id;
   return (
     <div className="comment">
       <div className="row">

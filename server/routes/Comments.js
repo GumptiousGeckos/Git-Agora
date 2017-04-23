@@ -16,8 +16,6 @@ const queries = {
 module.exports.getComments = (req, res) => {
   const { type, topic_id } = req.query;
 
-  console.log('YOOO ', type, topic_id);
-
   return db.query(queries.getComments, { type, topic_id })
   .then((data) => {
     console.log('Success getting comments');
