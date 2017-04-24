@@ -1,5 +1,5 @@
 select
-  projectstable.*, votestable.votes, uservote.vote_type
+  projectstable.*, votestable.votes, uservote.vote_type, users.username
 from
   (select
     sum(vote_type) votes, topic_id
@@ -26,4 +26,8 @@ left join
   where user_id = ${user_id}
   ) uservote
 on (uservote.topic_id = projectstable.id)
+left join
+  users
+on
+  users.id = projectstable.user_id
 order by votestable.votes desc limit 25;

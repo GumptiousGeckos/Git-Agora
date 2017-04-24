@@ -6,7 +6,8 @@ import { submitMessage, inputText } from './inboxActions';
 
 const InboxMessage = (props) => {
   const { onMessageSubmit, message, user, onTextInput, text } = props;
-  const receiver = message.users.filter(ele => (ele !== user.username));
+  const users = message.users || [];
+  const receiver = users.filter(ele => (ele !== user.username));
   const messageSender = {
     username: user.username,
     id: user.id
@@ -14,30 +15,26 @@ const InboxMessage = (props) => {
   const { header } = message;
   return (
     <div>
-      <h1> Inbox </h1>
-      <Link to="/inbox">
-        Back to Inbox
-      </Link>
       <div>
-        <h2> {header} </h2>
+        <h4> {header} </h4>
       </div>
+      <label htmlFor="message-input-field">Message: </label>
+      <textarea
+        type="text"
+        className="form-control"
+        id="message-input-field"
+        onChange={e => onTextInput(e.target.value)}
+        value={text}
+      />
+      <button onClick={() => onMessageSubmit(messageSender, receiver, text, message._id)}>
+        Send Message
+      </button>
       <div id="inbox-messages-list">
         {
           message.messages.map(ele => (
             <ThreadMessageEntry message={ele} />
           ))
         }
-        <label htmlFor="message-input-field">Message: </label>
-        <textarea
-          type="text"
-          className="form-control"
-          id="message-input-field"
-          onChange={e => onTextInput(e.target.value)}
-          value={text}
-        />
-        <button onClick={() => onMessageSubmit(messageSender, receiver, text, message._id)}>
-          Send Message
-        </button>
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ module.exports.getFollows = require('./Follows').getFollows;
 
 module.exports.getMessages = require('./Messages').getMessages;
 module.exports.postMessages = require('./Messages').postMessages;
+module.exports.putMessages = require('./Messages').putMessages;
 
 module.exports.getRatings = require('./Ratings').getRatings;
 module.exports.addRatings = require('./Ratings').addRatings;

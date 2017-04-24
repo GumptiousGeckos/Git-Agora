@@ -52,7 +52,7 @@ export class ProjectView extends React.Component {
 const mapStateToProps = state => (
   {
     project: state.project.project,
-    collaborators: state.project.collaborators,
+    collaborators: state.project.collaborators
   }
 );
 

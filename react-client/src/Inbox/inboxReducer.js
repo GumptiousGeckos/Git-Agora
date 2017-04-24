@@ -41,8 +41,8 @@ const inboxReducer = (state = initialState, action) => {
         selectedMessage: {
           ...state.selectedMessage,
           messages: [
-            ...state.selectedMessage.messages,
-            action.message
+            action.message,
+            ...state.selectedMessage.messages
           ]
         },
         messageText: ''
@@ -51,6 +51,17 @@ const inboxReducer = (state = initialState, action) => {
       return {
         ...state,
         messageText: action.text
+      };
+    case 'MESSAGE_DELETED':
+      return {
+        ...state,
+        messages: state.messages.filter(message => message._id !== action.id),
+        selectedMessage: {}
+      };
+    case 'MESSAGE_DELETE_ERROR':
+      return {
+        ...state,
+        messageError: action.error
       };
     default:
       return state;

@@ -23,7 +23,7 @@ const comments = (state = initialState, action) => {
       };
     case 'FETCHING_COMMENTS':
       return {
-        ...state,
+        ...initialState,
         fetchingComments: true
       };
     case 'RECEIVED_COMMENTS':

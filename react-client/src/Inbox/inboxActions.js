@@ -85,3 +85,26 @@ export const inputText = text => (
     text
   }
 );
+
+const messageDeleted = id => (
+  {
+    type: 'MESSAGE_DELETED',
+    id
+  }
+);
+const messageDeleteError = error => (
+  {
+    type: 'MESSAGE_DELETE_ERROR',
+    error
+  }
+);
+export const deleteMessage = id => (
+  (dispatch) => {
+    axios.put('api/messages', {
+      id
+    })
+    .then(() => dispatch(messageDeleted(id)))
+    .catch(error => dispatch(messageDeleteError(error)));
+  }
+);
+

@@ -9,7 +9,6 @@ const passport = require('passport');
 const pgp = require('pg-promise')();
 // const db = require('../db/db');
 const cookieParser = require('cookie-parser');
-const passportGithub = require('./auth/github');
 const routes = require('./routes.js');
 const path = require('path');
 const pgSession = require('connect-pg-simple')(session);
