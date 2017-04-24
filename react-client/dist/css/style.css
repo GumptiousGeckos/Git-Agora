@@ -48,46 +48,6 @@ a:hover {
   margin: 10px auto;
 }
 
-.comment {
-  background-color: #162f56;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 10px auto;
-}
-
-#icon {
-  max-width: 100%;
-  height: auto;
-  border-right: 1px solid grey;
-  border-radius: 4px;
-}
-
-#username {
-  font-size: 24px;
-  padding-right: 100px;
-  color: white;
-}
-
-#username:hover {
-  color: #f4a742;
-}
-
-#content-section {
-  border-top: 1px solid grey;
-  padding-top: 10px;
-
-}
-
-#content {
-  padding-top: 10px;
-  word-wrap: break-word;
-  color: #e0e3ff;
-}
-
-#date-created {
-  color: #a3a3a3;
-}
 
 .caption {
   background-color: #333;
@@ -305,6 +265,61 @@ a:hover {
   vertical-align: middle;
   max-width: 100%;
   border-radius: 4px;
+}
+
+/* -------------------------- *\ 
+  #COMMENT-SECTION
+\*----------------------------*/
+
+.comment {
+  background-color: #162f56;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+
+.comment-avatar {
+  vertical-align: center;
+  max-width: 25%;
+  max-height: 25%;
+  border-right: 1px solid grey;
+  border-radius: 4px;
+  float: left;
+}
+
+.comment-username {
+  font-size: 14px;
+  padding-left: 10px;
+  color: white;
+  float: left;
+}
+
+.comment-username:hover {
+  color: #e85a71;
+}
+
+.content-section {
+  margin-left: 0px;
+  padding-left: 10px;
+}
+
+.comment-meta {
+  float: left;
+  border-right: 1px solid grey;
+}
+
+.comment-content {
+  word-wrap: break-word;
+  color: #e0e3ff;
+  float: left;
+}
+
+.date-created {
+  color: white;
+  float: left;
+  font-size: 12px;
+  padding-left: 10px;
 }
 
 /* -------------------------- *\ 
