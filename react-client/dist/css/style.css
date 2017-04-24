@@ -10,7 +10,6 @@ Table of contents
 
 
 body {
-  padding-top: 20px;
   background-color: #d8e9ef;
 }
 
@@ -144,6 +143,11 @@ a:hover {
 .front-page {
   max-height: 400px;
 }
+
+/* -------------------------- *\ 
+  #REPO-LIST
+\*----------------------------*/
+
 
 .repo-list {
   border-style: solid;
