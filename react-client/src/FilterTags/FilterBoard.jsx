@@ -19,7 +19,8 @@ export class FilterBoard extends React.Component {
   handleSearch(e) {
     const { searchQuery, getProjectsByTag } = this.props;
     e.preventDefault();
-    getProjectsByTag(searchQuery);
+    this.refs.input.value = '';
+    getProjectsByTag(searchQuery.toLowerCase());
   }
 
   render() {
@@ -33,6 +34,7 @@ export class FilterBoard extends React.Component {
               <input
                 className="form-control"
                 placeholder="Search for a category"
+                ref="input"
                 onChange={(e) => { updateSearchText(e.target.value); }}
               />
               <div className="input-group-btn">
