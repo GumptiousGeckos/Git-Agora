@@ -23,7 +23,7 @@ export class FilterBoard extends React.Component {
   }
 
   render() {
-    let { projects, updateSearchText } = this.props;
+    const { projects, updateSearchText } = this.props;
 
     return (
       <div>
