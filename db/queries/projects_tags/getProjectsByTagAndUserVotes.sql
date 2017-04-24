@@ -1,4 +1,4 @@
-select p.*, votestable.votes, projectstable.tags from projects p
+select p.*, votestable.votes, projectstable.tags, uservote.vote_type from projects p
 left join
   projects_tags pt
 on (p.id = pt.project_id)
@@ -29,6 +29,12 @@ left join
   ) projectstable
 on
   (projectstable.id = p.id)
+left join
+  (select vote_type, topic_id
+  from votes
+  where user_id = ${user_id}
+  ) uservote
+on (uservote.topic_id = projectstable.id)
 where pt.tag_id=
 (select t.id from tags t
 where tag_name=${tag_name})

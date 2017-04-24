@@ -2,22 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProjectBoardEntry from './ProjectBoardEntry.jsx';
-import { addProject, fetchProjects } from './projectActions';
+import { fetchProjects } from './projectActions';
 
 export class ProjectBoard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.redirectToProjectCreation = this.redirectToProjectCreation.bind(this);
-  }
 
   componentWillMount() {
     const { getProjects } = this.props;
     getProjects();
-  }
-
-  redirectToProjectCreation() {
-    const { createProject } = this.props;
-    createProject();
   }
 
   render() {
@@ -51,17 +42,16 @@ export class ProjectBoard extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     projects: state.projects.projects
-  };
-};
+  }
+);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getProjects: () => dispatch(fetchProjects()),
-    createProject: () => dispatch(addProject())
-  };
-};
+const mapDispatchToProps = dispatch => (
+  {
+    getProjects: () => dispatch(fetchProjects())
+  }
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectBoard);
