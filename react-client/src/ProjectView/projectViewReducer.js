@@ -11,6 +11,7 @@ const project = (state = initialState, action) => {
     case 'FETCHING_PROJECT':
       return {
         ...state,
+        project: {},
         fetchingProject: true
       };
     case 'RECEIVED_PROJECT':
@@ -28,6 +29,7 @@ const project = (state = initialState, action) => {
     case 'FETCHING_COLLABORATORS':
       return {
         ...state,
+        collaborators: [],
         fetchingCollaborators: true
       };
     case 'RECEIVED_COLLABORATORS':
