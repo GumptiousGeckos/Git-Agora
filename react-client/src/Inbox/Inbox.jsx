@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { selectMessage, fetchInbox } from './inboxActions';
+import { selectMessage, fetchInbox, deleteMessage } from './inboxActions';
 import InboxThreadEntry from './InboxThreadEntry.jsx';
 import ComposeMessageButton from '../Messages/ComposeMessageButton.jsx';
 import InboxMessageThread from './InboxMessageThread.jsx';
@@ -27,7 +27,7 @@ export class Inbox extends React.Component {
     this.setState({ isOpen: !this.state.isOpen });
   }
   render() {
-    const { messages, onMessageClick, user } = this.props;
+    const { messages, onMessageClick, onDeleteClick, user } = this.props;
     return (
       <div>
         <h1> Inbox </h1>
@@ -45,7 +45,18 @@ export class Inbox extends React.Component {
           }
         </div>
         <Modal isOpen={this.state.isOpen}>
-          <button onClick={this.toggle}> Back To Inbox </button>
+          <div className="row">
+            <button onClick={this.toggle}> Back To Inbox </button>
+            <span> {'   '} </span>
+            <button
+              onClick={() => {
+                if (confirm('Delete this message?')) {
+                  this.toggle();
+                  onDeleteClick(this.props.selectedMessage._id);
+                }
+              }}
+            > Delete Message </button>
+          </div>
           <InboxMessageThread />
         </Modal>
       </div>
@@ -63,6 +74,7 @@ const mapStateToProps = state => (
 const mapDispatchToProps = dispatch => (
   {
     onMessageClick: message => dispatch(selectMessage(message)),
+    onDeleteClick: id => dispatch(deleteMessage(id)),
     fetch: () => dispatch(fetchInbox())
   }
 );
