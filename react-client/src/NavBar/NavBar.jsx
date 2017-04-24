@@ -28,72 +28,72 @@ export class NavBar extends React.Component {
 
     if (loggedIn) {
       navBarRight = (
-        <ul className="nav navbar-nav navbar-right">
-          <li>
-            <h6 className="nav-center">Welcome {user.username}!</h6>
-          </li>
-          <li>
+        <div className="four columns user-nav">
+          <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
             <Link to={'/users/' + user.id}>
-              <span className="glyphicon glyphicon-user" onClick={this.handleNavOnClick}> Profile</span>
+              <span className="fa fa-github fa-lg nav-icon"></span>
+              <span className="nav-header"> {user.username} </span>
             </Link>
-          </li>
-          <li>
+          </div>
+          <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
             <Link to={'/inbox'}>
-              <span className="glyphicon glyphicon-user" onClick={this.handleNavOnClick}> Inbox</span>
+              <span className="fa fa-inbox fa-lg nav-icon"></span>
+              <span className="nav-header"> Inbox </span>
             </Link>
-          </li>
-          <li>
-            <a href="auth/logout">Log out</a>
-          </li>
-        </ul>
+          </div>
+          <div className="nav-bar-page nav-user nav-topic">
+            <span className="nav-header"><a href="auth/logout">Log out</a></span>
+          </div>
+        </div>
       );
     } else {
       navBarRight = (
-        <ul className="nav navbar-nav navbar-right">
-          <li>
-            <a href="/auth/github">Log in with GitHub</a>
-          </li>
-        </ul>
+          <div className="four columns  user-nav nav-topic">
+              <span className="fa fa-github fa-2x nav-icon"></span>
+              <span className="nav-header" >
+                <a className="nav-header" href="/auth/github"> Log in with GitHub </a>
+              </span>
+          </div>
       );
     }
 
     return (
-      <div className="navbar navbar-default navbar-fixed-top">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <Link to={'/'}>
-              <span className="navbar-brand" onClick={this.handleNavOnClick}>git-agora</span>
-            </Link>
-          </div>
-          <div id="navbar" className="navbar-collapse collapse">
-            <ul className="nav navbar-nav">
-              <li className={(activeTab === 'news') ? 'active' : ''} onClick={this.handleNavOnClick}>
-                <Link to={'/news'}>
-                  <span className="glyphicon glyphicon-globe"> News</span>
+        <div className="container navbar ">
+          <div className="row"> 
+              <div className="two columns home-nav">
+                <Link to={'/'}>
+                  <span className="nav-header" onClick={this.handleNavOnClick}>Git-Agora</span>
                 </Link>
-              </li>
-              <li className={(activeTab === 'projects') ? 'active' : ''} onClick={this.handleNavOnClick}>
+              </div>
+            <div className="six columns main-nav">
+              <div className={(activeTab === 'news') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
+                <Link to={'/news'}>  
+                  <span className="fa fa-newspaper-o fa-lg nav-icon"></span>
+                  <span className="nav-header"> News </span>
+                </Link>
+              </div>
+              <div className={(activeTab === 'projects') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
                 <Link to={'/projects'}>
-                  <span className="glyphicon glyphicon-pencil"> Projects</span>
+                  <span className="fa fa-flask fa-lg nav-icon"></span>
+                  <span className="nav-header"> Projects </span>
                 </Link>
-              </li>
-              <li className={(activeTab === 'categories') ? 'active' : ''} onClick={this.handleNavOnClick}>
+              </div>
+              <div className={(activeTab === 'categories') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
                 <Link to={'/categories'}>
-                  <span className="glyphicon glyphicon-tags"> Categories</span>
+                  <span className="fa fa-tags fa-lg nav-icon"></span>
+                  <span className="nav-header"> Categories </span>
                 </Link>
-              </li>
-              <li className={(activeTab === 'createproject') ? 'active' : ''} onClick={this.handleNavOnClick}>
+              </div>
+              <div className={(activeTab === 'createproject') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
                 <Link to={'/createproject'}>
-                  <span className="glyphicon glyphicon-user"> Create Project</span>
+                  <span className="fa fa-plus-circle fa-lg nav-icon"></span>
+                  <span className="nav-header"> Create Project </span>
                 </Link>
-              </li>
-            </ul>
-            <ul className="nav navbar-nav navbar-right">
-              {navBarRight}
-            </ul>
+              </div>
+            </div>
+            {navBarRight}
           </div>
         </div>
-      </div>
     );
   }
 }
