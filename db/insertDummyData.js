@@ -1,6 +1,6 @@
 const db = require('./db.js');
 const data = require('./dummyData.js');
-const pgp = require('pg-promise')();
+const QueryFile = require('pg-promise')().QueryFile;
 const path = require('path');
 const pg = require('pg');
 
@@ -15,7 +15,7 @@ const pg = require('pg');
 
 function sql(file) {
   var fullPath = path.join(__dirname, './queries', file);
-  return new pgp.QueryFile(fullPath, {minify: true});
+  return new QueryFile(fullPath, { minify: true });
 }
 
 let queries = {

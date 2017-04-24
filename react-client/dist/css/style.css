@@ -1,7 +1,7 @@
 body {
-  padding-top: 70px;
+/*  padding-top: 70px;
   background: url(http://cdn.wallpapersafari.com/83/55/jp8GTn.jpg);
-  background-size: cover;
+  background-size: cover;*/
 }
 
 p {
@@ -113,4 +113,26 @@ a:hover {
 
 .front-page {
   max-height: 400px;
+}
+
+.repo-list {
+  border-style: solid;
+  border-width: thin;
+  margin: 5px 5px 5px 5px;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+#repo-list-page {
+  margin-left: 5px;
+}
+#select-project {
+  margin-left: 5px
+}
+#project-submission {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.createproject-repolist-select {
+  background-color: #e8e5e5;
 }
