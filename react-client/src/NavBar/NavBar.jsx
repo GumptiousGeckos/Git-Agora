@@ -42,7 +42,7 @@ export class NavBar extends React.Component {
             </Link>
           </div>
           <div className="nav-bar-page nav-user nav-topic">
-            <span className="nav-header"><a href="auth/logout">Log out</a></span>
+            <span className="nav-header none"><a href="auth/logout" className="nav-header none">Log out</a></span>
           </div>
         </div>
       );
@@ -51,7 +51,7 @@ export class NavBar extends React.Component {
           <div className="four columns  user-nav nav-topic">
               <span className="fa fa-github fa-2x nav-icon"></span>
               <span className="nav-header" >
-                <a className="nav-header" href="/auth/github"> Log in with GitHub </a>
+                <a className="nav-header nav-topic none" href="/auth/github"> Log in with GitHub </a>
               </span>
           </div>
       );
