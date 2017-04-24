@@ -30,7 +30,7 @@ export class ArticleView extends React.Component {
           </div>
           <div className="row">
             <CommentSection
-              projectId={id}
+              topic_id={id}
               type={'article'}/>
           </div>
       </div>
