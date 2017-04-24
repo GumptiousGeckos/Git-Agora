@@ -12,7 +12,8 @@ export default (props) => {
         <div>
           <span>Tags: </span>
           {
-            tagArray.map((tag, index) =>
+            tagArray.length === 0 ? 'None' :
+              tagArray.map((tag, index) =>
               <span key={index}>{tag + ' '}</span>
             )
           }

@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import ComposeMessage from './ComposeMessage.jsx';
+import modalStyle from './modalStyles';
 
 class ComposeMessageButton extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class ComposeMessageButton extends React.Component {
     return (
       <div id="compose-message-popover">
         <button onClick={this.toggle}> Compose Message </button>
-        <Modal isOpen={this.state.isOpen}>
+        <Modal isOpen={this.state.isOpen} style={modalStyle}>
           <button onClick={this.toggle}> Close Message </button>
           <ComposeMessage
             toggle={this.toggle}

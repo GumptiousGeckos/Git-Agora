@@ -1,6 +1,6 @@
 -- gets project with tags and votes
 select
-  projectstable.*, votestable.votes
+  projectstable.*, votestable.votes, users.username
 from
   (select
     sum(vote_type) votes, topic_id
@@ -39,5 +39,9 @@ right join
   ) projectstable
 on
   (projectstable.id = votestable.topic_id)
+left join
+  users
+on
+  projectstable.user_id = users.id
 order by
   votestable.votes desc limit 25;

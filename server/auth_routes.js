@@ -10,7 +10,7 @@ router.route('/logout')
 
 router.route('/github')
   .get(
-    passportGithub.authenticate('github', { scope: ['user', 'repo'] })
+    passportGithub.authenticate('github', { scope: ['user:email', 'public_repo'] })
   );
 
 router.route('/github/callback')

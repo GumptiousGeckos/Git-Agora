@@ -1,6 +1,6 @@
 -- combines projects, votecount, and tags (as an aggregated string)
 select
-  projectstable.*, votestable.votes
+  projectstable.*, votestable.votes, users.username
 from
   (select
     sum(vote_type) votes, topic_id
@@ -11,7 +11,7 @@ from
   group by
     topic_id
   ) votestable
-left join
+LEFT JOIN
   (select
     proj.*, tags.tags
   FROM
@@ -37,5 +37,9 @@ left join
   ) projectstable
 on
   (projectstable.id = votestable.topic_id)
+LEFT JOIN
+  users
+ON
+  projectstable.user_id = users.id
 order by
   votestable.votes desc limit 25;
