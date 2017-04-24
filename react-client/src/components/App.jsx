@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="container">
           <NavBar />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/projects" component={ProjectBoard} />

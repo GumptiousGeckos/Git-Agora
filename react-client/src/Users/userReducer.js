@@ -14,6 +14,7 @@ const user = (state = initialState, action) => {
     case 'FETCHING_USER_PROJECTS':
       return {
         ...state,
+        userProjects: [],
         fetchingUserProjects: true
       };
     case 'RECEIVED_USER_PROJECTS':
@@ -57,6 +58,7 @@ const user = (state = initialState, action) => {
     case 'FETCHING_USER':
       return {
         ...state,
+        user: {},
         fetchingUser: true
       };
     case 'RECEIVED_USER':

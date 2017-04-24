@@ -166,56 +166,56 @@ module.exports = {
   tags: [
     {
       id: 1,
-      tag_name: 'Money'
+      tag_name: 'money'
     },
     {
       id: 2,
-      tag_name: 'Machines'
+      tag_name: 'machines'
     },
     {
       id: 3,
-      tag_name: 'Technology'
+      tag_name: 'technology'
     },
     {
       id: 4,
-      tag_name: 'AI'
+      tag_name: 'ai'
     },
     {
       id: 5,
-      tag_name: 'Python'
+      tag_name: 'python'
     }
   ],
 
   projects_tags: [
     {
       id: 1,
-      tag_id: 1,
-      tag_name: 'Money',
+      tag_name: 'money',
       project_id: 1
     },
     {
       id: 2,
-      tag_id: 1,
-      tag_name: 'Machines',
+      tag_name: 'machines',
       project_id: 2
     },
     {
       id: 3,
-      tag_id: 1,
-      tag_name: 'Money',
+      tag_name: 'money',
       project_id: 3
     },
     {
       id: 4,
-      tag_id: 1,
-      tag_name: 'Money',
+      tag_name: 'money',
       project_id: 4
     },
     {
       id: 5,
-      tag_id: 3,
-      tag_name: 'Technology',
+      tag_name: 'technology',
       project_id: 3
+    },
+    {
+      id: 6,
+      tag_name: 'ai',
+      project_id: 6
     }
   ],
 
@@ -367,7 +367,7 @@ module.exports = {
       topic_id: 6,
       vote_type: 1
     },
-        {
+    {
       type: 'article',
       user_id: 1,
       topic_id: 6,

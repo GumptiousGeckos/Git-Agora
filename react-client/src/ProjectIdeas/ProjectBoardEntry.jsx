@@ -13,13 +13,13 @@ export default (props) => {
         className="well col-lg-11 col-md-11 col-sm-10 col-xs-10"
       >
         <h4>{title}</h4>
-        <h6>Tags:
+        <span>Tags: </span>
           {
-            tagArray && tagArray.map((tag, index) =>
+            tagArray.length === 0 ? 'None' :
+            tagArray.map((tag, index) =>
               <span key={index}>{' ' + tag}</span>
             )
           }
-        </h6>
         <h4 className="standard">{description}</h4>
       </div>
     </Link>

@@ -11,8 +11,15 @@ export class UserDetails extends React.Component {
     getUserById(id);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { getUserById, id } = nextProps;
+    if (this.props.id !== id) {
+      getUserById(id);
+    }
+  }
+
   render() {
-    const { user, currentUser, descriptionText = user.description,
+    const { user = {}, currentUser, descriptionText = user.description,
             editMode, toggleEditMode, updateDescriptionText,
             saveChanges, onSendMessageClick } = this.props;
     const ownProfile = currentUser ? user.id === currentUser.id : false;
@@ -83,9 +90,6 @@ export class UserDetails extends React.Component {
               <h5>Email: {user.email}</h5>
               <h5>Points: {user.points}</h5>
             </div>
-          </div>
-          <div className="text-left col-md-12">
-            <h4 className="underline">Tags</h4>
           </div>
         </div>
       </div>
