@@ -17,24 +17,22 @@ export class ArticleView extends React.Component {
   render() {
     let { votes, title, url, source, description, vote_type, id } = this.props.article;
     return (
-      <div>
-        <div className="col-md-12">
-          <div>
-            <Votes votes={votes} topic_type={'article'} vote_type={vote_type} topic_id={id}/>
-            <div className="col-md-9">
+      <div className="container article-view">
+          <div className="row article-view-entry">
+              <Votes votes={votes} topic_type={'article'} vote_type={vote_type} topic_id={id}/>
+            <div className="ten columns">
               <a href={url}>
-                <h1>{title}</h1>
+                <div className="article-view-title">{title}</div>
               </a>
-              <h4>{description}</h4>
-              <h4>{source}</h4>
+              <div className="article-view-description">{description}</div>
+              <div className="article-view-source">-{source}</div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div className="row">
             <CommentSection
               projectId={id}
               type={'article'}/>
           </div>
-        </div>
       </div>
       )
   }

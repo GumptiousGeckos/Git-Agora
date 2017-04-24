@@ -1,7 +1,16 @@
+/*
+
+Table of contents
+
+*/
+
+/* -------------------------- *\ 
+  #GLOBAL-SETTINGS
+\*----------------------------*/
+
+
 body {
-  padding-top: 70px;
-  /*background: url(http://cdn.wallpapersafari.com/83/55/jp8GTn.jpg);*/
-  /*background-size: cover;*/
+  background-color: #d8e9ef;
 }
 
 p {
@@ -10,6 +19,21 @@ p {
 
 textarea {
   resize: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea {
+  margin-bottom: 0px;
+  font-family: 'opensans', sans-serif;
+  font-size: 10px;
+}
+
+button {
+  color: #e85a71;
+  border: 1px solid #e85a71;
 }
 
 a:hover {
@@ -120,6 +144,11 @@ a:hover {
   max-height: 400px;
 }
 
+/* -------------------------- *\ 
+  #REPO-LIST
+\*----------------------------*/
+
+
 .repo-list {
   border-style: solid;
   border-width: thin;
@@ -140,4 +169,149 @@ a:hover {
 }
 .createproject-repolist-select {
   background-color: #e8e5e5;
+}
+
+/* -------------------------- *\ 
+  #NAVBAR
+\*----------------------------*/
+
+.navbar {
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  padding: 10px;
+  background-color: #4ea1d3;
+  color: #454552;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.home-nav {
+  max-width: 100%;
+  text-align: center;
+}
+
+.main-nav {
+  max-width: 100%;
+}
+
+.user-nav {
+  max-width: 100%;
+}
+
+.nav-icon {
+  padding-right: 5px;
+  color: #d8e9ef;
+  vertical-align: middle;
+}
+
+.nav-topic {
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.nav-user {
+  max-width: 33%;
+  float: left;
+}
+
+.nav-header {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: #d8e9ef;
+  text-decoration: none;
+}
+
+/* -------------------------- *\ 
+  #ARTICLE_VIEW
+\*----------------------------*/
+
+
+.article-view {
+  padding: 10px;
+  border: 1px solid transparent;
+  margin: auto;
+}
+
+.article-view-entry {
+  background-color: #f4f5f9;
+  font-family: 'opensans', sans-serif;
+  font-size: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  margin-bottom: 5px;
+}
+
+.article-view-title {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.article-view-description {
+  font-size: 14px;
+}
+
+.article-view-source {
+  font-size: 14px;
+}
+
+/* -------------------------- *\ 
+  #VOTES
+\*----------------------------*/
+
+.vote {
+  padding: 10px;
+  border: 1px solid transparent;
+}
+
+.vote-total {
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 2px;
+  vertical-align: middle;
+  max-width: 100%;
+  border: 1px solid transparent;
+  font-size: 12px
+}
+
+.upvote {
+  text-align: center;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+.downvote {
+  text-align: center;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+.upvote-green {
+  color: green;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 100%;
+  border: 1px solid green;
+  border-radius: 4px;
+}
+
+.downvote-red {
+  color: red;
+  border: 1px solid red;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+/* -------------------------- *\ 
+  #HELPER-STYLING
+\*----------------------------*/
+
+
+.none {
+  text-decoration: none;
 }

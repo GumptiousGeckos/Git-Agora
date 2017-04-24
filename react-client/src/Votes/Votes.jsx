@@ -18,15 +18,15 @@ class Vote extends React.Component {
     const totalVotes = this.props.votes;
     const user = this.props.user;
     const topic_id = this.props.topic_id;
-    const upVoteButton = <button className="btn btn-lg btn-block btn-success" onClick={()=>{ vote(user, -1, type, topic_id, userVote)}}><span className="glyphicon glyphicon-triangle-top" /></button>
-    const downVoteButton = <button className="btn btn-lg btn-block btn-danger" onClick={()=>{ vote(user, 1, type, topic_id, userVote)}}><span className="glyphicon glyphicon-triangle-bottom" /></button>
-    const neutralUpVoteButton = <button className="btn btn-lg btn-block" onClick={()=>{ vote(user, 1, type, topic_id, userVote)}}><span className="glyphicon glyphicon-triangle-top" /></button>
-    const neutralDownVoteButton = <button className="btn btn-lg btn-block" onClick={()=>{ vote(user, -1, type, topic_id, userVote)}}><span className="glyphicon glyphicon-triangle-bottom" /></button>
+    const upVoteButton = <div className="upvote-green" onClick={()=>{ vote(user, -1, type, topic_id, userVote)}}><span className="fa fa-chevron-up fa-2x" /></div>
+    const downVoteButton = <div className="downvote-red" onClick={()=>{ vote(user, 1, type, topic_id, userVote)}}><span className="fa fa-chevron-down fa-2x" /></div>
+    const neutralUpVoteButton = <div className="upvote" onClick={()=>{ vote(user, 1, type, topic_id, userVote)}}><span className="fa fa-chevron-up fa-2x" /></div>
+    const neutralDownVoteButton = <div className="downvote" onClick={()=>{ vote(user, -1, type, topic_id, userVote)}}><span className="fa fa-chevron-down fa-2x" /></div>
     return (
-      <div className="text-center col-lg-1 col-md-1 col-sm-2 col-xs-2">
+      <div className="text-center two columns vote">
 
         {(this.props.user && userVote === 1) ? upVoteButton : neutralUpVoteButton}
-        <div>{totalVotes}</div>
+        <div className="vote-total">{totalVotes}</div>
         {(this.props.user && userVote === -1) ? downVoteButton : neutralDownVoteButton}
       </div>
     )
