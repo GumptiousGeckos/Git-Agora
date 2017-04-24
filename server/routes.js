@@ -9,6 +9,9 @@ router.route('/collaborators')
   .get(handler.getCollaborators)
   .post(handler.addCollaborator);
 
+router.route('/contributions')
+  .get(handler.getContributions);
+
 router.route('/favorites')
   .get(handler.getFavorites)
   .post(handler.addFavorite)
