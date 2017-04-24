@@ -15,11 +15,10 @@ const queries = {
   findTagByName: sql('./../tags/findTagByName.sql')
 };
 
-
 module.exports.getProjectsByTag = (req, res) => {
-  const { tag_id } = req.query;
+  const { id } = req.query;
 
-  return db.query(queries.getProjectsByTag, [tag_id])
+  return db.query(queries.getProjectsByTag, [id])
   .then((data) => {
     console.log('Success getting topics by tag');
     res.status(200).json(data);
