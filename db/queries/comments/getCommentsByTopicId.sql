@@ -1,5 +1,5 @@
 select
-  comments.*, users.username, users.avatar
+  comments.*, users.username, users.avatar, users.id
 from
   comments
 LEFT JOIN
