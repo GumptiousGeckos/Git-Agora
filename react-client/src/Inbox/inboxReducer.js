@@ -41,8 +41,8 @@ const inboxReducer = (state = initialState, action) => {
         selectedMessage: {
           ...state.selectedMessage,
           messages: [
-            ...state.selectedMessage.messages,
-            action.message
+            action.message,
+            ...state.selectedMessage.messages
           ]
         },
         messageText: ''

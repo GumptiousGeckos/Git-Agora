@@ -1,7 +1,7 @@
 const Message = require('./../../mongodb/Message');
 
 module.exports.getMessages = (req, res) => {
-  const { q, user } = req.query;
+  const { q } = req.query;
   if (q === 'all') {
     return Message.find({ users: req.user[0].username })
     // Message.find({ users: user })
@@ -31,7 +31,12 @@ module.exports.postMessages = (req, res) => {
   } else if (type === 'reply') {
     const { id } = req.body;
     Message.findOneAndUpdate({ _id: id }, {
-      $push: { messages: message },
+      $push: {
+        messages: {
+          $each: [message],
+          $position: 0
+        }
+      },
       $set: { lastUpdated: new Date().valueOf() }
     })
     .then(() => res.end())
