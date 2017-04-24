@@ -2,7 +2,7 @@ const router = require('express').Router();
 const handler = require('./auth/auth_handler');
 const passportGithub = require('./auth/github');
 
-router.route('user')
+router.route('/user')
   .get(handler.getUserAuth);
 
 router.route('/logout')

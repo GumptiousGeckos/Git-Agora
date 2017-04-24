@@ -36,9 +36,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-  console.log(path.join(__dirname, '/../react-client/dist'));
-  console.log(req.user);
-  console.log(req.isAuthenticated());
   console.log(`Serving ${req.method} request on url ${req.url}`);
   next();
 });
@@ -46,33 +43,7 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, '/../react-client/dist')));
 app.use('/api', routes);
 app.use('/github', gitRoutes);
-app.use('auth', authRoutes);
-
-app.get('/auth/user', (req, res) => {
-  if (req.user) {
-    res.send({
-      auth: true,
-      user: req.user[0]
-    });
-  } else {
-    res.send({
-      auth: false
-    });
-  }
-});
-
-app.get('/auth/github',
-  passportGithub.authenticate('github', { scope: ['user', 'repo'] })
-);
-
-app.get('/auth/github/callback',
-  passportGithub.authenticate('github', { failureRedirect: '/' }),
-  (req, res) => {
-    res.cookie('git_token', req.token);
-    res.redirect('/');
-  }
-);
-
+app.use('/auth', authRoutes);
 
 app.get('*', (req, res) => {
   res.redirect('/');
