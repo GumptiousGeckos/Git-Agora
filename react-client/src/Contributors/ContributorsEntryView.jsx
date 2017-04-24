@@ -8,3 +8,5 @@ const ContributorEntryView = (props) => {
     </div>
   );
 };
+
+export default ContributorEntryView;

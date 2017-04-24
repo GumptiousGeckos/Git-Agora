@@ -1,20 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import fetchContributions from './contributionsActions';
-import ContributionEntryView from './ContributionEntryView';
+import ContributionsEntryView from './ContributionsEntryView.jsx';
 
 class ContributionsView extends React.Component {
   componentDidMount() {
-    const { type, id } = this.props;
-    fetch(type, id);
+    const { getContributions, reqtype, projid } = this.props;
+    getContributions(reqtype, projid);
   }
 
   render() {
     const { contributions } = this.props;
+    console.log(this.props);
     return (
       <div>
-        {contributions.map(contribution => (
-          <ContributionEntryView contribution={contribution} />
+        {contributions.length > 0 && contributions.map(contribution => (
+          <ContributionsEntryView contribution={contribution} />
         ))}
       </div>
     );
@@ -28,7 +29,7 @@ const mapStateToProps = state => (
 );
 const mapDispatchToProps = dispatch => (
   {
-    fetch: (type, id) => dispatch(fetchContributions(type, id))
+    getContributions: (type, id) => dispatch(fetchContributions(type, id))
   }
 );
 

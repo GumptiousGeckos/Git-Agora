@@ -29,7 +29,6 @@ class App extends React.Component {
           <Route path="/articles/:id" component={ArticleView} />
           <Route path="/profile" component={UserProfile} />
           <Route path="/createproject" component={CreateProject} />
-          <Route path="/inbox/:id" component={InboxMessageThread} />
           <Route path="/users/:id" component={UserProfile} />
           <Route path="/categories" component={FilterBoard} />
         </div>

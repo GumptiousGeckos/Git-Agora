@@ -25,7 +25,7 @@ const fetchContributions = (type, id) => (
       type,
       id
     })
-    .then(results => dispatch(receivedContributions(results)))
+    .then(results => dispatch(receivedContributions(results.data)))
     .catch(error => dispatch(receivedContributionsError(error)));
   }
 );

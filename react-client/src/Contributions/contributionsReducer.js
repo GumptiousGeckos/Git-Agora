@@ -1,7 +1,5 @@
 const initialState = {
   contributions: [],
-  type: null,
-  id: null,
   isFetching: false,
   error: null
 };

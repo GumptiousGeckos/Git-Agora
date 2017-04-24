@@ -138,6 +138,14 @@ a:hover {
   margin-left: 5px;
   margin-right: 5px;
 }
+#delete-button {
+  background-color: #f44253;
+}
+button.tabs {
+  border-radius: 0px;
+  border-bottom: 0px;
+  margin-right: 5px;
+}
 .createproject-repolist-select {
   background-color: #e8e5e5;
 }

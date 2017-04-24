@@ -4,10 +4,24 @@ import { connect } from 'react-redux';
 import CommentSection from '../CommentSection/CommentSection.jsx';
 import CollaboratorsList from './CollaboratorsList.jsx';
 import ProjectDetails from './ProjectDetails.jsx';
-import { getProjectById, getCollaborators} from './projectViewActions';
+import ContributionsView from '../Contributions/ContributionsView.jsx';
+import { getProjectById, getCollaborators } from './projectViewActions';
 
 export class ProjectView extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: 'comments'
+    };
+    this.toggleProjectTabs = this.toggleProjectTabs.bind(this);
+  }
+
+  toggleProjectTabs(tab) {
+    this.setState({
+      active: tab
+    });
+  }
   componentWillMount() {
     const { getProjectById, getCollaborators, match } = this.props;
     getProjectById(match.params.id);
@@ -23,17 +37,27 @@ export class ProjectView extends React.Component {
           <ProjectDetails
             project={project}
           />
-          <div>
-            <CommentSection
-              topic_id={id}
-              type={'project'}
-            />
+          <div className="container">
+            <button
+              className="tabs"
+              onClick={() => this.toggleProjectTabs('comments')}
+            > Comments </button>
+            <button
+              className="tabs"
+              onClick={() => this.toggleProjectTabs('contributions')}
+            > Recent Contributions </button>
+          </div>
+          <div className="container">
+            { this.state.active === 'comments' ?
+              <CommentSection topic_id={id} type={'project'} /> : ''
+            }
+            { this.state.active === 'contributions' ?
+              <ContributionsView reqtype="project" projid={project.id} /> : ''
+            }
           </div>
         </div>
         <div className="col-md-3">
-          <CollaboratorsList
-            collaborators={collaborators}
-          />
+          <CollaboratorsList collaborators={collaborators} />
         </div>
         <div className="col-md-3">
           <div className="text-center bordered">

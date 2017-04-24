@@ -5,6 +5,7 @@ import { selectMessage, fetchInbox, deleteMessage } from './inboxActions';
 import InboxThreadEntry from './InboxThreadEntry.jsx';
 import ComposeMessageButton from '../Messages/ComposeMessageButton.jsx';
 import InboxMessageThread from './InboxMessageThread.jsx';
+import ThreadModalStyles from './ThreadModalStyles';
 
 export class Inbox extends React.Component {
   constructor(props) {
@@ -44,11 +45,15 @@ export class Inbox extends React.Component {
             ))
           }
         </div>
-        <Modal isOpen={this.state.isOpen}>
+        <Modal
+          style={ThreadModalStyles}
+          isOpen={this.state.isOpen}
+        >
           <div className="row">
             <button onClick={this.toggle}> Back To Inbox </button>
             <span> {'   '} </span>
             <button
+              id="delete-button"
               onClick={() => {
                 if (confirm('Delete this message?')) {
                   this.toggle();
