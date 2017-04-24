@@ -59,7 +59,12 @@ Promise.all(userPromises).then(() => {
       .catch(err => console.log('an error entering comment into db', err));
     });
     data.votes.forEach( (vote) => {
-      db.query(queries.addVote, { user_id: vote.user_id, type: vote.type, topic_id: vote.topic_id, vote_type: vote.vote_type})
+      db.query(queries.addVote, {
+        user_id: vote.user_id,
+        type: vote.type,
+        topic_id: vote.topic_id,
+        vote_type: vote.vote_type
+      })
       .then(result => console.log('success entering vote', result))
       .catch(err => console.log('an error entering vote into db', err));
     });
@@ -74,7 +79,10 @@ Promise.all(userPromises).then(() => {
       .catch(err => console.log('an error entering follow into db', err));
     });
     data.collaborators.forEach( (collaborator) => {
-      db.query(queries.addCollaborator, [collaborator.user_id, collaborator.project_id])
+      db.query(queries.addCollaborator, {
+        user_id: collaborator.user_id,
+        project_id: collaborator.project_id
+      })
       .then(result => console.log('success entering collaborator', result))
       .catch(err => console.log('an error entering collaborator into db', err));
     });
@@ -84,22 +92,24 @@ Promise.all(userPromises).then(() => {
       .catch(err => console.log('an error entering message into db', err));
     });
 
-    // data.projects_tags.forEach( (project_tag) => {
-    //   db.query(queries.addProjectTag, [project_tag.tag_id, project_tag.project_id])
-    //   .then(result => console.log('success entering project-tag', result))
-    //   .catch(err => console.log('an error entering project-tag into db', err));
-    // });
-
     data.ratings.forEach( (rating) => {
       db.query(queries.addRating, [rating.user_id, rating.dev_points, rating.idea_points])
       .then(result => console.log('success entering rating', result))
       .catch(err => console.log('an error entering rating into db', err));
     });
 
-    data.tags.forEach( (tag) => {
-      db.query(queries.addTag, [tag.tag_name])
+    const tagsPromises = data.tags.map( (tag) => {
+      return db.query(queries.addTag, [tag.tag_name])
       .then(result => console.log('success entering tag', result))
       .catch(err => console.log('an error entering tag into db', err));
+    });
+
+    Promise.all(tagsPromises).then(() => {
+      data.projects_tags.forEach( (project_tag) => {
+        db.query(queries.addProjectTag, [project_tag.tag_name, project_tag.project_id])
+        .then(result => console.log('success entering project-tag', result))
+        .catch(err => console.log('an error entering project-tag into db', err));
+      });
     });
   });
 });

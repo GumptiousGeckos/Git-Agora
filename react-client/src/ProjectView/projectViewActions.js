@@ -14,6 +14,20 @@ export const errorProject = err => ({
   error: err
 });
 
+export const requestCollaborators = () => ({
+  type: 'FETCHING_COLLABORATORS'
+});
+
+export const receivedCollaborators = collaborators => ({
+  type: 'RECEIVED_COLLABORATORS',
+  payload: collaborators
+});
+
+export const errorCollaborators = err => ({
+  type: 'REQUEST_COLLABORATORS_ERROR',
+  error: err
+});
+
 export const getProjectById = id => (
   (dispatch) => {
     dispatch(requestProject());
@@ -23,6 +37,19 @@ export const getProjectById = id => (
       })
       .catch((err) => {
         dispatch(errorProject(err));
+      });
+  }
+);
+
+export const getCollaborators = id => (
+  (dispatch) => {
+    dispatch(requestCollaborators());
+    axios.get('/api/collaborators', { params: { id } })
+      .then((response) => {
+        dispatch(receivedCollaborators(response.data));
+      })
+      .catch((err) => {
+        dispatch(errorCollaborators(err));
       });
   }
 );

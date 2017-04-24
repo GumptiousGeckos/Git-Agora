@@ -1,5 +1,4 @@
 module.exports = (req, res) => {
-  console.log('route working', req.user);
   if (req.user) {
     res.send({
       auth: true,

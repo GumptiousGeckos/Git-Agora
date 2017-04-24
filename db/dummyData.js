@@ -3,17 +3,17 @@ module.exports = {
     {
       id: 1,
       user_id: 3,
-      topic_id: 1
+      project_id: 1
     },
     {
       id: 2,
       user_id: 4,
-      topic_id: 2
+      project_id: 2
     },
     {
       id: 3,
       user_id: 5,
-      topic_id: 3
+      project_id: 3
     }
   ],
 
@@ -190,22 +190,32 @@ module.exports = {
     {
       id: 1,
       tag_id: 1,
+      tag_name: 'Money',
       project_id: 1
     },
     {
       id: 2,
       tag_id: 1,
+      tag_name: 'Machines',
       project_id: 2
     },
     {
       id: 3,
       tag_id: 1,
+      tag_name: 'Money',
       project_id: 3
     },
     {
       id: 4,
       tag_id: 1,
+      tag_name: 'Money',
       project_id: 4
+    },
+    {
+      id: 5,
+      tag_id: 3,
+      tag_name: 'Technology',
+      project_id: 3
     }
   ],
 

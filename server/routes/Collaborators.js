@@ -15,9 +15,9 @@ const queries = {
 
 
 module.exports.getCollaborators = (req, res) => {
-  const { topic_id } = req.query;
+  const { id } = req.query;
 
-  return db.query(queries.getCollaborators, [topic_id])
+  return db.query(queries.getCollaborators, { id })
   .then((data) => {
     console.log('Success get collaborators');
     res.status(200).json(data);
@@ -29,8 +29,8 @@ module.exports.getCollaborators = (req, res) => {
 
 
 module.exports.addCollaborator = (req, res) => {
-  const { user_id, topic_id } = req.body;
-  return db.query(queries.addCollaborator, [user_id, topic_id])
+  const { user_id, project_id } = req.body;
+  return db.query(queries.addCollaborator, { user_id, project_id })
   .then(() => {
     res.status(201).send('Success adding collaborator');
   })
