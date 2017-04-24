@@ -30,7 +30,7 @@ export class RepoList extends React.Component {
     const { list, selected, repoClick, buttonClick } = this.props;
     return (
       <div id="repo-list-page">
-        <h2> Repo List </h2>
+        <h1> Repo List </h1>
         <div className="repo-list">
           {list.map((repo) => {
             return (
@@ -53,19 +53,19 @@ export class RepoList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     list: state.createproject.list,
     selected: state.createproject.selectedRepo
-  };
-};
+  }
+);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = dispatch => (
+  {
     fetchList: () => { dispatch(fetchRepoList()); },
     repoClick: (repo) => { dispatch(selectRepo(repo)); },
     buttonClick: () => { dispatch(moveToSubmission()); }
-  };
-};
+  }
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RepoList);

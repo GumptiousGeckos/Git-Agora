@@ -1,20 +1,20 @@
 require('dotenv').config();
+
 const port = process.env.PORT || 3000;
 const config = process.env.DATABASE_URL || process.env.DB_LOCAL;
-const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT;
-const GITHUB_CLIENT_SECRET = process.env.GITHUB_SECRET;
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const pgp = require('pg-promise')();
-const db = require('../db/db');
+// const db = require('../db/db');
 const cookieParser = require('cookie-parser');
 const passportGithub = require('./auth/github');
 const routes = require('./routes.js');
 const path = require('path');
 const pgSession = require('connect-pg-simple')(session);
-const git_routes = require('./git_routes');
+const gitRoutes = require('./git_routes');
+const authRoutes = require('./auth_routes');
 const mongo = require('./../mongodb/mongo');
 
 const app = express();
@@ -36,12 +36,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
+  console.log(path.join(__dirname, '/../react-client/dist'));
   console.log(req.user);
+  console.log(req.isAuthenticated());
   console.log(`Serving ${req.method} request on url ${req.url}`);
   next();
 });
 
-app.use(express.static(__dirname + '/../react-client/dist'));
+app.use(express.static(path.join(__dirname, '/../react-client/dist')));
+app.use('/api', routes);
+app.use('/github', gitRoutes);
+app.use('auth', authRoutes);
 
 app.get('/auth/user', (req, res) => {
   if (req.user) {
@@ -61,15 +66,13 @@ app.get('/auth/github',
 );
 
 app.get('/auth/github/callback',
-  passportGithub.authenticate('github', { failureRedirect: '/auth/github' }),
+  passportGithub.authenticate('github', { failureRedirect: '/' }),
   (req, res) => {
     res.cookie('git_token', req.token);
     res.redirect('/');
   }
 );
 
-app.use('/api', routes);
-app.use('/github', git_routes);
 
 app.get('*', (req, res) => {
   res.redirect('/');

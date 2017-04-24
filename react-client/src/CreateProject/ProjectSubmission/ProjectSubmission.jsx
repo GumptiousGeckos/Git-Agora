@@ -71,22 +71,22 @@ export class ProjectSubmission extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     selected: state.createproject.selectedRepo,
     name: state.createproject.name,
     description: state.createproject.description
-  };
-};
+  }
+);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = dispatch => (
+  {
     inputDescription: (description) => { dispatch(projectDescription(description)); },
     backButtonClick: () => { dispatch(backToRepos()); },
     submitProjectClick: (name, projectId, description, link, webhook, tags) => {
       dispatch(submitProject(name, projectId, description, link, webhook, tags));
     }
-  };
-};
+  }
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectSubmission);
