@@ -2,11 +2,11 @@ const db = require('./db.js');
 const data = require('./dummyData.js');
 const path = require('path');
 
-var QueryFile = db.$config.pgp.QueryFile;
+const QueryFile = db.$config.pgp.QueryFile;
 
 function sql(file) {
-  var fullPath = path.join(__dirname, './queries', file);
-  return new QueryFile(fullPath, {minify: true});
+  const fullPath = path.join(__dirname, './queries', file);
+  return new QueryFile(fullPath, { minify: true });
 }
 
 let queries = {

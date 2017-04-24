@@ -43,7 +43,7 @@ export class NavBar extends React.Component {
             </Link>
           </li>
           <li>
-            <a>Log out</a>
+            <a href="auth/logout">Log out</a>
           </li>
         </ul>
       );

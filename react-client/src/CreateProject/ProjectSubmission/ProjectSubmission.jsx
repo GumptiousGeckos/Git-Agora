@@ -34,8 +34,9 @@ export class ProjectSubmission extends React.Component {
     const { hooks_url, html_url, id } = this.props.selected;
     const { tags, suggestions } = this.state;
     return (
-      <div>
+      <div id="project-submission">
         <h1> Project Submission </h1>
+        <button onClick={() => backButtonClick()}> Back to Select Repo </button>
         <div className="form-group">
           <label htmlFor="projname">Project Name:</label>
           <input
@@ -59,8 +60,8 @@ export class ProjectSubmission extends React.Component {
             handleAddition={this.handleAddition}
           />
         </div>
-        <button onClick={() => backButtonClick()}> Back to Select Repo </button>
         <button
+          className="button-primary"
           onClick={() => submitProjectClick(name, id, description, html_url, hooks_url, tags)}
         >
           Share Project!
@@ -70,22 +71,22 @@ export class ProjectSubmission extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     selected: state.createproject.selectedRepo,
     name: state.createproject.name,
     description: state.createproject.description
-  };
-};
+  }
+);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = dispatch => (
+  {
     inputDescription: (description) => { dispatch(projectDescription(description)); },
     backButtonClick: () => { dispatch(backToRepos()); },
     submitProjectClick: (name, projectId, description, link, webhook, tags) => {
       dispatch(submitProject(name, projectId, description, link, webhook, tags));
     }
-  };
-};
+  }
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectSubmission);
