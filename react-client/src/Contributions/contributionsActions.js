@@ -21,6 +21,7 @@ const fetchContributions = (type, id) => (
   (dispatch) => {
     dispatch(retrievingContributions());
     axios.get('/api/contributions', {
+      q: 'contributions',
       type,
       id
     })
