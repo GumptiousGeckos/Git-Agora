@@ -10,8 +10,7 @@ const sql = (file) => {
 
 const queries = {
   getRecentContributionsByUserId: sql('recentContributionsByUserId.sql'),
-  getRecentContributionsByProjectId: sql('recentContributionsByProjectId.sql'),
-  getTopContributorsByProjectId: sql('topContributorsByProjectId')
+  getRecentContributionsByProjectId: sql('recentContributionsByProjectId.sql')
 };
 
 module.exports.getContributions = (req, res) => {
@@ -26,10 +25,6 @@ module.exports.getContributions = (req, res) => {
       .then(results => (res.status(201).json(results)))
       .catch(error => (res.status(400).error(error)));
     }
-  } else if (q === 'contributors') {
-    db.one(queries.getTopContributorsByProjectId, { project_id: id })
-    .then(results => (res.status(201).json(results)))
-    .catch(error => (res.status(400).error(error)));
   } else {
     res.end();
   }
