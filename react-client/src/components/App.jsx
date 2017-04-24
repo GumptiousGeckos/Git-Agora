@@ -11,7 +11,8 @@ import UserProfile from '../Users/UserProfile.jsx';
 import CreateProject from '../CreateProject/CreateProject.jsx';
 import Inbox from '../Inbox/Inbox.jsx';
 import InboxMessageThread from '../Inbox/InboxMessageThread.jsx';
-import ArticleView from '../ArticleView/ArticleView.jsx'
+import ArticleView from '../ArticleView/ArticleView.jsx';
+import FilterBoard from '../FilterTags/FilterBoard.jsx';
 
 class App extends React.Component {
 
@@ -30,6 +31,7 @@ class App extends React.Component {
           <Route path="/createproject" component={CreateProject} />
           <Route path="/inbox/:id" component={InboxMessageThread} />
           <Route path="/users/:id" component={UserProfile} />
+          <Route path="/categories" component={FilterBoard} />
         </div>
       </Router>
     );

@@ -11,6 +11,7 @@ import inboxReducer from './Inbox/inboxReducer';
 import commentReducer from './CommentSection/commentReducer';
 import messageReducer from './Messages/messageReducer';
 import articleReducer from './ArticleView/articleReducer';
+import filterReducer from './FilterTags/filterReducer';
 
 const appReducer = combineReducers({
   // all reducers in project
@@ -24,7 +25,8 @@ const appReducer = combineReducers({
   inbox: inboxReducer,
   comments: commentReducer,
   message: messageReducer,
-  article: articleReducer
+  article: articleReducer,
+  filter: filterReducer
 });
 
 const rootReducer = (state, action) => {

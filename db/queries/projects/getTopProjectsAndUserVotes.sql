@@ -23,7 +23,7 @@ on (projectstable.id = votestable.topic_id)
 left join
   (select vote_type, topic_id
   from votes
-  where user_id = 2
+  where user_id = ${user_id}
   ) uservote
 on (uservote.topic_id = projectstable.id)
 order by votestable.votes desc limit 25;
