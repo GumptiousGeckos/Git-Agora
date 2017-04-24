@@ -1,5 +1,6 @@
 const initialState = {
   fetchingProjects: false,
+  fetchingProjectsByTag: false,
   projects: [],
   error: null
 };
@@ -45,6 +46,23 @@ const projects = (state = initialState, action) => {
             return project;
           }
         })
+      };
+    case 'FETCHING_PROJECTS_BY_TAG':
+      return {
+        ...state,
+        fetchingProjectsByTag: true
+      };
+    case 'RECEIVED_PROJECTS_BY_TAG':
+      return {
+        ...state,
+        projects: action.payload,
+        fetchingProjectsByTag: false
+      };
+    case 'REQUEST_PROJECTS_BY_TAG_ERROR':
+      return {
+        ...state,
+        error: action.error,
+        fetchingProjectsByTag: false
       };
     default:
       return state;

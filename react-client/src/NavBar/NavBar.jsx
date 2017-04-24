@@ -91,16 +91,6 @@ export class NavBar extends React.Component {
             <ul className="nav navbar-nav navbar-right">
               {navBarRight}
             </ul>
-            <form className="navbar-form navbar-right">
-              <div className="input-group add-on">
-                <input className="form-control" placeholder="Search" />
-                <div className="input-group-btn">
-                  <button className="btn btn-default" type="submit">
-                    <span className="glyphicon glyphicon-search" />
-                  </button>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>
