@@ -7,27 +7,17 @@ export default (props) => {
   return (
     <div className="comment">
       <div className="row">
-        <div className="col-md-1">
-        </div>
-        <div className="col-md-11">
-          <div className="col-md-2">
+        <div className= "three columns comment-meta">
             <Link to={'/users/' + comment.user_id}>
-              <span id="username">{comment.username}</span>
+              <img src={comment.avatar} className="comment-avatar" alt="Responsive image"/>
+           </Link>
+            <Link to={'/users/' + comment.user_id}>
+              <span className="comment-username">{comment.username}</span>
             </Link>
-          </div>
-          <div className="col-md-10">
-            <span className="date-created">{comment.date_created}</span>
-          </div>
+          <div className="date-created">{comment.date_created}</div>
         </div>
-      </div>
-      <div className="row">
-        <Link to={'/users/' + comment.user_id}>
-          <div className="col-md-1">
-            <img id="icon" src={comment.avatar} className="img-fluid" alt="Responsive image"/>
-          </div>
-        </Link>
-        <div className="col-md-11" id="content-section">
-          <p id="content">{comment.content}</p>
+        <div className="nine columns content-section">
+          <p className="comment-content">{comment.content}</p>
         </div>
       </div>
     </div>
