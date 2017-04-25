@@ -69,7 +69,8 @@ Promise.all(userPromises).then(() => {
       .catch(err => console.log('an error entering vote into db', err));
     });
     data.favorites.forEach( (favorite) => {
-      db.query(queries.addFavorite, [favorite.user_id, favorite.topic_id])
+      const { user_id, type, favorite_id } = favorite;
+      db.query(queries.addFavorite, { user_id, type, favorite_id })
       .then(result => console.log('success entering favorite', result))
       .catch(err => console.log('an error entering favorite into db', err));
     });
