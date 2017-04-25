@@ -31,7 +31,7 @@ export class ProjectSubmission extends React.Component {
 
   render() {
     const { name, description, backButtonClick, inputDescription, submitProjectClick } = this.props;
-    const { hooks_url, html_url, id } = this.props.selected;
+    const { url, html_url, id } = this.props.selected;
     const { tags, suggestions } = this.state;
     return (
       <div id="project-submission">
@@ -62,7 +62,7 @@ export class ProjectSubmission extends React.Component {
         </div>
         <button
           className="button-primary"
-          onClick={() => submitProjectClick(name, id, description, html_url, hooks_url, tags)}
+          onClick={() => submitProjectClick(name, id, description, html_url, url, tags)}
         >
           Share Project!
         </button>
@@ -83,8 +83,8 @@ const mapDispatchToProps = dispatch => (
   {
     inputDescription: (description) => { dispatch(projectDescription(description)); },
     backButtonClick: () => { dispatch(backToRepos()); },
-    submitProjectClick: (name, projectId, description, link, webhook, tags) => {
-      dispatch(submitProject(name, projectId, description, link, webhook, tags));
+    submitProjectClick: (name, projectId, description, link, api, tags) => {
+      dispatch(submitProject(name, projectId, description, link, api, tags));
     }
   }
 );

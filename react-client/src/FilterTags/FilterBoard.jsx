@@ -27,30 +27,25 @@ export class FilterBoard extends React.Component {
     const { projects, updateSearchText } = this.props;
 
     return (
-      <div>
-        <div className="col-md-12 text-center">
-          <form className="navbar-form">
-            <div className="input-group add-on">
+      <div className="container">
+          <form className="filter-search">
+            <div className="row">
               <input
-                className="form-control"
+                className="six columns filter-search-input"
                 placeholder="Search for a category"
                 ref="input"
                 name="searchQuery"
                 onChange={(e) => { updateSearchText(e.target.value); }}
               />
-              <div className="input-group-btn">
-                <button
-                  className="btn btn-default"
-                  type="submit"
-                  onClick={this.handleSearch}
-                >
-                  <span className="glyphicon glyphicon-search" />
-                </button>
-              </div>
+              <button
+                className="six columns filter-search-button"
+                type="submit"
+                onClick={this.handleSearch}
+              >
+                <span className="fa fa-search fa-lg"></span>
+              </button>
             </div>
           </form>
-        </div>
-        <div className="col-md-12">
           {
             projects.map(project =>
               <ProjectBoardEntry
@@ -59,7 +54,6 @@ export class FilterBoard extends React.Component {
               />
             )
           }
-        </div>
       </div>
     );
   }

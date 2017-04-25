@@ -15,19 +15,17 @@ export class ProjectBoard extends React.Component {
     const { projects } = this.props;
 
     return (
-      <div>
-        <div className="col-md-12">
-          <ul className="nav nav-tabs">
-            <li className="active">
-              <a>Top</a>
-            </li>
-            <li>
-              <a>Trending</a>
-            </li>
-            <li>
-              <a>New</a>
-            </li>
-          </ul>
+        <div className="container">
+          <div className="row">
+            <div className="twelve columns nav-tabs">
+              <div className="active nav-tab">
+                <a href="#">Top</a>
+              </div>
+              <div className="nav-tab">
+                <a href="#">New</a>
+              </div>
+            </div>
+          </div>
           <div name="projectList">
             {
               projects.map(project =>
@@ -39,7 +37,6 @@ export class ProjectBoard extends React.Component {
             }
           </div>
         </div>
-      </div>
     );
   }
 }

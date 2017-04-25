@@ -4,6 +4,10 @@ module.exports.addCollaborator = require('./Collaborators').addCollaborator;
 module.exports.getComments = require('./Comments').getComments;
 module.exports.addComment = require('./Comments').addComment;
 
+module.exports.getContributions = require('./Contributions').getContributions;
+
+module.exports.getContributors = require('./Contributors').getContributors;
+
 module.exports.getFavorites = require('./Favorites').getFavorites;
 module.exports.addFavorite = require('./Favorites').addFavorite;
 module.exports.deleteFavorite = require('./Favorites').deleteFavorite;
@@ -38,7 +42,7 @@ module.exports.getVotes = require('./Votes').getVotes;
 module.exports.addTopic = require('./Topics').addTopic;
 
 module.exports.getTopProjects = require('./Projects').getTopProjects;
-module.exports.addProject = require('./Projects').addProject;
+module.exports.postProject = require('./Projects').postProject;
 module.exports.getProjectById = require('./Projects').getProjectById;
 module.exports.getUserProjects = require('./Projects').getUserProjects;
 

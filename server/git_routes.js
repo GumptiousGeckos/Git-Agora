@@ -8,4 +8,7 @@ router.route('/user/repos')
 router.route('/hook')
   .post(handler.receiveRepoHook);
 
+router.route('/new')
+  .post(handler.postNewProjects);
+
 module.exports = router;

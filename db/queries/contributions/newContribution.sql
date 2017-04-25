@@ -5,7 +5,8 @@ INSERT INTO contributions (
   owner_id, 
   stage, 
   dev_points, 
-  idea_points
+  idea_points,
+  updated_at
 ) VALUES (
   ${id}, 
   ${user_id}, 
@@ -13,5 +14,6 @@ INSERT INTO contributions (
   ${owner_id}, 
   ${stage}, 
   ${dev_points}, 
-  ${idea_points}
+  ${idea_points},
+  ${updated_at}
 )
