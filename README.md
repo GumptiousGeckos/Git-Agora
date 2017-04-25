@@ -1,6 +1,6 @@
 # git-agora.io
 
-> Git-agora.io is a platform for users to be able to easily share and find open sourced Github projects. The application integrates with Github's webhook API feature to actively distribute idea points to its creators and development points for its contributors.
+> Git-agora.io is a platform for users to be able to easily share and find open-source Github projects. The application integrates with Github's webhook API feature to actively distribute idea points to its creators and development points for its contributors.
 
 ## Team
 
