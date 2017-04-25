@@ -30,7 +30,7 @@ npm install
 ## Requirements
 
 - Node 7.6.0
-- Postgresql 9.6
+- PostgreSQL 9.6
 
 ## Usage
 
