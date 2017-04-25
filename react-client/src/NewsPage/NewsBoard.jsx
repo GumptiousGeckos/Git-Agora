@@ -15,18 +15,20 @@ export class NewsBoard extends React.Component {
 
     if (articles && articles.length > 0) {
       return (
-        <div className="col-md-12">
-          <ul className="nav nav-tabs">
-            <li className="active">
-              <a href="#">Top</a>
-            </li>
-            <li>
-              <a href="#">Trending</a>
-            </li>
-            <li>
-              <a href="#">New</a>
-            </li>
-          </ul>
+        <div className="container">
+          <div className="row">
+            <div className="twelve columns nav nav-tabs">
+              <div className="active nav-tab">
+                <a href="#">Top</a>
+              </div>
+              <div className="nav-tab">
+                <a href="#">Trending</a>
+              </div>
+              <div className="nav-tab">
+                <a href="#">New</a>
+              </div>
+            </div>
+          </div>
           {articles.map((article) => 
             <NewsArticleEntry key={article.published_at} article={article} />
           )}
@@ -34,18 +36,20 @@ export class NewsBoard extends React.Component {
       );
     } else {
       return (
-        <div className="col-md-12">
-          <ul className="nav nav-tabs">
-            <li className="active">
-              <a href="#">Top</a>
-            </li>
-            <li>
-              <a href="#">Trending</a>
-            </li>
-            <li>
-              <a href="#">New</a>
-            </li>
-          </ul>
+        <div className="container">
+          <div className="row">
+            <div className="twelve columns nav nav-tabs">
+              <div className="active nav-tab">
+                <a href="#">Top</a>
+              </div>
+              <div className="nav-tab">
+                <a href="#">Trending</a>
+              </div>
+              <div className="nav-tab">
+                <a href="#">New</a>
+              </div>
+            </div>
+          </div>
         Fetching articles!
         </div>
       );
