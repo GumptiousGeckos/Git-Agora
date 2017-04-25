@@ -14,7 +14,6 @@ const queries = {
 
 module.exports = (req, res) => {
   const { pullRequest, repository } = req.body;
-  console.log(req.body.action);
   if (req.body.action === 'opened') {
     db.none(queries.newContribution, {
       id: pullRequest.id,

@@ -69,7 +69,6 @@ module.exports.postProject = (req, res) => {
   })
   .then((pulls) => {
     JSON.parse(pulls).forEach((pull) => {
-      console.log(pull);
       rp({
         method: 'POST',
         uri: GITHUB_CALLBACK + '/github/new',

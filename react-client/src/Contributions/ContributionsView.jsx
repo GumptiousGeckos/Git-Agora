@@ -11,7 +11,6 @@ class ContributionsView extends React.Component {
 
   render() {
     const { contributions } = this.props;
-    console.log(this.props);
     return (
       <div>
         {contributions.length > 0 && contributions.map(contribution => (
