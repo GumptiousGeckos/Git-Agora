@@ -405,6 +405,31 @@ button.tabs {
 
 }
 
+/* -------------------------- *\ 
+  #FILTER_TAGS
+\*----------------------------*/
+
+.filter-search {
+  margin-bottom: 0px;
+  margin-top: 10px;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.filter-search-input {
+  height: 38px;
+  border: 1px solid #e85a71;
+  border-radius: 4px;
+  max-width: 100%;
+  font-family: 'opensans', sans-serif;
+  font-size: 10px;
+  text-align: center;
+}
+
+.filter-search-button {
+  max-width: 100%;
+
+}
 
 /* -------------------------- *\ 
   #HELPER-STYLING
