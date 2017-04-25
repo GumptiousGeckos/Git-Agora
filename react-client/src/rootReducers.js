@@ -14,6 +14,7 @@ import articleReducer from './ArticleView/articleReducer';
 import filterReducer from './FilterTags/filterReducer';
 import contributionsReducer from './Contributions/contributionsReducer';
 import contributorsReducer from './Contributors/contributorsReducer';
+import favoriteReducer from './Favorites/favoriteReducer';
 
 const appReducer = combineReducers({
   // all reducers in project
@@ -31,6 +32,7 @@ const appReducer = combineReducers({
   filter: filterReducer,
   contributions: contributionsReducer,
   contributors: contributorsReducer
+  favorites: favoriteReducer
 });
 
 const rootReducer = (state, action) => {
