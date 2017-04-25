@@ -1,6 +1,6 @@
-# Project Name
+# git-agora.io
 
-> Pithy project description
+> Git-agora.io is a platform for users to be able to easily share and find open sourced Github projects. The application integrates with Github's webhook API feature to actively distribute idea points to its creators and development points for its contributors. Additional features git-agora offers are a news page to help inspire ideas, a favoriting system to keep track of interesting projects, and a messaging and commenting system to directly talk to other users.
 
 ## Team
 
@@ -11,37 +11,49 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [Installing Dependencies](#installing-dependencies)
 1. [Requirements](#requirements)
+1. [Usage](#Usage)
 1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
     1. [Tasks](#tasks)
 1. [Roadmap](#roadmap)
 1. [Contributing](#contributing)
 
-## Usage
 
-> Some usage instructions
+## Installing Dependencies
+
+From within the root directory:
+```sh
+npm install
+```
 
 ## Requirements
 
-- Node 6.4.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node 7.6.0
+- Postgresql 9.6
+
+## Usage
+
+> Homepage shows you some of our top projects and recent news articles from top tech sites
+Screenshot here
+
+> Log in with Github's OAuth
+Screenshot here
+
+> Sharing a project is simple and easy and will instantiate a webhook onto your repository 
+Screenshot here
+
+> Your user profile allows you to check your points, projects, and favorites
+Screenshot here
+
+> You can see the project's information and also comment on it if you have any thoughts
+Screenshot here
+
+> You can see that once you share a project, a webhook is instantiated on your repository to keep git-agora updated on points!
+Screenshot here
 
 ## Development
 
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g bower
-npm install
-bower install
-```
 
 ### Roadmap
 
