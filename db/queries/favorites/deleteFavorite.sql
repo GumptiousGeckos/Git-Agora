@@ -1,6 +1,8 @@
 DELETE FROM
   favorites
 where
-  user_id = $1
+  user_id = ${user_id}
 AND
-  topic_id = $2
+  type = ${type}
+AND
+  favorite_id = ${favorite_id}
