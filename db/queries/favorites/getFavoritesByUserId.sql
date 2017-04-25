@@ -1,5 +1,5 @@
 SELECT
-  favorites.type, favorites.favorite_id, users.username, users.id, projects.title projecttitle, projects.user_id, articles.title articletitle, articles.id, articles.author
+  favorites.type, favorites.favorite_id, users.username, users.id userid, projects.title projecttitle, projects.user_id, projects.id projectid, articles.id articleid, articles.title articletitle, articles.id, articles.author
 FROM
   favorites
 LEFT JOIN

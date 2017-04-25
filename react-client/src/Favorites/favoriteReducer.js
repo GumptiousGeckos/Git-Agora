@@ -1,11 +1,17 @@
 const initialState = {
   favorites: [],
   favorited: false,
-  fetchingFavorites: false
+  fetchingFavorites: false,
+  displayFavorites: [{}]
 }
 
 const favorites = (state = initialState, action) => {
   switch (action.type) {
+    case 'SET_DISPLAY_FAVORITES':
+      return {
+        ...state,
+        displayFavorites: action.payload
+      }
     case 'ADD_FAVORITE':
       return {
         ...state,

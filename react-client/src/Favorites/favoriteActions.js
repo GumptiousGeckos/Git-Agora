@@ -4,6 +4,11 @@ export const getFavorites = () => ({
   type: 'FETCHING_FAVORITES'
 });
 
+export const setDisplayFavorites = displayFavorites => ({
+  type: 'SET_DISPLAY_FAVORITES',
+  payload: displayFavorites
+});
+
 export const receivedFavorites = favorites => ({
   type: 'RECEIVED_FAVORITES',
   payload: favorites

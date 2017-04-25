@@ -7,6 +7,7 @@ export class AddFavorite extends React.Component {
 
   componentWillMount() {
     const { checkFavoriteStatus, user, type, favorite_id } = this.props;
+    if (user)
     checkFavoriteStatus(user.id, type, favorite_id);
 
     this.handleSubmit = this.handleSubmit.bind(this);
