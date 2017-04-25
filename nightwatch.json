@@ -23,7 +23,6 @@
       "launch_url" : "http://localhost",
       "selenium_host" : "127.0.0.1",
       "selenium_port" : 4444,
-      "default_path_prefix": "",
       "screenshots" : {
         "enabled" : false,
         "path" : "./screens",
@@ -38,22 +37,14 @@
 
     "circleci" : {
       "output_folder" : "${CIRCLE_TEST_REPORTS}",
-      "launch_url" : "http://localhost",
-      "selenium_host" : "127.0.0.1",
-      "selenium_port" : 4444,
-      "default_path_prefix": "",
-      "screenshots" : {
-        "enabled" : false,
-        "path" : "./screens",
-        "on_failure" : true
-      },
       "desiredCapabilities" : {
-        "browserName" : "chrome"
+        "browserName" : "firefox"
       }
     },
 
     "chrome" : {
       "selenium_port" : 9515,
+      "default_path_prefix": "",
       "desiredCapabilities" : {
         "browserName" : "chrome",
         "chromeOptions": {
