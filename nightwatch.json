@@ -33,11 +33,6 @@
         "browserName" : "firefox",
         "javascriptEnabled":true,
         "acceptSslCerts": true
-      //   "browserName" : "chrome",
-      //   "chromeOptions": {
-      //     "args": ["--no-sandbox"]
-      //   },
-      //   "acceptSslCerts": true
       }
     },
 
@@ -74,5 +69,3 @@
     }
   }
 }
-
-// 9515
