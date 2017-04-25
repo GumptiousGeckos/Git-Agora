@@ -17,7 +17,7 @@ export class NewsBoard extends React.Component {
       return (
         <div className="container">
           <div className="row">
-            <div className="twelve columns nav nav-tabs">
+            <div className="twelve columns nav-tabs">
               <div className="active nav-tab">
                 <a href="#">Top</a>
               </div>
@@ -38,7 +38,7 @@ export class NewsBoard extends React.Component {
       return (
         <div className="container">
           <div className="row">
-            <div className="twelve columns nav nav-tabs">
+            <div className="twelve columns nav-tabs">
               <div className="active nav-tab">
                 <a href="#">Top</a>
               </div>
