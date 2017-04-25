@@ -53,7 +53,7 @@
     "redux-thunk": "^2.2.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
-    "selenium-server-standalone-jar": "^3.4.0",
+    "selenium-server-standalone-jar": "2.51.0",
     "webpack": "^2.3.3"
   },
   "devDependencies": {
