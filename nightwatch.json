@@ -30,7 +30,7 @@
         "on_failure" : true
       },
       "desiredCapabilities" : {
-        "browserName" : "firefox",
+        "browserName" : "chrome",
         "javascriptEnabled":true,
         "acceptSslCerts": true
       }
@@ -48,7 +48,7 @@
         "on_failure" : true
       },
       "desiredCapabilities" : {
-        "browserName" : "firefox"
+        "browserName" : "chrome"
       }
     },
 
