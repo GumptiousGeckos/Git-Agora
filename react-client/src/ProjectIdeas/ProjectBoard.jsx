@@ -28,14 +28,16 @@ export class ProjectBoard extends React.Component {
               <a>New</a>
             </li>
           </ul>
-          {
-            projects.map(project =>
-              <ProjectBoardEntry
-                key={project.id}
-                project={project}
-              />
-            )
-          }
+          <div name="projectList">
+            {
+              projects.map(project =>
+                <ProjectBoardEntry
+                  key={project.id}
+                  project={project}
+                />
+              )
+            }
+          </div>
         </div>
       </div>
     );

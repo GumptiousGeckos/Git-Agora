@@ -4,6 +4,7 @@
 
 # Logs
 logs
+reports
 *.log
 
 # Runtime data

@@ -27,9 +27,11 @@ export class NewsBoard extends React.Component {
               <a href="#">New</a>
             </li>
           </ul>
-          {articles.map((article) => 
-            <NewsArticleEntry key={article.published_at} article={article} />
-          )}
+          <div name="newsList">
+            {articles.map((article) =>
+              <NewsArticleEntry key={article.published_at} article={article} />
+            )}
+          </div>
         </div>
       );
     } else {

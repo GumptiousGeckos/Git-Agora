@@ -35,6 +35,7 @@ export class FilterBoard extends React.Component {
                 className="form-control"
                 placeholder="Search for a category"
                 ref="input"
+                name="searchQuery"
                 onChange={(e) => { updateSearchText(e.target.value); }}
               />
               <div className="input-group-btn">

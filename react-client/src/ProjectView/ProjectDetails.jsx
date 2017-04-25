@@ -4,7 +4,7 @@ export default (props) => {
   const { project } = props;
   const tagArray = project.tags ? project.tags.split(',') : [];
   return (
-    <div>
+    <div name="projectDetails">
       <div className="bordered text-center">
         <div>
           <h1>{project.title}</h1>
