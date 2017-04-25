@@ -35,10 +35,10 @@ module.exports.getAllProjects = (req, res) => {
 
 module.exports.postProject = (req, res) => {
   const { id } = req.user[0];
-  const { projectId, name, description, link, webhook } = req.body;
+  const { projectId, name, description, link, api } = req.body;
   rp({
     method: 'POST',
-    uri: webhook,
+    uri: api + '/hooks',
     body: {
       name: 'web',
       active: true,
@@ -53,8 +53,39 @@ module.exports.postProject = (req, res) => {
       Authorization: `token ${req.cookies.git_token}`
     },
     json: true
-  });
-  return db.query(queries.addProject, [projectId, id, name, description, link])
+  })
+  .then(() => console.log('webhook successful for ', api))
+  .catch(() => console.log('error for ', api));
+  rp({
+    method: 'GET',
+    uri: api + '/pulls',
+    qs: {
+      state: 'all',
+      per_page: 100
+    },
+    headers: {
+      'User-Agent': 'git-agora'
+    }
+  })
+  .then((pulls) => {
+    JSON.parse(pulls).forEach((pull) => {
+      console.log(pull);
+      rp({
+        method: 'POST',
+        uri: GITHUB_CALLBACK + '/github/new',
+        body: Object.assign({}, pull),
+        json: true
+      });
+    });
+  })
+  .catch(error => console.log(error));
+  return db.one(queries.addProject, {
+    projectId,
+    user_id: id,
+    title: name,
+    description,
+    link
+  })
   .then((results) => {
     res.status(201).send(results);
   })
@@ -90,7 +121,7 @@ module.exports.getTopProjects = (req, res) => {
       console.log('Success getting top projects', data);
       res.status(200).json(data);
     })
-    .catch( error => {
+    .catch(error => {
       res.status(404).send('failed to get projects and user votes');
     });
   } else {
@@ -99,7 +130,7 @@ module.exports.getTopProjects = (req, res) => {
       console.log('Success getting projects');
       res.status(200).json(data);
     })
-    .catch( error => {
+    .catch(error => {
       res.status(404).send('failed to get projects without userId');
     });
   }

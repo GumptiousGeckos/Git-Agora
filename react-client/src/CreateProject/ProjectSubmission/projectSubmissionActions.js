@@ -32,7 +32,7 @@ const submitError = (error) => {
   };
 };
 
-export const submitProject = (name, projectId, description, link, webhook, tags) => {
+export const submitProject = (name, projectId, description, link, api, tags) => {
   return (dispatch) => {
     dispatch(startingSubmit());
     axios.post('api/projects', {
@@ -40,7 +40,7 @@ export const submitProject = (name, projectId, description, link, webhook, tags)
       projectId,
       description,
       link,
-      webhook
+      api
     })
     .then((results) => {
       console.log(results);

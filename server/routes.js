@@ -67,12 +67,12 @@ router.route('/projects')
   .post(handler.postProject);
 
 router.route('/articles')
-.get(handler.getAllArticles);
+  .get(handler.getAllArticles);
 
 router.route('/articles/:id')
   .get(handler.getArticleById);
 
 router.route('/topSixArticles')
-.get(handler.getTopSixArticles);
+  .get(handler.getTopSixArticles);
 
 module.exports = router;
