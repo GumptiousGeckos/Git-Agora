@@ -3,7 +3,7 @@ module.exports = {
   'Testing basic functionality' : function (client) {
     client
       .url('http://localhost:3000')
-      .waitForElementVisible('body', 15000)
+      .waitForElementVisible('body', 60000)
       // check homepage
       .assert.visible('div[name=trendingTechNews]')
       .assert.visible('div[name=hotProjects]')
