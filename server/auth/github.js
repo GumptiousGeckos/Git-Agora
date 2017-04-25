@@ -15,7 +15,7 @@ function sql(file) {
 }
 
 const queries = {
-  addUser: sql('createUser.sql'),
+  addUserGithub: sql('createGithubUser.sql'),
   getUserByID: sql('getUserById.sql')
 };
 
@@ -45,7 +45,7 @@ passport.use(new GitHubStrategy({
   (req, accessToken, refreshToken, profile, done) => {
     req.token = accessToken;
 
-    db.any(queries.addUser.query, {
+    db.one(queries.addUserGithub, {
       id: profile.id,
       name: profile.displayName,
       username: profile.username,
