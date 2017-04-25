@@ -1,6 +1,6 @@
 # git-agora.io
 
-> Git-agora.io is a platform for users to be able to easily share and find open sourced Github projects. The application integrates with Github's webhook API feature to actively distribute idea points to its creators and development points for its contributors. Additional features git-agora offers are a news page to help inspire ideas, a favoriting system to keep track of interesting projects, and a messaging and commenting system to directly talk to other users.
+> Git-agora.io is a platform for users to be able to easily share and find open sourced Github projects. The application integrates with Github's webhook API feature to actively distribute idea points to its creators and development points for its contributors.
 
 ## Team
 
@@ -34,23 +34,23 @@ npm install
 
 ## Usage
 
-> Homepage shows you some of our top projects and recent news articles from top tech sites
-Screenshot here
+#### Homepage shows you some of our top projects and recent news articles from top tech sites
+> Screenshot here
 
-> Log in with Github's OAuth
-Screenshot here
+#### Log in with Github's OAuth
+> Screenshot here
 
-> Sharing a project is simple and easy and will instantiate a webhook onto your repository 
-Screenshot here
+#### Sharing a project is simple and easy and will instantiate a webhook onto your repository 
+> Screenshot here
 
-> Your user profile allows you to check your points, projects, and favorites
-Screenshot here
+#### Your user profile allows you to check your points, projects, and favorites
+> Screenshot here
 
-> You can see the project's information and also comment on it if you have any thoughts
-Screenshot here
+#### You can see the project's information and also comment on it if you have any thoughts
+> Screenshot here
 
-> You can see that once you share a project, a webhook is instantiated on your repository to keep git-agora updated on points!
-Screenshot here
+#### You can see that once you share a project, a webhook is instantiated on your repository to keep git-agora updated on points!
+> Screenshot here
 
 ## Development
 
