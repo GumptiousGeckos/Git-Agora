@@ -24,14 +24,12 @@
       "selenium_host" : "127.0.0.1",
       "selenium_port" : 4444,
       "screenshots" : {
-        "enabled" : false,
+        "enabled" : true,
         "path" : "./screens",
         "on_failure" : true
       },
       "desiredCapabilities" : {
-        "browserName" : "chrome",
-        "javascriptEnabled":true,
-        "acceptSslCerts": true
+        "browserName" : "firefox",
       }
     },
 
