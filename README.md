@@ -34,22 +34,22 @@ npm install
 
 ## Usage
 
-#### Homepage shows you some of our top projects and recent news articles from top tech sites
+Homepage shows you some of our top projects and recent news articles from top tech sites
 > Screenshot here
 
-#### Log in with Github's OAuth
+Log in with Github's OAuth
 > Screenshot here
 
-#### Sharing a project is simple and easy and will instantiate a webhook onto your repository 
+Sharing a project is simple and easy and will instantiate a webhook onto your repository 
 > Screenshot here
 
-#### Your user profile allows you to check your points, projects, and favorites
+Your user profile allows you to check your points, projects, and favorites
 > Screenshot here
 
-#### You can see the project's information and also comment on it if you have any thoughts
+You can see the project's information and also comment on it if you have any thoughts
 > Screenshot here
 
-#### You can see that once you share a project, a webhook is instantiated on your repository to keep git-agora updated on points!
+You can see that once you share a project, a webhook is instantiated on your repository to keep git-agora updated on points!
 > Screenshot here
 
 ## Development
