@@ -6,21 +6,20 @@ export default (props) => {
   let { votes, title, url, source, description, vote_type, id, tags } = props.project;
   const tagArray = tags ? tags.split(',') : [];
   return (
-  <div>
+  <div className="row project-entry">
     <Votes votes={votes} topic_type={'project'} vote_type={vote_type} topic_id={id}/>
     <Link to={'/projects/' + id}>
-      <div
-        className="well col-lg-11 col-md-11 col-sm-10 col-xs-10"
-      >
-        <h4>{title}</h4>
-        <span>Tags: </span>
-          {
-            tagArray.length === 0 ? 'None' :
-            tagArray.map((tag, index) =>
-              <span key={index}>{' ' + tag}</span>
-            )
-          }
-        <h4 className="standard">{description}</h4>
+      <div className="ten columns">
+        <div className="project-entry-title">{title}</div>
+        <div className="project-entry-description">{description}</div>
+          <div>
+            {
+              tagArray.length === 0 ? <span className="project-entry-tag">none</span> :
+              tagArray.map((tag, index) =>
+                <span className="project-entry-tag" key={index}>{' ' + tag}</span>
+              )
+            }
+          </div>
       </div>
     </Link>
   </div>
