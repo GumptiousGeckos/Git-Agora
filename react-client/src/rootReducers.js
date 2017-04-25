@@ -12,6 +12,8 @@ import commentReducer from './CommentSection/commentReducer';
 import messageReducer from './Messages/messageReducer';
 import articleReducer from './ArticleView/articleReducer';
 import filterReducer from './FilterTags/filterReducer';
+import contributionsReducer from './Contributions/contributionsReducer';
+import contributorsReducer from './Contributors/contributorsReducer';
 
 const appReducer = combineReducers({
   // all reducers in project
@@ -26,7 +28,9 @@ const appReducer = combineReducers({
   comments: commentReducer,
   message: messageReducer,
   article: articleReducer,
-  filter: filterReducer
+  filter: filterReducer,
+  contributions: contributionsReducer,
+  contributors: contributorsReducer
 });
 
 const rootReducer = (state, action) => {

@@ -35,7 +35,7 @@ const userPromises = data.users.map( (user) => {
 Promise.all(userPromises).then(() => {
   const projectPromises = data.projects.map( (project) => {
     return db.query(queries.addProject, {
-      id: project.id,
+      projectId: project.id,
       user_id: project.user_id,
       title: project.title,
       description: project.description,

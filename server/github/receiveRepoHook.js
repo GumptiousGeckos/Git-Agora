@@ -13,8 +13,7 @@ const queries = {
 };
 
 module.exports = (req, res) => {
-  const pullRequest = req.body.pull_request;
-  const repository = req.body.repository;
+  const { pullRequest, repository } = req.body;
   if (req.body.action === 'opened') {
     db.none(queries.newContribution, {
       id: pullRequest.id,
@@ -23,28 +22,34 @@ module.exports = (req, res) => {
       owner_id: repository.owner.id,
       stage: 'OPEN',
       dev_points: 1,
-      idea_points: 1
+      idea_points: 1,
+      title: pullRequest.title,
+      url: pullRequest.url,
+      updated_at: pullRequest.updated_at
     });
   } else if (req.body.action === 'reopened') {
     db.none(queries.editContribution, {
       id: pullRequest.id,
       stage: 'OPEN',
       dev_points: 1,
-      idea_points: 1
+      idea_points: 1,
+      updated_at: pullRequest.updated_at
     });
   } else if (req.body.action === 'closed' && pullRequest.merged) {
     db.none(queries.editContribution, {
       id: pullRequest.id,
       stage: 'CLOSED',
       dev_points: 3,
-      idea_points: 3
+      idea_points: 3,
+      updated_at: pullRequest.updated_at
     });
   } else if (req.body.action === 'closed') {
     db.none(queries.editContribution, {
       id: pullRequest.id,
       stage: 'REJECTED',
       dev_points: 0,
-      idea_points: 0
+      idea_points: 0,
+      updated_at: pullRequest.updated_at
     });
   }
   res.end();
