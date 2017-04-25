@@ -1,6 +1,7 @@
 const initialState = {
   favorites: [],
-  favorited: false
+  favorited: false,
+  fetchingFavorites: false
 }
 
 const favorites = (state = initialState, action) => {
@@ -23,7 +24,8 @@ const favorites = (state = initialState, action) => {
       }
     case 'REQUEST_FAVORITES_ERROR':
       return {
-        ...state
+        ...state,
+        fetchingFavorites: false
       }
     case 'CHECK_FAVORITE_STATUS':
       return {
