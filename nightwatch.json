@@ -7,8 +7,8 @@
   "globals_path" : "./lib/globals.js",
 
   "selenium" : {
-    "start_process" : true,
-    "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-2.51.0.jar",
+    "start_process" : false,
+    "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.4.0.jar",
     "log_path" : "",
     "host" : "127.0.0.1",
     "port" : 4444,
@@ -24,7 +24,7 @@
       "selenium_host" : "127.0.0.1",
       "selenium_port" : 4444,
       "screenshots" : {
-        "enabled" : true,
+        "enabled" : false,
         "path" : "./screens",
         "on_failure" : true
       },
