@@ -36,10 +36,7 @@
     },
 
     "circleci" : {
-      "output_folder" : "${CIRCLE_TEST_REPORTS}",
-      "desiredCapabilities" : {
-        "browserName" : "firefox"
-      }
+      "output_folder" : "${CIRCLE_TEST_REPORTS}"
     },
 
     "chrome" : {
