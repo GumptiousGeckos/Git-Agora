@@ -7,6 +7,8 @@ import ProjectDetails from './ProjectDetails.jsx';
 import ContributionsView from '../Contributions/ContributionsView.jsx';
 import ContributorsView from '../Contributors/ContributorsView.jsx';
 import { getProjectById, getCollaborators } from './projectViewActions';
+import AddFavorite from '../Favorites/AddFavorite.jsx';
+import { getProjectById } from './projectViewActions';
 
 export class ProjectView extends React.Component {
 
@@ -55,6 +57,17 @@ export class ProjectView extends React.Component {
             { this.state.active === 'contributions' ?
               <ContributionsView reqtype="project" projid={project.id} /> : ''
             }
+          <div>
+            <AddFavorite
+              type='project'
+              favorite_id={parseInt(id)}
+            />
+          </div>
+          <div>
+            <CommentSection
+              topic_id={id}
+              type={'project'}
+            />
           </div>
         </div>
         <div className="col-md-3">
