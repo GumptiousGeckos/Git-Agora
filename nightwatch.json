@@ -30,7 +30,9 @@
         "on_failure" : true
       },
       "desiredCapabilities" : {
-        "browserName" : "firefox"
+        "browserName" : "firefox",
+        "javascriptEnabled":true,
+        "acceptSslCerts": true
       //   "browserName" : "chrome",
       //   "chromeOptions": {
       //     "args": ["--no-sandbox"]
@@ -40,12 +42,28 @@
     },
 
     "circleci" : {
-      "output_folder" : "${CIRCLE_TEST_REPORTS}"
+      "output_folder" : "${CIRCLE_TEST_REPORTS}",
+      "launch_url" : "http://localhost",
+      "selenium_host" : "127.0.0.1",
+      "selenium_port" : 4444,
+      "default_path_prefix": "",
+      "screenshots" : {
+        "enabled" : false,
+        "path" : "./screens",
+        "on_failure" : true
+      },
+      "desiredCapabilities" : {
+        "browserName" : "firefox"
+      }
     },
 
     "chrome" : {
       "desiredCapabilities" : {
-        "browserName" : "chrome"
+        "browserName" : "chrome",
+        "chromeOptions": {
+          "args": ["--no-sandbox"]
+        },
+        "acceptSslCerts": true
       }
     },
 
