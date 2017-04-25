@@ -40,16 +40,16 @@ Homepage shows you some of our top projects and recent news articles from top te
 Log in with Github's OAuth
 > Screenshot here
 
-Sharing a project is simple and easy and will instantiate a webhook onto your repository 
+Sharing a project is simple and easy and will instantiate a webhook onto your repository to keep application updated on any new pull requests.
+> Screenshot here
+
+Git-agora will also automatically retrieve some of the more recent pull requests to retroactively give user points!
 > Screenshot here
 
 Your user profile allows you to check your points, projects, and favorites
 > Screenshot here
 
 You can see the project's information and also comment on it if you have any thoughts
-> Screenshot here
-
-You can see that once you share a project, a webhook is instantiated on your repository to keep git-agora updated on points!
 > Screenshot here
 
 ## Development
