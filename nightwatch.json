@@ -30,11 +30,12 @@
         "on_failure" : true
       },
       "desiredCapabilities" : {
-        "browserName" : "chrome",
-        "chromeOptions": {
-          "args": ["--no-sandbox"]
-        },
-        "acceptSslCerts": true
+        "browserName" : "firefox"
+      //   "browserName" : "chrome",
+      //   "chromeOptions": {
+      //     "args": ["--no-sandbox"]
+      //   },
+      //   "acceptSslCerts": true
       }
     },
 
