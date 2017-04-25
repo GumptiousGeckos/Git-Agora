@@ -8,11 +8,19 @@ const sql = (file) => {
 };
 
 const queries = {
+  addUser: sql('./../users/createUser.sql'),
   newContribution: sql('newContribution.sql')
 };
 
 module.exports = (req, res) => {
-  const { id, html_url, user, base, title, updated_at, merged_at } = req.body;
+  const { id, html_url, user, head, base, title, updated_at, merged_at } = req.body;
+  db.query(queries.addUser, {
+    id: head.user.id,
+    username: head.user.login,
+    name: null,
+    email: null, // this is a workaround to get username without getting auth.
+    avatar: head.user.avatar_url
+  });
   if (req.body.state === 'opened') {
     db.none(queries.newContribution, {
       id,
