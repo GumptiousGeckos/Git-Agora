@@ -40,9 +40,6 @@ export class NewsBoard extends React.Component {
                 <a href="#">Top</a>
               </div>
               <div className="nav-tab">
-                <a href="#">Trending</a>
-              </div>
-              <div className="nav-tab">
                 <a href="#">New</a>
               </div>
             </div>
