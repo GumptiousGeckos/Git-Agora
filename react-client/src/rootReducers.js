@@ -31,7 +31,7 @@ const appReducer = combineReducers({
   article: articleReducer,
   filter: filterReducer,
   contributions: contributionsReducer,
-  contributors: contributorsReducer
+  contributors: contributorsReducer,
   favorites: favoriteReducer
 });
 
