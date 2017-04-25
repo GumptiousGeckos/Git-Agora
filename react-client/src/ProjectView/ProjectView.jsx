@@ -8,7 +8,6 @@ import ContributionsView from '../Contributions/ContributionsView.jsx';
 import ContributorsView from '../Contributors/ContributorsView.jsx';
 import { getProjectById, getCollaborators } from './projectViewActions';
 import AddFavorite from '../Favorites/AddFavorite.jsx';
-import { getProjectById } from './projectViewActions';
 
 export class ProjectView extends React.Component {
 
@@ -73,13 +72,14 @@ export class ProjectView extends React.Component {
         <div className="col-md-3">
           <ContributorsView q="project" q_id={id} />
         </div>
-        <div className="col-md-3">
-          <div className="text-center bordered">
-            <h1 className="underline">Interested</h1>
-            <h2>{project.interested}</h2>
-            <button
-              className="btn btn-success btn-lg"
-            >{"I'm Interested"}</button>
+          <div className="col-md-3">
+            <div className="text-center bordered">
+              <h1 className="underline">Interested</h1>
+              <h2>{project.interested}</h2>
+              <button
+                className="btn btn-success btn-lg"
+              >{"I'm Interested"}</button>
+            </div>
           </div>
         </div>
       </div>
