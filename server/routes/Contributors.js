@@ -9,15 +9,15 @@ const sql = (file) => {
 };
 
 const queries = {
-  getTopContributorsByProjectId: sql('topContributorsByProjectId')
+  getTopContributorsByProjectId: sql('topContributorsByProjectId.sql')
 };
 
 module.exports.getContributors = (req, res) => {
   const { q, id } = req.query;
   if (q === 'project') {
-    db.one(queries.getTopContributorsByProjectId, { project_id: id })
+    db.any(queries.getTopContributorsByProjectId, { project_id: id })
     .then(results => (res.status(201).json(results)))
-    .catch(error => (res.status(400).error(error)));
+    .catch(error => (res.status(400).end(error)));
   } else {
     res.end();
   }

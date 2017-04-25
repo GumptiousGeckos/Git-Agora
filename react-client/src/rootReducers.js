@@ -13,6 +13,7 @@ import messageReducer from './Messages/messageReducer';
 import articleReducer from './ArticleView/articleReducer';
 import filterReducer from './FilterTags/filterReducer';
 import contributionsReducer from './Contributions/contributionsReducer';
+import contributorsReducer from './Contributors/contributorsReducer';
 
 const appReducer = combineReducers({
   // all reducers in project
@@ -28,7 +29,8 @@ const appReducer = combineReducers({
   message: messageReducer,
   article: articleReducer,
   filter: filterReducer,
-  contributions: contributionsReducer
+  contributions: contributionsReducer,
+  contributors: contributorsReducer
 });
 
 const rootReducer = (state, action) => {

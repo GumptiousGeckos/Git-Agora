@@ -5,6 +5,7 @@ import CommentSection from '../CommentSection/CommentSection.jsx';
 import CollaboratorsList from './CollaboratorsList.jsx';
 import ProjectDetails from './ProjectDetails.jsx';
 import ContributionsView from '../Contributions/ContributionsView.jsx';
+import ContributorsView from '../Contributors/ContributorsView.jsx';
 import { getProjectById, getCollaborators } from './projectViewActions';
 
 export class ProjectView extends React.Component {
@@ -25,7 +26,7 @@ export class ProjectView extends React.Component {
   componentWillMount() {
     const { getProjectById, getCollaborators, match } = this.props;
     getProjectById(match.params.id);
-    getCollaborators(match.params.id);
+    // getCollaborators(match.params.id);
   }
 
   render() {
@@ -57,7 +58,7 @@ export class ProjectView extends React.Component {
           </div>
         </div>
         <div className="col-md-3">
-          <CollaboratorsList collaborators={collaborators} />
+          <ContributorsView q="project" q_id={id} />
         </div>
         <div className="col-md-3">
           <div className="text-center bordered">

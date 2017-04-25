@@ -17,15 +17,13 @@ const receivedContributorsError = error => (
     error
   }
 );
-const fetchContributors = (type, id) => (
+const fetchContributors = (q, id) => (
   (dispatch) => {
     dispatch(retrievingContributors());
     axios.get('/api/contributors', {
-      q: 'contributors',
-      type,
-      id
+      params: { q, id }
     })
-    .then(results => dispatch(receivedContributors(results)))
+    .then(results => dispatch(receivedContributors(results.data)))
     .catch(error => dispatch(receivedContributorsError(error)));
   }
 );

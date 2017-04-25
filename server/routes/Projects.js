@@ -33,7 +33,7 @@ module.exports.getAllProjects = (req, res) => {
   });
 };
 
-module.exports.addProject = (req, res) => {
+module.exports.postProject = (req, res) => {
   const { id } = req.user[0];
   const { projectId, name, description, link, webhook } = req.body;
   rp({

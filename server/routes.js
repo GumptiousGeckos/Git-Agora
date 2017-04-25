@@ -12,6 +12,9 @@ router.route('/collaborators')
 router.route('/contributions')
   .get(handler.getContributions);
 
+router.route('/contributors')
+  .get(handler.getContributors);
+
 router.route('/favorites')
   .get(handler.getFavorites)
   .post(handler.addFavorite)
@@ -61,7 +64,7 @@ router.route('/projects/:id')
 
 router.route('/projects')
   .get(handler.getTopProjects)
-  .post(handler.addProject);
+  .post(handler.postProject);
 
 router.route('/articles')
 .get(handler.getAllArticles);
