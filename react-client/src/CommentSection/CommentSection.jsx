@@ -22,6 +22,7 @@ export class CommentSection extends React.Component {
     const { username, avatar, id } = user;
     let date_created = new Date().toDateString();
     addComment(topic_id, type, username, id, date_created, content, avatar);
+    this.refs.textarea.value = '';
   }
 
   render () {
@@ -30,10 +31,10 @@ export class CommentSection extends React.Component {
     return (
       <div>
         <div>
-          {comments && comments.map(comment => <div><CommentEntry comment={comment} user={user}/></div>)}
+          {comments && comments.map(comment => <CommentEntry comment={comment} user={user}/>)}
         </div>
         <form>
-          <textarea className="u-full-width" placeholder="Write your comment..." onChange={(e) => {updateCommentText(e.target.value); }}type="textbox"></textarea>
+          <textarea className="u-full-width" placeholder="Write your comment..." ref="textarea"onChange={(e) => {updateCommentText(e.target.value); }}type="textbox"></textarea>
           <button onClick={this.handleSubmit}>Add Comment</button>
         </form>
       </div>

@@ -58,7 +58,7 @@ export class NavBar extends React.Component {
     }
 
     return (
-        <div className="container navbar ">
+        <div className="navbar">
           <div className="row"> 
               <div className="two columns home-nav">
                 <Link to={'/'}>
