@@ -44,7 +44,7 @@ module.exports.deleteFavorite = (req, res) => {
 module.exports.getFavorites = (req, res) => {
   return db.query(queries.getFavorites, { user_id: req.params.id })
    .then( data => {
-    console.log('Success getting favorites', data);
+    console.log('Success getting favorites');
     res.status(200).json(data);
   })
   .catch( error => {
@@ -58,7 +58,6 @@ module.exports.getFavorite = (req, res) => {
 
   return db.query(queries.checkFavorite, { user_id, type, favorite_id })
   .then( (data) => {
-    console.log('DATAAAA:  ', data);
     res.status(200).send(data);
   })
   .catch( error => {

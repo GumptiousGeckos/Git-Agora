@@ -80,7 +80,7 @@ const mapStateToProps = state => (
     profileId: state.userProfile.user.id,
     displayFavorites: state.favorites.displayFavorites
   }
-)
+);
 
 const mapDispatchToProps = dispatch => (
   {

@@ -50,6 +50,6 @@ const favorites = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default favorites;

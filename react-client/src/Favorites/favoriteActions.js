@@ -35,7 +35,7 @@ export const addFavorite = (user_id, type, favorite_id) => ({
 
 export const deleteFavorite = (user_id, type, favorite_id) => ({
   type: 'DELETE_FAVORITE'
-})
+});
 
 export const fetchFavorites = user_id => (
   (dispatch) => {

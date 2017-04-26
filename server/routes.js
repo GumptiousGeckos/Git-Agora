@@ -20,10 +20,10 @@ router.route('/favorites')
   .delete(handler.deleteFavorite);
 
 router.route('/favorites/:id')
-  .get(handler.getFavorites)
+  .get(handler.getFavorites);
 
 router.route('/favorite')
-  .get(handler.getFavorite)
+  .get(handler.getFavorite);
 
 router.route('/follows')
   .get(handler.getFollows)
