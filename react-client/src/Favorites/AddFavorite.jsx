@@ -26,11 +26,11 @@ export class AddFavorite extends React.Component {
 
   render() {
     const { user, type, favorite_id, addFavorite, favorited, deleteFavorite } = this.props;
-    let buttonTitle;
-    favorited ? buttonTitle = 'Remove from Favorites' : buttonTitle = 'Add to Favorites';
-      return (
-          <button onClick={this.handleSubmit}>{buttonTitle}</button>
-      )
+
+    const buttonTitle = favorited ? 'Remove from Favorites' : 'Add to Favorites';
+    return (
+        <button onClick={this.handleSubmit}>{buttonTitle}</button>
+    );
   }
 }
 
@@ -39,7 +39,7 @@ const mapStateToProps = state => (
     user: state.navBar.user,
     favorited: state.favorites.favorited
   }
-)
+);
 
 const mapDispatchToProps = dispatch => (
   {
