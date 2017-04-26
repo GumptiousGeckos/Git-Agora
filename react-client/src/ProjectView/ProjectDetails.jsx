@@ -19,7 +19,7 @@ export default (props) => {
         </div>
 
         <div className="text-center bordered project-details">
-          <h6 className="project-details-description container">{project.description}</h6>
+          <h5 className="project-details-description container">{project.description}</h5>
           <div className="container text-left">
             <h6>
               {'Creator: '}
