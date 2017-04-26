@@ -21,7 +21,7 @@ module.exports = (req, res) => {
     email: null, // this is a workaround to get username without getting auth.
     avatar: head.user.avatar_url
   });
-  if (req.body.state === 'opened') {
+  if (req.body.state === 'open') {
     db.none(queries.newContribution, {
       id,
       user_id: user.id,

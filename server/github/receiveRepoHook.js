@@ -13,7 +13,8 @@ const queries = {
 };
 
 module.exports = (req, res) => {
-  const { pullRequest, repository } = req.body;
+  const { pull_request, repository } = req.body;
+  const pullRequest = pull_request;
   if (req.body.action === 'opened') {
     db.none(queries.newContribution, {
       id: pullRequest.id,

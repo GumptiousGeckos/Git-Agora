@@ -1,11 +1,16 @@
 SELECT
-  *
+  contributions.*, users.username
 FROM
   contributions
+LEFT JOIN
+  USERS
+ON 
+  contributions.user_id = users.id
 WHERE
-  project_id = ${project_id}
+  contributions.project_id = ${project_id}
   AND
-  STATUS != 'REJECTED'
+  contributions.STAGE != 'REJECTED'
 ORDER BY
   updated_at desc
+LIMIT 10
 ;

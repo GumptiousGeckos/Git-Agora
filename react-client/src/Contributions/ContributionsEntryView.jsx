@@ -4,7 +4,7 @@ const ContributionsEntryView = props => {
   const { contribution } = props;
   return (
     <div>
-      {contribution.title}
+      {contribution.username} - {contribution.title}
     </div>
   );
 };
