@@ -1,10 +1,11 @@
 require('dotenv').config();
-const db = require('./../../db/db.js');
-const path = require('path');
 const rp = require('request-promise');
-const GITHUB_CALLBACK = process.env.GITHUB_CALLBACK;
+const path = require('path');
+const db = require('./../../db/db.js');
+const historicalContributions = require('./../utilities/historicalContributions');
 
-var QueryFile = db.$config.pgp.QueryFile;
+const GITHUB_CALLBACK = process.env.GITHUB_CALLBACK;
+const QueryFile = db.$config.pgp.QueryFile;
 
 function sql(file) {
   const fullPath = path.join(__dirname, './../../db/queries/projects', file);
@@ -36,7 +37,8 @@ module.exports.getAllProjects = (req, res) => {
 module.exports.postProject = (req, res) => {
   const { id } = req.user[0];
   const { projectId, name, description, link, api } = req.body;
-  rp({
+  let webhookId;
+  return rp({
     method: 'POST',
     uri: api + '/hooks',
     body: {
@@ -54,41 +56,50 @@ module.exports.postProject = (req, res) => {
     },
     json: true
   })
-  .then(() => console.log('webhook successful for ', api))
-  .catch(() => console.log('error for ', api));
-  rp({
-    method: 'GET',
-    uri: api + '/pulls',
-    qs: {
-      state: 'all',
-      per_page: 100
-    },
-    headers: {
-      'User-Agent': 'git-agora'
-    }
-  })
-  .then((pulls) => {
-    JSON.parse(pulls).forEach((pull) => {
-      rp({
-        method: 'POST',
-        uri: GITHUB_CALLBACK + '/github/new',
-        body: Object.assign({}, pull),
-        json: true
-      });
+  .then((webhook) => {
+    console.log('webhook successful for ', api);
+    webhookId = webhook.id;
+    return db.one(queries.addProject, {
+      projectId,
+      user_id: id,
+      title: name,
+      description,
+      link
     });
   })
-  .catch(error => console.log(error));
-  return db.one(queries.addProject, {
-    projectId,
-    user_id: id,
-    title: name,
-    description,
-    link
+  .then(() => (
+    rp({
+      method: 'GET',
+      uri: api + '/pulls',
+      qs: {
+        state: 'all',
+        per_page: 100
+      },
+      headers: {
+        'User-Agent': 'git-agora'
+      }
+    })
+  ))
+  .then((pulls) => {
+    const pullsPromises = JSON.parse(pulls).map(pull => (
+      historicalContributions(pull)
+    ));
+    return Promise.all(pullsPromises);
   })
   .then((results) => {
+    console.log('it finished');
     res.status(201).send(results);
   })
   .catch((error) => {
+    console.error(error);
+    rp({
+      method: 'DELETE',
+      uri: api + '/hooks/' + webhookId,
+      headers: {
+        'User-Agent': 'git-agora',
+        Authorization: `token ${req.cookies.git_token}`
+      }
+    });
     res.status(404).send('failed adding project');
   });
 };
