@@ -49,7 +49,8 @@ module.exports = (req, res) => {
       res.status(201).json(filteredResults);
     })
     .catch((error) => {
-      res.status(404).send('ERROR', error);
+      console.error(error);
+      res.status(404).send(error);
     });
   } else {
     res.status(401).send('Please login to access this feature');
