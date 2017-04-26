@@ -11,6 +11,7 @@ module.exports.getContributors = require('./Contributors').getContributors;
 module.exports.getFavorites = require('./Favorites').getFavorites;
 module.exports.addFavorite = require('./Favorites').addFavorite;
 module.exports.deleteFavorite = require('./Favorites').deleteFavorite;
+module.exports.getFavorite = require('./Favorites').getFavorite;
 
 module.exports.addFollow = require('./Follows').addFollow;
 module.exports.deleteFollow = require('./Follows').deleteFollow;

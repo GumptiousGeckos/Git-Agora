@@ -17,13 +17,13 @@ module.exports.getContributions = (req, res) => {
   const { q, type, id } = req.query;
   if (q === 'contributions') {
     if (type === 'project') {
-      db.one(queries.getRecentContributionsByProjectId, { project_id: id })
+      db.any(queries.getRecentContributionsByProjectId, { project_id: id })
       .then(results => (res.status(201).json(results)))
-      .catch(error => (res.status(400).error(error)));
+      .catch(error => (res.status(400).send(error)));
     } else if (type === 'user') {
-      db.one(queries.getRecentContributionsByUserId, { user_id: id })
+      db.any(queries.getRecentContributionsByUserId, { user_id: id })
       .then(results => (res.status(201).json(results)))
-      .catch(error => (res.status(400).error(error)));
+      .catch(error => (res.status(400).send(error)));
     }
   } else {
     res.end();

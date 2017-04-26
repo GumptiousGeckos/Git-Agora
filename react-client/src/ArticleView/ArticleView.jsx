@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CommentSection from '../CommentSection/CommentSection.jsx';
+import AddFavorite from '../Favorites/AddFavorite.jsx';
 import Votes from '../Votes/Votes.jsx';
 import { getArticleById } from './articleActions.js';
 
@@ -29,10 +30,16 @@ export class ArticleView extends React.Component {
             </div>
           </div>
           <div className="row">
+          <div className="col-md-12">
+            <AddFavorite
+              type={'article'}
+              favorite_id={parseInt(id)}
+            />
             <CommentSection
               topic_id={id}
               type={'article'}/>
           </div>
+        </div>
       </div>
       )
   }

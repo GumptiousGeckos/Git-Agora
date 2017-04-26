@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AddFavorite from '../Favorites/AddFavorite.jsx';
 
 export default (props) => {
   const { project } = props;
@@ -31,6 +32,12 @@ export default (props) => {
             <h6>Github repository: <a href={'https://' + project.link}>{project.link}</a></h6>
             <h6>Points: {project.points}</h6>
           </div>
+        </div>
+        <div className="text-center">
+          <AddFavorite
+            type='project'
+            favorite_id={parseInt(project.id)}
+          />
         </div>
       </div>
     </div>

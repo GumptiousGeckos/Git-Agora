@@ -19,4 +19,5 @@ ON
   users.id = points.user_id
 ORDER BY
   points.dev_points desc
+LIMIT 10
 ;
