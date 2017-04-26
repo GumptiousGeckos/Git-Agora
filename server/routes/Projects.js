@@ -87,7 +87,6 @@ module.exports.postProject = (req, res) => {
     return Promise.all(pullsPromises);
   })
   .then((results) => {
-    console.log('it finished');
     res.status(201).send(results);
   })
   .catch((error) => {

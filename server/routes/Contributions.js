@@ -15,7 +15,6 @@ const queries = {
 
 module.exports.getContributions = (req, res) => {
   const { q, type, id } = req.query;
-  console.log(q, type, id);
   if (q === 'contributions') {
     if (type === 'project') {
       db.any(queries.getRecentContributionsByProjectId, { project_id: id })
