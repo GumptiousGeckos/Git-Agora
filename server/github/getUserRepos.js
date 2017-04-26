@@ -13,6 +13,7 @@ const queries = {
 };
 
 module.exports = (req, res) => {
+  let initialResults;
   let projectList = [];
   let foundList = [];
   let filteredResults = [];
@@ -31,23 +32,21 @@ module.exports = (req, res) => {
       json: true
     })
     .then((results) => {
+      initialResults = results;
       projectList = results.map(repo => repo.id);
-      db.tx(t => (
+      return db.tx(t => (
         t.batch(projectList.map(id => t.any(queries.filterRepoProjects,
           { id })))
-      ))
-      .then((list) => {
-        foundList = [].concat.apply([], list).map(ele => ele.id);
-        console.log(foundList);
-        console.log(projectList);
-        filteredResults = results.filter((repo) => {
-          if (foundList.indexOf(repo.id) < 0) {
-            return repo;
-          }
-        });
-        res.json(filteredResults);
-      })
-      .catch(error => console.error(error));
+      ));
+    })
+    .then((list) => {
+      foundList = [].concat.apply([], list).map(ele => ele.id);
+      filteredResults = initialResults.filter((repo) => {
+        if (foundList.indexOf(repo.id) < 0) {
+          return repo;
+        }
+      });
+      res.status(201).json(filteredResults);
     })
     .catch((error) => {
       res.status(404).send('ERROR', error);
