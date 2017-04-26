@@ -3,5 +3,5 @@ SELECT
 FROM
   projects
 WHERE
-  id in ${repos}
+  id = ${id}
 ;
