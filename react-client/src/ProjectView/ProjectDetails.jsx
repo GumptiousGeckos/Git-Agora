@@ -1,28 +1,37 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default (props) => {
   const { project } = props;
   const tagArray = project.tags ? project.tags.split(',') : [];
   return (
     <div>
-      <div className="bordered text-center">
+      <div className="bordered text-center seven columns">
         <div>
-          <h1>{project.title}</h1>
-        </div>
-        <div>
+          <h4>{project.title}</h4>
           <span>Tags: </span>
           {
             tagArray.length === 0 ? 'None' :
               tagArray.map((tag, index) =>
-              <span key={index}>{tag + ' '}</span>
+              <span className="project-entry-tag" key={index}>{tag + ' '}</span>
             )
           }
         </div>
-      </div>
-      <div className="text-left bordered">
-        <h2>Description:</h2>
-        <h3>{project.description}</h3>
-        <h4>Github: <a href={'https://' + project.link}>{project.link}</a></h4>
+
+        <div className="text-center bordered project-details">
+          <h6 className="project-details-description container">{project.description}</h6>
+          <div className="container text-left">
+            <h6>
+              {'Creator: '}
+              <Link to={'/users/' + project.user_id}>
+                <img src={project.avatar} className="project-avatar" alt="Responsive image" />
+                {project.username}
+              </Link>
+            </h6>
+            <h6>Github repository: <a href={'https://' + project.link}>{project.link}</a></h6>
+            <h6>Points: {project.points}</h6>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ class ContributorsView extends React.Component {
   render() {
     const { contributors } = this.props;
     return (
-      <div className="text-center bordered">
+      <div className="text-center bordered contributors-view">
         <h4 className="underline">Top Contributors</h4>
         <table>
           <thead>
