@@ -15,7 +15,6 @@ export class CommentSection extends React.Component {
     getComments(topic_id, type);
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
     const { addComment, type, topic_id, content, user } = this.props;
@@ -40,24 +39,24 @@ export class CommentSection extends React.Component {
       </div>
     );
   }
-}
+};
 
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     comments: state.comments.comments,
     content: state.comments.content,
     user: state.navBar.user
-  };
-};
+  }
+);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = dispatch => (
+  {
     getComments: (topic_id, type) => dispatch(fetchComments(topic_id, type)),
     addComment: (topic_id, type, username, user_id, date_created, content, avatar) => dispatch(insertComment(topic_id, type, username, user_id, date_created, content, avatar)),
     updateCommentText: (text) => dispatch(updateCommentText(text))
-  };
-};
+  }
+);
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentSection);

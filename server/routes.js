@@ -16,9 +16,14 @@ router.route('/contributors')
   .get(handler.getContributors);
 
 router.route('/favorites')
-  .get(handler.getFavorites)
   .post(handler.addFavorite)
   .delete(handler.deleteFavorite);
+
+router.route('/favorites/:id')
+  .get(handler.getFavorites);
+
+router.route('/favorite')
+  .get(handler.getFavorite);
 
 router.route('/follows')
   .get(handler.getFollows)

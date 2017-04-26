@@ -55,23 +55,27 @@ module.exports = {
   favorites: [
     {
       id: 1,
-      user_id: 1,
-      topic_id: 6
+      user_id: 22308695,
+      type: 'user',
+      favorite_id: 3
     },
     {
       id: 2,
-      user_id: 3,
-      topic_id: 5
+      user_id: 22308695,
+      type: 'project',
+      favorite_id: 1
     },
     {
       id: 3,
-      user_id: 5,
-      topic_id: 4
+      user_id: 22308695,
+      type: 'article',
+      favorite_id: 4
     },
     {
       id: 4,
-      user_id: 7,
-      topic_id: 3
+      user_id: 22308695,
+      type: 'project',
+      favorite_id: 4
     }
   ],
 

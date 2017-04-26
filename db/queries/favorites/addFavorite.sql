@@ -1,4 +1,4 @@
 INSERT INTO
-  favorites (user_id, topic_id)
+  favorites (user_id, type, favorite_id)
 VALUES
-  ($1, $2)
+  (${user_id}, ${type}, ${favorite_id})
