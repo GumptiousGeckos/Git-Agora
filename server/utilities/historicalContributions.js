@@ -37,8 +37,6 @@ module.exports = (pulls) => {
       stage = 'REJECTED';
       dev_points = 0;
       idea_points = 0;
-    } else {
-      console.log(state);
     }
     return db.none(queries.newContribution, {
       id,
