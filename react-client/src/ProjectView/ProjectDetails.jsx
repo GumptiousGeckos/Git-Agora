@@ -7,7 +7,7 @@ export default (props) => {
   return (
     <div>
       <div className="bordered text-center seven columns">
-        <div>
+        <div className="project-details-title">
           <h4>{project.title}</h4>
           <span>Tags: </span>
           {
@@ -18,7 +18,7 @@ export default (props) => {
           }
         </div>
 
-        <div className="text-center bordered project-details">
+        <div className="text-center project-details">
           <h5 className="project-details-description container">{project.description}</h5>
           <div className="container text-left">
             <h6>
