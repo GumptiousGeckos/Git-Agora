@@ -5,7 +5,7 @@ FROM
 WHERE
   user_id = ${user_id}
   AND
-  STATUS != 'REJECTED'
+  STAGE != 'REJECTED'
 ORDER BY
   updated_at desc
 ;

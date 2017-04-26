@@ -21,11 +21,15 @@ const fetchContributions = (type, id) => (
   (dispatch) => {
     dispatch(retrievingContributions());
     axios.get('/api/contributions', {
-      q: 'contributions',
-      type,
-      id
+      params: {
+        q: 'contributions',
+        type,
+        id
+      }
     })
-    .then(results => dispatch(receivedContributions(results.data)))
+    .then((results) => {
+      dispatch(receivedContributions(results.data));
+    })
     .catch(error => dispatch(receivedContributionsError(error)));
   }
 );

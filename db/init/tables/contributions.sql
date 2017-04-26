@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS contributions (
   stage text,
   url text,
   title text,
-  updated_at date,
+  updated_at text,
   dev_points integer,
   idea_points integer,
   FOREIGN KEY(project_id) REFERENCES projects 
