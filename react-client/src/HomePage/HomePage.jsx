@@ -17,7 +17,7 @@ export class HomePage extends React.Component {
 
     return (
       <div className="container">
-        <div className="text-center">
+        <div className="text-center" name="trendingTechNews">
           <h1>Trending Tech News</h1>
         </div>
         <div className="row news-border">
@@ -38,7 +38,7 @@ export class HomePage extends React.Component {
           }
         </div>
 
-        <div className="text-center col-md-12">
+        <div className="text-center col-md-12" name="hotProjects">
           <h1>Hot Projects</h1>
         </div>
         <div className="list-group">

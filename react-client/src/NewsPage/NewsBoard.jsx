@@ -26,9 +26,11 @@ export class NewsBoard extends React.Component {
               </div>
             </div>
           </div>
-          {articles.map((article) => 
-            <NewsArticleEntry key={article.published_at} article={article} />
-          )}
+          <div name="newsList">
+            {articles.map((article) =>
+              <NewsArticleEntry key={article.published_at} article={article} />
+            )}
+          </div>
         </div>
       );
     } else {
@@ -49,7 +51,7 @@ export class NewsBoard extends React.Component {
       );
     }
   }
-};
+}
 
 const mapStateToProps = (state) => {
   return {
