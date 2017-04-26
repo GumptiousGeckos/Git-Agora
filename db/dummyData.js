@@ -331,6 +331,13 @@ module.exports = {
       username: 'Ragnar666',
       email: 'jeff6@jeff.com',
       avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+    },
+    {
+      id: 22308695,
+      name: 'John Doe',
+      username: 'JohnDoe123',
+      email: 'JohnDoe@johndoe.com',
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     }
   ],
 
