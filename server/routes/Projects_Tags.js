@@ -58,7 +58,6 @@ module.exports.addProjectTag = (req, res) => {
 module.exports.createProjectTag = (req, res) => {
   const { tags, projectId } = req.body;
   // Check to see if tags are in tags table
-  console.log('creating project tag ', tags, projectId);
   return db.tx((t) => {
     return t.batch(tags.map((ele) => {
       return t.any(queries.insertTag, [ele.text.toLowerCase()]);
@@ -67,15 +66,16 @@ module.exports.createProjectTag = (req, res) => {
   .then(() => {
     db.tx((t) => {
       return t.batch(tags.map((ele) => {
-        console.log('inserting ', ele);
         return t.any(queries.addProjectTag, [ele.text.toLowerCase(), projectId]);
       }));
     });
   })
   .then(() => {
-    res.status(201).send('Success adding topics');
+    console.log('gets here');
+    res.status(201).send({ redirect: `/#/projects/${projectId}` });
   })
   .catch((error) => {
-    res.status(404).send(error);
+    console.error(error);
+    res.status(404).send({ redirect: '/#/createproject' });
   });
 };

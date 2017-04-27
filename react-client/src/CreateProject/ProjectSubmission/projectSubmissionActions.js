@@ -43,19 +43,19 @@ export const submitProject = (name, projectId, description, link, api, tags) => 
       link,
       api
     })
-    .then((results) => {
+    .then(() => (
       axios.put('api/projectsTags', {
         projectId,
         tags
-      });
-    })
-    .then((results) => {
+      })
+    ))
+    .then((msg) => {
       dispatch(projectSubmitted());
-      hashHistory.push('/project/' + projectId);
+      window.location = msg.data.redirect;
     })
     .catch((error) => {
       dispatch(submitError(error));
-      hashHistory.push('/');
+      window.location = error.response.data.redirect;
     });
   };
 };

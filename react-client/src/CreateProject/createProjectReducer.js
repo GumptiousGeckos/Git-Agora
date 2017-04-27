@@ -58,8 +58,7 @@ const createProjectReducer = (state = initialState, action) => {
       };
     case 'SUBMIT_ERROR':
       return {
-        ...state,
-        submittingProject: false,
+        ...initialState,
         error: action.error
       };
     case 'PROJECT_SUBMITTED':

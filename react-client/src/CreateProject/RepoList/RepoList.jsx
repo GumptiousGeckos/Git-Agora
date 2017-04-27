@@ -32,7 +32,9 @@ export class RepoList extends React.Component {
       <div id="repo-list-page">
         <div id="repo-list-header">
           <div id="repo-list-title"> Pick a project: </div>
-          <div> {"Dont see your project? Make sure that it isn't already shared!"} </div>
+          <div> {this.props.error !== null ?
+            'There was an error processing your request. Please try again.' :
+            'Dont see your project? Make sure that it isn\'t already shared!'} </div>
         </div>
         <div id="repo-list">
           {list.map(repo => (
@@ -44,6 +46,11 @@ export class RepoList extends React.Component {
             />
           ))}
         </div>
+          <button
+            id="repo-list-proceed"
+            className="button-primary"
+            onClick={() => buttonClick()}
+          > Proceed </button>
         { this.state.active !== null ?
           <button
             id="repo-list-proceed"
@@ -60,7 +67,8 @@ export class RepoList extends React.Component {
 const mapStateToProps = state => (
   {
     list: state.createproject.list,
-    selected: state.createproject.selectedRepo
+    selected: state.createproject.selectedRepo,
+    error: state.createproject.error
   }
 );
 

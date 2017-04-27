@@ -35,6 +35,11 @@ module.exports.getAllProjects = (req, res) => {
 };
 
 module.exports.postProject = (req, res) => {
+  if (!req.isAuthenticated()) {
+    console.log('not isAuthenticated');
+    res.status(401).send({ redirect: '/#/createproject' });
+    return;
+  }
   const { id } = req.user[0];
   const { projectId, name, description, link, api } = req.body;
   let webhookId;
@@ -86,11 +91,11 @@ module.exports.postProject = (req, res) => {
     ));
     return Promise.all(pullsPromises);
   })
-  .then((results) => {
-    res.status(201).send(results);
+  .then(() => {
+    res.status(201).end();
   })
   .catch((error) => {
-    console.error(error);
+    console.error('error', error);
     rp({
       method: 'DELETE',
       uri: api + '/hooks/' + webhookId,
@@ -99,7 +104,7 @@ module.exports.postProject = (req, res) => {
         Authorization: `token ${req.cookies.git_token}`
       }
     });
-    res.status(404).send('failed adding project');
+    res.status(404).send({ redirect: '/#/createproject' });
   });
 };
 
@@ -127,7 +132,6 @@ module.exports.getTopProjects = (req, res) => {
   if (req.user) {
     return db.query(queries.addTopProjectsAndUserVotes, {user_id: req.user[0].id})
     .then((data) => {
-      console.log('Success getting top projects', data);
       res.status(200).json(data);
     })
     .catch(error => {
@@ -136,7 +140,6 @@ module.exports.getTopProjects = (req, res) => {
   } else {
     return db.query(queries.addTopProjects)
     .then((data) => {
-      console.log('Success getting projects');
       res.status(200).json(data);
     })
     .catch(error => {
