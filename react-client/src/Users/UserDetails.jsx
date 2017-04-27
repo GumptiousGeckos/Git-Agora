@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ComposeMessageButton from '../Messages/ComposeMessageButton.jsx';
+import AddFavorite from '../Favorites/AddFavorite.jsx';
 import { toggleEditMode, getUserById, updateDescriptionText,
          saveChanges } from './userActions';
 
@@ -21,7 +22,7 @@ export class UserDetails extends React.Component {
   render() {
     const { user = {}, currentUser, descriptionText = user.description,
             editMode, toggleEditMode, updateDescriptionText,
-            saveChanges, onSendMessageClick } = this.props;
+            saveChanges, onSendMessageClick, profileId } = this.props;
     const ownProfile = currentUser ? user.id === currentUser.id : false;
 
     let description;
@@ -29,26 +30,26 @@ export class UserDetails extends React.Component {
 
     if (!editMode) {
       description = (
-        <div className="col-md-10">
+        <div className="">
           {descriptionText}
         </div>
       );
       if (ownProfile) {
         editModeButton = (
-          <div className="col-md-2 text-right">
+          <div className="text-right">
             <button
               type="button"
-              className="btn btn-default"
+              className=""
               onClick={toggleEditMode}
-            >
-              <span className="glyphicon glyphicon-edit" />
+            >Edit
+              <span className="" />
             </button>
           </div>
         );
       }
     } else {
       description = (
-        <div className="col-md-10">
+        <div className="">
           <textarea
             rows="4"
             cols="37"
@@ -59,13 +60,13 @@ export class UserDetails extends React.Component {
       );
       if (ownProfile) {
         editModeButton = (
-          <div className="col-md-2 text-right">
+          <div className="text-right">
             <button
               type="button"
-              className="btn btn-default"
+              className=""
               onClick={() => { toggleEditMode(); saveChanges(descriptionText); }}
-            >
-              <span className="glyphicon glyphicon-floppy-saved" />
+            >Save
+              <span className="" />
             </button>
           </div>
         );
@@ -76,22 +77,46 @@ export class UserDetails extends React.Component {
       <div>
         <div className="picture">
           <img src={user.avatar ? user.avatar : 'http://www.plentyofcheddar.com/wp-content/uploads/2013/12/questionmark51.jpg'} alt="user profile" />
-          { !ownProfile ? (<ComposeMessageButton userProfile={user.username} />) : '' }
-          <div className="text-left">
-            {description}
-            {editModeButton}
-            <div className="col-md-12">
-              <h5>Name: {user.name}</h5>
-              <h5>{'Github: '}
-                <a href={'https://www.github.com/' + user.username} target="_blank">
-                  {user.username}
-                </a>
-              </h5>
-              <h5>Email: {user.email}</h5>
-              <h5>Points: {user.points}</h5>
-            </div>
+        </div>
+        <div>
+          <div id="profile-username">
+            <a href={'https://www.github.com/' + user.username} target="_blank">
+                {user.username}
+              </a>
+          </div>
+          <div>
+            <table className="u-full-width">
+              <thead>
+                <tr>
+                  <th className="points-table">{user.dev_points || '0'}</th>
+                  <th className="points-table">{user.idea_points || '0'}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="points-table">Dev Points</td>
+                  <td className="points-table">Idea Points</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h6>{user.email}</h6>
+          </div>
+          <div>
+            { !ownProfile ? (<AddFavorite type={'user'} favorite_id={profileId}/>) : '' }
+          </div>
+          <div>
+            { !ownProfile ? (<ComposeMessageButton userProfile={user.username} />) : '' }
           </div>
         </div>
+          <div className="text-left">
+            <div className="">
+            </div>
+            <h6 className="profile-description">Description</h6>
+            {description}
+            {editModeButton}
+          </div>
       </div>
     );
   }
@@ -101,6 +126,7 @@ const mapStateToProps = state => (
   {
     user: state.userProfile.user,
     currentUser: state.navBar.user,
+    profileId: state.userProfile.user.id,
     editMode: state.userProfile.editMode,
     descriptionText: state.userProfile.descriptionText
   }
