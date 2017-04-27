@@ -28,7 +28,8 @@ export default (props) => {
               </Link>
             </font><br />
             <font size="2">Github repository: <a href={project.link}>{project.link}</a></font><br />
-            <font size="2">Points: {project.points}</font>
+            <font size="2">Idea Points: {project.idea_points ? project.idea_points : '0'}</font><br />
+            <font size="2">Dev Points: {project.dev_points ? project.dev_points : '0'}</font>
           </div>
           <div className="project-details-description container text-left">
             <font size="4">
