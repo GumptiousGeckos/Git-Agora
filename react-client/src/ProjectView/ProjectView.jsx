@@ -7,16 +7,23 @@ import ProjectDetails from './ProjectDetails.jsx';
 import ContributionsView from '../Contributions/ContributionsView.jsx';
 import ContributorsView from '../Contributors/ContributorsView.jsx';
 import { getProjectById, getCollaborators } from './projectViewActions';
-import AddFavorite from '../Favorites/AddFavorite.jsx';
 
 export class ProjectView extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      active: 'comments'
+      active: 'comments',
+      collabActive: 'collaborators'
     };
     this.toggleProjectTabs = this.toggleProjectTabs.bind(this);
+    this.toggleCollabTabs = this.toggleCollabTabs.bind(this);
+  }
+
+  componentWillMount() {
+    const { getProjectById, getCollaborators, match } = this.props;
+    getProjectById(match.params.id);
+    // getCollaborators(match.params.id);
   }
 
   toggleProjectTabs(tab) {
@@ -24,10 +31,11 @@ export class ProjectView extends React.Component {
       active: tab
     });
   }
-  componentWillMount() {
-    const { getProjectById, getCollaborators, match } = this.props;
-    getProjectById(match.params.id);
-    // getCollaborators(match.params.id);
+
+  toggleCollabTabs(tab) {
+    this.setState({
+      collabActive: tab
+    });
   }
 
   render() {
@@ -35,11 +43,30 @@ export class ProjectView extends React.Component {
     const { id } = this.props.match.params;
     return (
       <div>
-        <div className="col-md-9">
+        <div className="container">
           <ProjectDetails
             project={project}
+            id={id}
           />
-          <div className="container">
+          <div className="five columns">
+            <button
+              className="tabs"
+              onClick={() => this.toggleCollabTabs('collaborators')}
+            > Collaborators </button>
+            <button
+              className="tabs"
+              onClick={() => this.toggleCollabTabs('topContributors')}
+            > Top Contributors </button>
+          </div>
+          <div className="five columns">
+            { this.state.collabActive === 'collaborators' ?
+              <div className="bordered text-center underline contributors-view"><h5>Collaborators</h5></div> : ''
+            }
+            { this.state.collabActive === 'topContributors' ?
+              <ContributorsView q="project" q_id={id} /> : ''
+            }
+          </div>
+          <div className="twelve columns margin-top">
             <button
               className="tabs"
               onClick={() => this.toggleProjectTabs('comments')}
@@ -49,37 +76,13 @@ export class ProjectView extends React.Component {
               onClick={() => this.toggleProjectTabs('contributions')}
             > Recent Contributions </button>
           </div>
-          <div className="container">
+          <div className="twelve columns">
             { this.state.active === 'comments' ?
               <CommentSection topic_id={id} type={'project'} /> : ''
             }
             { this.state.active === 'contributions' ?
               <ContributionsView reqtype="project" projid={project.id} /> : ''
             }
-          <div>
-            <AddFavorite
-              type='project'
-              favorite_id={parseInt(id)}
-            />
-          </div>
-          <div>
-            <CommentSection
-              topic_id={id}
-              type={'project'}
-            />
-          </div>
-        </div>
-        <div className="col-md-3">
-          <ContributorsView q="project" q_id={id} />
-        </div>
-          <div className="col-md-3">
-            <div className="text-center bordered">
-              <h1 className="underline">Interested</h1>
-              <h2>{project.interested}</h2>
-              <button
-                className="btn btn-success btn-lg"
-              >{"I'm Interested"}</button>
-            </div>
           </div>
         </div>
       </div>
