@@ -135,20 +135,47 @@ a:hover {
 \*----------------------------*/
 
 
-.repo-list {
-  border-style: solid;
-  border-width: thin;
-  margin: 5px 5px 5px 5px;
+#repo-list-page {
+}
+#repo-list-header, #proj-sub-header {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 15px;
+}
+#repo-list-title, #proj-sub-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#repo-list {
   padding-top: 10px;
-  padding-left: 15px;
   padding-bottom: 10px;
 }
-#repo-list-page {
+.repo-list-entry {
+  line-height: 40px;
+  padding-left: 5px;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 2px;
+}
+.repo-list-entry:hover{
+  margin-left: 5px;
+  box-shadow: 5px 5px 5px #e2e2e2;
+  background-color: #ededed;
+  cursor: pointer;
+}
+.createproject-repolist-select {
+  background-color: #e8e5e5;
+}
+.repo-list-entry-name {
   margin-left: 5px;
 }
 #select-project {
   margin-left: 5px
 }
+
+/* -------------------------- *\ 
+  #PROJECT-SUBMISSION
+\*----------------------------*/
 #project-submission {
   margin-left: 5px;
   margin-right: 5px;
@@ -156,14 +183,67 @@ a:hover {
 #delete-button {
   background-color: #f44253;
 }
-button.tabs {
-  border-radius: 0px;
-  border-bottom: 0px;
-  margin-right: 5px;
-  margin-bottom: 0;
+
+div.ReactTags__tags {
+    position: relative;
 }
-.createproject-repolist-select {
-  background-color: #e8e5e5;
+
+/* Styles for the input */
+div.ReactTags__tagInput {
+    width: 200px;
+    margin-top: 5px;
+    border-radius: 2px;
+    display: inline-block;
+}
+div.ReactTags__tagInput input.ReactTags__tagInputField,
+div.ReactTags__tagInput input.ReactTags__tagInputField:focus {
+    height: 31px;
+    margin: 0;
+    font-size: 12px;
+    width: 100%;
+    border: 1px solid #eee;
+}
+
+/* Styles for selected tags */
+div.ReactTags__selected span.ReactTags__tag {
+    border: 1px solid #ddd;
+    background: #eee;
+    font-size: 12px;
+    display: inline-block;
+    padding: 5px;
+    margin: 0 5px;
+    cursor: move;
+    border-radius: 2px;
+}
+div.ReactTags__selected a.ReactTags__remove {
+    color: #aaa;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* Styles for suggestions */
+div.ReactTags__suggestions {
+    position: absolute;
+}
+div.ReactTags__suggestions ul {
+    list-style-type: none;
+    box-shadow: .05em .01em .5em rgba(0,0,0,.2);
+    background: white;
+    width: 200px;
+}
+div.ReactTags__suggestions li {
+    border-bottom: 1px solid #ddd;
+    padding: 5px 10px;
+    margin: 0;
+}
+div.ReactTags__suggestions li mark {
+    text-decoration: underline;
+    background: none;
+    font-weight: 300;
+}
+div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
+    background: #b7cfe0;
+    cursor: pointer;
 }
 
 /* -------------------------- *\ 
@@ -498,6 +578,12 @@ button.tabs {
   margin-top: 10px;
 }
 
+button.tabs {
+  border-radius: 0px;
+  border-bottom: 0px;
+  margin-right: 5px;
+  margin-bottom: 0;
+}
 .none {
   text-decoration: none;
 }

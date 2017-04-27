@@ -36,7 +36,7 @@ export class ProjectSubmission extends React.Component {
     return (
       <div id="proj-sub-page">
         <div id="proj-sub-header">
-          <div id="proj-sub-title"> Submit your project: </div>
+          <div id="proj-sub-title"> Share your project: </div>
           <div> {'Enter a description and tags to help others find your project!'} </div>
         </div>
         <button onClick={() => backButtonClick()}> Choose Another Project </button>
