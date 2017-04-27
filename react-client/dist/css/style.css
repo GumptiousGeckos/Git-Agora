@@ -23,6 +23,7 @@ textarea {
 
 a {
   text-decoration: none;
+  color: #08182b;
 }
 
 textarea {
@@ -81,7 +82,7 @@ a:hover {
   border-radius: 4px 4px 0 0;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #f4f5f9;
+  background-color: white;
 }
 
 .news-border {
@@ -321,7 +322,7 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   font-family: 'Roboto', sans-serif;
   font-size: 10px;
   padding: 10px;
-  background-color: #4ea1d3;
+  background-color: #08182b;
   color: #454552;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -339,15 +340,17 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 
 .main-nav {
   max-width: 100%;
+  padding-top: 6px;
 }
 
 .user-nav {
   max-width: 100%;
+  padding-top: 5px;
 }
 
 .nav-icon {
   padding-right: 5px;
-  color: #d8e9ef;
+  color: white;
   vertical-align: middle;
 }
 
@@ -365,11 +368,19 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 .nav-header {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
-  color: #d8e9ef;
+  color: white;
   text-decoration: none;
 }
 
-/* -------------------------- *\
+.git-agora {
+  font-size: 18px;
+}
+
+.log-in {
+  padding-top: 2px;
+}
+
+/* -------------------------- *\ 
   #ARTICLE_VIEW
 \*----------------------------*/
 
@@ -381,12 +392,12 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 }
 
 .article-view-entry {
-  background-color: #f4f5f9;
+  background-color: white;
   font-family: 'opensans', sans-serif;
   font-size: 10px;
   padding: 10px;
   border-radius: 4px;
-  border: 1px solid transparent;
+  border: 1px solid #08182b;
   margin-bottom: 5px;
 }
 
@@ -515,13 +526,13 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 \*----------------------------*/
 
 .article-entry {
-  background-color: #f4f5f9;
+  background-color: white;
   font-family: 'opensans', sans-serif;
   font-size: 10px;
   padding: 10px;
   padding-top: 5px;
   border-radius: 4px;
-  border: 1px solid #4ea1d3;
+  border: 1px solid #08182b;
   margin-bottom: 5px;
 }
 
@@ -543,13 +554,13 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 \*----------------------------*/
 
 .project-entry {
-  background-color: #f4f5f9;
+  background-color: white;
   font-family: 'opensans', sans-serif;
   font-size: 10px;
   padding: 10px;
   padding-top: 5px;
   border-radius: 4px;
-  border: 1px solid #4ea1d3;
+  border: 1px solid #08182b;
   margin-bottom: 5px;
 
 }
@@ -566,10 +577,12 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 
 .project-entry-tag {
   border-radius: 4px;
-  border: solid 2px #e85a71;
+  border: solid 2px #ee2560; 
+  background-color: #ee2560;
   padding: 2px;
   font-size: 12px;
   margin-right: 5px;
+  color: #f4f4f4;
 
 }
 
@@ -628,12 +641,14 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   font-family: 'opensans', sans-serif;
   font-size: 10px;
   text-align: center;
-  background-color: #f4f5f9;
+  background-color: #08182b;
+  color: white;
 }
 
 .filter-search-button {
   max-width: 100%;
-  background-color: #f4f5f9;
+  background-color: #08182b;
+  color: white;
 
 }
 
@@ -721,13 +736,15 @@ button.tabs {
 \*----------------------------*/
 
 .projects-header {
-  background-color: #4ea1d3;
+  background-color: #08182b;
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  color: #d8e9ef;
+  color: white;
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 18px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .top-three-projects {
@@ -744,11 +761,11 @@ button.tabs {
 \*----------------------------*/
 
 .home-page-project-entry {
-  background-color: #d8e9ef;
+  background-color: white;
   font-family: 'opensans', sans-serif;
   font-size: 10px;
   padding: 10px;
-  border: 5px solid #4ea1d3;
+  border: 5px solid #08182b;
   margin-bottom: 5px;
   float: left;
   min-width: 100%;
@@ -769,8 +786,8 @@ button.tabs {
   font-family: 'opensans', sans-serif;
   text-align: right;
   font-size: 10px;
-  color: #e85a71;
-  border-top: 3px solid #f4f5f9;
+  color: #08182b;
+  border-top: 3px solid #08182b;
 
 }
 
@@ -782,18 +799,22 @@ button.tabs {
 
 .home-page-project-entry-description {
   font-size: 12px;
-  border-top: 3px solid #f4f5f9;
+  border-top: 3px solid #08182b;
 
 }
 
 .home-page-project-entry-tags {
   padding-top: 5px;
   padding-bottom: 5px;
-  border-top: 3px solid #f4f5f9;
+  border-top: 3px solid #08182b;
 }
 
 .home-page-project-entry-tags > .project-entry-tag {
   font-size: 10px;
+}
+
+.left-top-projects {
+  padding-left: 0px;
 }
 
 
@@ -801,10 +822,10 @@ button.tabs {
   #NEWS-IMAGE-GALLERY
 \*----------------------------*/
 
-a > img {
+.slick-slide > a > img {
   max-width: 80%;
   min-width: 80%;
-  max-height: 260px;
+  max-height: 380px;
 }
 
 .news-image-gallery-row {
@@ -812,19 +833,19 @@ a > img {
 }
 
 .news-image-gallery-slide-title {
-  background-color: #f4f5f9;
+  background-color: #08182b;
   max-width: 80%;
   font-size: 14px;
   padding-left: 5px;
   padding-right: 5px;
   margin-bottom: 10px;
   margin-right: 20%;
+  color: white;
 }
 
 .twelve.columns.news-image-gallery-slider {
-  max-width: 80%;
-  padding-left: 20%;
   margin: auto;
+  padding-bottom: 20px;
 }
 .slick-list {
   max-width: 80%;
@@ -834,20 +855,40 @@ a > img {
 
 .slick-prev {
   left: 20px;
+  border: 1px solid #08182b; 
+  width: 20px;
+  height: 60px;
+  padding-top: 1px;
+  padding-left: 20px;
+  margin-left: 20px;
 }
 
 .slick-next {
   right: 20px;
+  border: 1px solid #08182b;
+  width: 20px;
+  height: 60px;
+  padding-top: 1px;
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+.slick-next:hover {
+  background-color: #08182b;
+}
+
+.slick-prev:hover {
+  background-color: #08182b;
 }
 
 .slick-dots {
-  bottom: 2px;
+  bottom: 10px;
 }
 
 .slick-initialized.slick-slider {
-  border: 5px solid #4ea1d3;
-  background-color: #d8e9ef;
-  padding-bottom: 10px;
+  border: 5px solid #08182b;
+  background-color: white;
+  padding-bottom: 40px;
   padding-top: 15px;
 }
 
