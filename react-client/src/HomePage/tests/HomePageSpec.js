@@ -6,7 +6,7 @@ import { HomePage } from '../HomePage';
 import * as actions from '../homepageActions';
 import reducer from '../homepageReducer';
 
-describe('HomePage Actions', () => {
+xdescribe('HomePage Actions', () => {
   describe('Hot Projects actions', () => {
     it('should have a FETCHING_HOT_PROJECTS action', () => {
       const expectedAction = {
@@ -30,7 +30,7 @@ describe('HomePage Actions', () => {
     });
   });
 
-  describe('Hot News actions', () => {
+  xdescribe('Hot News actions', () => {
     it('should have a FETCHING_HOT_NEWS action', () => {
       const expectedAction = {
         type: 'FETCHING_HOT_NEWS'

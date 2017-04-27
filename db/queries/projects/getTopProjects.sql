@@ -1,6 +1,6 @@
 -- combines projects, votecount, and tags (as an aggregated string)
 select
-  projectstable.*, votestable.votes, users.username
+  projectstable.*, votestable.votes, users.username, users.avatar
 from
   (select
     sum(vote_type) votes, topic_id

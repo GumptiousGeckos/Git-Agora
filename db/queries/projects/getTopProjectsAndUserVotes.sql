@@ -1,5 +1,5 @@
 select
-  projectstable.*, votestable.votes, uservote.vote_type, users.username
+  projectstable.*, votestable.votes, uservote.vote_type, users.username, users.avatar
 from
   (select
     sum(vote_type) votes, topic_id
