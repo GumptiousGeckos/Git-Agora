@@ -14,7 +14,7 @@ export class ProjectView extends React.Component {
     super(props);
     this.state = {
       active: 'comments',
-      collabActive: 'topContributors'
+      collabActive: 'collaborators'
     };
     this.toggleProjectTabs = this.toggleProjectTabs.bind(this);
     this.toggleCollabTabs = this.toggleCollabTabs.bind(this);
@@ -46,6 +46,7 @@ export class ProjectView extends React.Component {
         <div className="container">
           <ProjectDetails
             project={project}
+            id={id}
           />
           <div className="five columns">
             <button

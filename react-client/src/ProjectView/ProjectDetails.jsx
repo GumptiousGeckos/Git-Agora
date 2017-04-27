@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import AddFavorite from '../Favorites/AddFavorite.jsx';
 
 export default (props) => {
-  const { project } = props;
+  const { project, id } = props;
   const tagArray = project.tags ? project.tags.split(',') : [];
   return (
     <div className="project-view-details">
@@ -40,7 +40,7 @@ export default (props) => {
         <div className="text-center">
           <AddFavorite
             type='project'
-            favorite_id={parseInt(project.id)}
+            favorite_id={id}
           />
         </div>
       </div>
