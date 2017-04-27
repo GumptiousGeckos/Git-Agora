@@ -30,24 +30,34 @@ export class RepoList extends React.Component {
     const { list, selected, repoClick, buttonClick } = this.props;
     return (
       <div id="repo-list-page">
-        <h1> Repo List </h1>
-        <div className="repo-list">
-          {list.map((repo) => {
-            return (
-              <RepoListEntry
-                key={repo.id}
-                repo={repo}
-                active={this.state.active === repo.id}
-                handleClick={this.handleRepoClick}
-              />
-            );
-          })}
+        <div id="repo-list-header">
+          <div id="repo-list-title"> Pick a project: </div>
+          <div>
+            {this.props.error !== null ?
+              'Sorry! There was an error while processing your request. Please try again.'
+              :
+              'Dont see your project? Make sure that it isn\'t already shared!'
+            }
+          </div>
         </div>
-        <button
-          id="select-project"
-          className="button-primary"
-          onClick={() => buttonClick()}
-        > Select Project </button>
+        <div id="repo-list">
+          {list.map(repo => (
+            <RepoListEntry
+              key={repo.id}
+              repo={repo}
+              active={this.state.active === repo.id}
+              handleClick={this.handleRepoClick}
+            />
+          ))}
+        </div>
+        { this.state.active !== null ?
+          <button
+            id="repo-list-proceed"
+            className="button-primary"
+            onClick={() => buttonClick()}
+          > Proceed </button>
+          : ''
+        }
       </div>
     );
   }
@@ -56,7 +66,8 @@ export class RepoList extends React.Component {
 const mapStateToProps = state => (
   {
     list: state.createproject.list,
-    selected: state.createproject.selectedRepo
+    selected: state.createproject.selectedRepo,
+    error: state.createproject.error
   }
 );
 

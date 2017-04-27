@@ -25,7 +25,6 @@ module.exports.getProjectsByTag = (req, res) => {
       user_id: req.user[0].id
     })
     .then((data) => {
-      console.log('Success getting topics by tag and user votes');
       res.status(200).json(data);
     })
     .catch((error) => {
@@ -34,7 +33,6 @@ module.exports.getProjectsByTag = (req, res) => {
   } else {
     return db.query(queries.getProjectsByTag, { tag_name })
     .then((data) => {
-      console.log('Success getting topics by tag');
       res.status(200).json(data);
     })
     .catch((error) => {
@@ -48,7 +46,7 @@ module.exports.addProjectTag = (req, res) => {
 
   return db.query(queries.addProjectTag, [tag_id, project_id])
   .then(() => {
-    res.status(201).send('Success adding topic tag');
+    res.status(201).end();
   })
   .catch((error) => {
     res.status(404).send(error);
@@ -58,7 +56,6 @@ module.exports.addProjectTag = (req, res) => {
 module.exports.createProjectTag = (req, res) => {
   const { tags, projectId } = req.body;
   // Check to see if tags are in tags table
-  console.log('creating project tag ', tags, projectId);
   return db.tx((t) => {
     return t.batch(tags.map((ele) => {
       return t.any(queries.insertTag, [ele.text.toLowerCase()]);
@@ -67,15 +64,15 @@ module.exports.createProjectTag = (req, res) => {
   .then(() => {
     db.tx((t) => {
       return t.batch(tags.map((ele) => {
-        console.log('inserting ', ele);
         return t.any(queries.addProjectTag, [ele.text.toLowerCase(), projectId]);
       }));
     });
   })
   .then(() => {
-    res.status(201).send('Success adding topics');
+    res.status(201).send({ redirect: `/#/projects/${projectId}` });
   })
   .catch((error) => {
-    res.status(404).send(error);
+    console.error(error);
+    res.status(404).send({ redirect: '/#/createproject' });
   });
 };

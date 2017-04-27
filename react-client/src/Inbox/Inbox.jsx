@@ -30,10 +30,12 @@ export class Inbox extends React.Component {
   render() {
     const { messages, onMessageClick, onDeleteClick, user } = this.props;
     return (
-      <div>
-        <h1> Inbox </h1>
+      <div id="inbox-page" className="container">
+        <div id="inbox-header">
+          <h4> Inbox </h4>
+        </div>
         <ComposeMessageButton />
-        <div id="inbox-group" className="list-group">
+        <div id="inbox-thread-list">
           {
             messages.map(message => (
               <InboxThreadEntry
@@ -50,9 +52,12 @@ export class Inbox extends React.Component {
           isOpen={this.state.isOpen}
         >
           <div className="row">
-            <button onClick={this.toggle}> Back To Inbox </button>
-            <span> {'   '} </span>
             <button
+              className="inbox-message"
+              onClick={this.toggle}
+            > Back To Inbox </button>
+            <button
+              className=""
               id="delete-button"
               onClick={() => {
                 if (confirm('Delete this message?')) {

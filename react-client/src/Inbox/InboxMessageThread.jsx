@@ -21,7 +21,7 @@ const InboxMessage = (props) => {
       <label htmlFor="message-input-field">Message: </label>
       <textarea
         type="text"
-        className="form-control"
+        className="u-full-width"
         id="message-input-field"
         onChange={e => onTextInput(e.target.value)}
         value={text}

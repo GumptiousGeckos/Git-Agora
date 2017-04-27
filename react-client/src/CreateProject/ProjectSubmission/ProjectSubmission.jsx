@@ -34,32 +34,37 @@ export class ProjectSubmission extends React.Component {
     const { url, html_url, id } = this.props.selected;
     const { tags, suggestions } = this.state;
     return (
-      <div id="project-submission">
-        <h1> Project Submission </h1>
-        <button onClick={() => backButtonClick()}> Back to Select Repo </button>
-        <div className="form-group">
+      <div id="proj-sub-page">
+        <div id="proj-sub-header">
+          <div id="proj-sub-title"> Share your project: </div>
+          <div> {'Enter a description and tags to help others find your project!'} </div>
+        </div>
+        <button onClick={() => backButtonClick()}> Choose Another Project </button>
+        <form id="proj-sub-form">
           <label htmlFor="projname">Project Name:</label>
           <input
             type="text"
-            className="form-control"
+            className="u-full-width"
             id="projname"
             value={this.props.selected.name}
+            readOnly
           />
           <label htmlFor="projdesc">Description:</label>
           <textarea
             type="text"
-            className="form-control"
+            className="u-full-width"
             id="projdesc"
             onChange={e => inputDescription(e.target.value)}
           />
           <label htmlFor="tags">Tags:</label>
           <ReactTags
             tags={tags}
+            inline={false}
             suggestions={suggestions}
             handleDelete={this.handleDelete}
             handleAddition={this.handleAddition}
           />
-        </div>
+        </form>
         <button
           className="button-primary"
           onClick={() => submitProjectClick(name, id, description, html_url, url, tags)}

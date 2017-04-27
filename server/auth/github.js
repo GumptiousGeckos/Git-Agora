@@ -20,12 +20,10 @@ const queries = {
 };
 
 passport.serializeUser((user, done) => {
-  console.log('serializing');
   done(null, user);
 });
 
 passport.deserializeUser((user, done) => {
-  console.log('deserializing');
   db.query(queries.getUserByID, {
     id: user.id
   })

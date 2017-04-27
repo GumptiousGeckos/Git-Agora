@@ -38,7 +38,7 @@ export const selectRepo = (repo) => {
   return {
     type: 'SELECT_REPO',
     repo: repo
-  }
+  };
 };
 
 export const moveToSubmission = () => {

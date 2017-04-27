@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { hashHistory } from 'react-router-dom';
 
 export const backToRepos = () => {
   return {
@@ -42,20 +43,19 @@ export const submitProject = (name, projectId, description, link, api, tags) => 
       link,
       api
     })
-    .then((results) => {
-      console.log(results);
+    .then(() => (
       axios.put('api/projectsTags', {
         projectId,
         tags
-      });
-    })
-    .then((results) => {
-      console.log(results);
+      })
+    ))
+    .then((msg) => {
       dispatch(projectSubmitted());
+      window.location = msg.data.redirect;
     })
     .catch((error) => {
-      console.log(error);
       dispatch(submitError(error));
+      window.location = error.response.data.redirect;
     });
   };
 };
