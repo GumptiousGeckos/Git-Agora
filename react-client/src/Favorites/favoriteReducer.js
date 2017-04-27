@@ -19,7 +19,7 @@ const favorites = (state = initialState, action) => {
       }
     case 'FETCHING_FAVORITES':
       return {
-        ...state,
+        ...initialState,
         fetchingFavorites: true
       }
     case 'RECEIVED_FAVORITES':
