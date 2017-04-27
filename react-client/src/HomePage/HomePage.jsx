@@ -28,11 +28,11 @@ export class HomePage extends React.Component {
         <div className="container">
           <div className="row">
             <div className="twelve columns">
-              <div className="projects-header">Hot Projects</div>
+              <div className="projects-header">TODAY'S TOP PROJECTS</div>
             </div>
           </div>
           <div className="row">
-            <div className="top-three-projects four columns ">
+            <div className="top-three-projects left-top-projects four columns ">
             {hotProjects.slice(0, 3).map(project => <HomePageProjectEntry project={project}/>)}
             </div>
             <div className="top-three-projects four columns ">
