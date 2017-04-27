@@ -31,13 +31,11 @@ export class NavBar extends React.Component {
         <div className="four columns user-nav">
           <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
             <Link to={'/users/' + user.id}>
-              <span className="fa fa-github fa-lg nav-icon"></span>
-              <span className="nav-header"> {user.username} </span>
+              <span className="nav-header log-in"> {user.username} </span>
             </Link>
           </div>
           <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
             <Link to={'/inbox'}>
-              <span className="fa fa-inbox fa-lg nav-icon"></span>
               <span className="nav-header"> Inbox </span>
             </Link>
           </div>
@@ -49,9 +47,9 @@ export class NavBar extends React.Component {
     } else {
       navBarRight = (
           <div className="four columns  user-nav nav-topic">
-              <span className="fa fa-github fa-2x nav-icon"></span>
               <span className="nav-header" >
-                <a className="nav-header nav-topic none" href="/auth/github"> Log in with GitHub </a>
+                <a className="nav-header nav-topic none log-in" href="/auth/github"> LOG IN </a>
+              <span className="fa fa-github fa-lg nav-icon"></span>
               </span>
           </div>
       );
@@ -59,39 +57,37 @@ export class NavBar extends React.Component {
 
     return (
         <div className="navbar">
-          <div className="row"> 
-              <div className="two columns home-nav">
-                <Link to={'/'}>
-                  <span className="nav-header" onClick={this.handleNavOnClick}>Git-Agora</span>
-                </Link>
+          <div className="container">
+            <div className="row"> 
+                <div className="two columns home-nav">
+                  <Link to={'/'}>
+                    <span className="nav-header git-agora" onClick={this.handleNavOnClick}>Git Agora</span>
+                  </Link>
+                </div>
+              <div className="six columns main-nav">
+                <div className={(activeTab === 'news') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
+                  <Link to={'/news'}>  
+                    <span className="nav-header"> NEWS </span>
+                  </Link>
+                </div>
+                <div className={(activeTab === 'projects') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
+                  <Link to={'/projects'}>
+                    <span className="nav-header"> PROJECTS </span>
+                  </Link>
+                </div>
+                <div className={(activeTab === 'categories') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
+                  <Link to={'/categories'}>
+                    <span className="nav-header"> CATEGORIES </span>
+                  </Link>
+                </div>
+                <div className={(activeTab === 'createproject') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
+                  <Link to={'/createproject'}>
+                    <span className="nav-header"> CREATE PROJECT </span>
+                  </Link>
+                </div>
               </div>
-            <div className="six columns main-nav">
-              <div className={(activeTab === 'news') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
-                <Link to={'/news'}>  
-                  <span className="fa fa-newspaper-o fa-lg nav-icon"></span>
-                  <span className="nav-header"> News </span>
-                </Link>
-              </div>
-              <div className={(activeTab === 'projects') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
-                <Link to={'/projects'}>
-                  <span className="fa fa-flask fa-lg nav-icon"></span>
-                  <span className="nav-header"> Projects </span>
-                </Link>
-              </div>
-              <div className={(activeTab === 'categories') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
-                <Link to={'/categories'}>
-                  <span className="fa fa-tags fa-lg nav-icon"></span>
-                  <span className="nav-header"> Categories </span>
-                </Link>
-              </div>
-              <div className={(activeTab === 'createproject') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
-                <Link to={'/createproject'}>
-                  <span className="fa fa-plus-circle fa-lg nav-icon"></span>
-                  <span className="nav-header"> Create Project </span>
-                </Link>
-              </div>
+              {navBarRight}
             </div>
-            {navBarRight}
           </div>
         </div>
     );
