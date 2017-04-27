@@ -228,7 +228,7 @@ module.exports = {
       id: 1,
       user_id: 1,
       title: 'Let\'s make machines',
-      description: 'Build machines',
+      description: 'We need to make the next big thing',
       link: 'www.google.com'
     },
     {
@@ -242,7 +242,7 @@ module.exports = {
       id: 3,
       user_id: 3,
       title: 'Make money',
-      description: 'Get rich',
+      description: 'Get money, get paid.  I\'ve got a few ideas.  Let\'s meetup and discuss',
       link: 'www.google.com'
     },
     {
@@ -256,28 +256,28 @@ module.exports = {
       id: 5,
       user_id: 4,
       title: 'Let\'s build nukes',
-      description: 'Big ones',
+      description: 'Big ones.  With the US going down, it\'s gonna be a free for all. Winning.',
       link: 'www.google.com'
     },
     {
       id: 6,
       user_id: 3,
       title: 'I want to build robotic slaves',
-      description: 'I want helping increasing output and other things',
+      description: 'I\'m sick and tired of being sick and tired.  These robots would really help, in more ways than you would think.  Inquire for more info.',
       link: 'www.google.com'
     },
     {
       id: 7,
       user_id: 5,
       title: 'I want to engineer gold',
-      description: 'I like gold',
+      description: 'With E-coin and bitcoin crashing and F-Society\'s destruction of the financial system, time to go back to tried and true gold.',
       link: 'www.google.com'
     },
     {
       id: 8,
       user_id: 7,
       title: 'I want to travel to Alpha Centauri',
-      description: 'Earth is done',
+      description: 'Earth is done. AC is the future!  We can start a settlement, we won\'t all make it, but it should be fun at least. Also we\'ll need females if you know any',
       link: 'www.google.com'
     }
   ],
@@ -555,13 +555,13 @@ module.exports = {
     {
       type: 'article',
       user_id: 5,
-      topic_id: 20,
+      topic_id: 8,
       vote_type: 1
     },
     {
       type: 'article',
       user_id: 6,
-      topic_id: 19,
+      topic_id: 8,
       vote_type: 1
     }, {
       type: 'project',
