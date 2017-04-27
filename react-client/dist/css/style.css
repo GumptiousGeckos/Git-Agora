@@ -11,6 +11,7 @@ Table of contents
 
 body {
   background-color: white;
+  padding-top: 50px;
 }
 
 p {
@@ -177,6 +178,11 @@ button.tabs {
   color: #454552;
   border: 1px solid transparent;
   border-radius: 4px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .home-nav {
