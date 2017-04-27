@@ -1,7 +1,7 @@
 const modalStyle = {
   overlay : {
     position          : 'fixed',
-    top               : '70px',
+    top               : '20px',
     left              : 0,
     right             : 0,
     bottom            : 0,

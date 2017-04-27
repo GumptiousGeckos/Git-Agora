@@ -1,7 +1,7 @@
 const modalStyle = {
   overlay : {
     position          : 'fixed',
-    top               : '70px',
+    top               : 0,
     left              : 0,
     right             : 0,
     bottom            : 0,
@@ -9,9 +9,9 @@ const modalStyle = {
   },
   content : {
     position                   : 'absolute',
-    top                        : '40px',
-    left                       : '40px',
-    right                      : '40px',
+    top                        : '60px',
+    left                       : '400px',
+    right                      : '400px',
     bottom                     : '40px',
     border                     : '1px solid #ccc',
     background                 : '#fff',
@@ -20,7 +20,6 @@ const modalStyle = {
     borderRadius               : '4px',
     outline                    : 'none',
     padding                    : '20px'
-
   }
 };
 

@@ -1,24 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TimeAgo from 'react-timeago';
 
 const InboxThreadEntry = (props) => {
   const { message, user, onMessageClick, toggle } = props;
   return (
-    <button
+    <div
       className="inbox-thread-entry"
-      type="button"
+      role="button"
       onClick={() => {
         toggle();
         onMessageClick(message);
       }}
     >
-      <h6>
-        {message.header} - Last Message on {new Date(message.lastUpdated).toString()}
-      </h6>
-      <div>
-        Users: { message.users.filter(ele => ele !== user) }
+      <div className="inbox-thread-entry-title row">
+        {message.header} - Last updated {''}
+        <TimeAgo date={new Date(message.lastUpdated).toString()} />
       </div>
-    </button>
+      <div className="inbox-thread-entry-user">
+        { message.users.filter(ele => ele !== user) }
+      </div>
+    </div>
   );
 };
 

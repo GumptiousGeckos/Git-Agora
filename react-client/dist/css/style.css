@@ -131,6 +131,60 @@ a:hover {
 }
 
 /* -------------------------- *\ 
+  #INBOX
+\*----------------------------*/
+
+button.inbox-message {
+  margin-right: 5px;
+}
+#inbox-thread-list {
+  margin-top: 10px;
+}
+#inbox-header {
+}
+#inbox-messages-list {
+  margin-top: 10px;
+}
+.inbox-thread-entry {
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
+  padding-left: 10px;
+  margin-bottom: 2px;
+}
+.inbox-thread-entry:hover {
+  cursor: pointer;
+  background-color: #f4f4f4;
+}
+.inbox-thread-entry-title {
+  font-size: 15px;
+  font-weight: bold;
+}
+.inbox-thread-entry-user {
+
+}
+.inbox-message-entry {
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  padding: 0px 0px 5px 0px;
+}
+.inbox-message-header {
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  background-color: #f4f4f4;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.inbox-message-body {
+  padding: 5px 5px 5px 5px;
+}
+.message-time {
+  text-align: right;
+}
+
+/* -------------------------- *\ 
   #REPO-LIST
 \*----------------------------*/
 
@@ -152,15 +206,16 @@ a:hover {
 }
 .repo-list-entry {
   line-height: 40px;
+  margin-top: 2px;
   padding-left: 5px;
   border-style: solid;
   border-width: thin;
   border-radius: 2px;
 }
 .repo-list-entry:hover{
-  margin-left: 5px;
-  box-shadow: 5px 5px 5px #e2e2e2;
-  background-color: #ededed;
+  margin-left: 2px;
+  box-shadow: 2px 2px 2px #e2e2e2;
+  background-color: #f4f4f4;
   cursor: pointer;
 }
 .createproject-repolist-select {
@@ -169,7 +224,7 @@ a:hover {
 .repo-list-entry-name {
   margin-left: 5px;
 }
-#select-project {
+button#select-project {
   margin-left: 5px
 }
 
@@ -183,9 +238,6 @@ a:hover {
 #loading-page {
   margin-top: 150px;
   text-align: center;
-}
-#delete-button {
-  background-color: #f44253;
 }
 
 div.ReactTags__tags {
