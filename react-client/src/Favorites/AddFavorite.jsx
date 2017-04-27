@@ -7,8 +7,9 @@ export class AddFavorite extends React.Component {
 
   componentWillMount() {
     const { checkFavoriteStatus, user, type, favorite_id } = this.props;
-    if (user)
-    checkFavoriteStatus(user.id, type, favorite_id);
+    if (user) {
+      checkFavoriteStatus(user.id, type, favorite_id);
+    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -26,11 +27,11 @@ export class AddFavorite extends React.Component {
 
   render() {
     const { user, type, favorite_id, addFavorite, favorited, deleteFavorite } = this.props;
-    let buttonTitle;
-    favorited ? buttonTitle = 'Remove from Favorites' : buttonTitle = 'Add to Favorites';
-      return (
-          <button onClick={this.handleSubmit}>{buttonTitle}</button>
-      )
+
+    const buttonTitle = favorited ? 'Remove from Favorites' : 'Add to Favorites';
+    return (
+        <button onClick={this.handleSubmit}>{buttonTitle}</button>
+    );
   }
 }
 
@@ -39,7 +40,7 @@ const mapStateToProps = state => (
     user: state.navBar.user,
     favorited: state.favorites.favorited
   }
-)
+);
 
 const mapDispatchToProps = dispatch => (
   {
