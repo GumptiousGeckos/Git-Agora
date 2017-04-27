@@ -21,29 +21,29 @@ export class HomePage extends React.Component {
 
     return (
       <div>
-      <div className="container">
-        <div className="row news-image-gallery-row">
-          <NewsImageGallery hotNews={hotNews} />
-        </div>
-      </div>
-      <div className="container">
-      <div className="row">
-        <div className="twelve columns">
-          <div className="projects-header">Hot Projects</div>
-        </div>
-      </div>
-        <div className="row">
-          <div className="top-three-projects four columns ">
-          {hotProjects.slice(0, 3).map(project => <HomePageProjectEntry project={project}/>)}
-          </div>
-          <div className="top-three-projects four columns ">
-          {hotProjects.slice(3, 6).map(project => <HomePageProjectEntry project={project}/>)}
-          </div>
-          <div className="top-three-projects four columns ">
-          {hotProjects.slice(6, 9).map(project => <HomePageProjectEntry project={project}/>)}
+        <div className="container">
+          <div className="row news-image-gallery-row">
+            <NewsImageGallery hotNews={hotNews} />
           </div>
         </div>
-      </div>
+        <div className="container">
+          <div className="row">
+            <div className="twelve columns">
+              <div className="projects-header">Hot Projects</div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="top-three-projects four columns ">
+            {hotProjects.slice(0, 3).map(project => <HomePageProjectEntry project={project}/>)}
+            </div>
+            <div className="top-three-projects four columns ">
+            {hotProjects.slice(3, 6).map(project => <HomePageProjectEntry project={project}/>)}
+            </div>
+            <div className="top-three-projects four columns ">
+            {hotProjects.slice(6, 9).map(project => <HomePageProjectEntry project={project}/>)}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
