@@ -1,23 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserFavoritesEntry from './UserFavoritesEntry.jsx';
-import AddFavorite from './AddFavorite.jsx';
-
 import { fetchFavorites, setDisplayFavorites } from './favoriteActions';
 
 export class UserFavorites extends React.Component {
   constructor(props) {
     super(props);
-
     this.filterFavorites = this.filterFavorites.bind(this);
   }
 
   componentWillMount(props) {
-    const { authorized, user, profileId, getFavorites, favorites, setFavorites } = this.props;
-    const onOwnProfilePage = (authorized && user.id === profileId);
-
-    if (user)
-      getFavorites(user.id);
+    const { profileId, getFavorites, favorites, setFavorites } = this.props;
+    getFavorites(profileId);
   }
 
   filterFavorites(e) {
@@ -29,54 +23,25 @@ export class UserFavorites extends React.Component {
   }
 
   render() {
-    const { favorites, authorized, user, profileId, displayFavorites } = this.props;
-    const onOwnProfilePage = authorized && user.id === profileId;
+    const { favorites, profileId, displayFavorites } = this.props;
 
-    if (profileId) {
-      if (authorized) {
-        if (onOwnProfilePage) {
-          return (
-            <div>
-              <table>
-                <tbody>
-                  <tr><th>My Favorites</th></tr>
-                  <tr>
-                    <td>
-                      <button value="user" onClick={this.filterFavorites}>Users</button>
-                    </td>
-                    <td>
-                      <button value="project" onClick={this.filterFavorites}>Projects</button>
-                    </td>
-                    <td>
-                      <button value="article" onClick={this.filterFavorites}>Articles</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <ul>{displayFavorites.map(favorite => <UserFavoritesEntry favorite={favorite}/>)}</ul>
-            </div>
-          );
-        } else {
-          return (
-            <div>
-              <AddFavorite type={'user'} favorite_id={profileId}/>
-            </div>
-          );
-        }
-      }
-    }
     return (
       <div>
+        <h4 className="tab-title">Favorites</h4>
+        <div className="twelve columns">
+          <button className="favorites-tab" value="user" onClick={this.filterFavorites}>Users</button>
+          <button className="favorites-tab" value="project" onClick={this.filterFavorites}>Projects</button>
+          <button className="favorites-tab" value="article" onClick={this.filterFavorites}>Articles</button>
+        </div>
+        <ul>{displayFavorites.map(favorite => <UserFavoritesEntry favorite={favorite}/>)}</ul>
       </div>
-    )
+    );
   }
 };
 
 const mapStateToProps = state => (
   {
     favorites: state.favorites.favorites,
-    authorized: state.navBar.authorized,
-    user: state.navBar.user,
     profileId: state.userProfile.user.id,
     displayFavorites: state.favorites.displayFavorites
   }
