@@ -5,19 +5,19 @@ const InboxThreadEntry = (props) => {
   const { message, user, onMessageClick, toggle } = props;
   return (
     <button
-      className="inbox-thread-entry list-group-item"
+      className="inbox-thread-entry"
       type="button"
       onClick={() => {
         toggle();
         onMessageClick(message);
       }}
     >
-      <h4>
+      <h6>
         {message.header} - Last Message on {new Date(message.lastUpdated).toString()}
-      </h4>
-      <h4>
+      </h6>
+      <div>
         Users: { message.users.filter(ele => ele !== user) }
-      </h4>
+      </div>
     </button>
   );
 };

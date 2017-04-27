@@ -46,11 +46,6 @@ export class RepoList extends React.Component {
             />
           ))}
         </div>
-          <button
-            id="repo-list-proceed"
-            className="button-primary"
-            onClick={() => buttonClick()}
-          > Proceed </button>
         { this.state.active !== null ?
           <button
             id="repo-list-proceed"
