@@ -46,18 +46,14 @@ export class UserProfile extends React.Component {
           <div className="four columns profile-details">
             <UserDetails id={id} />
           </div>
-          <div className="eight columns profile-tab-area">
-            <table className="u-full-width">
-              <thead>
-                <tr>
-                  <th><button className="profile-tabs" value="projects" onClick={this.handleClick}>Projects</button></th>
-                  <th><button className="profile-tabs" value="favorites" onClick={this.handleClick}>Favorites</button></th>
-                  <th><button className="profile-tabs" value="contributions" onClick={this.handleClick}>Contributions</button></th>
-                </tr>
-              </thead>
-            </table>
-            <div className="container">
-              {renderThis}
+          <div className="row eight columns">
+              <button className="tabs" value="projects" onClick={this.handleClick}>Projects</button>
+              <button className="tabs" value="favorites" onClick={this.handleClick}>Favorites</button>
+              <button className="tabs" value="contributions" onClick={this.handleClick}>Contributions</button>
+            <div className="profile-tab-area">
+              <div className="container">
+                {renderThis}
+              </div>
             </div>
           </div>
         </div>

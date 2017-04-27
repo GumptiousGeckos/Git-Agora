@@ -37,9 +37,10 @@ export class UserDetails extends React.Component {
       if (ownProfile) {
         editModeButton = (
           <div className="text-right">
+          Description
             <button
               type="button"
-              className=""
+              className="profile-edit"
               onClick={toggleEditMode}
             >Edit
               <span className="" />
@@ -61,9 +62,10 @@ export class UserDetails extends React.Component {
       if (ownProfile) {
         editModeButton = (
           <div className="text-right">
+            Description
             <button
               type="button"
-              className=""
+              className="profile-edit"
               onClick={() => { toggleEditMode(); saveChanges(descriptionText); }}
             >Save
               <span className="" />
@@ -86,16 +88,14 @@ export class UserDetails extends React.Component {
           </div>
           <div>
             <table className="u-full-width">
-              <thead>
-                <tr>
-                  <th className="points-table">{user.dev_points || '0'}</th>
-                  <th className="points-table">{user.idea_points || '0'}</th>
-                </tr>
-              </thead>
               <tbody>
                 <tr>
                   <td className="points-table">Dev Points</td>
+                  <td className="points-table">{user.dev_points || '0'}</td>
+                </tr>
+                <tr>
                   <td className="points-table">Idea Points</td>
+                  <td className="points-table">{user.idea_points || '0'}</td>
                 </tr>
               </tbody>
             </table>
@@ -113,9 +113,8 @@ export class UserDetails extends React.Component {
           <div className="text-left">
             <div className="">
             </div>
-            <h6 className="profile-description">Description</h6>
+            <div className="profile-description">{editModeButton}</div>
             {description}
-            {editModeButton}
           </div>
       </div>
     );

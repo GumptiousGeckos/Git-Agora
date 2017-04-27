@@ -522,6 +522,7 @@ button.tabs {
 }
 
 .profile-tab-area {
+  border: 1px solid black;
   overflow: auto;
   height: 800px;
 }
@@ -544,6 +545,10 @@ button.tabs {
 
 .points-table {
   text-align: center;
+}
+
+.profile-edit {
+  margin-left: 10px;
 }
 /* -------------------------- *\
   #HELPER-STYLING
