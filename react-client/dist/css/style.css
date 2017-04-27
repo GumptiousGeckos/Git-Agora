@@ -429,7 +429,7 @@ button.tabs {
 }
 
 <<<<<<< HEAD
-/* -------------------------- *\ 
+/* -------------------------- *\
   #PROJECT-VIEW
 \*----------------------------*/
 
@@ -500,7 +500,6 @@ button.tabs {
 \*----------------------------*/
 .profile-details {
   height: 800px;
-  border: 1px black dashed;
 }
 
 .profile-tabs {
@@ -530,7 +529,6 @@ button.tabs {
 .profile-tab-area {
   overflow: auto;
   height: 800px;
-  border: 1px black dashed;
 }
 
 .profile-description {
@@ -565,7 +563,7 @@ button.tabs {
 }
 
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #HOME-PAGE
 \*----------------------------*/
 
@@ -588,7 +586,7 @@ button.tabs {
   margin-right: 25px;
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #HOME-PAGE-PROJECT-ENTRY
 \*----------------------------*/
 
@@ -646,7 +644,7 @@ button.tabs {
 }
 
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #NEWS-IMAGE-GALLERY
 \*----------------------------*/
 

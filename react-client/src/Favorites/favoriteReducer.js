@@ -2,7 +2,7 @@ const initialState = {
   favorites: [],
   favorited: false,
   fetchingFavorites: false,
-  displayFavorites: [{}]
+  displayFavorites: []
 }
 
 const favorites = (state = initialState, action) => {
