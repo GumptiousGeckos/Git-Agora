@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { hashHistory } from 'react-router-dom';
 
 export const backToRepos = () => {
   return {
@@ -43,19 +44,18 @@ export const submitProject = (name, projectId, description, link, api, tags) => 
       api
     })
     .then((results) => {
-      console.log(results);
       axios.put('api/projectsTags', {
         projectId,
         tags
       });
     })
     .then((results) => {
-      console.log(results);
       dispatch(projectSubmitted());
+      hashHistory.push('/project/' + projectId);
     })
     .catch((error) => {
-      console.log(error);
       dispatch(submitError(error));
+      hashHistory.push('/');
     });
   };
 };

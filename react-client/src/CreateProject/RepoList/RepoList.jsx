@@ -30,24 +30,33 @@ export class RepoList extends React.Component {
     const { list, selected, repoClick, buttonClick } = this.props;
     return (
       <div id="repo-list-page">
-        <h1> Repo List </h1>
-        <div className="repo-list">
-          {list.map((repo) => {
-            return (
-              <RepoListEntry
-                key={repo.id}
-                repo={repo}
-                active={this.state.active === repo.id}
-                handleClick={this.handleRepoClick}
-              />
-            );
-          })}
+        <div id="repo-list-header">
+          <div id="repo-list-title"> Pick a project: </div>
+          <div> {"Dont see your project? Make sure that it isn't already shared!"} </div>
+        </div>
+        <div id="repo-list">
+          {list.map(repo => (
+            <RepoListEntry
+              key={repo.id}
+              repo={repo}
+              active={this.state.active === repo.id}
+              handleClick={this.handleRepoClick}
+            />
+          ))}
         </div>
         <button
-          id="select-project"
+          id="repo-list-proceed"
           className="button-primary"
           onClick={() => buttonClick()}
-        > Select Project </button>
+        > Proceed </button>
+        { this.state.active !== null ?
+          <button
+            id="repo-list-proceed"
+            className="button-primary"
+            onClick={() => buttonClick()}
+          > Proceed </button>
+          : ''
+        }
       </div>
     );
   }
