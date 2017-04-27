@@ -16,26 +16,25 @@ export class UserProjects extends React.Component {
 
     return (
       <div>
-        <h1 className="text-center">Projects</h1>
+        <h4 className="tab-title">Projects</h4>
         <div className="list-group">
+          <ul>
           {
             userProjects.map(project =>
+              <li>
               <Link to={'/projects/' + project.id} key={project.id}>
-                <button
-                  type="button"
-                  className="list-group-item"
-                >
-                  <span>{project.title}</span>
-                  <h4>{project.description}</h4>
-                </button>
+                <span>{project.title}</span><br></br>
               </Link>
+              <span>{project.description}</span>
+              </li>
             )
           }
+          </ul>
         </div>
       </div>
     );
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return {
