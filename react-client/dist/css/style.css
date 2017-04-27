@@ -185,6 +185,17 @@ button.inbox-message {
 }
 
 /* -------------------------- *\ 
+  #COMPOSE-MESSAGE
+\*----------------------------*/
+
+#new-message-receiver {
+  line-height: 20px;
+}
+#new-message-header {
+  line-height: 20px;
+}
+
+/* -------------------------- *\ 
   #REPO-LIST
 \*----------------------------*/
 

@@ -32,9 +32,13 @@ export class RepoList extends React.Component {
       <div id="repo-list-page">
         <div id="repo-list-header">
           <div id="repo-list-title"> Pick a project: </div>
-          <div> {this.props.error !== null ?
-            'There was an error processing your request. Please try again.' :
-            'Dont see your project? Make sure that it isn\'t already shared!'} </div>
+          <div>
+            {this.props.error !== null ?
+              'Sorry! There was an error while processing your request. Please try again.'
+              :
+              'Dont see your project? Make sure that it isn\'t already shared!'
+            }
+          </div>
         </div>
         <div id="repo-list">
           {list.map(repo => (

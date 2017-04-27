@@ -7,11 +7,11 @@ const ComposeMessage = (props) => {
           onSendClick, onReceiverInput, onHeaderInput,
           onMessageBodyInput, toggle } = props;
   return (
-    <div className="form-group compose-message">
+    <div className="compose-message">
       <div className="message-receiver">
         <label htmlFor="new-message-receiver"> To: </label>
         <input
-          className="form-control"
+          className="u-full-width"
           id="new-message-receiver"
           value={receiver}
           onChange={e => onReceiverInput(e.target.value)}
@@ -20,7 +20,7 @@ const ComposeMessage = (props) => {
       <div className="message-header">
         <label htmlFor="new-message-header">Subject: </label>
         <input
-          className="form-control"
+          className="u-full-width"
           id="new-message-header"
           value={header}
           onChange={e => onHeaderInput(e.target.value)}
@@ -29,7 +29,7 @@ const ComposeMessage = (props) => {
       <div className="message-body">
         <label htmlFor="new-message-body">Message: </label>
         <textarea
-          className="form-control"
+          className="u-full-width"
           id="new-message-body"
           value={body}
           onChange={e => onMessageBodyInput(e.target.value)}
