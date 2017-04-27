@@ -2,7 +2,7 @@ const initialState = {
   favorites: [],
   favorited: false,
   fetchingFavorites: false,
-  displayFavorites: [{}]
+  displayFavorites: []
 }
 
 const favorites = (state = initialState, action) => {
@@ -19,7 +19,7 @@ const favorites = (state = initialState, action) => {
       }
     case 'FETCHING_FAVORITES':
       return {
-        ...state,
+        ...initialState,
         fetchingFavorites: true
       }
     case 'RECEIVED_FAVORITES':

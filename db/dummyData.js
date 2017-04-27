@@ -227,57 +227,57 @@ module.exports = {
     {
       id: 1,
       user_id: 1,
-      title: 'Let\'s make machines',
-      description: 'Build machines',
+      title: 'Looking for a dev team',
+      description: 'I\'m looking for a team to work on a project.  I\'ve got a few ideas but would love to hear what you have as well.  Really interesed in networking with other developers and working on a project, whatever that may be!',
       link: 'www.google.com'
     },
     {
       id: 2,
       user_id: 2,
-      title: 'Reinvent Google',
-      description: 'Build conglomerate',
+      title: 'Build a new internet',
+      description: 'I\'ve got an idea to build a faster, decentralized iternet that will change the game',
       link: 'www.google.com'
     },
     {
       id: 3,
       user_id: 3,
       title: 'Make money',
-      description: 'Get rich',
+      description: 'I\'ve got a few startup ideas in my head.  I\'d like to assemble a team and bounce ideas back and forth and get started on a project.',
       link: 'www.google.com'
     },
     {
       id: 4,
       user_id: 4,
-      title: 'Electric cars',
-      description: 'Remake Tesla',
+      title: 'Electric car charging system',
+      description: 'My partners and I are discussing a more efficient charging system.  Reach out if you\'d like to be involved',
       link: 'www.google.com'
     },
     {
       id: 5,
       user_id: 4,
-      title: 'Let\'s build nukes',
-      description: 'Big ones',
+      title: 'MealPal Meets TruckHunt',
+      description: 'A project to make it where users can find nearby food trucks during their lunch hour to make picking up lunch a breeze',
       link: 'www.google.com'
     },
     {
       id: 6,
       user_id: 3,
-      title: 'I want to build robotic slaves',
-      description: 'I want helping increasing output and other things',
+      title: 'YouIn meets Git-Agora',
+      description: 'I want to integrate the superb UI of YouIn with Git-Agora\'s tech project driven mindset.  I want to make assembling teams a breeze, reach out if you\'re interested',
       link: 'www.google.com'
     },
     {
       id: 7,
       user_id: 5,
       title: 'I want to engineer gold',
-      description: 'I like gold',
+      description: 'With bitcoin crashing and F-Society\'s destruction of the financial system, time to go back to tried and true gold.',
       link: 'www.google.com'
     },
     {
       id: 8,
       user_id: 7,
-      title: 'I want to travel to Alpha Centauri',
-      description: 'Earth is done',
+      title: 'Uva but for whiskey',
+      description: 'I\'m a whiskey afficianado and would love to meet others!  I want to make an app for discovering, reviewing and locating great whiskey\'s near me.  Let\'s get a dev team together',
       link: 'www.google.com'
     }
   ],
@@ -555,13 +555,13 @@ module.exports = {
     {
       type: 'article',
       user_id: 5,
-      topic_id: 20,
+      topic_id: 8,
       vote_type: 1
     },
     {
       type: 'article',
       user_id: 6,
-      topic_id: 19,
+      topic_id: 8,
       vote_type: 1
     }, {
       type: 'project',

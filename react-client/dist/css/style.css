@@ -4,7 +4,7 @@ Table of contents
 
 */
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #GLOBAL-SETTINGS
 \*----------------------------*/
 
@@ -90,8 +90,8 @@ a:hover {
 }
 
 .picture img {
-  height: 300px;
-  width: 300px;
+  height: 100%;
+  width: 100%;
   border-radius: 10px;
 }
 
@@ -130,7 +130,7 @@ a:hover {
   max-height: 400px;
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #REPO-LIST
 \*----------------------------*/
 
@@ -166,7 +166,7 @@ button.tabs {
   background-color: #e8e5e5;
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #NAVBAR
 \*----------------------------*/
 
@@ -222,7 +222,7 @@ button.tabs {
   text-decoration: none;
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #ARTICLE_VIEW
 \*----------------------------*/
 
@@ -256,7 +256,7 @@ button.tabs {
   font-size: 14px;
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #VOTES
 \*----------------------------*/
 
@@ -307,7 +307,7 @@ button.tabs {
   border-radius: 4px;
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #COMMENT-SECTION
 \*----------------------------*/
 
@@ -363,7 +363,7 @@ button.tabs {
   padding-left: 10px;
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #NEWS-PAGE
 \*----------------------------*/
 
@@ -391,7 +391,7 @@ button.tabs {
   font-size: 14px;
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #PROJECT-IDEAS
 \*----------------------------*/
 
@@ -419,14 +419,14 @@ button.tabs {
 
 .project-entry-tag {
   border-radius: 4px;
-  border: solid 2px #e85a71; 
+  border: solid 2px #e85a71;
   padding: 2px;
   font-size: 12px;
   margin-right: 5px;
 
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #PROJECT-VIEW
 \*----------------------------*/
 
@@ -490,7 +490,67 @@ button.tabs {
 
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
+  #USER_PROFILE
+\*----------------------------*/
+.profile-details {
+  height: 800px;
+}
+
+.profile-tabs {
+  font-size: 16px;
+  color: white;
+  border: 1px solid grey;
+  background-color: black;
+}
+
+#profile-username {
+  font-size: 28px;
+  font-family: 'opensans', sans-serif;
+  text-align: center;
+  color: black;
+}
+
+.add-favorite {
+  color: black;
+  border: 1px solid blue;
+}
+
+.send-message {
+  color: black;
+  border: 1px solid blue;
+}
+
+.profile-tab-area {
+  border: 1px solid black;
+  overflow: auto;
+  height: 800px;
+}
+
+.profile-description {
+  text-align: center;
+  font-weight: bold;
+}
+
+.tab-title {
+  text-align: left;
+  font-size: 28px;
+  font-family: 'opensans', sans-serif;
+}
+
+.favorites-tab {
+  color: black;
+  border: 1px solid black;
+}
+
+.points-table {
+  text-align: center;
+}
+
+.profile-edit {
+  margin-left: 10px;
+}
+/* -------------------------- *\
   #HELPER-STYLING
 \*----------------------------*/
 
@@ -503,7 +563,7 @@ button.tabs {
 }
 
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #HOME-PAGE
 \*----------------------------*/
 
@@ -526,7 +586,7 @@ button.tabs {
   margin-right: 25px;
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #HOME-PAGE-PROJECT-ENTRY
 \*----------------------------*/
 
@@ -584,7 +644,7 @@ button.tabs {
 }
 
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #NEWS-IMAGE-GALLERY
 \*----------------------------*/
 
