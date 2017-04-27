@@ -1,4 +1,3 @@
-import ImageGallery from 'react-image-gallery';
 import Slider from 'react-slick';
 import React from 'react';
 import { Link, HashRouter as Router } from 'react-router-dom';

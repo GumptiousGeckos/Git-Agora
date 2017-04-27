@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchHotProjects, fetchHotNews } from './homepageActions';
-import ImageGallery from 'react-image-gallery';
 import NewsImageGallery from './NewsImageGallery.jsx';
 import HomePageProjectEntry from './HomePageProjectEntry.jsx';
 
