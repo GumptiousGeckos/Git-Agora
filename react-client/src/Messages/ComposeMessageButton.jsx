@@ -12,14 +12,16 @@ class ComposeMessageButton extends React.Component {
     };
     this.toggle = this.toggle.bind(this);
   }
+
   toggle() {
     this.setState({ isOpen: !this.state.isOpen });
   }
+
   render() {
     const { sender, receiver, header, body, userProfile } = this.props;
     return (
       <div id="compose-message-popover">
-        <button onClick={this.toggle}> Compose Message </button>
+        <button className="send-message" onClick={this.toggle}> Compose Message </button>
         <Modal isOpen={this.state.isOpen} style={modalStyle}>
           <button onClick={this.toggle}> Close Message </button>
           <ComposeMessage

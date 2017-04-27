@@ -30,10 +30,10 @@ export class AddFavorite extends React.Component {
 
     const buttonTitle = favorited ? 'Remove from Favorites' : 'Add to Favorites';
     return (
-        <button onClick={this.handleSubmit}>{buttonTitle}</button>
+        <button className="add-favorite" onClick={this.handleSubmit}>{buttonTitle}</button>
     );
   }
-}
+};
 
 const mapStateToProps = state => (
   {
