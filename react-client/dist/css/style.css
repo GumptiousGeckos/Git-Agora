@@ -49,9 +49,8 @@ a:hover {
 }
 
 .bordered {
-  background-color: #d8e9ef;
+  border: solid black;
   padding: 10px;
-  margin: 10px auto;
 }
 
 .caption {
@@ -160,6 +159,7 @@ button.tabs {
   border-radius: 0px;
   border-bottom: 0px;
   margin-right: 5px;
+  margin-bottom: 0;
 }
 .createproject-repolist-select {
   background-color: #e8e5e5;
@@ -310,7 +310,8 @@ button.tabs {
   color: white;
   padding: 10px;
   /*border-radius: 10px;*/
-  margin: 10px auto;
+  margin: auto;
+  margin-bottom: 5px;
 }
 
 .comment-avatar {
@@ -425,25 +426,26 @@ button.tabs {
 \*----------------------------*/
 
 .project-details {
-  height: 280px;
-  overflow: auto;
+  height: 200px;
 }
 
 .project-details-description {
-  padding: 20px;
+  padding: 5px 5px;
+  height: 115px;
+  margin-top: 5px;
   margin-bottom: 10px;
   border-top: solid black;
-  border-bottom: solid black;
+  overflow: auto;
+  font-family: "opensans";
 }
 
 .project-details-title {
   padding-bottom: 10px;
 }
 
-.project-avatar {
-  max-width: 7%;
-  max-height: 7%;
-  margin: 0 10px 0 10px;
+.project-view-details {
+  font-family: "Roboto";
+  margin: 10px auto;
 }
 
 /* -------------------------- *\
@@ -451,7 +453,7 @@ button.tabs {
 \*----------------------------*/
 
 .contributors-view {
-  height: 365px;
+  height: 282px;
   overflow: auto;
 }
 
@@ -487,8 +489,8 @@ button.tabs {
   #HELPER-STYLING
 \*----------------------------*/
 
-.padding-top {
-  padding-top: 10px;
+.margin-top {
+  margin-top: 10px;
 }
 
 .none {

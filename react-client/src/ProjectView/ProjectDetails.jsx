@@ -6,10 +6,10 @@ export default (props) => {
   const { project } = props;
   const tagArray = project.tags ? project.tags.split(',') : [];
   return (
-    <div>
+    <div className="project-view-details">
       <div className="bordered text-center seven columns">
         <div className="project-details-title">
-          <h4>{project.title}</h4>
+          <font size="5">{project.title}</font><br />
           <span>Tags: </span>
           {
             tagArray.length === 0 ? 'None' :
@@ -20,17 +20,20 @@ export default (props) => {
         </div>
 
         <div className="text-center project-details">
-          <h5 className="project-details-description container">{project.description}</h5>
           <div className="container text-left">
-            <h6>
+            <font size="2">
               {'Creator: '}
               <Link to={'/users/' + project.user_id}>
-                <img src={project.avatar} className="project-avatar" alt="Responsive image" />
                 {project.username}
               </Link>
-            </h6>
-            <h6>Github repository: <a href={'https://' + project.link}>{project.link}</a></h6>
-            <h6>Points: {project.points}</h6>
+            </font><br />
+            <font size="2">Github repository: <a href={project.link}>{project.link}</a></font><br />
+            <font size="2">Points: {project.points}</font>
+          </div>
+          <div className="project-details-description container text-left">
+            <font size="4">
+              {project.description}
+            </font>
           </div>
         </div>
         <div className="text-center">

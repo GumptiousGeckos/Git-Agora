@@ -47,7 +47,7 @@ export class ProjectView extends React.Component {
           <ProjectDetails
             project={project}
           />
-          <div className="five columns padding-top">
+          <div className="five columns">
             <button
               className="tabs"
               onClick={() => this.toggleCollabTabs('collaborators')}
@@ -59,13 +59,13 @@ export class ProjectView extends React.Component {
           </div>
           <div className="five columns">
             { this.state.collabActive === 'collaborators' ?
-              <div className="bordered text-center underline contributors-view">Collaborators</div> : ''
+              <div className="bordered text-center underline contributors-view"><h5>Collaborators</h5></div> : ''
             }
             { this.state.collabActive === 'topContributors' ?
               <ContributorsView q="project" q_id={id} /> : ''
             }
           </div>
-          <div className="twelve columns">
+          <div className="twelve columns margin-top">
             <button
               className="tabs"
               onClick={() => this.toggleProjectTabs('comments')}
