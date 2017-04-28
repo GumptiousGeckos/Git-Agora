@@ -28,77 +28,71 @@ export class NavBar extends React.Component {
 
     if (loggedIn) {
       navBarRight = (
-        <ul className="nav navbar-nav navbar-right">
-          <li>
-            <h6 className="nav-center">Welcome {user[0].username}!</h6>
-          </li>
-          <li>
-            <Link to={'/profile'}>
-              <span className="glyphicon glyphicon-user" onClick={this.handleNavOnClick}> Profile</span>
+        <div className="four columns user-nav">
+          <div className="nav-bar-page nav-user nav-topic">
+            <span className="nav-header none"><a href="auth/logout" id="nav-logout" className="nav-header none">LOG OUT</a></span>
+          </div>
+          <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
+            <Link to={'/inbox'}>
+              <span className="nav-header"> INBOX </span>
             </Link>
-          </li>
-          <li>
-            <a>Log out</a>
-          </li>
-        </ul>
+          </div>
+          <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
+            <Link to={'/users/' + user.id}>
+              <span className="nav-header log-in"> {user.username.toUpperCase()} </span>
+            </Link>
+          </div>
+        </div>
       );
     } else {
       navBarRight = (
-        <ul className="nav navbar-nav navbar-right">
-          <li>
-            <a href="/auth/github">Log in with GitHub</a>
-          </li>
-        </ul>
+          <div className="four columns  user-nav-login nav-topic">
+              <span className="nav-header user-nav-login" >
+                <a className="nav-header nav-topic none log-in" href="/auth/github"> LOG IN </a>
+              <span className="fa fa-github fa-lg nav-icon"></span>
+              </span>
+          </div>
       );
     }
 
     return (
-      <div className="navbar navbar-default navbar-fixed-top">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <Link to={'/'}>
-              <span className="navbar-brand" onClick={this.handleNavOnClick}>git-agora</span>
-            </Link>
-          </div>
-          <div id="navbar" className="navbar-collapse collapse">
-            <ul className="nav navbar-nav">
-              <li className={(activeTab === 'news') ? 'active' : ''} onClick={this.handleNavOnClick}>
-                <Link to={'/news'}>
-                  <span className="glyphicon glyphicon-globe"> News</span>
-                </Link>
-              </li>
-              <li className={(activeTab === 'projects') ? 'active' : ''} onClick={this.handleNavOnClick}>
-                <Link to={'/projects'}>
-                  <span className="glyphicon glyphicon-pencil"> Projects</span>
-                </Link>
-              </li>
-              <li className={(activeTab === 'categories') ? 'active' : ''} onClick={this.handleNavOnClick}>
-                <Link to={'/categories'}>
-                  <span className="glyphicon glyphicon-tags"> Categories</span>
-                </Link>
-              </li>
-              <li className={(activeTab === 'createproject') ? 'active' : ''} onClick={this.handleNavOnClick}>
-                <Link to={'/createproject'}>
-                  <span className="glyphicon glyphicon-user"> Create Project</span>
-                </Link>
-              </li>
-            </ul>
-            <ul className="nav navbar-nav navbar-right">
-              {navBarRight}
-            </ul>
-            <form className="navbar-form navbar-right">
-              <div className="input-group add-on">
-                <input className="form-control" placeholder="Search" />
-                <div className="input-group-btn">
-                  <button className="btn btn-default" type="submit">
-                    <span className="glyphicon glyphicon-search" />
-                  </button>
+        <div className="navbar">
+          <div className="container">
+            <div className="row">
+                <div className="two columns home-nav">
+                  <Link to={'/'}>
+                    <span className="nav-header git-agora" onClick={this.handleNavOnClick}>Git Agora</span>
+                  </Link>
                 </div>
+              <div className="six columns main-nav">
+                <div className={(activeTab === 'news') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
+                  <Link to={'/news'}>
+                    <span className="nav-header"> NEWS </span>
+                  </Link>
+                </div>
+                <div className={(activeTab === 'projects') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
+                  <Link to={'/projects'}>
+                    <span className="nav-header"> PROJECTS </span>
+                  </Link>
+                </div>
+                <div className={(activeTab === 'categories') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
+                  <Link to={'/categories'}>
+                    <span className="nav-header"> DISCOVER </span>
+                  </Link>
+                </div>
+                {
+                  loggedIn ?
+                  <div className={(activeTab === 'createproject') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
+                    <Link to={'/createproject'}>
+                      <span className="nav-header"> CREATE PROJECT </span>
+                    </Link>
+                  </div> : ''
+                }
               </div>
-            </form>
+              {navBarRight}
+            </div>
           </div>
         </div>
-      </div>
     );
   }
 }

@@ -1,6 +1,8 @@
 SELECT
-  user_id
+  user_id, users.username
 FROM
-  collaborators
+  collaborators, users
 where
-  topic_id = $1
+  project_id = ${id}
+AND
+  user_id = users.id

@@ -3,42 +3,50 @@ module.exports = {
     {
       id: 1,
       user_id: 3,
-      topic_id: 1
+      project_id: 1
     },
     {
       id: 2,
       user_id: 4,
-      topic_id: 2
+      project_id: 2
     },
     {
       id: 3,
       user_id: 5,
-      topic_id: 3
+      project_id: 3
     }
   ],
 
   comments: [
     {
       id: 1,
-      user_id: 3,
+      user_id: 1,
+      date_created: new Date().toDateString(),
+      type: 'project',
       topic_id: 3,
       content: 'Wow you In? That\'s a cool name'
     },
     {
       id: 2,
-      user_id: 1,
-      topic_id: 2,
+      user_id: 2,
+      date_created: new Date().toDateString(),
+      type: 'project',
+      topic_id: 3,
       content: 'You will be rich'
     },
     {
       id: 4,
-      user_id: 5,
+      user_id: 3,
+      date_created: new Date().toDateString(),
+      type: 'project',
       topic_id: 4,
       content: 'Can I get in on this?'
     },
     {
       id: 4,
-      user_id: 7,
+      user_id: 4,
+      date_created: new Date().toDateString(),
+      type: 'project',
       topic_id: 5,
       content: 'Yah for you'
     }
@@ -47,23 +55,27 @@ module.exports = {
   favorites: [
     {
       id: 1,
-      user_id: 1,
-      topic_id: 6
+      user_id: 22308695,
+      type: 'user',
+      favorite_id: 3
     },
     {
       id: 2,
-      user_id: 3,
-      topic_id: 5
+      user_id: 22308695,
+      type: 'project',
+      favorite_id: 1
     },
     {
       id: 3,
-      user_id: 5,
-      topic_id: 4
+      user_id: 22308695,
+      type: 'article',
+      favorite_id: 4
     },
     {
       id: 4,
-      user_id: 7,
-      topic_id: 3
+      user_id: 22308695,
+      type: 'project',
+      favorite_id: 4
     }
   ],
 
@@ -158,46 +170,56 @@ module.exports = {
   tags: [
     {
       id: 1,
-      tag_name: 'Money'
+      tag_name: 'money'
     },
     {
       id: 2,
-      tag_name: 'Machines'
+      tag_name: 'machines'
     },
     {
       id: 3,
-      tag_name: 'Technology'
+      tag_name: 'technology'
     },
     {
       id: 4,
-      tag_name: 'AI'
+      tag_name: 'ai'
     },
     {
       id: 5,
-      tag_name: 'Python'
+      tag_name: 'python'
     }
   ],
 
   projects_tags: [
     {
       id: 1,
-      tag_id: 1,
+      tag_name: 'money',
       project_id: 1
     },
     {
       id: 2,
-      tag_id: 1,
+      tag_name: 'machines',
       project_id: 2
     },
     {
       id: 3,
-      tag_id: 1,
+      tag_name: 'money',
       project_id: 3
     },
     {
       id: 4,
-      tag_id: 1,
+      tag_name: 'money',
       project_id: 4
+    },
+    {
+      id: 5,
+      tag_name: 'technology',
+      project_id: 3
+    },
+    {
+      id: 6,
+      tag_name: 'ai',
+      project_id: 6
     }
   ],
 
@@ -205,57 +227,57 @@ module.exports = {
     {
       id: 1,
       user_id: 1,
-      title: 'Let\'s make machines',
-      description: 'Build machines',
+      title: 'Looking for a dev team',
+      description: 'I\'m looking for a team to work on a project.  I\'ve got a few ideas but would love to hear what you have as well.  Really interesed in networking with other developers and working on a project, whatever that may be!',
       link: 'www.google.com'
     },
     {
       id: 2,
       user_id: 2,
-      title: 'Reinvent Google',
-      description: 'Build conglomerate',
+      title: 'Build a new internet',
+      description: 'I\'ve got an idea to build a faster, decentralized iternet that will change the game',
       link: 'www.google.com'
     },
     {
       id: 3,
       user_id: 3,
       title: 'Make money',
-      description: 'Get rich',
+      description: 'I\'ve got a few startup ideas in my head.  I\'d like to assemble a team and bounce ideas back and forth and get started on a project.',
       link: 'www.google.com'
     },
     {
       id: 4,
       user_id: 4,
-      title: 'Electric cars',
-      description: 'Remake Tesla',
+      title: 'Electric car charging system',
+      description: 'My partners and I are discussing a more efficient charging system.  Reach out if you\'d like to be involved',
       link: 'www.google.com'
     },
     {
       id: 5,
       user_id: 4,
-      title: 'Let\'s build nukes',
-      description: 'Big ones',
+      title: 'MealPal Meets TruckHunt',
+      description: 'A project to make it where users can find nearby food trucks during their lunch hour to make picking up lunch a breeze',
       link: 'www.google.com'
     },
     {
       id: 6,
       user_id: 3,
-      title: 'I want to build robotic slaves',
-      description: 'I want helping increasing output and other things',
+      title: 'YouIn meets Git-Agora',
+      description: 'I want to integrate the superb UI of YouIn with Git-Agora\'s tech project driven mindset.  I want to make assembling teams a breeze, reach out if you\'re interested',
       link: 'www.google.com'
     },
     {
       id: 7,
       user_id: 5,
       title: 'I want to engineer gold',
-      description: 'I like gold',
+      description: 'With bitcoin crashing and F-Society\'s destruction of the financial system, time to go back to tried and true gold.',
       link: 'www.google.com'
     },
     {
       id: 8,
       user_id: 7,
-      title: 'I want to travel to Alpha Centauri',
-      description: 'Earth is done',
+      title: 'Uva but for whiskey',
+      description: 'I\'m a whiskey afficianado and would love to meet others!  I want to make an app for discovering, reviewing and locating great whiskey\'s near me.  Let\'s get a dev team together',
       link: 'www.google.com'
     }
   ],
@@ -263,91 +285,343 @@ module.exports = {
   users: [
     {
       id: 1,
-      username: 'Ed',
-      password: 'jeff',
+      name: 'Ed',
+      username: 'Ed91',
       email: 'jeff@jeff.com',
-      mobile: '3444444'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 2,
-      username: 'Paul',
-      password: 'jeff',
+      name: 'Paul',
+      username: 'Paul52',
       email: 'jeff1@jeff.com',
-      mobile: '3444444'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 3,
-      username: 'Jon',
-      password: 'jeff',
+      name: 'Jon',
+      username: 'Jon99',
       email: 'jeff2@jeff.com',
-      mobile: '344-4444'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 4,
-      username: 'Augustus',
-      password: 'jeff',
+      name: 'Augustus',
+      username: 'Gus11',
       email: 'jeff3@jeff.com',
-      mobile: '3444444'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 5,
-      username: 'Sarah',
-      password: 'jeff',
+      name: 'Sarah',
+      username: 'Sarah69',
       email: 'jeff4@jeff.com',
-      mobile: '3444444'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 6,
-      username: 'Jessica',
-      password: 'jeff',
+      name: 'Jessica',
+      username: 'JessBess',
       email: 'jeff5@jeff.com',
-      mobile: '3444444'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     },
     {
       id: 7,
-      username: 'Ragnar',
-      password: 'jeff',
+      name: 'Ragnar',
+      username: 'Ragnar666',
       email: 'jeff6@jeff.com',
-      mobile: '3444444'
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
+    },
+    {
+      id: 22308695,
+      name: 'John Doe',
+      username: 'JohnDoe123',
+      email: 'JohnDoe@johndoe.com',
+      avatar: 'https://68.media.tumblr.com/avatar_6a1ead04c761_128.png'
     }
   ],
 
   votes: [
     {
-      id: 1,
+      type: 'article',
       user_id: 1,
       topic_id: 2,
       vote_type: 0
     },
     {
-      id: 2,
+      type: 'article',
       user_id: 2,
       topic_id: 3,
       vote_type: 1
     },
     {
-      id: 3,
+      type: 'article',
       user_id: 3,
       topic_id: 4,
       vote_type: 1
     },
     {
-      id: 4,
+      type: 'article',
       user_id: 4,
       topic_id: 5,
       vote_type: 1
     },
     {
-      id: 5,
+      type: 'article',
       user_id: 5,
+      topic_id: 6,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 6,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 1,
       topic_id: 6,
       vote_type: 0
     },
     {
-      id: 6,
+      type: 'article',
+      user_id: 2,
+      topic_id: 7,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 3,
+      topic_id: 8,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 4,
+      topic_id: 8,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 5,
+      topic_id: 9,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 10,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 1,
+      topic_id: 11,
+      vote_type: 0
+    },
+    {
+      type: 'article',
+      user_id: 2,
+      topic_id: 12,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 3,
+      topic_id: 13,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 4,
+      topic_id: 14,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 5,
+      topic_id: 15,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 16,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 1,
+      topic_id: 17,
+      vote_type: 0
+    },
+    {
+      type: 'article',
+      user_id: 2,
+      topic_id: 18,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 3,
+      topic_id: 19,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 4,
+      topic_id: 20,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 5,
+      topic_id: 21,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 22,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 23,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 1,
+      topic_id: 24,
+      vote_type: 0
+    },
+    {
+      type: 'article',
+      user_id: 2,
+      topic_id: 25,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 3,
+      topic_id: 22,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 4,
+      topic_id: 23,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 5,
+      topic_id: 23,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 25,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 1,
+      topic_id: 23,
+      vote_type: 0
+    },
+    {
+      type: 'article',
+      user_id: 2,
+      topic_id: 20,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 3,
+      topic_id: 19,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 4,
+      topic_id: 20,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 5,
+      topic_id: 8,
+      vote_type: 1
+    },
+    {
+      type: 'article',
+      user_id: 6,
+      topic_id: 8,
+      vote_type: 1
+    }, {
+      type: 'project',
+      user_id: 1,
+      topic_id: 2,
+      vote_type: 0
+    },
+    {
+      type: 'project',
+      user_id: 2,
+      topic_id: 3,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 3,
+      topic_id: 4,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 4,
+      topic_id: 5,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 5,
+      topic_id: 6,
+      vote_type: 1
+    },
+    {
+      type: 'project',
       user_id: 6,
       topic_id: 6,
       vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 1,
+      topic_id: 6,
+      vote_type: 0
+    },
+    {
+      type: 'project',
+      user_id: 2,
+      topic_id: 7,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 3,
+      topic_id: 8,
+      vote_type: 1
+    },
+    {
+      type: 'project',
+      user_id: 4,
+      topic_id: 8,
+      vote_type: 1
     }
   ]
-}
+};

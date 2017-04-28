@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const handler = require('./routes/Request_Handler');
 
-
-
 router.route('/comments')
   .get(handler.getComments)
   .post(handler.addComment);
@@ -11,10 +9,21 @@ router.route('/collaborators')
   .get(handler.getCollaborators)
   .post(handler.addCollaborator);
 
+router.route('/contributions')
+  .get(handler.getContributions);
+
+router.route('/contributors')
+  .get(handler.getContributors);
+
 router.route('/favorites')
-  .get(handler.getFavorites)
   .post(handler.addFavorite)
   .delete(handler.deleteFavorite);
+
+router.route('/favorites/:id')
+  .get(handler.getFavorites);
+
+router.route('/favorite')
+  .get(handler.getFavorite);
 
 router.route('/follows')
   .get(handler.getFollows)
@@ -23,7 +32,8 @@ router.route('/follows')
 
 router.route('/messages')
   .get(handler.getMessages)
-  .post(handler.addMessage);
+  .post(handler.postMessages)
+  .put(handler.putMessages);
 
 router.route('/ratings')
   .get(handler.getRatings)
@@ -34,11 +44,19 @@ router.route('/tags')
 
 router.route('/projectsTags')
   .get(handler.getProjectsByTag)
-  .post(handler.addProjectTag);
+  .post(handler.addProjectTag)
+  .put(handler.createProjectTag);
+
+router.route('/users/:id/projects')
+  .get(handler.getUserProjects);
+
+router.route('/users/:id')
+  .get(handler.getUserById);
 
 router.route('/users')
   .post(handler.addUser)
   .get(handler.getUser)
+  .put(handler.updateUser)
   .delete(handler.deleteUser);
 
 router.route('/votes')
@@ -46,13 +64,20 @@ router.route('/votes')
   .get(handler.getVotes)
   .put(handler.updateVote);
 
+router.route('/projects/:id')
+  .get(handler.getProjectById);
+
 router.route('/projects')
-  .get(handler.getAllProjects)
-  .post(handler.addProject);
+  .get(handler.getTopProjects)
+  .post(handler.postProject);
 
+router.route('/articles')
+  .get(handler.getAllArticles);
 
-// router.route('/topics').post(handler.addTopic);
+router.route('/articles/:id')
+  .get(handler.getArticleById);
 
-
+router.route('/topSixArticles')
+  .get(handler.getTopSixArticles);
 
 module.exports = router;

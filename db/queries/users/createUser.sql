@@ -1,5 +1,10 @@
-/* create user */
 INSERT INTO
-  users (id, username, email, mobile)
-VALUES
-  ($1, $2, $3, $4)
+  users (id, name, username, email, avatar)
+SELECT
+  ${id}, ${name}, ${username}, ${email}, ${avatar}
+ON CONFLICT 
+  (id)
+DO UPDATE SET
+  id = ${id}
+RETURNING
+  id;

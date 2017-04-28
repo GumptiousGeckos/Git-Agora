@@ -1,4 +1,12 @@
-const navBar = (state = {}, action) => {
+const initialState = {
+  activeTab: '',
+  authorized: false,
+  user: {},
+  fetchingUserStatus: false,
+  error: null
+};
+
+const navBar = (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_TAB':
       return {
@@ -22,6 +30,11 @@ const navBar = (state = {}, action) => {
         ...state,
         error: action.payload,
         fetchingUserStatus: false
+      };
+    case 'LOG_IN_TO_VOTE':
+      return {
+        ...state
+        // figure out log in message
       };
     default: {
       return state;

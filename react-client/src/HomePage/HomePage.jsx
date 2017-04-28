@@ -1,11 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-
-import ProjectBoardEntry from '../ProjectIdeas/ProjectBoardEntry.jsx';
 import { fetchHotProjects, fetchHotNews } from './homepageActions';
-import { updateMainProject } from '../ProjectIdeas/projectActions';
-
+import NewsImageGallery from './NewsImageGallery.jsx';
+import HomePageProjectEntry from './HomePageProjectEntry.jsx';
 
 export class HomePage extends React.Component {
 
@@ -16,68 +13,50 @@ export class HomePage extends React.Component {
   }
 
   render() {
-    const { hotProjects, hotNews, updateMainProject } = this.props;
+    const { hotProjects, hotNews} = this.props;
 
     return (
-      <div className="container">
-        <div className="text-center">
-          <h1>Trending Tech News</h1>
+      <div>
+        <div className="container">
+          <div className="row news-image-gallery-row">
+            <NewsImageGallery hotNews={hotNews} />
+          </div>
         </div>
-        <div className="row news-border">
-          {
-            hotNews && hotNews.map(article =>
-              <div className="col-md-4" key={article.id}>
-                <div className="thumbnail">
-                  <a href={article.url}>
-                    <h4 className="title">{article.title}</h4>
-                    <img src={article.urlToImage} />
-                    <div className="caption text-center">
-                      <p>{article.description}</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            )
-          }
-        </div>
-
-        <div className="text-center col-md-12">
-          <h1>Hot Projects</h1>
-        </div>
-        <div className="list-group">
-          {
-            hotProjects && hotProjects.map(project =>
-              <Link to={'/projects/' + project.id} key={project.id}>
-                <button
-                  type="button"
-                  className="list-group-item"
-                  onClick={() => { updateMainProject(project); }}
-                >
-                  <span>{project.title}</span>
-                  <h4>{project.description}</h4>
-                </button>
-              </Link>
-            )
-          }
+        <div className="container">
+          <div className="row">
+            <div className="twelve columns">
+              <div className="projects-header">TODAY'S TOP PROJECTS</div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="top-three-projects left-top-projects four columns ">
+            {hotProjects.slice(0, 3).map(project => <HomePageProjectEntry project={project}/>)}
+            </div>
+            <div className="top-three-projects four columns ">
+            {hotProjects.slice(3, 6).map(project => <HomePageProjectEntry project={project}/>)}
+            </div>
+            <div className="top-three-projects four columns ">
+            {hotProjects.slice(6, 9).map(project => <HomePageProjectEntry project={project}/>)}
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     hotProjects: state.homepage.hotProjects,
     hotNews: state.homepage.hotNews
-  };
-};
+  }
+);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = dispatch => (
+  {
     getHotProjects: () => dispatch(fetchHotProjects()),
-    getHotNews: () => dispatch(fetchHotNews()),
-    updateMainProject: project => dispatch(updateMainProject(project))
-  };
-};
+    getHotNews: () => dispatch(fetchHotNews())
+  }
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

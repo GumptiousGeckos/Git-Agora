@@ -19,11 +19,6 @@ export const errorUserStatus = err => ({
   error: err
 });
 
-export const updateUser = user => ({
-  type: 'UPDATE_USER',
-  payload: user
-});
-
 export const checkUserLoggedIn = () => (
   (dispatch) => {
     dispatch(requestUserStatus());

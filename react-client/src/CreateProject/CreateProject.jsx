@@ -2,33 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RepoList from './RepoList/RepoList.jsx';
 import ProjectSubmission from './ProjectSubmission/ProjectSubmission.jsx';
+import ProjectLoadingPage from './ProjectSubmission/ProjectLoadingPage.jsx';
 
-export class CreateProject extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export const CreateProject = props => (
+  <div className="container">
+    {props.page === 'SELECT_REPO' ? <RepoList /> : ''}
+    {props.page === 'SUBMISSION_PAGE' ? <ProjectSubmission /> : ''}
+    {props.page === 'SUBMITTING_PROJECT' ? <ProjectLoadingPage /> : ''}
+  </div>
+);
 
-  render() {
-    const { repo } = this.props;
-    return (
-      <div>
-      {this.props.page==='SELECT_REPO'?<RepoList />:''}
-      {this.props.page==='SUBMISSION_PAGE'?<ProjectSubmission />:''}
-      </div>
-    )
-  }
-}
-
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     ...state.createproject
   }
-}
+);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreateProject);
+export default connect(mapStateToProps)(CreateProject);

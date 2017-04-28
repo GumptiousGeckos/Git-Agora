@@ -1,51 +1,88 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import CommentSection from '../CommentSection/CommentSection.jsx';
+import CollaboratorsList from './CollaboratorsList.jsx';
+import ProjectDetails from './ProjectDetails.jsx';
+import ContributionsView from '../Contributions/ContributionsView.jsx';
+import ContributorsView from '../Contributors/ContributorsView.jsx';
+import { getProjectById, getCollaborators } from './projectViewActions';
+
 export class ProjectView extends React.Component {
 
-  render() {
-    
-    const { mainProject } = this.props;
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: 'comments',
+      collabActive: 'collaborators'
+    };
+    this.toggleProjectTabs = this.toggleProjectTabs.bind(this);
+    this.toggleCollabTabs = this.toggleCollabTabs.bind(this);
+  }
 
+  componentWillMount() {
+    const { getProjectById, getCollaborators, match } = this.props;
+    getProjectById(match.params.id);
+    // getCollaborators(match.params.id);
+  }
+
+  toggleProjectTabs(tab) {
+    this.setState({
+      active: tab
+    });
+  }
+
+  toggleCollabTabs(tab) {
+    this.setState({
+      collabActive: tab
+    });
+  }
+
+  render() {
+    const { project, collaborators } = this.props;
+    const { id } = this.props.match.params;
     return (
       <div>
-        <div className="col-md-9">
-          <div className="bordered text-center">
-            <div>
-              <h1>{mainProject.title}</h1>
-            </div>
-            <div>
-              <h4>tags placeholder</h4>
-            </div>
+        <div className="container">
+          <ProjectDetails
+            project={project}
+            id={id}
+          />
+          <div className="five columns">
+            <button
+              className={'tabs ' + (this.state.collabActive === 'collaborators' ? 'active-tab' : '')}
+              onClick={() => this.toggleCollabTabs('collaborators')}
+            > Collaborators </button>
+            <button
+              className={'tabs ' + (this.state.collabActive === 'topContributors' ? 'active-tab' : '')}
+              onClick={() => this.toggleCollabTabs('topContributors')}
+            > Top Contributors </button>
           </div>
-          <div className="text-left bordered">
-            <h2>Description:</h2>
-            <h3>{mainProject.description}</h3>
-            <h4>Github: {mainProject.githubLink}</h4>
-          </div>
-          <div>
-            <h1>COMMENTS SECTION PLACEHOLDER</h1>
-          </div>
-        </div>
-        <div className="col-md-3">
-          <div className="text-center bordered">
-            <h1 className="underline">Collaborators</h1>
-            {
-              mainProject.collaborators && mainProject.collaborators.map((person, index) => 
-                <div key={index}>
-                  <h3>{person.name}</h3>
-                </div>
-              )
+          <div className="five columns">
+            { this.state.collabActive === 'collaborators' ?
+              <div className="bordered text-center underline contributors-view"><h5>Collaborators</h5></div> : ''
+            }
+            { this.state.collabActive === 'topContributors' ?
+              <ContributorsView q="project" q_id={id} /> : ''
             }
           </div>
-        </div>
-        <div className="col-md-3">
-          <div className="text-center bordered">
-            <h1 className="underline">Requirements</h1>
-            <h2>{mainProject.requirements}</h2>
+          <div className="twelve columns margin-top">
             <button
-              className="btn btn-success btn-lg"
-            >I'm Interested</button>
+              className={'tabs ' + (this.state.active === 'comments' ? 'active-tab' : '')}
+              onClick={() => this.toggleProjectTabs('comments')}
+            > Comments </button>
+            <button
+              className={'tabs ' + (this.state.active === 'contributions' ? 'active-tab' : '')}
+              onClick={() => this.toggleProjectTabs('contributions')}
+            > Recent Contributions </button>
+          </div>
+          <div className="twelve columns">
+            { this.state.active === 'comments' ?
+              <CommentSection topic_id={id} type={'project'} /> : ''
+            }
+            { this.state.active === 'contributions' ?
+              <ContributionsView reqtype="project" projid={project.id} /> : ''
+            }
           </div>
         </div>
       </div>
@@ -53,10 +90,18 @@ export class ProjectView extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    mainProject: state.projects.mainProject
-  };
-};
+const mapStateToProps = state => (
+  {
+    project: state.project.project,
+    collaborators: state.project.collaborators
+  }
+);
 
-export default connect(mapStateToProps)(ProjectView);
+const mapDispatchToProps = dispatch => (
+  {
+    getProjectById: id => dispatch(getProjectById(id)),
+    getCollaborators: id => dispatch(getCollaborators(id))
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectView);
