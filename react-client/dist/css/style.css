@@ -12,6 +12,8 @@ Table of contents
 body {
   background-color: white;
   padding-top: 50px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 p {
@@ -79,7 +81,6 @@ a:hover {
   border-top: 2px solid #e85a71;
   border-left: 2px solid #e85a71;
   border-right: 2px solid #e85a71;
-  border-radius: 4px 4px 0 0;
   padding-left: 10px;
   padding-right: 10px;
   background-color: white;
@@ -325,7 +326,6 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   background-color: #08182b;
   color: #454552;
   border: 1px solid transparent;
-  border-radius: 4px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -335,17 +335,18 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 
 .home-nav {
   max-width: 100%;
-  text-align: center;
 }
 
 .main-nav {
   max-width: 100%;
-  padding-top: 6px;
+  padding-top: 4px;
 }
 
 .user-nav {
   max-width: 100%;
-  padding-top: 5px;
+  padding-top: 1px;
+  float: right;
+  padding-right: 10px;
 }
 
 .nav-icon {
@@ -358,11 +359,12 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   float: left;
   padding-left: 5px;
   padding-right: 5px;
+  margin: auto;
 }
 
 .nav-user {
   max-width: 33%;
-  float: left;
+  float: right;
 }
 
 .nav-header {
@@ -378,6 +380,11 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 
 .log-in {
   padding-top: 2px;
+}
+
+.nav-topic-main {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* -------------------------- *\ 
@@ -396,7 +403,6 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   font-family: 'opensans', sans-serif;
   font-size: 10px;
   padding: 10px;
-  border-radius: 4px;
   border: 1px solid #08182b;
   margin-bottom: 5px;
 }
@@ -531,7 +537,6 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   font-size: 10px;
   padding: 10px;
   padding-top: 5px;
-  border-radius: 4px;
   border: 1px solid #08182b;
   margin-bottom: 5px;
 }
@@ -559,7 +564,6 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   font-size: 10px;
   padding: 10px;
   padding-top: 5px;
-  border-radius: 4px;
   border: 1px solid #08182b;
   margin-bottom: 5px;
 
@@ -636,7 +640,6 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 .filter-search-input {
   height: 38px;
   border: 1px solid #e85a71;
-  border-radius: 4px;
   max-width: 100%;
   font-family: 'opensans', sans-serif;
   font-size: 10px;
@@ -649,7 +652,7 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   max-width: 100%;
   background-color: #08182b;
   color: white;
-
+  border-radius: 0;
 }
 
 /* -------------------------- *\
@@ -859,8 +862,8 @@ button.tabs {
   width: 20px;
   height: 60px;
   padding-top: 1px;
-  padding-left: 20px;
   margin-left: 20px;
+  border-radius: 0;
 }
 
 .slick-next {
@@ -871,6 +874,7 @@ button.tabs {
   padding-top: 1px;
   padding-right: 20px;
   margin-right: 20px;
+  border-radius: 0;
 }
 
 .slick-next:hover {
