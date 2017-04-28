@@ -162,7 +162,6 @@ button.inbox-message {
   font-weight: bold;
 }
 .inbox-thread-entry-user {
-
 }
 .inbox-message-entry {
   border-style: solid;
@@ -313,6 +312,27 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
     background: #b7cfe0;
     cursor: pointer;
 }
+
+/* -------------------------- *\ 
+  #CONTRIBUTIONS
+\*----------------------------*/
+
+table#contributions-table {
+  text-align: left;
+  border-style: solid;
+  border-width: thin;
+  padding-left: 10px;
+}
+th.contributions-table-header {
+  text-align: left;
+}
+tbody#contributions-table-body {
+  padding-left: 5px;
+}
+td.contributions-table-data {
+  text-align: left;
+}
+
 
 /* -------------------------- *\
   #NAVBAR

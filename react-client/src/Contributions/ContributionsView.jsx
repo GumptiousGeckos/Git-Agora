@@ -12,11 +12,13 @@ class ContributionsView extends React.Component {
   render() {
     const { contributions } = this.props;
     return (
-      <div>
-        {contributions.length > 0 && contributions.map(contribution => (
-          <ContributionsEntryView contribution={contribution} />
-        ))}
-      </div>
+      <table id="contributions-table">
+        <tbody id="contributions-table-body">
+          {contributions.length > 0 && contributions.map(contribution => (
+            <ContributionsEntryView contribution={contribution} />
+          ))}
+        </tbody>
+      </table>
     );
   }
 }
