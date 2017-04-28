@@ -45,15 +45,15 @@ export class ProjectBoard extends React.Component {
               <a>New</a>
             </div>
           </div>
+          {
+            projects.map(project =>
+              <ProjectBoardEntry
+                key={project.id}
+                project={project}
+              />
+            )
+          }
         </div>
-        {
-          projects.map(project =>
-            <ProjectBoardEntry
-              key={project.id}
-              project={project}
-            />
-          )
-        }
       </div>
     );
   }
