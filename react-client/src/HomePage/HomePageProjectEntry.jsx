@@ -8,7 +8,11 @@ class HomePageProjectEntry extends React.Component {
 
   render () {
     const { id, title, avatar, description, username, tags } = this.props.project;
-    const tagArray = tags ? tags.split(',') : [];
+    let tagArray = tags ? tags.split(',') : [];
+    if (tagArray.length > 0) {
+      tagArray = tagArray.splice(0, 5);
+    }
+
     return (
       <div className="home-page-project-entry">
         <Link to={'/projects/' + id} key={id}>
