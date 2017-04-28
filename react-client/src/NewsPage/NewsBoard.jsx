@@ -61,7 +61,7 @@ export class NewsBoard extends React.Component {
           </div>
           <div id="loading-page">
             <i className="fa fa-spinner fa-pulse fa-5x fa-fw" />
-            <div> Searching for top rated news articles! </div>
+            <div> Fetching Articles! </div>
           </div>
         </div>
       );
