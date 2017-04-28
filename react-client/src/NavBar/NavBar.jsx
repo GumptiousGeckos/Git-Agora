@@ -30,24 +30,24 @@ export class NavBar extends React.Component {
       navBarRight = (
         <div className="four columns user-nav">
           <div className="nav-bar-page nav-user nav-topic">
-            <span className="nav-header none"><a href="auth/logout" className="nav-header none">Log out</a></span>
+            <span className="nav-header none"><a href="auth/logout" id="nav-logout" className="nav-header none">LOG OUT</a></span>
           </div>
           <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
             <Link to={'/inbox'}>
-              <span className="nav-header"> Inbox </span>
+              <span className="nav-header"> INBOX </span>
             </Link>
           </div>
           <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
             <Link to={'/users/' + user.id}>
-              <span className="nav-header log-in"> {user.username} </span>
+              <span className="nav-header log-in"> {user.username.toUpperCase()} </span>
             </Link>
           </div>
         </div>
       );
     } else {
       navBarRight = (
-          <div className="four columns  user-nav nav-topic">
-              <span className="nav-header user-nav" >
+          <div className="four columns  user-nav-login nav-topic">
+              <span className="nav-header user-nav-login" >
                 <a className="nav-header nav-topic none log-in" href="/auth/github"> LOG IN </a>
               <span className="fa fa-github fa-lg nav-icon"></span>
               </span>

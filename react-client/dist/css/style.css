@@ -339,6 +339,10 @@ td.contributions-table-data {
   #NAVBAR
 \*----------------------------*/
 
+a#nav-logout:hover {
+  text-decoration: none;
+  color: white;
+}
 .navbar {
   font-family: 'Roboto', sans-serif;
   font-size: 10px;
@@ -364,11 +368,16 @@ td.contributions-table-data {
 
 .user-nav {
   max-width: 100%;
+  padding-top: 4px;
+  float: right;
+  padding-right: 10px;
+}
+.user-nav-login {
+  max-width: 100%;
   padding-top: 1px;
   float: right;
   padding-right: 10px;
 }
-
 .nav-icon {
   padding-right: 5px;
   color: white;
