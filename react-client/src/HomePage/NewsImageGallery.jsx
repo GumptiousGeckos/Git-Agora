@@ -4,10 +4,10 @@ import { Link, HashRouter as Router } from 'react-router-dom';
 
 class NewsImageGallery extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
   }
 
-  render () {
+  render() {
     const { hotNews } = this.props;
     const settings = {
       dots: true,
@@ -29,11 +29,14 @@ class NewsImageGallery extends React.Component {
           <div><a href={hotNews[5].url}><img src={hotNews[5].url_to_image}/><div className="news-image-gallery-slide-title">{hotNews[5].title}</div></a></div>
           </Slider>
         </div>
-      )
+      );
     } else {
       return (
-        <div>Loading News! </div>
-        )
+        <div id="loading-page">
+          <i className="fa fa-spinner fa-pulse fa-5x fa-fw" />
+          <div> Fetching recent news articles! </div>
+        </div>
+      );
     }
   }
 }
