@@ -18,18 +18,16 @@ export class UserProjects extends React.Component {
       <div>
         <h4 className="tab-title"></h4>
         <div className="list-group">
-          <ul>
           {
             userProjects.map(project =>
-              <li>
+              <div>
               <Link to={'/projects/' + project.id} key={project.id}>
-                <span>{project.title}</span><br></br>
+                <span className="prof-proj-title">{project.title}</span><br></br>
               </Link>
               <span>{project.description}</span>
-              </li>
+              </div>
             )
           }
-          </ul>
         </div>
       </div>
     );

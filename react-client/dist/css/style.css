@@ -314,7 +314,7 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
     cursor: pointer;
 }
 
-/* -------------------------- *\ 
+/* -------------------------- *\
   #CONTRIBUTIONS
 \*----------------------------*/
 
@@ -696,6 +696,14 @@ td.contributions-table-data {
   height: 600px;
 }
 
+.prof-fav-username {
+  margin-right: 10px;
+}
+
+.prof-proj-title {
+  font-size: 20px;
+  font-weight: bold;
+}
 .active-tab-prof {
   background-color: #d1d1d1;
 }
