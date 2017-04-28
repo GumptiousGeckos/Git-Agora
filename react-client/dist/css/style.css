@@ -620,7 +620,6 @@ a#nav-logout:hover {
   background-color: #ee2560;
   padding: 2px;
   font-size: 12px;
-  margin-left: 5px;
   margin-right: 5px;
   color: #f4f4f4;
 }
@@ -644,7 +643,7 @@ a#nav-logout:hover {
   margin-bottom: 10px;
   border-top: solid black;
   overflow: auto;
-  font-family: "opensans";
+  font-family: "opensans", sans-serif;
 }
 
 .project-details-title {
@@ -652,7 +651,7 @@ a#nav-logout:hover {
 }
 
 .project-view-details {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   margin: 10px auto;
 }
 
