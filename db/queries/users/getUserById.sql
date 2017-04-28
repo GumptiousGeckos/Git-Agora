@@ -1,10 +1,27 @@
 SELECT
-  users.*, ratings.idea_points, ratings.dev_points
+  userinfo.*, contr.idea_points, contr.dev_points
 FROM
-  users
+  (
+    SELECT
+      *
+    FROM
+      users
+    WHERE
+      users.id = ${id}
+  ) userinfo
 LEFT JOIN
-  ratings
+  (
+    SELECT
+      sum(idea_points) idea_points,
+      sum(dev_points) dev_points,
+      contributions.user_id
+    FROM
+      contributions
+    WHERE
+      contributions.user_id = ${id}
+    GROUP BY
+      contributions.user_id
+  ) contr
 ON
-  users.id = ratings.user_id
-where
-  users.id = ${id}
+  userinfo.id = contr.user_id
+;
