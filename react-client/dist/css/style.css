@@ -465,6 +465,13 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   border-radius: 4px;
 }
 
+.upvote:hover,
+.upvote-green:hover,
+.downvote:hover,
+.downvote-red:hover {
+  background-color: #f4f4f4;
+}
+
 /* -------------------------- *\
   #COMMENT-SECTION
 \*----------------------------*/
