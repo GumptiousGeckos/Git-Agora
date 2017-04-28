@@ -69,10 +69,10 @@ export class ProjectSubmission extends React.Component {
           className="button-primary"
           onClick={() => {
             description.length === 0 ?
-            confirm('Descriptions are great for people to understand your product. Are you sure you do not want one?')
+            alert('Please enter a description.')
             :
             tags.length === 0 ?
-            confirm('Tags help users find your project. Are you sure you don\'t want to include any?')
+            alert('Please add a tag.')
             :
             submitProjectClick(name, id, description, html_url, url, tags);
           }}
