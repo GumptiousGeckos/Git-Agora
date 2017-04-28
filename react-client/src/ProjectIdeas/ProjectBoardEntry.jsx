@@ -15,7 +15,7 @@ export default (props) => {
           {
             tagArray.length === 0 ? <span className="project-entry-tag">none</span> :
             tagArray.map((tag, index) =>
-              <span className="project-entry-tag" key={index}>{' ' + tag}</span>
+              <span className="project-entry-tag" key={index}>{tag}</span>
             )
           }
         </div>
