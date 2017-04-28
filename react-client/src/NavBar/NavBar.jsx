@@ -47,7 +47,7 @@ export class NavBar extends React.Component {
     } else {
       navBarRight = (
           <div className="four columns  user-nav nav-topic">
-              <span className="nav-header" >
+              <span className="nav-header user-nav" >
                 <a className="nav-header nav-topic none log-in" href="/auth/github"> LOG IN </a>
               <span className="fa fa-github fa-lg nav-icon"></span>
               </span>
@@ -65,22 +65,22 @@ export class NavBar extends React.Component {
                   </Link>
                 </div>
               <div className="six columns main-nav">
-                <div className={(activeTab === 'news') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
+                <div className={(activeTab === 'news') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
                   <Link to={'/news'}>  
                     <span className="nav-header"> NEWS </span>
                   </Link>
                 </div>
-                <div className={(activeTab === 'projects') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
+                <div className={(activeTab === 'projects') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
                   <Link to={'/projects'}>
                     <span className="nav-header"> PROJECTS </span>
                   </Link>
                 </div>
-                <div className={(activeTab === 'categories') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
+                <div className={(activeTab === 'categories') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
                   <Link to={'/categories'}>
                     <span className="nav-header"> CATEGORIES </span>
                   </Link>
                 </div>
-                <div className={(activeTab === 'createproject') ? 'active nav-topic' : 'nav-topic'} onClick={this.handleNavOnClick}>
+                <div className={(activeTab === 'createproject') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
                   <Link to={'/createproject'}>
                     <span className="nav-header"> CREATE PROJECT </span>
                   </Link>
