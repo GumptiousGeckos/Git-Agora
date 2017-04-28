@@ -3,7 +3,6 @@ import TimeAgo from 'react-timeago';
 
 const ContributionsEntryView = props => {
   const { contribution } = props;
-  console.log(contribution);
   return (
     <tr>
       <td className="contributions-table-data">
