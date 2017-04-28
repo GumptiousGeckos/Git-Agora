@@ -77,7 +77,7 @@ export class NavBar extends React.Component {
                 </div>
                 <div className={(activeTab === 'categories') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
                   <Link to={'/categories'}>
-                    <span className="nav-header"> CATEGORIES </span>
+                    <span className="nav-header"> DISCOVER </span>
                   </Link>
                 </div>
                 <div className={(activeTab === 'createproject') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
