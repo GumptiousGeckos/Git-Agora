@@ -483,8 +483,9 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 \*----------------------------*/
 
 .comment {
-  background-color: #162f56;
-  color: white;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
   padding: 10px;
   margin: auto;
   margin-bottom: 5px;
@@ -502,13 +503,11 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 .comment-username {
   font-size: 14px;
   padding-left: 10px;
-  min-width: 50px;
-  color: white;
+  min-width: 100px;
   float: left;
 }
 
 .comment-username:hover {
-  color: #e85a71;
 }
 
 .content-section {
@@ -523,12 +522,12 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 
 .comment-content {
   word-wrap: break-word;
-  color: #e0e3ff;
+  color: black;
   float: left;
 }
 
 .date-created {
-  color: white;
+  color: black;
   float: left;
   font-size: 12px;
   padding-left: 10px;
