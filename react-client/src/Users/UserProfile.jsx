@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import UserProjects from './UserProjects.jsx';
 import UserDetails from './UserDetails.jsx';
 import UserFavorites from '../Favorites/UserFavorites.jsx';
+import UserContributionsView from './../Contributions/UserContributionsView.jsx';
 
 export class UserProfile extends React.Component {
 
@@ -16,7 +17,7 @@ export class UserProfile extends React.Component {
     this.state = {
       renderThis: <UserProjects id={id} />,
       activeTab: 'projects'
-    }
+    };
   }
 
   componentWillMounts() {
@@ -34,10 +35,10 @@ export class UserProfile extends React.Component {
       toRender = <UserFavorites />;
     } else {
       this.setState({ activeTab: 'contributions' });
-      toRender = <h4 className="tab-title">Contributions</h4>;
+      toRender = <UserContributionsView reqtype="user" userid={id} />;
     }
 
-    this.setState({ renderThis: toRender })
+    this.setState({ renderThis: toRender });
   }
 
   render() {
@@ -55,7 +56,7 @@ export class UserProfile extends React.Component {
               <button className={'profile-tabs ' + (this.state.activeTab === 'favorites' ? 'active-tab-prof' : '' )} value="favorites" onClick={this.handleClick}>Favorites</button>
               <button className={'profile-tabs ' + (this.state.activeTab === 'contributions' ? 'active-tab-prof' : '' )} value="contributions" onClick={this.handleClick}>Contributions</button>
             <div className="profile-tab-area">
-              <div className="container">
+              <div>
                 {renderThis}
               </div>
             </div>

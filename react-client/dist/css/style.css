@@ -727,6 +727,13 @@ a#nav-logout:hover {
   color: black;
 }
 
+div#user-projects-group {
+  padding-left: 10px;
+}
+div#user-favorites-group {
+  padding-left: 10px;
+}
+
 .add-favorite {
   color: black;
   border: 1px solid;
@@ -759,6 +766,7 @@ a#nav-logout:hover {
   border-top: 0px;
   border-radius: 0px;
   border: 1px solid black;
+  margin-right: 5px;
 }
 
 .favorites-tab-active {
