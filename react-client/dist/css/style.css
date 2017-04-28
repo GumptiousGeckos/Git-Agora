@@ -471,13 +471,21 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   border-radius: 4px;
 }
 
+.upvote:hover,
+.upvote-green:hover,
+.downvote:hover,
+.downvote-red:hover {
+  background-color: #f4f4f4;
+}
+
 /* -------------------------- *\
   #COMMENT-SECTION
 \*----------------------------*/
 
 .comment {
-  background-color: #162f56;
-  color: white;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
   padding: 10px;
   margin: auto;
   margin-bottom: 5px;
@@ -495,13 +503,11 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 .comment-username {
   font-size: 14px;
   padding-left: 10px;
-  min-width: 50px;
-  color: white;
+  min-width: 100px;
   float: left;
 }
 
 .comment-username:hover {
-  color: #e85a71;
 }
 
 .content-section {
@@ -516,12 +522,12 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 
 .comment-content {
   word-wrap: break-word;
-  color: #e0e3ff;
+  color: black;
   float: left;
 }
 
 .date-created {
-  color: white;
+  color: black;
   float: left;
   font-size: 12px;
   padding-left: 10px;
@@ -571,12 +577,12 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 
 .project-entry-title {
   font-size: 20px;
-  padding-bottom: 5px;
+
 }
 
 .project-entry-description {
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .project-entry-tag {
@@ -585,14 +591,18 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   background-color: #ee2560;
   padding: 2px;
   font-size: 12px;
+  margin-left: 5px;
   margin-right: 5px;
   color: #f4f4f4;
-
 }
 
 /* -------------------------- *\
   #PROJECT-VIEW
 \*----------------------------*/
+
+.active-tab {
+  background-color: #f4f4f4;
+}
 
 .project-details {
   height: 200px;
@@ -633,8 +643,8 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
 .filter-search {
   margin-bottom: 0px;
   margin-top: 10px;
-  padding-left: 25%;
-  padding-right: 25%;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .filter-search-input {
@@ -642,17 +652,17 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   border: 1px solid #e85a71;
   max-width: 100%;
   font-family: 'opensans', sans-serif;
-  font-size: 10px;
+  font-size: 15px;
   text-align: center;
-  background-color: #08182b;
-  color: white;
+  background-color: white;
+  color: #08182b;
 }
 
 .filter-search-button {
   max-width: 100%;
-  background-color: #08182b;
-  color: white;
+  background-color: white;
   border-radius: 0;
+  color: #08182b;
 }
 
 /* -------------------------- *\

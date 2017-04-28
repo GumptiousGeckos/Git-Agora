@@ -50,11 +50,11 @@ export class ProjectView extends React.Component {
           />
           <div className="five columns">
             <button
-              className="tabs"
+              className={'tabs ' + (this.state.collabActive === 'collaborators' ? 'active-tab' : '')}
               onClick={() => this.toggleCollabTabs('collaborators')}
             > Collaborators </button>
             <button
-              className="tabs"
+              className={'tabs ' + (this.state.collabActive === 'topContributors' ? 'active-tab' : '')}
               onClick={() => this.toggleCollabTabs('topContributors')}
             > Top Contributors </button>
           </div>
@@ -68,11 +68,11 @@ export class ProjectView extends React.Component {
           </div>
           <div className="twelve columns margin-top">
             <button
-              className="tabs"
+              className={'tabs ' + (this.state.active === 'comments' ? 'active-tab' : '')}
               onClick={() => this.toggleProjectTabs('comments')}
             > Comments </button>
             <button
-              className="tabs"
+              className={'tabs ' + (this.state.active === 'contributions' ? 'active-tab' : '')}
               onClick={() => this.toggleProjectTabs('contributions')}
             > Recent Contributions </button>
           </div>
