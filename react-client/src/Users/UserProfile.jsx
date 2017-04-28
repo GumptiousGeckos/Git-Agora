@@ -14,7 +14,8 @@ export class UserProfile extends React.Component {
 
     const { id } = this.props.match.params;
     this.state = {
-      renderThis: <UserProjects id={id} />
+      renderThis: <UserProjects id={id} />,
+      activeTab: 'projects'
     }
   }
 
@@ -26,10 +27,13 @@ export class UserProfile extends React.Component {
     let toRender;
 
     if (e.target.value === 'projects') {
+      this.setState({ activeTab: 'projects' });
       toRender = <UserProjects id={id} />;
     } else if (e.target.value === 'favorites') {
+      this.setState({ activeTab: 'favorites' });
       toRender = <UserFavorites />;
     } else {
+      this.setState({ activeTab: 'contributions' });
       toRender = <h4 className="tab-title">Contributions</h4>;
     }
 
@@ -47,9 +51,9 @@ export class UserProfile extends React.Component {
             <UserDetails id={id} />
           </div>
           <div className="row eight columns">
-              <button className="tabs" value="projects" onClick={this.handleClick}>Projects</button>
-              <button className="tabs" value="favorites" onClick={this.handleClick}>Favorites</button>
-              <button className="tabs" value="contributions" onClick={this.handleClick}>Contributions</button>
+              <button className={'profile-tabs ' + (this.state.activeTab === 'projects' ? 'active-tab-prof' : '' )} value="projects" onClick={this.handleClick}>Projects</button>
+              <button className={'profile-tabs ' + (this.state.activeTab === 'favorites' ? 'active-tab-prof' : '' )} value="favorites" onClick={this.handleClick}>Favorites</button>
+              <button className={'profile-tabs ' + (this.state.activeTab === 'contributions' ? 'active-tab-prof' : '' )} value="contributions" onClick={this.handleClick}>Contributions</button>
             <div className="profile-tab-area">
               <div className="container">
                 {renderThis}
