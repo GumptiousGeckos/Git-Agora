@@ -1,13 +1,6 @@
 select
   projectstable.*, votestable.votes, uservote.vote_type, users.username, users.avatar
 from
-  (select
-    sum(vote_type) votes, topic_id
-  from votes
-  where type='project'
-  group by topic_id
-  ) votestable
-left join
   (select proj.*, tags.tags
   FROM
     (select * from projects) proj
@@ -19,6 +12,13 @@ left join
     group by pt.project_id) tags
   on (proj.id = tags.project_id)
   ) projectstable
+left join
+  (select
+    sum(vote_type) votes, topic_id
+  from votes
+  where type='project'
+  group by topic_id
+  ) votestable
 on (projectstable.id = votestable.topic_id)
 left join
   (select vote_type, topic_id
@@ -30,4 +30,7 @@ left join
   users
 on
   users.id = projectstable.user_id
-order by votestable.votes desc limit 25;
+order by 
+votestable.votes desc 
+NULLS LAST 
+limit 25;

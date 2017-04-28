@@ -29,18 +29,18 @@ export class NavBar extends React.Component {
     if (loggedIn) {
       navBarRight = (
         <div className="four columns user-nav">
-          <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
-            <Link to={'/users/' + user.id}>
-              <span className="nav-header log-in"> {user.username} </span>
-            </Link>
+          <div className="nav-bar-page nav-user nav-topic">
+            <span className="nav-header none"><a href="auth/logout" className="nav-header none">Log out</a></span>
           </div>
           <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
             <Link to={'/inbox'}>
               <span className="nav-header"> Inbox </span>
             </Link>
           </div>
-          <div className="nav-bar-page nav-user nav-topic">
-            <span className="nav-header none"><a href="auth/logout" className="nav-header none">Log out</a></span>
+          <div className="nav-bar-page nav-user nav-topic" onClick={this.handleNavOnClick}>
+            <Link to={'/users/' + user.id}>
+              <span className="nav-header log-in"> {user.username} </span>
+            </Link>
           </div>
         </div>
       );
@@ -58,7 +58,7 @@ export class NavBar extends React.Component {
     return (
         <div className="navbar">
           <div className="container">
-            <div className="row"> 
+            <div className="row">
                 <div className="two columns home-nav">
                   <Link to={'/'}>
                     <span className="nav-header git-agora" onClick={this.handleNavOnClick}>Git Agora</span>
@@ -66,7 +66,7 @@ export class NavBar extends React.Component {
                 </div>
               <div className="six columns main-nav">
                 <div className={(activeTab === 'news') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
-                  <Link to={'/news'}>  
+                  <Link to={'/news'}>
                     <span className="nav-header"> NEWS </span>
                   </Link>
                 </div>
@@ -80,11 +80,14 @@ export class NavBar extends React.Component {
                     <span className="nav-header"> CATEGORIES </span>
                   </Link>
                 </div>
-                <div className={(activeTab === 'createproject') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
-                  <Link to={'/createproject'}>
-                    <span className="nav-header"> CREATE PROJECT </span>
-                  </Link>
-                </div>
+                {
+                  loggedIn ?
+                  <div className={(activeTab === 'createproject') ? 'active nav-topic nav-topic-main' : 'nav-topic nav-topic-main'} onClick={this.handleNavOnClick}>
+                    <Link to={'/createproject'}>
+                      <span className="nav-header"> CREATE PROJECT </span>
+                    </Link>
+                  </div> : ''
+                }
               </div>
               {navBarRight}
             </div>

@@ -19,14 +19,14 @@ export class NewsBoard extends React.Component {
           <div className="row">
             <div className="twelve columns nav-tabs">
               <div className="active nav-tab">
-                <a href="#">Top</a>
+                <a href="">Top</a>
               </div>
               <div className="nav-tab">
-                <a href="#">New</a>
+                <a href="">New</a>
               </div>
             </div>
           </div>
-          {articles.map((article) => 
+          {articles.map((article) =>
             <NewsArticleEntry key={article.published_at} article={article} />
           )}
         </div>
