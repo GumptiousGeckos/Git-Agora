@@ -10,16 +10,18 @@ export default (props) => {
     <Votes votes={votes} topic_type={'project'} vote_type={vote_type} topic_id={id}/>
     <Link to={'/projects/' + id}>
       <div className="ten columns">
-        <div className="project-entry-title">{title}</div>
-        <div className="project-entry-description">{description}</div>
-          <div>
-            {
-              tagArray.length === 0 ? <span className="project-entry-tag">none</span> :
-              tagArray.map((tag, index) =>
-                <span className="project-entry-tag" key={index}>{' ' + tag}</span>
-              )
-            }
-          </div>
+        <div className="project-entry-title">
+          {title}
+          {
+            tagArray.length === 0 ? <span className="project-entry-tag">none</span> :
+            tagArray.map((tag, index) =>
+              <span className="project-entry-tag" key={index}>{' ' + tag}</span>
+            )
+          }
+        </div>
+        <div className="project-entry-description">
+          {description}
+        </div>
       </div>
     </Link>
   </div>

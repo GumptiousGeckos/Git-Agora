@@ -31,13 +31,13 @@ export class FilterBoard extends React.Component {
           <form className="filter-search">
             <div className="row">
               <input
-                className="six columns filter-search-input"
+                className="ten columns filter-search-input"
                 placeholder="Search for a category"
                 ref="input"
                 onChange={(e) => { updateSearchText(e.target.value); }}
               />
               <button
-                className="six columns filter-search-button"
+                className="two columns filter-search-button"
                 type="submit"
                 onClick={this.handleSearch}
               >
