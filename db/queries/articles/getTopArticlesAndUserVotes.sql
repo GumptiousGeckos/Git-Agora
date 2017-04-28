@@ -15,4 +15,4 @@ left join
     from votes 
     where user_id = ${user_id}) uservote 
 on (uservote.topic_id = articlestable.id) 
-order by votestable.votes NULLS LAST desc limit 25;
+order by votestable.votes desc NULLS LAST limit 25;
