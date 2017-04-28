@@ -34,10 +34,10 @@ export class NewsBoard extends React.Component {
           <div className="row">
             <div className="twelve columns nav-tabs">
               <div className="active nav-tab">
-                <a href="">Top</a>
+                <a>Top</a>
               </div>
               <div className="nav-tab">
-                <a href="">New</a>
+                <a>New</a>
               </div>
             </div>
           </div>
