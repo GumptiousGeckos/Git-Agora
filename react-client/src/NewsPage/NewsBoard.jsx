@@ -33,10 +33,10 @@ export class NewsBoard extends React.Component {
         <div className="container">
           <div className="row">
             <div className="twelve columns nav-tabs">
-              <div className="active nav-tab">
+              <div className={'nav-tab ' + (this.state.active === 'top' ? 'active-tab' : '')} onClick={() => this.toggleNavTabs('top')}>
                 <a>Top</a>
               </div>
-              <div className="nav-tab">
+              <div className={'nav-tab ' + (this.state.active === 'new' ? 'active-tab' : '')} onClick={() => this.toggleNavTabs('new')}>
                 <a>New</a>
               </div>
             </div>
