@@ -339,6 +339,10 @@ td.contributions-table-data {
   #NAVBAR
 \*----------------------------*/
 
+a#nav-logout:hover {
+  text-decoration: none;
+  color: white;
+}
 .navbar {
   font-family: 'Roboto', sans-serif;
   font-size: 10px;
@@ -364,11 +368,16 @@ td.contributions-table-data {
 
 .user-nav {
   max-width: 100%;
+  padding-top: 4px;
+  float: right;
+  padding-right: 10px;
+}
+.user-nav-login {
+  max-width: 100%;
   padding-top: 1px;
   float: right;
   padding-right: 10px;
 }
-
 .nav-icon {
   padding-right: 5px;
   color: white;
@@ -402,16 +411,12 @@ td.contributions-table-data {
   padding-top: 2px;
 }
 
-<<<<<<< HEAD
 .nav-topic-main {
   padding-left: 20px;
   padding-right: 20px;
 }
 
 /* -------------------------- *\
-=======
-/* -------------------------- *\
->>>>>>> Style tabs to render selected/unselected tabs color changes
   #ARTICLE_VIEW
 \*----------------------------*/
 
@@ -722,6 +727,13 @@ td.contributions-table-data {
   color: black;
 }
 
+div#user-projects-group {
+  padding-left: 10px;
+}
+div#user-favorites-group {
+  padding-left: 10px;
+}
+
 .add-favorite {
   color: black;
   border: 1px solid;
@@ -754,6 +766,7 @@ td.contributions-table-data {
   border-top: 0px;
   border-radius: 0px;
   border: 1px solid black;
+  margin-right: 5px;
 }
 
 .favorites-tab-active {
@@ -856,7 +869,7 @@ button.tabs {
 .home-page-project-entry-title {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  max-width: 75%;
+  max-width: 100%;
 }
 
 .home-page-project-entry-description {
@@ -907,7 +920,6 @@ button.tabs {
 
 .twelve.columns.news-image-gallery-slider {
   margin: auto;
-  padding-bottom: 20px;
 }
 .slick-list {
   max-width: 80%;
@@ -917,10 +929,11 @@ button.tabs {
 
 .slick-prev {
   left: 20px;
-  border: 1px solid #08182b;
-  width: 20px;
+  border: 1px solid #08182b; 
+  width: 30px;
   height: 60px;
   padding-top: 1px;
+  padding-left: 4px;
   margin-left: 20px;
   border-radius: 0;
 }
@@ -928,10 +941,10 @@ button.tabs {
 .slick-next {
   right: 20px;
   border: 1px solid #08182b;
-  width: 20px;
+  width: 30px;
   height: 60px;
   padding-top: 1px;
-  padding-right: 20px;
+  padding-left: 4px;
   margin-right: 20px;
   border-radius: 0;
 }

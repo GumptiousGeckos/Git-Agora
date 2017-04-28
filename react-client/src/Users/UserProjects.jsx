@@ -15,7 +15,7 @@ export class UserProjects extends React.Component {
     const { userProjects } = this.props;
 
     return (
-      <div>
+      <div id="user-projects-group">
         <h4 className="tab-title"></h4>
         <div className="list-group">
           {

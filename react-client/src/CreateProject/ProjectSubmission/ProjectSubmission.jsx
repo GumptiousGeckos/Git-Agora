@@ -67,7 +67,15 @@ export class ProjectSubmission extends React.Component {
         </form>
         <button
           className="button-primary"
-          onClick={() => submitProjectClick(name, id, description, html_url, url, tags)}
+          onClick={() => {
+            description.length === 0 ?
+            confirm('Descriptions are great for people to understand your product. Are you sure you do not want one?')
+            :
+            tags.length === 0 ?
+            confirm('Tags help users find your project. Are you sure you don\'t want to include any?')
+            :
+            submitProjectClick(name, id, description, html_url, url, tags);
+          }}
         >
           Share Project!
         </button>

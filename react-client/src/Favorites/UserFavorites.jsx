@@ -31,7 +31,7 @@ export class UserFavorites extends React.Component {
     const { favorites, profileId, displayFavorites } = this.props;
 
     return (
-      <div>
+      <div id="user-favorites-group">
         <h4 className="tab-title"></h4>
         <div className="twelve columns">
           <button className={'favorites-tab ' + (this.state.activeTab === 'user' ? 'favorites-tab-active' : '' )} value="user" onClick={this.filterFavorites}>Users</button>

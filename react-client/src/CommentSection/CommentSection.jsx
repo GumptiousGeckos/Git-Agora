@@ -19,7 +19,7 @@ export class CommentSection extends React.Component {
     e.preventDefault();
     const { addComment, type, topic_id, content, user } = this.props;
     const { username, avatar, id } = user;
-    let date_created = new Date().toDateString();
+    let date_created = new Date().toString();
     addComment(topic_id, type, username, id, date_created, content, avatar);
     this.refs.textarea.value = '';
   }
