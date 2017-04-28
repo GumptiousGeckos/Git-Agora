@@ -693,14 +693,18 @@ td.contributions-table-data {
   #USER_PROFILE
 \*----------------------------*/
 .profile-details {
-  height: 800px;
+  height: 600px;
+}
+
+.active-tab-prof {
+  background-color: #d1d1d1;
 }
 
 .profile-tabs {
-  font-size: 16px;
-  color: white;
-  border: 1px solid grey;
-  background-color: black;
+  border-radius: 0px;
+  border-bottom: 0px;
+  margin-right: 5px;
+  margin-bottom: -1px;
 }
 
 #profile-username {
@@ -723,7 +727,7 @@ td.contributions-table-data {
 .profile-tab-area {
   border: 1px solid black;
   overflow: auto;
-  height: 800px;
+  height: 600px;
 }
 
 .profile-description {
@@ -739,7 +743,20 @@ td.contributions-table-data {
 
 .favorites-tab {
   color: black;
+  border-top: 0px;
+  border-radius: 0px;
   border: 1px solid black;
+}
+
+.favorites-tab-active {
+  border-top: 0px;
+  color: white;
+  border: 1px solid #ee2560;
+  background-color: #ee2560
+}
+
+.favorite-entry {
+  margin-bottom: 6px;
 }
 
 .points-table {

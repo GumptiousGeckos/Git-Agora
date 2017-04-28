@@ -16,7 +16,7 @@ export class UserProjects extends React.Component {
 
     return (
       <div>
-        <h4 className="tab-title">Projects</h4>
+        <h4 className="tab-title"></h4>
         <div className="list-group">
           <ul>
           {

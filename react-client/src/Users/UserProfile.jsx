@@ -42,7 +42,7 @@ export class UserProfile extends React.Component {
 
   render() {
     const { id } = this.props.match.params;
-    const { renderThis, activeTab } = this.state;
+    const { renderThis } = this.state;
 
     return (
       <div className="container">
@@ -51,9 +51,9 @@ export class UserProfile extends React.Component {
             <UserDetails id={id} />
           </div>
           <div className="row eight columns">
-              <button className={'tabs' + (activeTab === 'projects' ? 'active-tab' : '')} value="projects" onClick={this.handleClick}>Projects</button>
-              <button className={'tabs' + (activeTab === 'favorites' ? 'active-tab' : '')} value="favorites" onClick={this.handleClick}>Favorites</button>
-              <button className={'tabs' + (activeTab === 'contributions' ? 'active-tab' : '')} value="contributions" onClick={this.handleClick}>Contributions</button>
+              <button className={'profile-tabs ' + (this.state.activeTab === 'projects' ? 'active-tab-prof' : '' )} value="projects" onClick={this.handleClick}>Projects</button>
+              <button className={'profile-tabs ' + (this.state.activeTab === 'favorites' ? 'active-tab-prof' : '' )} value="favorites" onClick={this.handleClick}>Favorites</button>
+              <button className={'profile-tabs ' + (this.state.activeTab === 'contributions' ? 'active-tab-prof' : '' )} value="contributions" onClick={this.handleClick}>Contributions</button>
             <div className="profile-tab-area">
               <div className="container">
                 {renderThis}

@@ -7,6 +7,10 @@ export class UserFavorites extends React.Component {
   constructor(props) {
     super(props);
     this.filterFavorites = this.filterFavorites.bind(this);
+
+    this.state = {
+      activeTab: 'user'
+    }
   }
 
   componentWillMount(props) {
@@ -15,6 +19,7 @@ export class UserFavorites extends React.Component {
   }
 
   filterFavorites(e) {
+    this.setState({activeTab: e.target.value});
     const { setFavorites, favorites } = this.props;
     const filteredFavorites = favorites.filter(favorite => {
       return favorite.type === e.target.value;
@@ -27,13 +32,13 @@ export class UserFavorites extends React.Component {
 
     return (
       <div>
-        <h4 className="tab-title">Favorites</h4>
+        <h4 className="tab-title"></h4>
         <div className="twelve columns">
-          <button className="favorites-tab" value="user" onClick={this.filterFavorites}>Users</button>
-          <button className="favorites-tab" value="project" onClick={this.filterFavorites}>Projects</button>
-          <button className="favorites-tab" value="article" onClick={this.filterFavorites}>Articles</button>
+          <button className={'favorites-tab ' + (this.state.activeTab === 'user' ? 'favorites-tab-active' : '' )} value="user" onClick={this.filterFavorites}>Users</button>
+          <button className={'favorites-tab ' + (this.state.activeTab === 'project' ? 'favorites-tab-active' : '' )} value="project" onClick={this.filterFavorites}>Projects</button>
+          <button className={'favorites-tab ' + (this.state.activeTab === 'article' ? 'favorites-tab-active' : '' )} value="article" onClick={this.filterFavorites}>Articles</button>
         </div>
-        <ul>{displayFavorites.map(favorite => <UserFavoritesEntry favorite={favorite}/>)}</ul>
+        {displayFavorites.map(favorite => <UserFavoritesEntry favorite={favorite}/>)}
       </div>
     );
   }

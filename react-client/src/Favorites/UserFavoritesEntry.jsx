@@ -16,8 +16,8 @@ export default (props) => {
   }
 
   return (
-    <li>
+    <div className="favorite-entry">
       {toRender}
-    </li>
+    </div>
   );
 };
