@@ -16,7 +16,7 @@ export default (props) => {
             <span className="comment-username">{comment.username}</span>
           </Link>
           <div className="date-created">
-            <TimeAgo date={comment.date_created} />
+            <TimeAgo date={comment.date_created} live={false}/>
           </div>
         </div>
         <div className="nine columns content-section">
