@@ -11,7 +11,7 @@ export default (props) => {
     <Link to={'/projects/' + id}>
       <div className="ten columns">
         <div className="project-entry-title">
-          {title}
+            {title + ' '}
           {
             tagArray.length === 0 ? <span className="project-entry-tag">none</span> :
             tagArray.map((tag, index) =>

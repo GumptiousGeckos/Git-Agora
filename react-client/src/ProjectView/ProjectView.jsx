@@ -14,7 +14,7 @@ export class ProjectView extends React.Component {
     super(props);
     this.state = {
       active: 'comments',
-      collabActive: 'collaborators'
+      collabActive: 'topContributors'
     };
     this.toggleProjectTabs = this.toggleProjectTabs.bind(this);
     this.toggleCollabTabs = this.toggleCollabTabs.bind(this);
