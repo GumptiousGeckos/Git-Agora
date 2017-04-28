@@ -827,7 +827,7 @@ button.tabs {
 .home-page-project-entry-title {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  max-width: 75%;
+  max-width: 100%;
 }
 
 .home-page-project-entry-description {
@@ -889,9 +889,10 @@ button.tabs {
 .slick-prev {
   left: 20px;
   border: 1px solid #08182b; 
-  width: 20px;
+  width: 30px;
   height: 60px;
   padding-top: 1px;
+  padding-left: 4px;
   margin-left: 20px;
   border-radius: 0;
 }
@@ -899,10 +900,10 @@ button.tabs {
 .slick-next {
   right: 20px;
   border: 1px solid #08182b;
-  width: 20px;
+  width: 30px;
   height: 60px;
   padding-top: 1px;
-  padding-right: 20px;
+  padding-left: 4px;
   margin-right: 20px;
   border-radius: 0;
 }
