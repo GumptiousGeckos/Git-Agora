@@ -35,22 +35,23 @@ npm install
 ## Usage
 
 Homepage shows you some of our top projects and recent news articles from top tech sites
-> Screenshot here
+> ![HomePage](/screenshots/HomePage.png?raw=true "HomePage")
 
 Log in with Github's OAuth
-> Screenshot here
+> ![Login](/screenshots/Github.png?raw=true "Login")
 
 Sharing a project is simple and easy and will instantiate a webhook onto your repository to keep application updated on any new pull requests.
-> Screenshot here
+> ![ProjectCreation1](/screenshots/ProjectCreation1.png?raw=true "ProjectCreation1")
+> ![ProjectCreation2](/screenshots/ProjectCreation2.png?raw=true "ProjectCreation2")
 
 Git-agora will also automatically retrieve some of the more recent pull requests to retroactively give user points!
-> Screenshot here
-
-Your user profile allows you to check your points, projects, and favorites
-> Screenshot here
+> ![ProjectPage2](/screenshots/ProjectPage2.png?raw=true "ProjectPage2")
 
 You can see the project's information and also comment on it if you have any thoughts
-> Screenshot here
+> ![ProjectPage1](/screenshots/ProjectPage2.png?raw=true "ProjectPage1")
+
+Your user profile allows you to check your points, projects, and favorites
+> ![UserProfile](/screenshots/UserProfile.png?raw=true "UserProfile")
 
 ## Development
 
