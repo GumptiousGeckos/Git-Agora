@@ -31,6 +31,7 @@ npm install
 
 - Node 7.6.0
 - PostgreSQL 9.6
+- MongoDB (or MLab)
 
 ## Usage
 
@@ -63,4 +64,4 @@ View the project roadmap [here](LINK_TO_DOC)
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+Feel free to contribute to our project if you have any ideas or features you would like to add. Please note that for any additional Github features you might be interested in building, you will need to create your own Github token to test out and a tunneling service (e.g. ngrok) to help test it out. Please keep in mind our [Style Guide](/STYLE-GUIDE.md) when adding anything new!
